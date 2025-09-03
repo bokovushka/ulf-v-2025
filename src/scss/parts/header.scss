@@ -28,9 +28,11 @@
 
 	.mob-hero-logo,
 	.navbar-brand {
-		position: absolute;
-		top: 20px;
-		transition: unset;
+		@include sm-max {
+			position: absolute;
+			top: 20px;
+			transition: unset;
+		}
 	}
 
 	.mob-hero-logo {
