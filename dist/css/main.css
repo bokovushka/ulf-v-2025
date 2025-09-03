@@ -141,11 +141,13 @@ main {
     visibility: hidden;
   }
 }
-.header .mob-hero-logo,
+@media (max-width: 767px) {
+  .header .mob-hero-logo,
 .header .navbar-brand {
-  position: absolute;
-  top: 20px;
-  transition: unset;
+    position: absolute;
+    top: 20px;
+    transition: unset;
+  }
 }
 .header .mob-hero-logo {
   opacity: 0;
