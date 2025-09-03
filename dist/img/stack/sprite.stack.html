@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SVG stack preview | svg-sprite</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                color: #666;
+                background: #fafafa;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1em;
+                line-height: 1.4;
+            }
+
+            header {
+                display: block;
+                padding: 3em 3em 2em;
+                background-color: #fff;
+            }
+
+            header p {
+                margin: 2em 0 0;
+            }
+
+            section {
+                border-top: 1px solid #eee;
+                padding: 2em 3em 0;
+            }
+
+            section ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            section li {
+                display: inline-block;
+                background-color: #fff;
+                position: relative;
+                margin: 0 2em 2em 0;
+                vertical-align: top;
+                border: 1px solid #ccc;
+                padding: 1em 1em 3em;
+                cursor: default;
+            }
+
+            .icon-box {
+                margin: 0;
+                width: 144px;
+                height: 144px;
+                position: relative;
+                background: #ccc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23fff' d='M6 0h6v6H6zM0 6h6v6H0z'/%3E%3C/svg%3E") top left repeat;
+                border: 1px solid #ccc;
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            .icon {
+                display: inline-block;
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            h2 {
+                margin: 0;
+                padding: 0;
+                font-size: 1em;
+                font-weight: 400;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                position: absolute;
+                left: 1em;
+                right: 1em;
+                bottom: 1em;
+            }
+
+            footer {
+                display: block;
+                margin: 0;
+                padding: 0 3em 3em;
+            }
+
+            footer p {
+                margin: 0;
+                font-size: .7em;
+            }
+
+            footer a {
+                color: #0f7595;
+                margin-left: 0;
+            }
+        </style>
+
+<!--
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+-->
+
+<style>
+ .svg-arrow-right-dims { width: 24px; height: 24px; }
+ .svg-arrow-right-slider-dims { width: 24px; height: 24px; }
+ .svg-arrow-up-right-dims { width: 28px; height: 28px; }
+ .svg-auto-1-dims { width: 16px; height: 16px; }
+ .svg-auto-2-dims { width: 16px; height: 16px; }
+ .svg-auto-3-dims { width: 16px; height: 16px; }
+ .svg-auto-4-dims { width: 16px; height: 16px; }
+ .svg-check-dims { width: 11px; height: 8px; }
+ .svg-copy-dims { width: 24px; height: 24px; }
+ .svg-corner-down-right-dims { width: 24px; height: 24px; }
+ .svg-facebook-circle-dims { width: 48px; height: 48px; }
+ .svg-globe-dims { width: 28px; height: 28px; }
+ .svg-i-alert-circle-dims { width: 24px; height: 24px; }
+ .svg-i-arrow-down-dims { width: 24px; height: 24px; }
+ .svg-i-bar-chart-dims { width: 24px; height: 24px; }
+ .svg-i-check-dims { width: 24px; height: 24px; }
+ .svg-i-check-empty-dims { width: 24px; height: 24px; }
+ .svg-i-check-without-bg-dims { width: 24px; height: 24px; }
+ .svg-i-clock-dims { width: 24px; height: 24px; }
+ .svg-i-close-dims { width: 24px; height: 24px; }
+ .svg-i-money-integral-dims { width: 24px; height: 24px; }
+ .svg-i-partners-dims { width: 24px; height: 24px; }
+ .svg-i-star-dims { width: 18px; height: 18px; }
+ .svg-instagram-circle-dims { width: 48px; height: 48px; }
+ .svg-map-pin-dims { width: 18px; height: 18px; }
+ .svg-minus-dims { width: 24px; height: 24px; }
+ .svg-play-video-dims { width: 24px; height: 24px; }
+ .svg-plus-dims { width: 24px; height: 24px; }
+ .svg-smile-dims { width: 28px; height: 28px; }
+ .svg-tabler-icon-phone-dims { width: 28px; height: 28px; }
+ .svg-trending-up-dims { width: 24px; height: 28px; }
+ .svg-user-dims { width: 24px; height: 24px; }
+ .svg-youtube-circle-dims { width: 48px; height: 48px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+    </head>
+    <body>
+        <header>
+            <h1>SVG stack preview</h1>
+            <p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+            <ul>
+                <li>Your browser has to <a href="https://caniuse.com/svg-fragment" target="_blank" rel="noopener noreferrer">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+                <li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank" rel="noopener noreferrer">fixsvgstack.jquery.js</a>.</li>
+            </ul>
+        </header>
+        <section>
+
+<!--
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.
+-->
+
+            <ul>
+
+             <li title="arrow-right">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#arrow-right" class="svg-arrow-right-dims" alt="arrow-right">
+                    </div>
+                    <h2>arrow-right, </h2>
+                </li>
+             <li title="arrow-right-slider">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#arrow-right-slider" class="svg-arrow-right-slider-dims" alt="arrow-right-slider">
+                    </div>
+                    <h2>arrow-right-slider, </h2>
+                </li>
+             <li title="arrow-up-right">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#arrow-up-right" class="svg-arrow-up-right-dims" alt="arrow-up-right">
+                    </div>
+                    <h2>arrow-up-right, </h2>
+                </li>
+             <li title="auto-1">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#auto-1" class="svg-auto-1-dims" alt="auto-1">
+                    </div>
+                    <h2>auto-1, </h2>
+                </li>
+             <li title="auto-2">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#auto-2" class="svg-auto-2-dims" alt="auto-2">
+                    </div>
+                    <h2>auto-2, </h2>
+                </li>
+             <li title="auto-3">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#auto-3" class="svg-auto-3-dims" alt="auto-3">
+                    </div>
+                    <h2>auto-3, </h2>
+                </li>
+             <li title="auto-4">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#auto-4" class="svg-auto-4-dims" alt="auto-4">
+                    </div>
+                    <h2>auto-4, </h2>
+                </li>
+             <li title="check">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#check" class="svg-check-dims" alt="check">
+                    </div>
+                    <h2>check, </h2>
+                </li>
+             <li title="copy">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#copy" class="svg-copy-dims" alt="copy">
+                    </div>
+                    <h2>copy, </h2>
+                </li>
+             <li title="corner-down-right">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#corner-down-right" class="svg-corner-down-right-dims" alt="corner-down-right">
+                    </div>
+                    <h2>corner-down-right, </h2>
+                </li>
+             <li title="facebook-circle">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#facebook-circle" class="svg-facebook-circle-dims" alt="facebook-circle">
+                    </div>
+                    <h2>facebook-circle, </h2>
+                </li>
+             <li title="globe">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#globe" class="svg-globe-dims" alt="globe">
+                    </div>
+                    <h2>globe, </h2>
+                </li>
+             <li title="i-alert-circle">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-alert-circle" class="svg-i-alert-circle-dims" alt="i-alert-circle">
+                    </div>
+                    <h2>i-alert-circle, </h2>
+                </li>
+             <li title="i-arrow-down">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-arrow-down" class="svg-i-arrow-down-dims" alt="i-arrow-down">
+                    </div>
+                    <h2>i-arrow-down, </h2>
+                </li>
+             <li title="i-bar-chart">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-bar-chart" class="svg-i-bar-chart-dims" alt="i-bar-chart">
+                    </div>
+                    <h2>i-bar-chart, </h2>
+                </li>
+             <li title="i-check">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-check" class="svg-i-check-dims" alt="i-check">
+                    </div>
+                    <h2>i-check, </h2>
+                </li>
+             <li title="i-check-empty">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-check-empty" class="svg-i-check-empty-dims" alt="i-check-empty">
+                    </div>
+                    <h2>i-check-empty, </h2>
+                </li>
+             <li title="i-check-without-bg">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-check-without-bg" class="svg-i-check-without-bg-dims" alt="i-check-without-bg">
+                    </div>
+                    <h2>i-check-without-bg, </h2>
+                </li>
+             <li title="i-clock">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-clock" class="svg-i-clock-dims" alt="i-clock">
+                    </div>
+                    <h2>i-clock, </h2>
+                </li>
+             <li title="i-close">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-close" class="svg-i-close-dims" alt="i-close">
+                    </div>
+                    <h2>i-close, </h2>
+                </li>
+             <li title="i-money-integral">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-money-integral" class="svg-i-money-integral-dims" alt="i-money-integral">
+                    </div>
+                    <h2>i-money-integral, </h2>
+                </li>
+             <li title="i-partners">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-partners" class="svg-i-partners-dims" alt="i-partners">
+                    </div>
+                    <h2>i-partners, </h2>
+                </li>
+             <li title="i-star">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#i-star" class="svg-i-star-dims" alt="i-star">
+                    </div>
+                    <h2>i-star, </h2>
+                </li>
+             <li title="instagram-circle">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#instagram-circle" class="svg-instagram-circle-dims" alt="instagram-circle">
+                    </div>
+                    <h2>instagram-circle, </h2>
+                </li>
+             <li title="map-pin">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#map-pin" class="svg-map-pin-dims" alt="map-pin">
+                    </div>
+                    <h2>map-pin, </h2>
+                </li>
+             <li title="minus">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#minus" class="svg-minus-dims" alt="minus">
+                    </div>
+                    <h2>minus, </h2>
+                </li>
+             <li title="play-video">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#play-video" class="svg-play-video-dims" alt="play-video">
+                    </div>
+                    <h2>play-video, </h2>
+                </li>
+             <li title="plus">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#plus" class="svg-plus-dims" alt="plus">
+                    </div>
+                    <h2>plus, </h2>
+                </li>
+             <li title="smile">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#smile" class="svg-smile-dims" alt="smile">
+                    </div>
+                    <h2>smile, </h2>
+                </li>
+             <li title="tabler-icon-phone">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#tabler-icon-phone" class="svg-tabler-icon-phone-dims" alt="tabler-icon-phone">
+                    </div>
+                    <h2>tabler-icon-phone, </h2>
+                </li>
+             <li title="trending-up">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#trending-up" class="svg-trending-up-dims" alt="trending-up">
+                    </div>
+                    <h2>trending-up, </h2>
+                </li>
+             <li title="user">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#user" class="svg-user-dims" alt="user">
+                    </div>
+                    <h2>user, </h2>
+                </li>
+             <li title="youtube-circle">
+                    <div class="icon-box">
+                        <img src="../icons/icons.svg#youtube-circle" class="svg-youtube-circle-dims" alt="youtube-circle">
+                    </div>
+                    <h2>youtube-circle, </h2>
+                </li>
+         </ul>
+
+<!--
+====================================================================================================
+-->
+
+        </section>
+        <footer>
+            <p>Generated at Wed, 03 Sep 2025 16:22:34 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+        </footer>
+    </body>
+</html>
