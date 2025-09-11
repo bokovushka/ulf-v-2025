@@ -66,6 +66,7 @@
 
 		&:first-child {
 			margin-bottom: 24px;
+			font-weight: 500;
 
 			@include sm-max {
 				margin-bottom: 16px;

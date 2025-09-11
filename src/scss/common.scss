@@ -753,6 +753,7 @@ p {
 
 	&-underline {
 		position: relative;
+		font-weight: 500;
 
 		&::after {
 			content: "";
@@ -1971,23 +1972,7 @@ form {
 	h5,
 	h6 {
 		margin-bottom: 10px;
-	}
-
-	h3 {
-		font-weight: 700;
-		text-align: center;
-
-		@include md-max {
-			font-size: 16px;
-			line-height: 24px;
-		}
-	}
-
-	h5 {
-		@include md-max {
-			font-size: 14px;
-			line-height: 20px;
-		}
+		font-weight: 500;
 	}
 
 	.row {

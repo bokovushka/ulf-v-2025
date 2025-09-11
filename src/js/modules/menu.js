@@ -18,10 +18,27 @@ function updateThresholds() {
 	} else {
 		$("main").css("margin-top", "");
 	}
+
+	updateHeroHeight();
+}
+
+// Оновлення висоти hero
+// Оновлення висоти hero тільки від 1024px і якщо є клас vh-max
+function updateHeroHeight() {
+	if ($(".section-hero.vh-max").length) {
+		if ($(window).width() >= 1024) {
+			let headerTotalHeight = $(".header-top").outerHeight() + $(".header-main").outerHeight();
+			$(".section-hero.vh-max").css("height", `calc(100vh - ${headerTotalHeight}px)`);
+		} else {
+			// Скидаємо на мобільних
+			$(".section-hero.vh-max").css("height", "");
+		}
+	}
 }
 
 $(document).ready(function () {
 	updateThresholds();
+
 	$(window).on("resize", updateThresholds);
 
 	$(window).on(
@@ -61,6 +78,9 @@ $(document).ready(function () {
 			}
 
 			lastScrollTop = st;
+
+			// оновлюємо hero при скролі, бо шапка міняється
+			updateHeroHeight();
 		}, 100)
 	);
 });

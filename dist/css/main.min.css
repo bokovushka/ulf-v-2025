@@ -141,7 +141,7 @@ main {
     visibility: hidden;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .header .mob-hero-logo,
 .header .navbar-brand {
     position: absolute;
@@ -150,15 +150,20 @@ main {
   }
 }
 .header .mob-hero-logo {
-  opacity: 0;
-  visibility: hidden;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: none;
 }
-.header .mob-hero-logo svg {
-  width: 28px;
-  height: 28px;
+@media (max-width: 1023px) {
+  .header .mob-hero-logo {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header .mob-hero-logo svg {
+    width: 28px;
+    height: 28px;
+  }
 }
 .header .navbar-brand {
   opacity: 1;
@@ -899,6 +904,7 @@ main {
 }
 .footer ul li:first-child {
   margin-bottom: 24px;
+  font-weight: 500;
 }
 @media (max-width: 767px) {
   .footer ul li:first-child {
@@ -1544,6 +1550,7 @@ p:last-child {
 }
 .btn-underline {
   position: relative;
+  font-weight: 500;
 }
 .btn-underline::after {
   content: "";
@@ -2406,22 +2413,7 @@ form {
 .seo h5,
 .seo h6 {
   margin-bottom: 10px;
-}
-.seo h3 {
-  font-weight: 700;
-  text-align: center;
-}
-@media (max-width: 1023px) {
-  .seo h3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-@media (max-width: 1023px) {
-  .seo h5 {
-    font-size: 14px;
-    line-height: 20px;
-  }
+  font-weight: 500;
 }
 .seo .row .row {
   margin-bottom: 20px;
@@ -3868,6 +3860,7 @@ video {
 }
 .benefits-leasing--swiper .item .name {
   margin-bottom: 8px;
+  font-weight: 500;
 }
 .benefits-leasing--swiper .item .description {
   color: #7a7a7a;
@@ -3962,6 +3955,7 @@ video {
   bottom: 32px;
   right: 32px;
   color: #ffffff;
+  font-weight: 500;
 }
 .benefits-partners--swiper a.btn-link-button .link-button::before {
   content: "";
@@ -4046,6 +4040,7 @@ video {
 }
 .benefits-partners-description--swiper .name {
   margin-bottom: 16px;
+  font-weight: 500;
 }
 .benefits-partners-description--swiper .description {
   color: #7a7a7a;
@@ -4080,6 +4075,7 @@ a.btn-link-button {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-weight: 500;
 }
 a.btn-link-button span {
   font-size: 16px;
@@ -4105,7 +4101,7 @@ a.btn-link-button:hover .link-button::before {
   left: 0;
   z-index: 2;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 20px;
   color: #ffffff;
 }
@@ -4123,7 +4119,7 @@ a.btn-link-button:hover .link-button::before {
   justify-content: space-between;
   align-items: center;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 28px;
   color: #ffffff;
   column-gap: 24px;
@@ -4186,6 +4182,7 @@ a.btn-link-catalog {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-weight: 500;
 }
 a.btn-link-catalog span {
   font-size: 16px;
@@ -4315,7 +4312,7 @@ a.btn-link-catalog:hover .link-button::before {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
   line-height: 22px;
 }
@@ -4379,10 +4376,12 @@ a.btn-link-catalog:hover .link-button::before {
   line-height: 14px;
   color: #7a7a7a;
 }
+.news--swiper .item .article-title {
+  font-weight: 500;
+}
 @media (max-width: 575px) {
   .news--swiper .item .article-title {
     font-size: 14px;
-    font-weight: 400;
     line-height: 18px;
   }
 }
@@ -4458,9 +4457,17 @@ a.btn-link-catalog:hover .link-button::before {
   right: -45%;
 }
 
+.section-hero {
+  height: calc(100vh - 84px);
+  min-height: 500px;
+}
+.section-hero .container {
+  height: 100%;
+}
 .section-hero .hero--swiper {
   margin: 0 -60px;
   position: relative;
+  height: 100%;
 }
 @media (max-width: 1399px) {
   .section-hero .hero--swiper {
@@ -4487,7 +4494,7 @@ a.btn-link-catalog:hover .link-button::before {
   }
 }
 .section-hero .item {
-  height: 784px;
+  height: 100%;
   padding: 40px 60px;
   color: #ffffff;
   display: flex;
@@ -4497,13 +4504,11 @@ a.btn-link-catalog:hover .link-button::before {
 @media (max-width: 1023px) {
   .section-hero .item {
     padding: 40px 40px 95px 40px;
-    height: 1116px;
   }
 }
 @media (max-width: 767px) {
   .section-hero .item {
     padding: 24px 12px 60px 12px;
-    height: 498px;
   }
 }
 @media (max-width: 1023px) {
@@ -4612,7 +4617,7 @@ a.btn-link-catalog:hover .link-button::before {
   width: max-content;
   padding: 20px 50px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 20px;
   border-radius: 4px;
 }

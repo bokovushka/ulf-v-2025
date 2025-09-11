@@ -28,7 +28,7 @@
 
 	.mob-hero-logo,
 	.navbar-brand {
-		@include sm-max {
+		@include md-max {
 			position: absolute;
 			top: 20px;
 			transition: unset;
@@ -36,15 +36,19 @@
 	}
 
 	.mob-hero-logo {
-		opacity: 0;
-		visibility: hidden;
-		display: flex;
-		align-items: center;
-		gap: 16px;
+		display: none;
 
-		svg {
-			width: 28px;
-			height: 28px;
+		@include md-max {
+			opacity: 0;
+			visibility: hidden;
+			display: flex;
+			align-items: center;
+			gap: 16px;
+
+			svg {
+				width: 28px;
+				height: 28px;
+			}
 		}
 	}
 
