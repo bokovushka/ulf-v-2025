@@ -2892,6 +2892,11 @@ video {
     max-width: 280px;
   }
 }
+@media (max-width: 575px) {
+  .popover {
+    max-width: 50%;
+  }
+}
 .popover .name {
   margin-bottom: 16px;
   text-align: left;
@@ -2914,6 +2919,13 @@ video {
   position: relative;
   border: 2px solid transparent;
 }
+@media (max-width: 575px) {
+  .popover .link-button {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+  }
+}
 .popover .link-button::before {
   content: "";
   position: absolute;
@@ -2929,6 +2941,18 @@ video {
   -moz-transition: 0.3s ease-out 0s;
   -o-transition: 0.3s ease-out 0s;
   transition: 0.3s ease-out 0s;
+}
+@media (max-width: 575px) {
+  .popover .link-button::before {
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .popover .link-button span {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 
 .tooltip-help-info.show {

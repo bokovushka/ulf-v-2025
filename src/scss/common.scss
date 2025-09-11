@@ -2614,6 +2614,10 @@ video {
 		max-width: 280px;
 	}
 
+	@include xs-max {
+		max-width: 50%;
+	}
+
 	.name {
 		margin-bottom: 16px;
 		text-align: left;
@@ -2637,6 +2641,12 @@ video {
 		position: relative;
 		border: 2px solid transparent;
 
+		@include xs-max {
+			width: 14px;
+			height: 14px;
+			min-width: 14px;
+		}
+
 		&::before {
 			content: "";
 			position: absolute;
@@ -2649,6 +2659,18 @@ video {
 			background: url(../img/icons/icons.svg#arrow-up-right) 50% 50% no-repeat;
 			background-size: 100%;
 			@include transition(0.3s ease-out 0s);
+
+			@include xs-max {
+				width: 10px;
+				height: 10px;
+			}
+		}
+
+		span {
+			@include xs-max {
+				font-size: 14px;
+				line-height: 16px;
+			}
 		}
 	}
 }

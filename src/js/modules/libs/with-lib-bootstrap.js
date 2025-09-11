@@ -3,7 +3,6 @@ import $ from 'jquery';
 import 'bootstrap';
 
 
-// делегування через document
 $(document).on('click', '.i-info', function (e) {
 	e.preventDefault();
 	e.stopPropagation();
@@ -11,17 +10,24 @@ $(document).on('click', '.i-info', function (e) {
 	// сховати всі інші
 	$('.i-info').not(this).popover('hide');
 
-	// створити / показати
+	const isSmall = window.innerWidth <= 575; // перевірка для мобільних
+
 	if (!$(this).data('bs.popover')) {
 		$(this).popover({
 			html: true,
 			trigger: 'manual',
-			placement: 'top',
-			container: 'body',
+			placement: isSmall ? 'right' : 'top',
+			container: '.benefits-partners',
 			content: function () {
 				return $($(this).data('target')).html();
 			}
 		}).popover('show');
+
+		// на малих можна підправити позицію вручну, якщо потрібно
+		if (isSmall) {
+			const pop = $(this).data('bs.popover').tip;
+			$(pop).css({ maxWidth: '200px' }); // наприклад, обмежуємо ширину
+		}
 	} else {
 		$(this).popover('toggle');
 	}
