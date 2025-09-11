@@ -80,11 +80,15 @@ const swiperImages = new Swiper('.benefits-partners--swiper', {
 	speed: 800,
 	grabCursor: true,
 	breakpoints: {
+		1200: {},
+		1024: {
+		},
 		768: {
-
+			slidesPerView: 1.065,
+			spaceBetween: 20,
 		},
 		0: {
-			slidesPerView: 1.2,
+			slidesPerView: "auto",
 			spaceBetween: 16,
 		}
 	},
@@ -170,7 +174,7 @@ if (window.matchMedia('(min-width: 768px)').matches) {
 
 //? popular-brands--swiper
 new Swiper('.popular-brands--swiper', {
-	slidesPerView: 2.5,
+	slidesPerView: "auto",
 	spaceBetween: 20,
 	loop: true,
 	// autoplay: {
@@ -187,22 +191,19 @@ new Swiper('.popular-brands--swiper', {
 		1200: {
 		},
 		1024: {
-			slidesPerView: 1.8,
 		},
 		768: {
-			slidesPerView: 1.4,
 		},
 		0: {
-			slidesPerView: 1.2,
 			spaceBetween: 12,
 		}
 	},
 });
 
 
-//? popular-brands--swiper
+//? our-partners--swiper
 new Swiper('.our-partners--swiper', {
-	slidesPerView: 5.5,
+	slidesPerView: "auto",
 	spaceBetween: 20,
 	loop: true,
 	// autoplay: {
@@ -216,54 +217,14 @@ new Swiper('.our-partners--swiper', {
 		prevEl: ".our-partners .swiper-buttons .button-slider-prev",
 	},
 	breakpoints: {
-		1200: {
-		},
-		1024: {
-			slidesPerView: 4.5,
-		},
+
 		768: {
-			slidesPerView: 3.5,
 		},
 		0: {
-			slidesPerView: 2.2,
-			spaceBetween: 12,
+			spaceBetween: 14,
 		}
 	},
 });
-
-
-
-//? popular-brands--swiper
-new Swiper('.our-partners--swiper', {
-	slidesPerView: 5.5,
-	spaceBetween: 20,
-	loop: true,
-	// autoplay: {
-	// 	delay: 5000,
-	// 	disableOnInteraction: false,
-	// },
-	speed: 800,
-	grabCursor: true,
-	navigation: {
-		nextEl: ".our-partners .swiper-buttons .button-slider-next",
-		prevEl: ".our-partners .swiper-buttons .button-slider-prev",
-	},
-	breakpoints: {
-		1200: {
-		},
-		1024: {
-			slidesPerView: 4.5,
-		},
-		768: {
-			slidesPerView: 3.5,
-		},
-		0: {
-			slidesPerView: 2.2,
-			spaceBetween: 12,
-		}
-	},
-});
-
 
 new Swiper('.news--swiper', {
 	slidesPerView: 3,
@@ -279,13 +240,13 @@ new Swiper('.news--swiper', {
 		1200: {
 		},
 		1024: {
-			slidesPerView: 3,
+			slidesPerView: "auto",
 		},
 		768: {
-			slidesPerView: 1.7,
+			slidesPerView: "auto",
 		},
 		0: {
-			slidesPerView: 1.2,
+			slidesPerView: "auto",
 			spaceBetween: 12,
 		}
 	},

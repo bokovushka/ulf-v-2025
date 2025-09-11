@@ -3,6 +3,7 @@
 	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
 	z-index: 1054;
 	position: fixed;
+	left: 0;
 	width: 100%;
 
 	@include md-max {
@@ -581,6 +582,18 @@
 				overflow-y: auto;
 				@include transition(0.3s ease-out 0s);
 
+				&::-webkit-scrollbar {
+					width: 0px;
+					height: 0px;
+					background-color: transparent;
+					border-radius: 0;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background-color: transparent;
+					border-radius: 0;
+				}
+
 				.link-phone {
 					font-size: 14px;
 					font-weight: 400;
@@ -830,7 +843,8 @@
 
 				.card-body {
 					padding: 0;
-					margin-top: 0;
+					margin-top: 12px;
+					margin-bottom: 24px;
 
 					.list-link {
 
@@ -840,7 +854,7 @@
 							width: max-content;
 
 							&:not(:last-child) {
-								margin-bottom: 12px;
+								margin-bottom: 14px;
 							}
 
 							.link-wrap {

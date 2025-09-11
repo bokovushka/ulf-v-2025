@@ -1012,10 +1012,15 @@
 	height: 736px;
 
 	@include md-max {
-		height: 706px;
+		height: 800px;
+		overflow: visible;
 	}
 
 	@include sm-max {
+		height: 500px;
+	}
+
+	@include xs-max {
 		height: 340px;
 		overflow: visible;
 	}
@@ -1023,6 +1028,14 @@
 	.swiper-slide {
 		border-radius: 4px;
 		overflow: hidden;
+
+		@include sm-max {
+			width: 480px;
+		}
+
+		@include xs-max {
+			width: 270px;
+		}
 	}
 
 	.description {
@@ -1032,6 +1045,10 @@
 		overflow: hidden;
 		display: flex;
 		padding: 32px;
+
+		@include sm-max {
+			padding: 16px;
+		}
 
 		.name {
 			font-size: 16px;
@@ -1075,6 +1092,11 @@
 		background-size: 100%;
 		@include transition(0.3s ease-out 0s);
 		filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+
+		@include sm-max {
+			top: 16px;
+			right: 16px;
+		}
 	}
 }
 
@@ -1384,6 +1406,18 @@ a.btn-link-catalog {
 }
 
 .popular-brands--swiper {
+	.swiper-slide {
+		width: 538px;
+
+		@include sm-max {
+			width: 480px;
+		}
+
+		@include xs-max {
+			width: 260px;
+		}
+	}
+
 	.item {
 		position: relative;
 		height: 388px;
@@ -1419,6 +1453,14 @@ a.btn-link-catalog {
 }
 
 .our-partners--swiper {
+	.swiper-slide {
+		width: 222px;
+
+		@include sm-max {
+			width: 142px;
+		}
+	}
+
 	.item {
 		background: rgba(241, 241, 241, 1);
 		height: 222px;
@@ -1541,9 +1583,25 @@ a.btn-link-catalog {
 }
 
 .news--swiper {
+	.swiper-slide {
+		@include lg-max {
+			width: 427px;
+		}
+
+		@include sm-max {
+			width: 380px;
+		}
+
+		@include xs-max {
+			width: 263px;
+		}
+	}
+
 	.item {
 		.wrap-img {
 			height: 315px;
+			border-radius: 4px;
+			overflow: hidden;
 
 			@include xs-max {
 				height: 200px;
@@ -1605,6 +1663,7 @@ a.btn-link-catalog {
 		@include md-max {
 			height: 660px;
 			padding: 40px;
+			border-radius: 4px 4px 0 0;
 		}
 
 		@include sm-max {
@@ -1638,6 +1697,10 @@ a.btn-link-catalog {
 		border-radius: 4px;
 		overflow: hidden;
 		position: relative;
+
+		@include md-max {
+			border-radius: 0 0 4px 4px;
+		}
 
 		.bg-img {
 			width: 646px;
@@ -1718,6 +1781,10 @@ a.btn-link-catalog {
 		right: 60px;
 		z-index: 2;
 
+		@include md-max {
+			right: 40px;
+		}
+
 		@include sm-max {
 			bottom: 16px;
 			right: 12px;
@@ -1783,15 +1850,14 @@ a.btn-link-catalog {
 		width: max-content;
 
 		@include md-max {
-			bottom: unset !important;
-			bottom: 46px !important;
+			bottom: 40px !important;
 			right: unset !important;
-			left: 50% !important;
+			left: calc(50% - 26px) !important;
 			transform: translate(0, -50%);
 		}
 
 		@include sm-max {
-			bottom: 20px !important;
+			bottom: 15px !important;
 		}
 
 

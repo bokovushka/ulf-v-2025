@@ -324,6 +324,7 @@ p {
 .btn {
 	white-space: nowrap;
 	border-radius: 4px;
+	padding: 18px 24px;
 
 	@include md-max {
 		font-size: 20px;
@@ -2058,11 +2059,6 @@ form {
 			position: relative;
 			color: rgba(122, 122, 122, 1);
 
-			@include sm-max {
-				font-size: 16px;
-				line-height: 24px;
-			}
-
 			&:not(:last-child) {
 				margin-bottom: 8px;
 			}
@@ -2082,10 +2078,6 @@ form {
 				top: 8px;
 				left: 0px;
 				z-index: 2;
-
-				@include sm-max {
-					top: 6px;
-				}
 			}
 		}
 	}
