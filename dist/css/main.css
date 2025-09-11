@@ -2874,6 +2874,63 @@ video {
   height: 1px;
 }
 
+.popover {
+  color: #111010;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  max-width: 320px;
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+@media (max-width: 767px) {
+  .popover {
+    max-width: 280px;
+  }
+}
+.popover .name {
+  margin-bottom: 16px;
+  text-align: left;
+}
+.popover .description {
+  color: #7a7a7a;
+  margin-bottom: 0;
+  text-align: left;
+}
+@media (max-width: 767px) {
+  .popover .description {
+    margin-bottom: 15px;
+  }
+}
+.popover .link-button {
+  display: block;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  position: relative;
+  border: 2px solid transparent;
+}
+.popover .link-button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url(../img/icons/icons.svg#arrow-up-right) 50% 50% no-repeat;
+  background-size: 100%;
+  -webkit-transition: 0.3s ease-out 0s;
+  -moz-transition: 0.3s ease-out 0s;
+  -o-transition: 0.3s ease-out 0s;
+  transition: 0.3s ease-out 0s;
+}
+
 .tooltip-help-info.show {
   opacity: 1;
 }
@@ -3995,7 +4052,7 @@ video {
 }
 .benefits-partners--swiper .i-info {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 32px;
   right: 32px;
   height: 24px;

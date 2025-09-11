@@ -73,24 +73,15 @@ new Swiper('.benefits-leasing--swiper', {
 	},
 });
 
-// images
+// Images
 const swiperImages = new Swiper('.benefits-partners--swiper', {
 	slidesPerView: 1,
 	spaceBetween: 32,
 	speed: 800,
 	grabCursor: true,
 	breakpoints: {
-		1200: {},
-		1024: {
-		},
-		768: {
-			slidesPerView: 1.065,
-			spaceBetween: 20,
-		},
-		0: {
-			slidesPerView: "auto",
-			spaceBetween: 16,
-		}
+		768: { slidesPerView: 1.065, spaceBetween: 20 },
+		0: { slidesPerView: "auto", spaceBetween: 16 }
 	},
 	navigation: {
 		nextEl: ".benefits-partners .swiper-buttons .button-slider-next",
@@ -102,74 +93,48 @@ const swiperImages = new Swiper('.benefits-partners--swiper', {
 	},
 });
 
-// categories
+// Categories
 const swiperCategories = new Swiper('.benefits-partners-categorie--swiper', {
 	slidesPerView: 1,
 	spaceBetween: 32,
-	grid: {
-		rows: 3,
-		fill: "row",
-	},
+	grid: { rows: 3, fill: "row" },
 	speed: 800,
 	grabCursor: true,
-	breakpoints: {
-		768: {
-
-		},
-		0: {
-			slidesPerView: 1,
-			grid: {
-				rows: 1,
-				fill: "row",
-			},
-		}
-	},
-	allowTouchMove: false, // блокуємо свайп по заголовках
+	allowTouchMove: false,
+	breakpoints: { 0: { slidesPerView: 1, grid: { rows: 1 } } },
 });
 
-// descriptions
+// Descriptions
 const swiperDescriptions = new Swiper('.benefits-partners-description--swiper', {
 	slidesPerView: 1,
 	spaceBetween: 32,
 	speed: 800,
 	grabCursor: true,
 	autoHeight: true,
-	breakpoints: {
-		768: {
-
-		},
-		0: {
-			slidesPerView: 1,
-		}
-	},
 	effect: 'fade',
-	fadeEffect: {
-		crossFade: true,
-	},
+	fadeEffect: { crossFade: true },
 });
 
+// ---- Синхронізація для ПК ----
 if (window.matchMedia('(min-width: 768px)').matches) {
-	// ---- синхронізація ----
 	function syncAll(index) {
 		swiperImages.slideTo(index);
 		swiperDescriptions.slideTo(index);
 
-		// підсвічування активного заголовка
 		const catSlides = document.querySelectorAll('.benefits-partners-categorie--swiper .swiper-slide');
 		catSlides.forEach((slide, idx) => {
 			slide.classList.toggle('swiper-slide-active', idx === index);
 		});
 	}
 
-	// кліки по заголовках (grid слайди)
 	document.querySelectorAll('.benefits-partners-categorie--swiper .swiper-slide').forEach((slide, idx) => {
 		slide.addEventListener('click', () => syncAll(idx));
 	});
 
-	// свайп картинок чи опису теж синхронізує заголовки
 	swiperImages.on('slideChange', () => syncAll(swiperImages.activeIndex));
 	swiperDescriptions.on('slideChange', () => syncAll(swiperDescriptions.activeIndex));
-};
+}
+
 
 
 //? popular-brands--swiper
