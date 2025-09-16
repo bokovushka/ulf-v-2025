@@ -24,10 +24,8 @@ body {
 }
 
 .wrapper {
-	min-height: 100%; // базовый fallback
-	min-height: -webkit-fill-available; // старый Safari
-	min-height: 100dvh; // новый iOS 15+ (динамичный viewport)
-	// min-height: var(--app-height); // JS fallback (innerHeight)
+	min-height: 100%;
+	min-height: 100lvh; // iOS & other toolbar ( viewport) svh / lvh / dvh
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
