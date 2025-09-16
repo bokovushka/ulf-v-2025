@@ -4,5 +4,7 @@ function setAppHeight() {
 		`${window.innerHeight}px`
 	);
 }
+
 window.addEventListener('resize', setAppHeight);
+window.addEventListener('orientationchange', setAppHeight);
 setAppHeight();
