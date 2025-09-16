@@ -4615,7 +4615,7 @@ a.btn-link-catalog:hover .link-button::before {
   height: calc(100vh - 84px);
   height: calc(100svh - 84px);
   height: calc(var(--hero-height) - 84px);
-  min-height: 500px;
+  min-height: 600px;
 }
 .section-hero .container {
   height: 100%;
