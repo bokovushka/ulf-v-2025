@@ -3,6 +3,8 @@ function setHeroHeight() {
 	document.documentElement.style.setProperty('--hero-height', `${h}px`);
 }
 
-window.addEventListener('resize', setHeroHeight);
-window.addEventListener('orientationchange', setHeroHeight);
+// Ставимо один раз при завантаженні
 setHeroHeight();
+
+// Оновлюємо тільки при зміні орієнтації
+window.addEventListener('orientationchange', setHeroHeight);
