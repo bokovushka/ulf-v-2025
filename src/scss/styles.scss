@@ -1716,7 +1716,9 @@ a.btn-link-catalog {
 .section-hero {
 	height: calc(100vh - 84px);
 	height: calc(100svh - 84px); // svh / lvh / dvh 
+	height: calc(var(--hero-height) - 84px);
 	min-height: 500px;
+
 
 	.container {
 		height: 100%;
