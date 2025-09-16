@@ -24,7 +24,7 @@ body {
 }
 
 .wrapper {
-	min-height: 100%;
+	min-height: var(--app-height);
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
@@ -42,35 +42,6 @@ main {
 	@include md-max {
 		margin-top: 84px;
 	}
-
-	// @include xl-max {
-	// 	margin-top: 173px;
-	// }
-
-	// @include md-max {
-	// 	margin-top: 85px;
-	// }
-
-	// &.show {
-	// 	margin-top: 120px;
-
-	// 	@include xl-max {
-	// 		margin-top: 100px;
-	// 	}
-
-	// 	@include md-max {
-	// 		margin-top: 85px;
-	// 	}
-	// }
-
-	// @include md-max {
-	// 	margin-top: 70px;
-	// 	.home-page & {
-	// 		margin-top: 0;
-	// 	}
-	// }
-	// @include sm-max {
-	// }
 }
 
 //?include header=======================================================================================================//
