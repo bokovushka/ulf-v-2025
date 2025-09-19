@@ -1,39 +1,46 @@
 import $ from 'jquery';
 
-initShowMenu($(".header .languages .current-lang .current-lang--inner"), $(".header .languages .current-lang .submenu"), $(".header .languages .current-lang"));
-initShowMenu($(".header-main--desk .nav-link .nav-link--inner"), $(".header-main--desk .nav-link .submenu"), $(".header-main--desk .nav-link"));
+function initDropdown(containerSelector) {
+	const container = $(containerSelector);
 
-function initShowMenu(links, menus, burgers) {
-	links.each(function (index) {
-		showMenu($(this), menus.eq(index), burgers.eq(index));
+	container.find(".menu-list").each(function () {
+		const item = $(this);
+		const link = item.find('.current-list');
+		const arrow = item.find('.i-arrow-down');
+		const menu = item.find('.submenu');
+
+		// клік по стрілці
+		arrow.on("click", function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			if (!menu.hasClass("active")) {
+				// закриваємо всі інші в цьому контейнері
+				container.find(".submenu").removeClass("active");
+				container.find(".current-list").removeClass("active");
+				container.find(".i-arrow-down").removeClass("rotated");
+
+				// відкриваємо тільки це
+				menu.addClass("active");
+				link.addClass("active");
+				arrow.addClass("rotated");
+			} else {
+				menu.removeClass("active");
+				link.removeClass("active");
+				arrow.removeClass("rotated");
+			}
+		});
+
+		// клік поза меню → закрити
+		$(document).on("click", function (e) {
+			if (!item.is(e.target) && item.has(e.target).length === 0) {
+				menu.removeClass("active");
+				link.removeClass("active");
+				arrow.removeClass("rotated");
+			}
+		});
 	});
 }
 
-function showMenu(link, menu, burger) {
-	$(document).mouseup(function (e) {
-		if (burger.is(e.target) || burger.has(e.target).length !== 0) {
-			if (!burger.hasClass('active')) {
-				menu.addClass('active');
-				burger.addClass('active');
-				link.addClass('active');
-			}
-			else {
-				if ((link.is(e.target) || link.has(e.target).length !== 0)) {
-					if (link.hasClass('active')) {
-						menu.removeClass('active'); // ховаємо його
-						burger.removeClass('active');
-						link.removeClass('active');
-					}
-				}
-			}
-		}
-		else {
-			if (!menu.is(e.target) // якщо клік був не по нашому блоку
-				&& menu.has(e.target).length === 0) { // і не по його дочірнім елементам
-				menu.removeClass('active'); // ховаємо його
-				burger.removeClass('active');
-				link.removeClass('active');
-			}
-		}
-	});
-};
+// Виклик для хедера
+initDropdown(".header");
