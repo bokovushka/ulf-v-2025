@@ -69,7 +69,7 @@
 	}
 
 	//select
-	.select-wrap {
+	#header-select-city {
 		position: relative;
 		width: max-content;
 		margin-left: -10px;
@@ -231,6 +231,10 @@
 					border-radius: 5px 5px 0 0;
 					border: 1px solid #f2f2f2;
 					box-shadow: 0px 8px 80px 0px rgba(0, 0, 0, 0.07);
+					top: -10px;
+					left: unset;
+					right: -70px;
+					min-width: 150px;
 				}
 			}
 		}
