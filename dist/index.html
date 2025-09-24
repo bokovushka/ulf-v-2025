@@ -79,7 +79,7 @@
 						</ul>
 						<ul class="header-top--others list-inline mb-0 d-flex align-items-center">
 							<li class="list-inline-item">
-								<ul class="list-inline mb-0">
+								<ul class="list-inline mb-0 d-flex align-items-center">
 									<li class="list-inline-item">
 										<a href="##">
 											<div class="link-wrap">
@@ -91,14 +91,28 @@
 										</a>
 									</li>
 									<li class="list-inline-item">
-										<a href="##">
+										<!-- <a href="##">
 											<div class="link-wrap">
 												<svg class="icon">
 													<use xlink:href="img/icons/icons.svg#map-pin"></use>
 												</svg>
 												<span>Київ</span>
 											</div>
-										</a>
+										</a> -->
+										<div class="select-wrap" id="header-select-city">
+											<select class="select-city" name="select-city">
+												<option value="c1">Київ</option>
+												<option value="c2">Рівне</option>
+												<option value="c3">Запоріжжя</option>
+												<option value="c4">Луцьк</option>
+												<option value="c5">Донець</option>
+												<option value="c6">Львів</option>
+												<option value="c7">Житомир</option>
+												<option value="c8">Кривий Ріг</option>
+												<option value="c9">Маріуполь</option>
+												<option value="c10">Чернівці</option>
+											</select>
+										</div>
 									</li>
 								</ul>
 							</li>
@@ -1218,20 +1232,17 @@
 											<div class="col-12 col-lg-10 col-xl-8">
 												<div class="field mb-3">
 													<label class="small-txt mb-2">Ваше імʼя</label>
-													<div class="field--help-info small-txt text-red mb-1">Введіть Ваше ім’я
-														українськими
-														літерами (кирилицею)</div>
 													<input type="text" id="name" class="form-control mb-2"
 														placeholder="Введіть ім’я">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
 												</div>
 											</div>
 											<div class="col-12 col-lg-10 col-xl-8">
 												<div class="field mb-6">
 													<label class="small-txt mb-2">Моб. телефон</label>
-													<div class="field--help-info small-txt text-red mb-1">Введіть Ваш номер телефону
-													</div>
 													<input type="tel" id="textInput" class="form-control mb-2"
 														placeholder="+38 000 0000000">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
 												</div>
 											</div>
 										</div>
@@ -1239,10 +1250,10 @@
 											<div class="col-12 col-lg-10 col-xl-8">
 												<div class="field field-2 mb-3">
 													<label class="small-txt mb-2">Коментар (необовʼязково)</label>
-													<div class="field--help-info small-txt text-red mb-1 mt-2">На жаль поле не
-														заповнено, будемо раді Вашому коментару</div>
 													<textarea class="form-control" rows="6"
 														placeholder="Введіть Ваш коментар..."></textarea>
+													<div class="field--help-info small-txt text-red mb-2 mt-2">Мінімум 1000 символів
+													</div>
 												</div>
 											</div>
 										</div>

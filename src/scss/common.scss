@@ -889,12 +889,28 @@ form {
 
 //field //input
 .field {
+	position: relative;
+
 	label {
 		font-size: 14px;
 		line-height: 18px;
 	}
 
 	&.error {
+		&::after {
+			content: "";
+			background: url(../img/icons/icons.svg#alert-circle) no-repeat center;
+			background-size: contain;
+			min-width: 16px;
+			width: 16px;
+			height: 16px;
+			display: block;
+			margin-left: auto;
+			transition: (0.3s ease-out 0s);
+			position: absolute;
+			right: 20px;
+			top: 50px;
+		}
 
 		//select
 		.select2-container {
@@ -905,14 +921,16 @@ form {
 
 		.form-control {
 			border: 1px solid $red;
-			background: transparent;
+			background: $white;
+			padding-right: 45px;
 
 			&:hover,
 			&:focus,
 			&:not(:placeholder-shown) {
 				border: 1px solid $red !important;
-				background: transparent;
+				background: $white;
 			}
+
 		}
 
 		// label {
@@ -920,6 +938,14 @@ form {
 		// }
 		.field--help-info {
 			display: block;
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		textarea {
+			&.form-control {
+				border: 1px solid $red !important;
+			}
 		}
 	}
 
@@ -1021,8 +1047,8 @@ form {
 		}
 
 		&.form-control {
-			padding: 17px 32px;
-			border-radius: unset;
+			padding: 14px;
+			border-radius: 4px;
 			border: unset !important;
 			height: 100px;
 
