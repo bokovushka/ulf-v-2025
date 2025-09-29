@@ -18,6 +18,13 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+	$('.header-mob-select-city').select2({
+		minimumResultsForSearch: -1,
+		dropdownParent: $('#header-mob-select-city')
+	});
+});
+
+$(document).ready(function () {
 	$('.footer-select-city').select2({
 		minimumResultsForSearch: -1,
 		dropdownParent: $('#footer-select-city')

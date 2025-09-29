@@ -25,9 +25,10 @@
 													Лізинг авто, сільгосптехніки
 													та обладнання для бізнесу
 												</div>
-												<a href="##" class="btn-link-catalog">
+												<button type="button" class="btn-link-catalog" data-toggle="modal"
+													data-target="#popup-questions">
 													<span class="link-button"></span><span>Подати заявку</span>
-												</a>
+												</button>
 											</div>
 										</div>
 									</div>
@@ -43,9 +44,10 @@
 												<div class="hero-title mb-6">
 													Доступний фінансовий лізинг 5-7-9%
 												</div>
-												<a href="##" class="btn-link-catalog">
+												<button type="button" class="btn-link-catalog" data-toggle="modal"
+													data-target="#popup-questions">
 													<span class="link-button"></span><span>Подати заявку</span>
-												</a>
+												</button>
 											</div>
 										</div>
 									</div>
@@ -62,9 +64,10 @@
 													Лізинг авто, сільгосптехніки
 													та обладнання для бізнесу
 												</div>
-												<a href="##" class="btn-link-catalog">
+												<button type="button" class="btn-link-catalog" data-toggle="modal"
+													data-target="#popup-questions">
 													<span class="link-button"></span><span>Подати заявку</span>
-												</a>
+												</button>
 											</div>
 										</div>
 									</div>
@@ -731,7 +734,8 @@
 								</div>
 								<div class="text-center mb-3 font-weight-bold">Не знайшли відповідь? Залиште заявку!</div>
 								<div class="text-center">
-									<a href="##" class="btn btn-main-blue py-4 px-10 font-weight-bold">Передзвоніть мені</a>
+									<button type="button" class="btn btn-main-blue py-4 px-10 font-weight-bold"
+										data-toggle="modal" data-target="#popup-any-questions">Передзвоніть мені</button>
 								</div>
 							</div>
 						</div>
@@ -854,7 +858,8 @@
 									</div>
 									<div class="row">
 										<div class="col-12 col-lg-10 col-xl-8">
-											<button type="button" class="btn btn-white btn-block">Передзвоніть
+											<button type="button" class="btn btn-white btn-block" data-toggle="modal"
+												data-target="#popup-579">Передзвоніть
 												мені</button>
 										</div>
 									</div>
@@ -942,6 +947,14 @@
 		</main>
 		@@include('html/footer.html',{})
 	</div>
+
+	@@include('html/popup/popup-questions.html',{})
+	@@include('html/popup/popup-questions-thank-you.html',{})
+	@@include('html/popup/popup-any-questions.html',{})
+	@@include('html/popup/popup-any-questions-thank-you.html',{})
+	@@include('html/popup/popup-579.html',{})
+	@@include('html/popup/popup-579-thank-you.html',{})
+
 	@@include('html/scripts.html',{})
 </body>
 

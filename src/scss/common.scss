@@ -1342,13 +1342,25 @@ form {
 }
 
 //radio
-.choose-radio {
-	.custom-control {
-		padding-left: 0;
+.choose-radio-label {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+	color: rgba(154, 154, 154, 1);
+	margin-bottom: 12px;
+}
 
-		&:not(:last-child) {
-			margin-bottom: 25px;
-		}
+.choose-radio {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+
+	.custom-control {
+		// padding-left: 0;
+		background: rgba(242, 242, 242, 1);
+		padding: 8px 20px 8px 13px;
+		border-radius: 100px;
+		width: max-content;
 	}
 
 	.custom-control-input {
@@ -1356,9 +1368,13 @@ form {
 	}
 
 	.custom-control-label {
-		padding-left: 48px;
+		padding-left: 24px;
 		width: 100%;
 		cursor: pointer;
+		font-size: 16px;
+		font-weight: 500;
+
+		line-height: 20px;
 
 		&:before,
 		&:after {
@@ -1371,29 +1387,42 @@ form {
 		}
 
 		&::after {
-			background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
-			background-size: cover;
+			// background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
+			// background-size: cover;
 			opacity: 0;
 			visibility: hidden;
+			background: rgba(0, 151, 250, 1);
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background-image: unset !important;
+			left: 4px;
+			top: 9px;
 		}
 
 		&::before {
-			background: url(../img/icons/icons.svg#i-check-empty-static) no-repeat center;
-			background-size: cover;
+			// background: url(../img/icons/icons.svg#i-check-empty-static) no-repeat center;
+			// background-size: cover;
 			border-radius: unset;
 			border: unset;
+			border: 2px solid rgba(224, 224, 224, 1) !important;
+			background: rgba(255, 255, 255, 1) !important;
+			border-radius: 50%;
+			width: 16px;
+			height: 16px;
+
 		}
 	}
 
 	.custom-control-input:checked~.custom-control-label {
 		&::before {
-			opacity: 0;
-			visibility: hidden;
+			opacity: 1;
+			visibility: visible;
 		}
 
 		&::after {
-			background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
-			background-size: cover;
+			// background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
+			// background-size: cover;
 			opacity: 1;
 			visibility: visible;
 		}
@@ -1410,13 +1439,13 @@ form {
 
 		&:hover:not(:checked)~.custom-control-label {
 			&::before {
-				opacity: 0;
-				visibility: hidden;
+				opacity: 1;
+				visibility: visible;
 			}
 
 			&::after {
-				background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
-				background-size: cover;
+				// background: url(../img/icons/icons.svg#i-check-static) no-repeat center;
+				// background-size: cover;
 				opacity: 1;
 				visibility: visible;
 			}
@@ -1841,6 +1870,7 @@ form {
 	z-index: 1085;
 
 	.modal-dialog {
+
 		.modal-content {
 			border-radius: 20px;
 			box-shadow: 0px 4px 6px 0px rgba(10, 26, 33, 0.2);
@@ -1852,13 +1882,14 @@ form {
 
 				.close {
 					position: absolute;
-					top: 22px;
-					right: 25px;
+					top: 0;
+					right: 0;
 					border-radius: 50%;
-					background: $light-blue;
+					background: rgba(242, 242, 242, 1);
 					opacity: 1;
 					padding: 10px;
 					@include transition(0.3s ease-out 0s);
+					z-index: 2;
 
 					&:hover {
 						opacity: 0.5;
