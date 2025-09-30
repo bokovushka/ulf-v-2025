@@ -1373,16 +1373,16 @@
 	border-radius: 4px;
 	@include transition(0.3s ease-out 0s);
 
+	@include sm-max {
+		width: 100%;
+		justify-content: center;
+	}
+
 	span {
 		font-size: 16px;
 		line-height: 20px;
 	}
 
-
-	@include md-max {
-		width: 100%;
-		justify-content: center;
-	}
 
 	.link-button {
 		display: block;
@@ -2027,8 +2027,14 @@
 #popup-questions-thank-you,
 #popup-579,
 #popup-579-thank-you {
+	.container {
+		min-height: 100%;
+		display: flex;
+	}
+
 	.modal-dialog {
 		max-width: 100%;
+		width: 100%;
 
 		@include sm-max {
 			margin-left: 0;
@@ -2051,6 +2057,15 @@
 
 		@include sm-max {
 			padding: 12px;
+		}
+
+		.modal-body {
+			.close {
+				@include md-max {
+					right: 12px;
+					top: 12px;
+				}
+			}
 		}
 	}
 
