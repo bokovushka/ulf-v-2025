@@ -2021,12 +2021,7 @@
 	}
 }
 
-#popup-any-questions,
-#popup-any-questions-thank-you,
-#popup-questions,
-#popup-questions-thank-you,
-#popup-579,
-#popup-579-thank-you {
+.modal--custom {
 	.container {
 		min-height: 100%;
 		display: flex;
@@ -2040,34 +2035,35 @@
 			margin-left: 0;
 			margin-right: 0;
 		}
+
+		.modal-content {
+			padding: 32px 60px;
+			border-radius: 4px;
+			border: unset;
+
+			@include md-max {
+				padding: 15px 30px;
+			}
+
+			@include sm-max {
+				padding: 12px;
+			}
+
+			.modal-body {
+				.close {
+					@include md-max {
+						right: 12px;
+						top: 12px;
+					}
+				}
+			}
+		}
 	}
 
 	.modal-inner {
 		width: 100%;
 	}
 
-	.modal-content {
-		padding: 32px 60px;
-		border-radius: 4px;
-		border: unset;
-
-		@include md-max {
-			padding: 15px 30px;
-		}
-
-		@include sm-max {
-			padding: 12px;
-		}
-
-		.modal-body {
-			.close {
-				@include md-max {
-					right: 12px;
-					top: 12px;
-				}
-			}
-		}
-	}
 
 	.form-inner {
 		margin-top: 156px;
