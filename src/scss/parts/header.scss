@@ -904,7 +904,7 @@
 
 			.link-phone {
 				display: flex;
-				gap: 4px;
+				gap: 10px;
 			}
 		}
 	}
@@ -1545,5 +1545,23 @@
 			opacity: 1;
 			visibility: visible;
 		}
+	}
+}
+
+.phone-popup {
+	width: 40px;
+	height: 40px;
+	background: $main-blue;
+	border-radius: 2px;
+	position: relative;
+	cursor: pointer;
+
+	svg {
+		width: 28px;
+		height: 28px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
 	}
 }

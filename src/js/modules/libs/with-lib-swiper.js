@@ -272,3 +272,36 @@ new Swiper('.hero--swiper', {
 		clickable: true,
 	},
 });
+
+
+//? benefits-assistance--swiper
+new Swiper('.benefits-assistance--swiper', {
+	slidesPerView: "auto",
+	spaceBetween: 20,
+	loop: true,
+	// autoplay: {
+	// 	delay: 5000,
+	// 	disableOnInteraction: false,
+	// },
+	speed: 800,
+	grabCursor: true,
+	navigation: {
+		nextEl: ".benefits-assistance .swiper-buttons .button-slider-next",
+		prevEl: ".benefits-assistance .swiper-buttons .button-slider-prev",
+	},
+	pagination: {
+		el: ".benefits-assistance .swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		1200: {
+		},
+		1024: {
+		},
+		768: {
+		},
+		0: {
+			spaceBetween: 12,
+		}
+	},
+});

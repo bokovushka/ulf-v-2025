@@ -1199,10 +1199,10 @@ form {
 
 .select2-container {
 	.select2-dropdown {
-		z-index: 1070;
+		z-index: 1050;
 
 		&.select-up-index {
-			z-index: 1090;
+			z-index: 1051;
 		}
 
 		&.select2-dropdown--below {
@@ -2303,13 +2303,13 @@ form {
 
 #btnTop {
 	display: inline-block;
-	background: $black;
-	width: 32px;
-	height: 32px;
+	background: $main-blue;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 	position: fixed;
 	bottom: 30px;
-	right: 30px;
+	left: 30px;
 	@include transition(0.3s ease-out 0s);
 	opacity: 0;
 	visibility: hidden;
@@ -2318,20 +2318,29 @@ form {
 	align-items: center;
 	justify-content: center;
 	padding: 0;
-	transform: scaleY(-1);
+
+	@include sm-max {
+		width: 55px;
+		height: 55px;
+	}
 
 	svg {
-		width: 24px;
-		height: 24px;
+		width: 32px;
+		height: 32px;
 		filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 		@include transition(0.3s ease-out 0s);
+
+		@include sm-max {
+			width: 24px;
+			height: 24px;
+		}
 	}
 
 	&:hover {
-		background: $white;
+		background: rgb(0, 151, 250, 0.5);
 
 		svg {
-			filter: brightness(0) saturate(100%) invert(63%) sepia(100%) saturate(1319%) hue-rotate(167deg) brightness(88%) contrast(87%);
+			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 		}
 	}
 }
