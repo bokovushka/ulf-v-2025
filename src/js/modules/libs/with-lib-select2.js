@@ -2,11 +2,11 @@ import $ from 'jquery';
 import "../../../../node_modules/select2/dist/js/select2.js";
 
 //? select
-// $(document).ready(function () {
-// 	$('.field .select-wrap select').select2({
-// 		minimumResultsForSearch: -1,
-// 	});
-// });
+$(document).ready(function () {
+	$('.field .select-wrap select').select2({
+		minimumResultsForSearch: -1,
+	});
+});
 
 
 //header

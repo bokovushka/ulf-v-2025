@@ -120,3 +120,53 @@ $(document).ready(function () {
 	});
 });
 
+
+//tab calc
+// Розрахувати -> сховати tabs + форму, показати результат (лише для поточного tab-pane)
+$(document).on('click', '.js-calc-btn', function (e) {
+	e.preventDefault();
+
+	const $tabPane = $(this).closest('.tab-pane');
+	const $wrap = $(this).closest('.form-inner'); // контейнер з tabs
+
+	// ховаємо вкладки (Нове/Вживане)
+	$wrap.find('#carTypeTab').addClass('d-none');
+
+	// ховаємо форму саме цього таба
+	$tabPane.find('.js-form-step').addClass('d-none');
+
+	// показуємо результат саме цього таба
+	$tabPane.find('.js-step[data-step="result"]').removeClass('d-none');
+});
+
+// Назад -> показати tabs + форму, сховати результат (лише для поточного tab-pane)
+$(document).on('click', '.js-back-btn', function (e) {
+	e.preventDefault();
+
+	const $tabPane = $(this).closest('.tab-pane');
+	const $wrap = $(this).closest('.form-inner');
+
+	// показуємо вкладки
+	$wrap.find('#carTypeTab').removeClass('d-none');
+
+	// показуємо форму
+	$tabPane.find('.js-form-step').removeClass('d-none');
+
+	// ховаємо результат
+	$tabPane.find('.js-step[data-step="result"]').addClass('d-none');
+});
+
+// (Опційно) при перемиканні табів скидати в початковий стан
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	const targetPane = $(e.target).attr('href'); // #new-car або #used-car
+	const $tabPane = $(targetPane);
+	const $wrap = $tabPane.closest('.form-inner');
+
+	// вкладки показати
+	$wrap.find('#carTypeTab').removeClass('d-none');
+
+	// у цьому табі: форма показана, результат схований
+	$tabPane.find('.js-form-step').removeClass('d-none');
+	$tabPane.find('.js-step[data-step="result"]').addClass('d-none');
+});
+
