@@ -1,9 +1,18 @@
-var btn = $('#btnTop');
+import jQuery from 'jquery';
 
-$(window).on('scroll', function () {
-	btn.toggleClass('show', $(window).scrollTop() > 122);
-});
+jQuery(document).ready(function ($) {
+	var btn = $('#btnTop');
 
-btn.on('click', function (e) {
-	e.preventDefault();
+	$(window).scroll(function () {
+		if ($(window).scrollTop() > 122) {
+			btn.addClass('show');
+		} else {
+			btn.removeClass('show');
+		}
+	});
+
+	btn.on('click', function (e) {
+		e.preventDefault();
+		$('html, body').animate({ scrollTop: 0 }, '122');
+	});
 });

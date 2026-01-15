@@ -2230,6 +2230,64 @@ form {
 			margin-bottom: 20px;
 		}
 	}
+
+	table {
+		width: 100%;
+		border: 1px solid #dcdcdc;
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		border-collapse: collapse;
+
+	}
+
+	table tbody {
+		display: table;
+
+		@include sm-max {
+			width: 745px;
+		}
+	}
+
+	table td,
+	table th {
+		border: 1px solid #dcdcdc;
+		padding: 14px 16px;
+		vertical-align: top;
+	}
+
+	table p {
+		margin: 0;
+	}
+
+	table tr:first-child td,
+	table tr:first-child th {
+		font-weight: 700;
+		background: #f7f7f7;
+	}
+
+	table td:first-child {
+		width: 45%;
+		font-weight: 600;
+		background: #f7f7f7;
+	}
+
+
+	table td:nth-child(2),
+	table td:nth-child(3) {
+		width: 27.5%;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+
+		table td,
+		table th {
+			padding: 10px 12px;
+		}
+	}
+
 }
 
 // google map
@@ -2301,7 +2359,7 @@ form {
 	}
 }
 
-#btnTop {
+#btnCall {
 	display: inline-block;
 	background: $main-blue;
 	width: 80px;
@@ -2311,8 +2369,8 @@ form {
 	bottom: 30px;
 	left: 30px;
 	@include transition(0.3s ease-out 0s);
-	opacity: 0;
-	visibility: hidden;
+	opacity: 1;
+	visibility: visible;
 	z-index: 1000;
 	display: flex;
 	align-items: center;
@@ -2345,9 +2403,16 @@ form {
 	}
 }
 
-#btnTop.show {
-	opacity: 1;
-	visibility: visible;
+#btnCall.at-footer {
+	background: $white;
+
+	&:hover {
+		background: rgb(255, 255, 255, 0.5);
+	}
+
+	svg {
+		filter: brightness(0) saturate(100%) invert(51%) sepia(38%) saturate(6358%) hue-rotate(179deg) brightness(99%) contrast(103%);
+	}
 }
 
 //socials
