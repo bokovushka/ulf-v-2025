@@ -486,343 +486,184 @@
 							</div>
 							<div class="col-12 col-md-10 col-lg-7 col-xl-6 mx-auto">
 								<div class="form-inner m-n3 m-md-0 px-3 p-md-8 ml-xl-8">
-									<ul class="nav nav-tabs mb-6 mb-sm-8" id="carTypeTab" role="tablist">
-										<li class="nav-item">
-											<a class="nav-link active" id="new-car-tab" data-toggle="tab" href="#new-car"
-												role="tab" aria-controls="new-car" aria-selected="true">
-												Нове
-											</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" id="used-car-tab" data-toggle="tab" href="#used-car" role="tab"
-												aria-controls="used-car" aria-selected="false">
-												Вживане
-											</a>
-										</li>
-									</ul>
-									<div class="tab-content" id="carTypeTabContent">
-										<!-- НОВЕ АВТО -->
-										<div class="tab-pane fade show active" id="new-car" role="tabpanel"
-											aria-labelledby="new-car-tab">
-											<div class="js-form-step">
-												<div class="row">
-													<div class="col-12">
-														<div class="field-wrap">
-															<div class="field field-2 mb-3">
-																<label for="select-type-car" class="mb-2">Марка авто</label>
-																<div class="select-wrap">
-																	<select class="select-type-car" name="select-type-car">
-																		<option value="0">Оберіть марку авто</option>
-																		<option value="1">Авто 1</option>
-																		<option value="2">Авто 2</option>
-																		<option value="3">Авто 3</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="field-wrap">
-															<div class="field field-2 mb-3">
-																<label for="select-model-car" class="mb-2">Модель</label>
-																<div class="select-wrap">
-																	<select class="select-model-car" name="select-model-car">
-																		<option value="0">Оберіть модель авто</option>
-																		<option value="1">Модель 1</option>
-																		<option value="2">Модель 2</option>
-																		<option value="3">Модель 3</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="row">
-															<div class="col-12 col-sm-6">
-																<div class="field mb-3">
-																	<label class="small-txt mb-2">Орієнтовна вартість авто</label>
-																	<input type="text" id="cost-car" class="form-control mb-2"
-																		placeholder="Орієнтовна вартість авто">
-																	<div class="field--help-info small-txt text-red mb-2">Помилка
-																		введення
-																	</div>
-																</div>
-															</div>
-															<div class="col-12 col-sm-6">
-																<div class="field-wrap">
-																	<div class="field field-2 mb-3">
-																		<label for="select-model-car" class="mb-2">Термін
-																			фінансування</label>
-																		<div class="select-wrap">
-																			<select class="select-model-car" name="select-model-car">
-																				<option value="1">12 місяців</option>
-																				<option value="2">18 місяців</option>
-																				<option value="3">24 місяців</option>
-																			</select>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="row">
-															<div class="col-12 col-sm-6">
-																<div class="field-wrap">
-																	<div class="field field-2 mb-3">
-																		<label for="select-model-car" class="mb-2">Валюта
-																			фінансування</label>
-																		<div class="select-wrap">
-																			<select class="select-model-car" name="select-model-car">
-																				<option value="1">Долар</option>
-																				<option value="2">Гривня</option>
-																				<option value="3">Євро</option>
-																			</select>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12 col-sm-6">
-																<div class="field mb-3">
-																	<label class="small-txt mb-2">Авансовий платіж</label>
-																	<div class="advance-payment d-flex">
-																		<input type="text" id="advance-payment" class="form-control mb-2"
-																			placeholder="Авансовий платіж">
-																		<div class="advance-currency">$</div>
-																	</div>
-																	<div class="field--help-info small-txt text-red mb-2">Помилка
-																		введення
-																	</div>
-																</div>
-															</div>
-														</div>
+									<div class="choose-radio mb-5">
+										<div class="custom-control custom-radio">
+											<input type="radio" class="custom-control-input" id="checkbox-type-car-1"
+												name="checkbox-type-group-1" checked="">
+											<label class="custom-control-label" for="checkbox-type-car-1">
+												<div class="d-flex justify-content-between align-items-center align-items-lg-start">
+													<div class="d-flex flex-column">
+														<span class="text">Нове</span>
 													</div>
 												</div>
-												<div class="row mb-4 mt-2">
-													<div class="col-12">
-														<button type="button" class="btn btn-main-blue btn-block js-calc-btn"
-															data-next-modal="#popup-questions-thank-you"
-															data-dismiss="modal">Розрахувати
-															платіж</button>
+											</label>
+										</div>
+										<div class="custom-control custom-radio">
+											<input type="radio" class="custom-control-input" id="checkbox-type-car-2"
+												name="checkbox-type-group-1">
+											<label class="custom-control-label" for="checkbox-type-car-2">
+												<div class="d-flex justify-content-between align-items-center align-items-lg-start">
+													<div class="d-flex flex-column">
+														<span class="text">Вживане</span>
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-12">
-														<div class="info">Розмір платежу орієнтовний. Для отримання точного
-															розрахунку,
-															будь
-															ласка,  подайте заявку або зверніться до нашого менеджера. </div>
+											</label>
+										</div>
+									</div>
+									<div class="js-form-step">
+										<div class="row">
+											<div class="col-12">
+												<div class="field-wrap">
+													<div class="field field-2 mb-3">
+														<label for="select-type-car" class="mb-2">Марка авто</label>
+														<div class="select-wrap">
+															<select class="select-type-car" name="select-type-car">
+																<option value="0">Оберіть марку авто</option>
+																<option value="1">Авто 1</option>
+																<option value="2">Авто 2</option>
+																<option value="3">Авто 3</option>
+															</select>
+														</div>
 													</div>
 												</div>
 											</div>
-											<div class="js-step d-none" data-step="result">
-												<div class="head h6 mb-3 mb-sm-6 pb-sm-6 font-weight-bold">Калькулятор платежів
-												</div>
-
-												<div class="calc-result p-4 mb-6">
-													<div class="h6 font-weight-bold pb-2 mb-2">Інформація по платежу</div>
-													<div class="calc-row d-flex justify-content-between mb-2">
-														<div class="txt">Вартість авто</div>
-														<div class="val">
-															<div class="js-out-monthly font-weight-bold">900 000 грн</div>
-														</div>
-													</div>
-													<div class="calc-row d-flex justify-content-between mb-2">
-														<div class="txt">Авансовий платіж</div>
-														<div class="val">
-															<div class="js-out-finance font-weight-bold">250 000 грн</div>
-														</div>
-													</div>
-													<div class="final-result calc-row d-flex justify-content-between pt-2">
-														<div class="txt">Загальний щомісячний платіж</div>
-														<div class="val">
-															<div class="js-out-currency font-weight-bold">20 500 грн</div>
+											<div class="col-12">
+												<div class="field-wrap">
+													<div class="field field-2 mb-3">
+														<label for="select-model-car" class="mb-2">Модель</label>
+														<div class="select-wrap">
+															<select class="select-model-car" name="select-model-car">
+																<option value="0">Оберіть модель авто</option>
+																<option value="1">Модель 1</option>
+																<option value="2">Модель 2</option>
+																<option value="3">Модель 3</option>
+															</select>
 														</div>
 													</div>
 												</div>
-
-												<div class="row mb-4">
-													<div class="col-12 col-xs-6 mb-4 mb-xs-0">
-														<button type="button"
-															class="btn btn-outline-main-blue btn-block js-back-btn">Повернутить до
-															розрахунку</button>
-													</div>
-													<div class="col-12 col-xs-6">
-														<button type="button" class="btn btn-main-blue btn-block" data-toggle="modal"
-															data-target="#popup-questions">Подати
-															заявку</button>
-													</div>
-												</div>
+											</div>
+											<div class="col-12">
 												<div class="row">
-													<div class="col-12">
-														<div class="info">Розмір платежу орієнтовний. Для отримання точного
-															розрахунку,
-															будь
-															ласка,  подайте заявку або зверніться до нашого менеджера. </div>
+													<div class="col-12 col-sm-6">
+														<div class="field mb-3">
+															<label class="small-txt mb-2">Орієнтовна вартість авто</label>
+															<input type="text" id="cost-car" class="form-control mb-2"
+																placeholder="Орієнтовна вартість авто">
+															<div class="field--help-info small-txt text-red mb-2">Помилка
+																введення
+															</div>
+														</div>
+													</div>
+													<div class="col-12 col-sm-6">
+														<div class="field-wrap">
+															<div class="field field-2 mb-3">
+																<label for="select-model-car" class="mb-2">Термін
+																	фінансування</label>
+																<div class="select-wrap">
+																	<select class="select-model-car" name="select-model-car">
+																		<option value="1">12 місяців</option>
+																		<option value="2">18 місяців</option>
+																		<option value="3">24 місяців</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="row">
+													<div class="col-12 col-sm-6">
+														<div class="field-wrap">
+															<div class="field field-2 mb-3">
+																<label for="select-model-car" class="mb-2">Валюта
+																	фінансування</label>
+																<div class="select-wrap">
+																	<select class="select-model-car" name="select-model-car">
+																		<option value="1">Долар</option>
+																		<option value="2">Гривня</option>
+																		<option value="3">Євро</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-12 col-sm-6">
+														<div class="field mb-3">
+															<label class="small-txt mb-2">Авансовий платіж</label>
+															<div class="advance-payment d-flex">
+																<input type="text" id="advance-payment" class="form-control mb-2"
+																	placeholder="Авансовий платіж">
+																<div class="advance-currency">$</div>
+															</div>
+															<div class="field--help-info small-txt text-red mb-2">Помилка
+																введення
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<!-- ВЖИВАНЕ АВТО -->
-										<div class="tab-pane fade" id="used-car" role="tabpanel" aria-labelledby="used-car-tab">
-											<div class="js-form-step">
-												<div class="row">
-													<div class="col-12">
-														<div class="field-wrap">
-															<div class="field field-2 mb-3">
-																<label for="select-type-car" class="mb-2">Марка авто</label>
-																<div class="select-wrap">
-																	<select class="select-type-car" name="select-type-car">
-																		<option value="0">Оберіть марку авто</option>
-																		<option value="1">Авто 1</option>
-																		<option value="2">Авто 2</option>
-																		<option value="3">Авто 3</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="field-wrap">
-															<div class="field field-2 mb-3">
-																<label for="select-model-car" class="mb-2">Модель</label>
-																<div class="select-wrap">
-																	<select class="select-model-car" name="select-model-car">
-																		<option value="0">Оберіть модель авто</option>
-																		<option value="1">Модель 1</option>
-																		<option value="2">Модель 2</option>
-																		<option value="3">Модель 3</option>
-																	</select>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="row">
-															<div class="col-12 col-sm-6">
-																<div class="field mb-3">
-																	<label class="small-txt mb-2">Орієнтовна вартість авто</label>
-																	<input type="text" id="cost-car" class="form-control mb-2"
-																		placeholder="Орієнтовна вартість авто">
-																	<div class="field--help-info small-txt text-red mb-2">Помилка
-																		введення
-																	</div>
-																</div>
-															</div>
-															<div class="col-12 col-sm-6">
-																<div class="field-wrap">
-																	<div class="field field-2 mb-3">
-																		<label for="select-model-car" class="mb-2">Термін
-																			фінансування</label>
-																		<div class="select-wrap">
-																			<select class="select-model-car" name="select-model-car">
-																				<option value="1">12 місяців</option>
-																				<option value="2">18 місяців</option>
-																				<option value="3">24 місяців</option>
-																			</select>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-													<div class="col-12">
-														<div class="row">
-															<div class="col-12 col-sm-6">
-																<div class="field-wrap">
-																	<div class="field field-2 mb-3">
-																		<label for="select-model-car" class="mb-2">Валюта
-																			фінансування</label>
-																		<div class="select-wrap">
-																			<select class="select-model-car" name="select-model-car">
-																				<option value="1">Долар</option>
-																				<option value="2">Гривня</option>
-																				<option value="3">Євро</option>
-																			</select>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div class="col-12 col-sm-6">
-																<div class="field mb-3">
-																	<label class="small-txt mb-2">Авансовий платіж</label>
-																	<div class="advance-payment d-flex">
-																		<input type="text" id="advance-payment" class="form-control mb-2"
-																			placeholder="Авансовий платіж">
-																		<div class="advance-currency">$</div>
-																	</div>
-																	<div class="field--help-info small-txt text-red mb-2">Помилка
-																		введення
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="row mb-4 mt-2">
-													<div class="col-12">
-														<button type="button" class="btn btn-main-blue btn-block js-calc-btn"
-															data-next-modal="#popup-questions-thank-you"
-															data-dismiss="modal">Розрахувати
-															платіж</button>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-12">
-														<div class="info">Розмір платежу орієнтовний. Для отримання точного
-															розрахунку,
-															будь
-															ласка,  подайте заявку або зверніться до нашого менеджера. 
-														</div>
-													</div>
+										<div class="row mb-4 mt-2">
+											<div class="col-12">
+												<button type="button" class="btn btn-main-blue btn-block js-calc-btn"
+													data-next-modal="#popup-questions-thank-you" data-dismiss="modal">Розрахувати
+													платіж</button>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="info">Розмір платежу орієнтовний. Для отримання точного
+													розрахунку,
+													будь
+													ласка,  подайте заявку або зверніться до нашого менеджера. </div>
+											</div>
+										</div>
+									</div>
+									<div class="js-step d-none" data-step="result">
+										<div class="head h6 mb-3 mb-sm-6 pb-sm-6 font-weight-bold">Калькулятор платежів
+										</div>
+
+										<div class="calc-result p-4 mb-6">
+											<div class="h6 font-weight-bold pb-2 mb-2">Інформація по платежу</div>
+											<div class="calc-row d-flex justify-content-between mb-2">
+												<div class="txt">Вартість авто</div>
+												<div class="val">
+													<div class="js-out-monthly font-weight-bold">900 000 грн</div>
 												</div>
 											</div>
-											<div class="js-step d-none" data-step="result">
-												<div class="head h6 mb-3 mb-sm-6 pb-sm-6 font-weight-bold">Калькулятор платежів
+											<div class="calc-row d-flex justify-content-between mb-2">
+												<div class="txt">Авансовий платіж</div>
+												<div class="val">
+													<div class="js-out-finance font-weight-bold">250 000 грн</div>
 												</div>
+											</div>
+											<div class="final-result calc-row d-flex justify-content-between pt-2">
+												<div class="txt">Загальний щомісячний платіж</div>
+												<div class="val">
+													<div class="js-out-currency font-weight-bold">20 500 грн</div>
+												</div>
+											</div>
+										</div>
 
-												<div class="calc-result p-4 mb-6">
-													<div class="h6 font-weight-bold pb-2 mb-2">Інформація по платежу</div>
-													<div class="calc-row d-flex justify-content-between mb-2">
-														<div class="txt">Вартість авто</div>
-														<div class="val">
-															<div class="js-out-monthly font-weight-bold">900 000 грн</div>
-														</div>
-													</div>
-													<div class="calc-row d-flex justify-content-between mb-2">
-														<div class="txt">Авансовий платіж</div>
-														<div class="val">
-															<div class="js-out-finance font-weight-bold">250 000 грн</div>
-														</div>
-													</div>
-													<div class="final-result calc-row d-flex justify-content-between pt-2">
-														<div class="txt">Загальний щомісячний платіж</div>
-														<div class="val">
-															<div class="js-out-currency font-weight-bold">20 500 грн</div>
-														</div>
-													</div>
-												</div>
-
-												<div class="row mb-4">
-													<div class="col-12 col-xs-6 mb-4 mb-xs-0">
-														<button type="button"
-															class="btn btn-outline-main-blue btn-block js-back-btn">Повернутить до
-															розрахунку</button>
-													</div>
-													<div class="col-12 col-xs-6">
-														<button type="button" class="btn btn-main-blue btn-block" data-toggle="modal"
-															data-target="#popup-questions">Подати
-															заявку</button>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-12">
-														<div class="info">Розмір платежу орієнтовний. Для отримання точного
-															розрахунку,
-															будь
-															ласка,  подайте заявку або зверніться до нашого менеджера. </div>
-													</div>
-												</div>
+										<div class="row mb-4">
+											<div class="col-12 col-xs-6 mb-4 mb-xs-0">
+												<button type="button"
+													class="btn btn-outline-main-blue btn-block js-back-btn">Повернутить до
+													розрахунку</button>
+											</div>
+											<div class="col-12 col-xs-6">
+												<button type="button" class="btn btn-main-blue btn-block" data-toggle="modal"
+													data-target="#popup-questions">Подати
+													заявку</button>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="info">Розмір платежу орієнтовний. Для отримання точного
+													розрахунку,
+													будь
+													ласка,  подайте заявку або зверніться до нашого менеджера. </div>
 											</div>
 										</div>
 									</div>
