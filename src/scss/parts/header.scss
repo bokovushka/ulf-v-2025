@@ -795,6 +795,16 @@
 	}
 }
 
+.nav-mob {
+	.phone-popup {
+		display: none;
+
+		@include md-max {
+			display: block;
+		}
+	}
+}
+
 //header-main
 .header-main {
 	width: 100%;

@@ -736,6 +736,15 @@ main {
   top: 7px;
 }
 
+.nav-mob .phone-popup {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .nav-mob .phone-popup {
+    display: block;
+  }
+}
+
 .header-main {
   width: 100%;
   background: #ffffff;
