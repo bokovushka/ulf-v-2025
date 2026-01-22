@@ -668,7 +668,6 @@ main {
 .navbar-toggler {
   padding: 10px;
   background: #0097fa;
-  margin-left: auto;
 }
 .header.menu-open .navbar-toggler {
   background: #ffffff;
