@@ -170,3 +170,42 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 	$tabPane.find('.js-step[data-step="result"]').addClass('d-none');
 });
 
+
+// button more accordion
+
+document.addEventListener('DOMContentLoaded', function () {
+	const cards = document.querySelectorAll('#accordion-questions .card');
+	const toggleBtn = document.getElementById('toggleAccordion');
+	const visibleCount = 5;
+	let expanded = false;
+
+	if (cards.length <= visibleCount) return;
+
+	cards.forEach((card, index) => {
+		if (index >= visibleCount) {
+			card.classList.add('accordion-hidden');
+		} else {
+			card.classList.add('accordion-visible');
+		}
+	});
+
+	toggleBtn.classList.remove('d-none');
+
+	toggleBtn.addEventListener('click', function () {
+		expanded = !expanded;
+
+		cards.forEach((card, index) => {
+			if (index >= visibleCount) {
+				card.classList.toggle('accordion-hidden', !expanded);
+				card.classList.toggle('accordion-visible', expanded);
+			}
+		});
+
+		this.textContent = expanded
+			? 'Показати менше'
+			: 'Показати більше';
+	});
+});
+
+
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 @@include('html/head.html',{
-"title":"Сільгосптехніка"
+"title":"Обладнання та спецтехніка"
 })
 
 <body>
@@ -18,22 +18,32 @@
 										<img src="img/special-car.jpg" alt="img" class="bg-down d-none d-lg-block">
 										<img src="img/special-car-md.jpg" alt="img" class="bg-down d-none d-md-block d-lg-none">
 										<img src="img/special-car-sm.jpg" alt="img" class="bg-down d-md-none">
-										<div class="name">Лізинг</div>
-										<div class="row">
+										<nav aria-label="breadcrumb" class="breadcrumb-nav position-absolute my-6">
+											<ol class="breadcrumb mb-0">
+												<li class="breadcrumb-item"><a href="##">Головна</a></li>
+												<li class="breadcrumb-item"><a href="##">Лізинг</a></li>
+												<li class="breadcrumb-item active" aria-current="page">Обладнання та спецтехніка
+												</li>
+											</ol>
+										</nav>
+										<div class="row h-100">
 											<div class="col col-lg-9">
-												<div class="hero-title mb-2">Обладнання та спецтехніка</div>
-												<div class="hero-subtitle mb-8">Лізинг обладнання та спецтехніки — швидкий шлях до
-													вдосконалення виробництва. Залиште заявку та отримайте пропозицію. </div>
-												<div class="row">
-													<div class="col-12 col-md-6 col-lg-12">
-														<button type="button" class="btn-link-catalog" data-toggle="modal"
-															data-target="#popup-questions">
-															<span class="link-button"></span><span>Подати заявку</span>
-														</button>
-													</div>
-													<div class="col-6 d-none d-md-block d-lg-none">
-														<button type="button" class="btn btn-white btn-block" data-toggle="modal"
-															data-target="#popup-579">Зворотній звʼязок</button>
+												<div class="d-flex flex-column justify-content-end h-100">
+													<div class="hero-title mb-2">Обладнання та спецтехніка</div>
+													<div class="hero-subtitle mb-8">Лізинг обладнання та спецтехніки — швидкий шлях
+														до
+														вдосконалення виробництва. Залиште заявку та отримайте пропозицію. </div>
+													<div class="row">
+														<div class="col-12 col-md-6 col-lg-12">
+															<button type="button" class="btn-link-catalog" data-toggle="modal"
+																data-target="#popup-questions">
+																<span class="link-button"></span><span>Подати заявку</span>
+															</button>
+														</div>
+														<div class="col-6 d-none d-md-block d-lg-none">
+															<button type="button" class="btn btn-white btn-block" data-toggle="modal"
+																data-target="#popup-579">Зворотній звʼязок</button>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -428,7 +438,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12 col-xl-8 mx-auto">
-								<div class="questions--inner mb-6 mb-sm-12">
+								<div class="questions--inner mb-2 mb-sm-8">
 									<div class="head text-center mb-12">Популярні <span class="text-main-blue">запитання</span>
 									</div>
 									<div class="questions-popular-accordion">
@@ -561,6 +571,13 @@
 														</div>
 													</div>
 												</div>
+												<div class="text-center">
+													<button id="toggleAccordion" class="btn btn-toogle-accordion d-none"
+														type="button">
+														Показати більше
+													</button>
+												</div>
+
 											</div>
 										</div>
 									</div>
