@@ -2075,6 +2075,11 @@ form {
 			margin-bottom: 40px;
 		}
 
+		@include sm-max {
+			font-size: 14px;
+			line-height: 18px;
+		}
+
 	}
 
 	.seo-wrapper {
@@ -2135,6 +2140,11 @@ form {
 			position: relative;
 			color: rgba(122, 122, 122, 1);
 
+			@include sm-max {
+				font-size: 14px;
+				line-height: 18px;
+			}
+
 			&:not(:last-child) {
 				margin-bottom: 5px;
 			}
@@ -2158,6 +2168,14 @@ form {
 				top: 8px;
 				left: 0px;
 				z-index: 2;
+			}
+
+			p,
+			small {
+				@include sm-max {
+					font-size: 14px;
+					line-height: 18px;
+				}
 			}
 		}
 	}
@@ -2184,14 +2202,14 @@ form {
 		li {
 			display: table;
 			counter-increment: item;
-			font-size: 20px;
+			font-size: 16px;
 			font-weight: 500;
-			line-height: 28px;
+			line-height: 20px;
 			color: #7a7a7a;
 
 			@include sm-max {
-				font-size: 16px;
-				line-height: 24px;
+				font-size: 14px;
+				line-height: 18px;
 			}
 
 			&:not(:last-child) {
@@ -2216,6 +2234,19 @@ form {
 				&::before {
 					content: counters(item, ".") " ";
 				}
+			}
+
+			@include sm-max {
+				font-size: 14px;
+				line-height: 18px;
+			}
+		}
+
+		p,
+		small {
+			@include sm-max {
+				font-size: 14px;
+				line-height: 18px;
 			}
 		}
 	}

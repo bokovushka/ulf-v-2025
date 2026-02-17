@@ -80,6 +80,14 @@
 							<li class="list-inline-item">
 								<ul class="list-inline mb-0 d-flex align-items-center">
 									<li class="list-inline-item">
+										<button type="button" class="btn btn-accessability p-0" data-toggle="modal"
+											data-target="#popup-accessability">
+											<svg class="i-accessability">
+												<use xlink:href="img/icons/icons.svg#i-accessability"></use>
+											</svg>
+										</button>
+									</li>
+									<li class="list-inline-item">
 										<a href="##">
 											<div class="link-wrap">
 												<svg class="icon">
@@ -125,6 +133,12 @@
 										<use xlink:href="img/icons/icons.svg#user"></use>
 									</svg>
 								</a>
+								<button type="button" class="btn btn-accessability btn-accessability--mob p-0"
+									data-toggle="modal" data-target="#popup-accessability">
+									<svg class="i-accessability">
+										<use xlink:href="img/icons/icons.svg#i-accessability"></use>
+									</svg>
+								</button>
 								<div class="select-wrap" id="header-mob-select-city">
 									<select class="header-mob-select-city" name="header-mob-select-city">
 										<option value="c1">Київ</option>
@@ -1555,6 +1569,7 @@
 </div>
 	</div>
 
+	@@include('html/popup/popup-accessability.html,{})
 	<div class="modal modal--custom popup-questions fade" id="popup-questions" data-keyboard="false" tabindex="-1"
 	aria-labelledby="popup-questionsLabel" aria-hidden="true">
 	<div class="container">

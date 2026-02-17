@@ -14,3 +14,4 @@ import "./modules/mobile-menu.js";
 // import './modules/multi-level-push-menu-direction.js'
 // import './modules/anchor.js'
 import "./modules/js.js";
+import "./modules/accessability-mob-menu.js";

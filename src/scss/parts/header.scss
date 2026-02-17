@@ -18,6 +18,10 @@
 			.mob-hero-logo {
 				opacity: 1;
 				visibility: visible;
+
+				.i-accessability {
+					filter: brightness(0) saturate(100%) invert(100%) sepia(17%) saturate(1479%) hue-rotate(186deg) brightness(109%) contrast(106%);
+				}
 			}
 
 			.navbar-brand {
