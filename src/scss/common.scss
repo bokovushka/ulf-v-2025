@@ -118,8 +118,8 @@ ul.list-default {
 			height: 12px;
 			width: 12px;
 			min-width: 12px;
-			background: $blue;
-			color: $white;
+			background: var(--blue);
+			color: var(--white);
 			border-radius: 50%;
 			position: absolute;
 			top: 10px;
@@ -166,7 +166,7 @@ ol.list-default {
 			content: counters(item, ".") ". ";
 			display: table-cell;
 			padding-right: 10px;
-			color: $blue;
+			color: var(--blue);
 		}
 
 		li {
@@ -364,7 +364,7 @@ p {
 
 	&.btn-text {
 		&:hover {
-			color: $blue;
+			color: var(--blue);
 		}
 	}
 
@@ -376,21 +376,21 @@ p {
 
 		&:not(:disabled) {
 			&:hover {
-				border-color: $light-blue;
-				background: $light-blue;
+				border-color: var(--light-blue);
+				background: var(--light-blue);
 			}
 
 			&:active,
 			&:focus {
-				border-color: $dark-blue;
-				background: $dark-blue;
-				color: $white;
+				border-color: var(--dark-blue);
+				background: var(--dark-blue);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $grey;
-			background: $grey;
+			border-color: var(--grey);
+			background: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -411,12 +411,12 @@ p {
 			&:hover {
 				border: 2px solid rgb(231, 243, 255);
 				background: rgba(255, 255, 255, 0.12);
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
@@ -427,13 +427,13 @@ p {
 			&:focus {
 				border: 2px solid rgb(0, 175, 255);
 				background: unset;
-				color: #00afff;
+				color: var(--main-blue);
 			}
 		}
 
 		&:disabled {
-			border-color: $grey;
-			background: $grey;
+			border-color: var(--grey);
+			background: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -446,12 +446,12 @@ p {
 				&:hover {
 					border: 1px solid rgb(231, 243, 255);
 					background: rgba(255, 255, 255, 0.12);
-					color: $white;
+					color: var(--white);
 				}
 
 				&:active,
 				&:focus {
-					color: $white;
+					color: var(--white);
 				}
 
 				&:active {
@@ -462,7 +462,7 @@ p {
 				&:focus {
 					border: 1px solid rgb(231, 243, 255);
 					background: unset;
-					color: $white;
+					color: var(--white);
 				}
 			}
 		}
@@ -471,32 +471,32 @@ p {
 	&.btn-blue {
 		&:not(:disabled) {
 			&:hover {
-				border: 2px solid #008cc7;
-				background: #008cc7;
-				color: $white;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
 			}
 
 			&:focus {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
-				color: $white;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -504,37 +504,37 @@ p {
 
 	&.btn-white {
 		&:not(:disabled) {
-			color: $black;
-			background: $white;
-			border: 2px solid $white;
+			color: var(--black);
+			background: var(--white);
+			border: 2px solid var(--white);
 
 			&:hover {
-				border: 2px solid $grey;
-				background: $grey;
-				color: $white;
+				border: 2px solid var(--grey);
+				background: var(--grey);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
-				border: 2px solid $black;
-				background: $black;
+				border: 2px solid var(--black);
+				background: var(--black);
 			}
 
 			&:focus {
-				border: 2px solid $black;
-				background: $black;
-				color: $white;
+				border: 2px solid var(--black);
+				background: var(--black);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -542,37 +542,37 @@ p {
 
 	&.btn-outline-white {
 		&:not(:disabled) {
-			color: $white;
-			border: 2px solid $white;
+			color: var(--white);
+			border: 2px solid var(--white);
 			background: transparent;
 
 			&:hover {
-				border: 2px solid #008cc7;
-				background: #008cc7;
-				color: $white;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
 			}
 
 			&:focus {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
-				color: $white;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -580,37 +580,37 @@ p {
 
 	&.btn-outline-blue {
 		&:not(:disabled) {
-			color: $blue;
-			border: 2px solid $blue;
+			color: var(--blue);
+			border: 2px solid var(--blue);
 			background: transparent;
 
 			&:hover {
-				border: 2px solid #008cc7;
-				background: #008cc7;
-				color: $white;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
 			}
 
 			&:focus {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
-				color: $white;
+				border: 2px solid var(--dark-blue);
+				background: var(--dark-blue);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -621,12 +621,12 @@ p {
 			&:hover {
 				border: 2px solid #fa6c59;
 				background: rgb(250, 108, 89);
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
@@ -637,13 +637,13 @@ p {
 			&:focus {
 				border: 2px solid rgb(4, 25, 66);
 				background: rgb(247, 78, 55);
-				color: $white;
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $grey;
-			background: $grey;
+			border-color: var(--grey);
+			background: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -673,7 +673,7 @@ p {
 		&:disabled {
 			border-color: unset;
 			background: unset;
-			color: $grey;
+			color: var(--grey);
 			opacity: 1;
 		}
 	}
@@ -705,7 +705,7 @@ p {
 				&:focus {
 					border: 1px solid rgb(17, 182, 133);
 					background: rgb(17, 182, 133) !important;
-					color: $white;
+					color: var(--white);
 				}
 			}
 		}
@@ -714,7 +714,7 @@ p {
 	&-ahead {
 		position: relative;
 		width: max-content;
-		color: $black;
+		color: var(--black);
 		display: flex;
 		align-items: center;
 		gap: 5px;
@@ -741,17 +741,17 @@ p {
 			right: 0;
 			width: 0;
 			height: 4px;
-			background: $black;
+			background: var(--black);
 			@include transition(0.3s ease-out 0s);
 		}
 
 		&:hover {
-			color: $blue;
+			color: var(--black);
 			text-decoration: none;
 
 			&::after {
 				width: 100%;
-				background-color: $blue;
+				background-color: var(--black);
 			}
 
 			&:before {
@@ -820,15 +820,15 @@ p {
 		min-width: auto !important;
 
 		&:not(:disabled) {
-			color: $light-grey;
+			color: var(--light-grey);
 
 			&:hover {
-				color: $red;
+				color: var(--red);
 			}
 
 			&:active,
 			&:focus {
-				color: $red !important;
+				color: var(--red) !important;
 			}
 		}
 	}
@@ -845,7 +845,7 @@ p {
 	@include transition(0.3s ease-out 0s);
 
 	&:hover {
-		background: $blue;
+		background: var(--blue);
 	}
 
 	svg {
@@ -925,20 +925,20 @@ form {
 		//select
 		.select2-container {
 			.select2-selection {
-				border: 1px solid $red;
+				border: 1px solid var(--red);
 			}
 		}
 
 		.form-control {
-			border: 1px solid $red;
-			background: $white;
+			border: 1px solid var(--red);
+			background: var(--white);
 			padding-right: 45px;
 
 			&:hover,
 			&:focus,
 			&:not(:placeholder-shown) {
-				border: 1px solid $red !important;
-				background: $white;
+				border: 1px solid var(--red) !important;
+				background: var(--white);
 			}
 
 		}
@@ -954,19 +954,19 @@ form {
 
 		textarea {
 			&.form-control {
-				border: 1px solid $red !important;
+				border: 1px solid var(--red) !important;
 			}
 		}
 	}
 
 	&.field-select-default {
 		.select2-container .select2-selection {
-			border: 1px solid $white;
+			border: 1px solid var(--white);
 		}
 
 		.select2-container--open.select2-container--below .select2-selection,
 		.select2-container--open.select2-container--above .select2-selection {
-			border: 1px solid $blue;
+			border: 1px solid var(--blue);
 		}
 	}
 
@@ -978,14 +978,14 @@ form {
 		font-size: 18px;
 		font-weight: 500;
 		line-height: 140%;
-		color: $black;
+		color: var(--black);
 	}
 
 	.form-control {
-		background: $white;
-		color: $black;
+		background: var(--white);
+		color: var(--black);
 		border-radius: 4px;
-		border: 1px solid #e0e0e0;
+		border: 1px solid var(--white);
 		padding: 10px 14px;
 		height: 60px;
 		min-width: 100%;
@@ -994,18 +994,18 @@ form {
 			font-size: 16px;
 			font-weight: 400;
 			line-height: 24px;
-			color: $black;
+			color: var(--black);
 		}
 
 		&:not(:placeholder-shown) {
 			//коли заповнено хоча б один символ
-			border: 1px solid $blue !important;
-			background: $white;
+			border: 1px solid var(--blue) !important;
+			background: var(--white);
 		}
 
 		&:focus {
 			border: 1px solid #e0e0e0 !important;
-			background: $white;
+			background: var(--white);
 		}
 
 		&:hover {
@@ -1047,12 +1047,12 @@ form {
 		&::-webkit-scrollbar {
 			width: 8px;
 			height: 8px;
-			background-color: #f4f4f4;
+			background-color: var(--white);
 			border-radius: 24px;
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: $blue;
+			background-color: var(--blue);
 			border-radius: 24px;
 		}
 
@@ -1064,11 +1064,11 @@ form {
 
 			&:hover,
 			&:focus {
-				border: 1px solid #e0e0e0 !important;
+				border: 1px solid var(--white) !important;
 			}
 
 			&:not(:placeholder-shown) {
-				border: 1px solid #e0e0e0 !important;
+				border: 1px solid var(--white) !important;
 			}
 		}
 	}
@@ -1077,15 +1077,15 @@ form {
 		position: relative;
 		border-radius: 20px;
 		padding: 12px 32px 42px 32px;
-		background: $white;
-		border: 1px solid $blue;
+		background: var(--white);
+		border: 1px solid var(--blue);
 	}
 
 	.textarea-counter {
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 140%;
-		color: $grey;
+		color: var(--grey);
 		position: absolute;
 		right: 32px;
 		bottom: 15px;
@@ -1105,19 +1105,19 @@ form {
 			font-size: 16px;
 			font-weight: 400;
 			line-height: 24px;
-			color: $black;
-			background: $white;
+			color: var(--black);
+			background: var(--white);
 			padding: 10px 14px;
 			gap: 5px;
 
 			.select2-selection__placeholder {
-				color: $light-grey;
+				color: var(--light-grey);
 			}
 
 			.select2-selection__rendered {
 				padding-left: 0;
 				padding-right: 0;
-				color: $black;
+				color: var(--black);
 			}
 
 			.select2-selection__arrow {
@@ -1144,9 +1144,9 @@ form {
 			.select2-results__option {
 				font-size: 16px;
 				line-height: 24px;
-				color: $grey;
+				color: var(--grey);
 				padding: 12px 32px;
-				background: $white;
+				background: var(--white);
 			}
 		}
 
@@ -1224,15 +1224,15 @@ form {
 		}
 
 		.select2-results__option {
-			color: $black;
-			background: $white;
+			color: var(--black);
+			background: var(--white);
 			padding: 12px 32px;
 		}
 
 		.select2-results__option--selected,
 		.select2-results__option--highlighted.select2-results__option--selectable {
-			background: $light-blue;
-			color: $black;
+			background: var(--light-blue);
+			color: var(--black)
 		}
 	}
 }
@@ -1313,10 +1313,10 @@ form {
 				}
 
 				a {
-					color: $white;
+					color: var(--white);
 
 					&:hover {
-						color: $blue;
+						color: var(--blue);
 					}
 				}
 			}
@@ -1359,7 +1359,7 @@ form {
 				}
 
 				.custom-checkbox--help-info {
-					color: $red;
+					color: var(--red);
 				}
 			}
 		}
@@ -1430,8 +1430,8 @@ form {
 			// background-size: cover;
 			border-radius: unset;
 			border: unset;
-			border: 2px solid rgba(224, 224, 224, 1) !important;
-			background: rgba(255, 255, 255, 1) !important;
+			border: 2px solid var(--white) !important;
+			background: var(--white) !important;
 			border-radius: 50%;
 			width: 16px;
 			height: 16px;
@@ -1487,7 +1487,7 @@ form {
 		line-height: 22px;
 		padding: 14px;
 		background: rgba(228, 228, 235, 0.3);
-		border-right: 1px solid $grey;
+		border-right: 1px solid var(--grey);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -1503,7 +1503,7 @@ form {
 			.rangeNub {
 				border-radius: 50% !important;
 				transform: unset !important;
-				background: $blue;
+				background: var(--blue);
 				box-shadow:
 					0px 0.5px 4px rgba(0, 0, 0, 0.12),
 					0px 6px 13px rgba(0, 0, 0, 0.12);
@@ -1524,7 +1524,7 @@ form {
 
 			&.active {
 				.rangeNub {
-					background: $blue;
+					background: var(--blue);
 				}
 			}
 
@@ -1536,28 +1536,28 @@ form {
 		}
 
 		.rangeBar {
-			background: $blue !important;
+			background: var(--blue) !important;
 			height: 4px;
 		}
 
 		&.focus {
 			.rangeFloat {
-				background: $blue;
-				color: $blue;
+				background: var(--blue);
+				color: var(--blue);
 				display: none;
 			}
 		}
 
 		&.hoverable:not(.disabled) {
 			.rangeHandle:hover:before {
-				box-shadow: 0 0 0 8px $blue;
+				box-shadow: 0 0 0 8px var(--blue);
 				border-radius: 50%;
 				opacity: 1;
 			}
 
 			.rangeHandle.press:before,
 			.rangeHandle.press:hover:before {
-				box-shadow: 0 0 0 12px $blue;
+				box-shadow: 0 0 0 12px var(--blue);
 				opacity: 0.9;
 			}
 		}
@@ -1575,7 +1575,7 @@ form {
 	.rangeBar-line-start {
 		width: 18px;
 		left: 0;
-		background: $blue;
+		background: var(--blue);
 	}
 
 	.range-bar-full {
@@ -1613,7 +1613,7 @@ form {
 		align-items: center;
 
 		&.active {
-			color: $white;
+			color: var(--white);
 		}
 
 		+.breadcrumb-item {
@@ -1637,7 +1637,7 @@ form {
 		}
 
 		a {
-			color: $white;
+			color: var(--white);
 
 			&:hover {
 				text-decoration: unset;
@@ -1732,7 +1732,7 @@ form {
 	.swiper-pagination-bullet {
 		background: unset;
 		opacity: 1;
-		border: 1px solid #E0E0E0;
+		border: 1px solid var(--white);
 		width: 100%;
 		height: 0;
 		margin: 0 !important;
@@ -1741,7 +1741,7 @@ form {
 		&.swiper-pagination-bullet-active {
 			width: 100%;
 			height: 0;
-			border: 1px solid $black;
+			border: 1px solid var(--black);
 			position: relative;
 
 			// &::before {
@@ -1784,9 +1784,9 @@ form {
 		&.current-page {
 			&.active {
 				.page-link {
-					color: $white !important;
-					background: $blue;
-					border-color: $blue;
+					color: var(--white) !important;
+					background: var(--blue);
+					border-color: var(--blue);
 					cursor: default;
 				}
 
@@ -1799,8 +1799,8 @@ form {
 
 			&:hover {
 				.page-link {
-					color: $blue;
-					border-color: $blue;
+					color: var(--blue);
+					border-color: var(--blue);
 					cursor: pointer;
 				}
 			}
@@ -1814,10 +1814,10 @@ form {
 			font-size: 16px;
 			font-weight: 700;
 			line-height: 24px;
-			color: $blue;
-			background: $white;
+			color: var(--blue);
+			background: var(--white);
 			padding: 0 5px;
-			border: 2px solid $blue;
+			border: 2px solid var(--blue);
 			border-radius: 4px;
 			cursor: default;
 		}
@@ -1828,7 +1828,7 @@ form {
 		&.active {
 			.page-link {
 				cursor: default;
-				background: $light-grey;
+				background: var(--light-grey);
 
 				svg {
 					filter: unset;
@@ -1837,8 +1837,8 @@ form {
 
 			&:hover {
 				.page-link {
-					background: $light-grey;
-					border-color: $light-grey;
+					background: var(--light-grey);
+					border-color: var(--light-grey);
 
 					svg {
 						filter: unset;
@@ -1849,14 +1849,14 @@ form {
 
 		.page-link {
 			padding: 0;
-			border-color: #dfe3e8;
+			border-color: var(--white);
 			cursor: pointer;
 		}
 
 		&:hover {
 			.page-link {
-				background: $blue;
-				border-color: $blue;
+				background: var(--blue);
+				border-color: var(--blue);
 			}
 
 			svg {
@@ -1892,8 +1892,8 @@ form {
 		.modal-content {
 			border-radius: 20px;
 			box-shadow: 0px 4px 6px 0px rgba(10, 26, 33, 0.2);
-			background: $white;
-			color: $black;
+			background: var(--white);
+			color: var(--black);
 
 			.modal-body {
 				position: static;
@@ -1903,7 +1903,7 @@ form {
 					top: 0;
 					right: 0;
 					border-radius: 50%;
-					background: rgba(242, 242, 242, 1);
+					background: var(--white);
 					opacity: 1;
 					padding: 10px;
 					@include transition(0.3s ease-out 0s);
@@ -1936,7 +1936,7 @@ form {
 .fancybox__toolbar {
 	.btn-fancybox-close {
 		svg {
-			fill: $white;
+			fill: var(--white);
 			stroke-width: 0;
 		}
 	}
@@ -2059,16 +2059,16 @@ form {
 
 	a {
 		&:not(.btn) {
-			color: $blue;
+			color: var(--blue);
 
 			&:hover {
-				color: $dark-blue;
+				color: var(--dark-blue);
 			}
 		}
 	}
 
 	p {
-		color: rgba(122, 122, 122, 1);
+		color: var(--grey);
 		margin-bottom: 16px;
 
 		&:last-of-type {
@@ -2106,12 +2106,12 @@ form {
 		&::-webkit-scrollbar {
 			width: 4px;
 			height: 4px;
-			background-color: $light-grey;
+			background-color: var(--light-grey);
 			border-radius: 24px;
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: $blue;
+			background-color: var(--blue);
 			border-radius: 20px;
 		}
 	}
@@ -2138,7 +2138,7 @@ form {
 			list-style-type: none;
 			padding-left: 16px;
 			position: relative;
-			color: rgba(122, 122, 122, 1);
+			color: var(--grey);
 
 			@include sm-max {
 				font-size: 14px;
@@ -2161,8 +2161,8 @@ form {
 				height: 4px;
 				width: 4px;
 				min-width: 4px;
-				background: rgba(122, 122, 122, 1);
-				color: $white;
+				background: var(--grey);
+				color: var(--white);
 				border-radius: 50%;
 				position: absolute;
 				top: 8px;
@@ -2205,7 +2205,7 @@ form {
 			font-size: 16px;
 			font-weight: 500;
 			line-height: 20px;
-			color: #7a7a7a;
+			color: var(--grey);
 
 			@include sm-max {
 				font-size: 14px;
@@ -2224,7 +2224,7 @@ form {
 				content: counters(item, ".") ". ";
 				display: table-cell;
 				padding-right: 10px;
-				color: #7a7a7a;
+				color: var(--grey);
 				font-weight: 400;
 			}
 
@@ -2305,12 +2305,12 @@ form {
 
 	table p {
 		margin: 10px 0 !important;
-		color: #2b2b2b;
+		color: var(--black);
 	}
 
 	table tr:nth-child(2n) {
 		font-weight: 500;
-		background: #f2f2f2;
+		background: var(--white);
 	}
 
 	table td:first-child {
@@ -2414,7 +2414,7 @@ form {
 
 #btnCall {
 	display: inline-block;
-	background: $main-blue;
+	background: var(--main-blue);
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
@@ -2457,7 +2457,7 @@ form {
 }
 
 #btnCall.at-footer {
-	background: $white;
+	background: var(--white);
 
 	&:hover {
 		background: rgb(255, 255, 255, 0.5);
@@ -2473,14 +2473,14 @@ form {
 	a {
 		padding: 4px !important;
 		width: max-content;
-		border: 1px solid rgb(0, 175, 255);
+		border: 1px solid var(--main-blue);
 		border-radius: 8px;
 		display: block;
 		@include transition(0.3s ease-out 0s);
 
 		&:hover {
-			background: $black;
-			border: 1px solid $black;
+			background: var(--black);
+			border: 1px solid var(--black);
 
 			svg {
 				filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(204deg) brightness(104%) contrast(103%);
@@ -2502,11 +2502,11 @@ form {
 
 	&:hover {
 		.plyr__control--overlaid {
-			background: $white;
+			background: var(--white);
 
 			svg {
-				fill: $blue;
-				stroke: $blue;
+				fill: var(--blue);
+				stroke: var(--blue);
 			}
 		}
 	}
@@ -2539,15 +2539,15 @@ form {
 		width: 60px;
 		height: 60px;
 		border: unset;
-		background: $white;
+		background: var(--white);
 		padding: 5px;
 
 		svg {
 			width: 24px;
 			height: 28px;
 			margin: 0 auto;
-			fill: $main-blue;
-			stroke: $main-blue;
+			fill: var(--main-blue);
+			stroke: var(--main-blue);
 			stroke-width: 1.6px;
 			stroke-linejoin: round;
 			overflow: visible;
@@ -2618,8 +2618,8 @@ video {
 			text-align: left;
 			border-radius: 40px;
 			padding: 12.5px 12.5px 12.5px 32px;
-			background: $blue;
-			color: $white;
+			background: var(--blue);
+			color: var(--white);
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -2648,8 +2648,8 @@ video {
 			}
 
 			&.collapsed {
-				background: $blue;
-				color: $white;
+				background: var(--blue);
+				color: var(--white);
 
 				&::after {
 					transform: rotate(-90deg);
@@ -2693,7 +2693,7 @@ video {
 					width: 100%;
 					font-size: 14px;
 					padding: 4px 10px;
-					background: $light-blue;
+					background: var(--light-blue);
 					border-radius: 5px;
 					text-align: center;
 				}
@@ -2702,16 +2702,16 @@ video {
 	}
 
 	.air-datepicker-body--day-name {
-		color: $black;
+		color: var(--black);
 		font-weight: 600;
 	}
 
 	.air-datepicker-nav--action {
 		&:hover {
-			background: $blue;
+			background: var(--blue);
 
 			path {
-				stroke: $white;
+				stroke: var(--white);
 			}
 		}
 	}
@@ -2722,44 +2722,44 @@ video {
 		}
 
 		&.-focus- {
-			background: $blue;
-			color: $white;
+			background: var(--blue);
+			color: var(--white);
 
 			&.-disabled- {
-				background: $grey;
+				background: var(--grey);
 				opacity: 0.3;
 			}
 		}
 
 		&.-year- {
 			&.-other-decade- {
-				color: $black;
+				color: var(--black);
 
 				&.-focus- {
-					color: $white;
+					color: var(--white);
 				}
 			}
 		}
 
 		&.-selected- {
-			background: $blue;
+			background: var(--blue);
 
 			&.-range-from-,
 			&.-range-to- {
-				background: $dark-blue;
+				background: var(--dark-blue);
 			}
 		}
 
 		&.-range-from-,
 		&.-range-to- {
 			border: none;
-			background: $dark-blue;
-			color: $white;
+			background: var(--dark-blue);
+			color: var(--white);
 		}
 
 		&.-in-range- {
-			background: $blue;
-			color: $white;
+			background: var(--blue);
+			color: var(--white);
 		}
 	}
 
@@ -2786,7 +2786,7 @@ video {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		background: $white;
+		background: var(--white);
 		height: 1px;
 	}
 }
@@ -2804,7 +2804,7 @@ video {
 // 	}
 // }
 .popover {
-	color: $black;
+	color: var(--black);
 	font-weight: 500;
 	font-size: 12px;
 	line-height: 18px;
@@ -2813,7 +2813,7 @@ video {
 	padding: 4px 10px;
 	border-radius: 5px;
 	// border: 1px solid $black;
-	background: $white;
+	background: var(--white);
 	box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.06);
 	z-index: 2;
 
@@ -2889,13 +2889,13 @@ video {
 
 	.arrow {
 		&::before {
-			border-top-color: $main-blue;
-			border-bottom-color: $main-blue;
+			border-top-color: var(--main-blue);
+			border-bottom-color: var(--main-blue);
 		}
 	}
 
 	.tooltip-inner {
-		color: $black;
+		color: var(--black);
 		font-weight: 500;
 		font-size: 12px;
 		line-height: 18px;
@@ -2903,8 +2903,8 @@ video {
 		width: 100%;
 		padding: 4px 10px;
 		border-radius: 5px;
-		border: 1px solid $black;
-		background: $white;
+		border: 1px solid var(--black);
+		background: var(--white);
 		box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.06);
 
 		@include sm-max {
@@ -2917,7 +2917,7 @@ video {
 		}
 
 		.description {
-			color: rgba(122, 122, 122, 1);
+			color: var(--grey);
 			margin-bottom: 0;
 			text-align: left;
 
@@ -2971,7 +2971,7 @@ video {
 
 .simplebar-track {
 	border-radius: 24px;
-	background: $light-blue;
+	background: var(--light-blue);
 
 	&.simplebar-horizontal,
 	&.simplebar-vertical {
@@ -2980,31 +2980,31 @@ video {
 }
 
 .simplebar-scrollbar {
-	background: $blue;
+	background: var(--blue);
 	border-radius: 24px;
 
 	&::before {
-		background: $blue;
+		background: var(--blue);
 	}
 }
 
 //scroll
 .os-scrollbar-vertical .os-scrollbar-track:before {
-	background: $light-blue;
+	background: var(--light-blue);
 	border-radius: 24px;
 
 	.our-directions & {
-		background-color: #73c4fd;
+		background-color: var(--light-blue);
 	}
 }
 
 .os-scrollbar.os-scrollbar-track-interactive .os-scrollbar-track,
 .os-scrollbar.os-scrollbar-handle-interactive .os-scrollbar-handle {
-	background: $blue;
+	background: var(--blue);
 	border-radius: 24px;
 
 	.our-directions & {
-		background-color: #f4f4f4;
+		background-color: var(--white);
 	}
 }
 
@@ -3081,7 +3081,7 @@ video {
 				left: 0;
 				width: 60%;
 				height: 100%;
-				background: $main-blue;
+				background: var(--main-blue);
 				/* тягнемо колір */
 			}
 

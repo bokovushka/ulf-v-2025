@@ -1,10 +1,10 @@
 //footer
 .footer {
 	background: rgba(0, 151, 250, 1);
-	color: $white;
+	color: var(--white);
 
 	a {
-		color: $white;
+		color: var(--white);
 	}
 
 	.footer--top--solid {
@@ -74,7 +74,7 @@
 		}
 
 		a {
-			color: $white;
+			color: var(--white);
 
 			// &:hover {
 			// 	color: $main-blue;
@@ -127,10 +127,10 @@
 
 	.footer--bottom {
 		a {
-			color: $white;
+			color: var(--white);
 
 			&:hover {
-				color: $white;
+				color: var(--white);
 			}
 		}
 
@@ -153,7 +153,7 @@
 		margin-left: -10px;
 		border: 1px solid transparent;
 		z-index: 2;
-		background: $main-blue;
+		background: var(--main-blue);
 		@include transition(0.3s ease-out 0s);
 
 		.select2-container {
@@ -180,7 +180,7 @@
 
 				&.select2-container--above {
 					.select2-selection {
-						border-bottom: 1px solid $blue;
+						border-bottom: 1px solid var(--blue);
 						border-top: unset;
 					}
 				}
@@ -208,7 +208,7 @@
 				padding: 10px 8px 10px 8px;
 
 				.select2-selection__rendered {
-					color: $white;
+					color: var(--white);
 					padding: 0;
 					padding-right: 0;
 					display: flex;
@@ -257,7 +257,7 @@
 			}
 
 			.select2-dropdown {
-				background: $white;
+				background: var(--white);
 
 				.select2-results {
 					margin-right: 8px;
@@ -272,20 +272,20 @@
 							/* ширина для вертикального скролла */
 							height: 4px;
 							/* высота для горизонтального скролла */
-							background-color: $grey;
+							background-color: var(--grey);
 							border-radius: 20px;
 						}
 
 						/* ползунок скроллбара */
 						&::-webkit-scrollbar-thumb {
-							background-color: $main-blue;
+							background-color: var(--main-blue);
 							border-radius: 20px;
 						}
 
 						.select2-results__option {
 							background: unset;
 							padding: 0 8px;
-							color: $black;
+							color: var(--black);
 							font-size: 14px;
 							line-height: 18px;
 							font-weight: 400;
@@ -299,7 +299,7 @@
 
 				&.select2-dropdown--below {
 					border-radius: 0 0 5px 5px;
-					border: 1px solid #f2f2f2;
+					border: 1px solid var(--white);
 					box-shadow: 0px 8px 80px 0px rgba(0, 0, 0, 0.07);
 					top: 10px;
 					left: unset;
@@ -314,7 +314,7 @@
 
 				&.select2-dropdown--above {
 					border-radius: 5px 5px 0 0;
-					border: 1px solid #f2f2f2;
+					border: 1px solid var(--white);
 					box-shadow: 0px 8px 80px 0px rgba(0, 0, 0, 0.07);
 					top: -10px;
 					left: unset;

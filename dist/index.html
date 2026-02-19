@@ -24,6 +24,94 @@
 			height: initial;
 		}
 	</style>
+
+	<script>
+		(function () {
+			try {
+				const settings = JSON.parse(localStorage.getItem('accessibilitySettings'));
+				const savedImageSettings = localStorage.getItem('imageSettings');
+				const root = document.documentElement;
+
+				const classes = [];
+
+				if (settings?.colorScheme) classes.push(settings.colorScheme);
+				if (savedImageSettings) classes.push(savedImageSettings);
+
+				if (classes.length) {
+					root.classList.add(...classes);
+				}
+			} catch (e) {
+				// тихо ігноруємо
+			}
+		})();
+	</script>
+	<script>
+		(function () {
+			const removeClasses = [
+				'scheme-default', 'scheme-white-black', 'scheme-black-white', 'scheme-blue',
+				'images-normal', 'images-black-white', 'images-hide'
+			];
+
+			function applyAccessibilitySettings() {
+				try {
+					const settings = JSON.parse(localStorage.getItem('accessibilitySettings'));
+					const savedImageSettings = localStorage.getItem('imageSettings');
+					const root = document.documentElement;
+
+					root.classList.remove(...removeClasses);
+					if (settings?.colorScheme) root.classList.add(settings.colorScheme);
+					if (savedImageSettings) root.classList.add(savedImageSettings);
+
+					const applyToBody = () => {
+						const body = document.body;
+						if (!body) return;
+
+						body.classList.remove(...removeClasses);
+						if (settings?.colorScheme) body.classList.add(settings.colorScheme);
+						if (savedImageSettings) body.classList.add(savedImageSettings);
+
+						updateButtons(settings?.colorScheme, savedImageSettings);
+					};
+
+					if (document.body) {
+						applyToBody();
+					} else {
+						new MutationObserver((_, obs) => {
+							if (document.body) {
+								applyToBody();
+								obs.disconnect();
+							}
+						}).observe(document.documentElement, { childList: true, subtree: true });
+					}
+				} catch (e) {
+					console.error('Error loading accessibility settings:', e);
+				}
+			}
+
+			function updateButtons(activeScheme, activeImages) {
+				const schemeButtons = document.querySelectorAll('[data-scheme]');
+				const imageButtons = document.querySelectorAll('[data-images]');
+
+				schemeButtons.forEach(btn => {
+					btn.classList.toggle('active', btn.dataset.scheme === activeScheme);
+				});
+
+				imageButtons.forEach(btn => {
+					btn.classList.toggle('active', btn.dataset.images === activeImages);
+				});
+			}
+
+			applyAccessibilitySettings();
+
+			// BFCache робимо повне перезавантаження
+			window.addEventListener('pageshow', function (event) {
+				if (event.persisted) {
+					window.location.reload();
+				}
+			});
+
+		})();
+	</script>
 </head>
 
 <body>
@@ -2009,10 +2097,10 @@
 	<div class="modal-dialog">
 		<!-- modal-dialog-centered -->
 		<div class="modal-content p-0">
-			<div class="modal-body p-6 pt-8 pb-10 p-yxxl-6">
+			<div class="modal-body px-2 pt-12 pb-8 px-md-7">
 				<div class="d-flex align-items-start justify-content-between mb-8">
 					<div class="d-flex flex-column">
-						<div class="modal-title h4 font-m mb-2 pr-4">Налаштування доступності</div>
+						<div class="modal-title h4 font-m mb-2 pr-10 pr-sm-4">Налаштування доступності</div>
 						<div class="d-flex">
 							<button type="button" class="btn btn-ahead rounded-0 d-block p-0 settings-cancel">Скинути
 								налаштування</button>

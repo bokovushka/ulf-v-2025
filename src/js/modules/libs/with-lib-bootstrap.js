@@ -100,6 +100,12 @@ $(document).ready(function () {
 	// ===== Клік поза меню закриває головне меню =====
 	$(document).mouseup(function (e) {
 		const $target = $(e.target);
+
+		// ❗ якщо відкритий будь-який modal — НЕ закриваємо меню
+		if ($('.modal.show').length) {
+			return;
+		}
+
 		if (
 			!$header.is($target) &&
 			$header.has($target).length === 0 &&
@@ -111,6 +117,7 @@ $(document).ready(function () {
 			}
 		}
 	});
+
 
 	// ===== Закриття меню при ресайзі на десктоп =====
 	$(window).on('resize', function () {

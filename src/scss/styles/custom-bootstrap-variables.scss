@@ -1,39 +1,73 @@
 //colors
-$white: #fafafa !default;
-$black: #2b2b2b !default;
 
-$dark-blue: #3751d8 !default;
+
+$black: #2b2b2b !default;
+$white: #fafafa !default;
+$white-dark: #f2f2f2 !default;
+
 $main-blue: #0097fa !default;
-$blue: #dce2ff !default;
-$light-blue: #f3f5ff !default;
+$blue: #3da6d3 !default;
+$dark-blue: #0f68ba !default;
+$dark-blue-2: #708fc6 !default;
+$dark-blue-sky: #3751d8 !default;
+$blue-sky: #aacffa !default;
+$light-blue-sky: #5b75ff !default;
+$light-blue: #edf4ff !default;
+$light-blue-2: #cfecff !default;
+$light-blue-3: #b0cff7 !default;
+
+$grey-dark: #151413 !default;
 $grey: #7a7a7a !default;
-$light-grey: #f4f4f4 !default;
+$light-grey: #b9b9b9 !default;
+$silver-dark: #424242 !default;
+$silver: #e0e0e0 !default;
 $red: #ff0000 !default;
+
 
 $colors: (
 	) !default;
-$colors: map-merge(("white": $white,
-			"black": $black,
-			"dark-blue": $dark-blue,
+$colors: map-merge(("black": $black,
+			"white": $white,
+			"white-dark": $white-dark,
 			"main-blue": $main-blue,
 			"blue": $blue,
+			"dark-blue": $dark-blue,
+			"dark-blue-2": $dark-blue-2,
+			"dark-blue-sky": $dark-blue-sky,
+			"blue-sky": $blue-sky,
+			"light-blue-sky": $light-blue-sky,
 			"light-blue": $light-blue,
+			"light-blue-2": $light-blue-2,
+			"light-blue-3": $light-blue-3,
+			"grey-dark": $grey-dark,
 			"grey": $grey,
 			"light-grey": $light-grey,
+			"silver-dark": $silver-dark,
+			"silver": $silver,
 			"red": $red),
 		$colors
 );
 
 $theme-colors: (
 	) !default;
-$theme-colors: map-merge(("white": $white,
-			"black": $black,
-			"dark-blue": $dark-blue,
+$theme-colors: map-merge(("black": $black,
+			"white": $white,
+			"white-dark": $white-dark,
 			"main-blue": $main-blue,
 			"blue": $blue,
+			"dark-blue": $dark-blue,
+			"dark-blue-2": $dark-blue-2,
+			"dark-blue-sky": $dark-blue-sky,
+			"blue-sky": $blue-sky,
+			"light-blue-sky": $light-blue-sky,
 			"light-blue": $light-blue,
+			"light-blue-2": $light-blue-2,
+			"light-blue-3": $light-blue-3,
+			"grey-dark": $grey-dark,
 			"grey": $grey,
 			"light-grey": $light-grey,
+			"silver-dark": $silver-dark,
+			"silver": $silver,
 			"red": $red),
 		$theme-colors
 );

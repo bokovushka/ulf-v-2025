@@ -17,7 +17,7 @@
 		// 	min-height: 595px;
 		// }
 		.head {
-			color: #ffffff;
+			color: var(--white);
 
 			@media (max-width: 639px) {
 				font-size: 24px;
@@ -29,7 +29,7 @@
 			font-size: 18px;
 			font-weight: 400;
 			line-height: 24px;
-			color: #ffffff;
+			color: var(--white);
 		}
 
 		.wrap-img {
@@ -111,7 +111,7 @@
 				font-size: 24px;
 				font-weight: 500;
 				line-height: 28px;
-				color: #ffffff;
+				color: var(--white);
 				margin-top: 15px;
 			}
 		}
@@ -134,7 +134,7 @@
 			transition: (0.3s ease-out 0s);
 
 			&:hover {
-				color: #0097fa;
+				color: var(--main-blue);
 
 				.subject-leasing-list--content {
 					&:after {
@@ -221,7 +221,7 @@
 		&:hover {
 			.subject-leasing-list--content {
 				padding-left: 60px;
-				color: #0097fa;
+				color: var(--main-blue);
 
 				@media (max-width: 1024px) {
 					padding-left: 15px;
@@ -328,7 +328,7 @@
 					color: #555555;
 
 					&:hover {
-						color: #0097fa;
+						color: var(--main-blue);
 					}
 				}
 			}
@@ -372,7 +372,7 @@
 			}
 
 			.businesses-program--content {
-				background: #f4f4f4;
+				background: var(--white);
 				padding: 35px;
 				height: 100%;
 				display: flex;
@@ -455,14 +455,14 @@
 			}
 
 			.why-we--title {
-				color: #ffffff;
+				color: var(--white);
 				margin-top: 10px;
 			}
 
 			.why-we--descrp {
 				font-size: 18px;
 				line-height: 24px;
-				color: #ffffff;
+				color: var(--white);
 			}
 		}
 	}
@@ -507,7 +507,7 @@
 					position: absolute;
 					top: 16px;
 					right: 16px;
-					background: #ffffff;
+					background: var(--white);
 				}
 
 				.card-title {
@@ -529,7 +529,7 @@
 			transition: (0.3s ease-out 0s);
 
 			&:hover {
-				color: #0097fa;
+				color: var(--main-blue);
 			}
 
 			&:first-child {
@@ -563,7 +563,7 @@
 
 //popular-questions-answers
 .popular-questions-answers {
-	background: #f7f7f7;
+	background: var(--white);
 
 	.questions--inner {
 
@@ -573,7 +573,7 @@
 				border: unset;
 				border-radius: 0;
 				border-bottom: 1px solid rgb(224, 224, 224);
-				background: #f7f7f7;
+				background: var(--white);
 
 				&:first-child {
 					border-top: 1px solid rgb(224, 224, 224);
@@ -592,7 +592,7 @@
 					border-radius: 0;
 					padding: 24px;
 					background: unset;
-					color: #0097fa;
+					color: var(--main-blue);
 					font-size: inherit;
 					line-height: inherit;
 					position: relative;
@@ -623,7 +623,7 @@
 					}
 
 					&.collapsed {
-						background: #f7f7f7;
+						background: var(--white);
 						color: #000000;
 
 						&::after {
@@ -658,14 +658,14 @@
 					font-size: 18px;
 					font-weight: 500;
 					line-height: 24px;
-					color: #b9b9b9;
+					color: var(--light-grey);
 					border-radius: unset;
 					padding: 0;
 					background: unset;
 
 					&.active {
 						text-decoration-line: underline;
-						color: #0097fa;
+						color: var(--main-blue);
 					}
 				}
 			}
@@ -721,7 +721,7 @@
 	justify-content: center;
 	transform: scale(0) rotate(10deg);
 	opacity: 0;
-	color: #ffffff;
+	color: var(--white);
 	font-size: 14px;
 	line-height: 20px;
 	text-align: center;
@@ -813,7 +813,7 @@
 		.link-button {
 			position: relative;
 			z-index: 2;
-			color: $white;
+			color: var(--white);
 		}
 
 		.description-info {
@@ -846,7 +846,7 @@
 			width: 40px;
 			min-width: 40px;
 			height: 40px;
-			background: $white;
+			background: var(--white);
 			border-radius: 50%;
 			position: relative;
 			border: 2px solid transparent;
@@ -893,7 +893,7 @@
 			width: 40px;
 			min-width: 40px;
 			height: 40px;
-			background: $main-blue;
+			background: var(--main-blue);
 			border-radius: 3px;
 			position: relative;
 			border: 2px solid transparent;
@@ -916,7 +916,7 @@
 		}
 
 		.description {
-			color: $grey;
+			color: var(--grey);
 		}
 	}
 }
@@ -952,7 +952,7 @@
 		z-index: 2;
 		display: flex;
 		flex-direction: column;
-		color: $white;
+		color: var(--white);
 		font-size: 16px;
 		line-height: 100%;
 
@@ -961,7 +961,7 @@
 		}
 
 		a {
-			color: $white;
+			color: var(--white);
 		}
 	}
 }
@@ -1021,7 +1021,7 @@
 		.name {
 			font-size: 16px;
 			line-height: 20px;
-			color: $white;
+			color: var(--white);
 		}
 	}
 
@@ -1030,7 +1030,7 @@
 		z-index: 2;
 		bottom: 32px;
 		right: 32px;
-		color: $white;
+		color: var(--white);
 		font-weight: 500;
 
 		.link-button {
@@ -1088,17 +1088,17 @@
 				right: 0;
 				width: 0;
 				height: 4px;
-				background: $black;
+				background: var(--black);
 				@include transition(0.3s ease-out 0s);
 			}
 
 			&:hover {
-				color: $black;
+				color: var(--black);
 				text-decoration: none;
 
 				&::after {
 					width: 100%;
-					background-color: $black;
+					background-color: var(--black);
 				}
 			}
 		}
@@ -1106,12 +1106,12 @@
 
 	.swiper-slide-active {
 		.item {
-			color: $black;
+			color: var(--black);
 			text-decoration: none;
 
 			&::after {
 				width: 100%;
-				background-color: $black;
+				background-color: var(--black);
 			}
 		}
 	}
@@ -1171,7 +1171,7 @@
 	}
 
 	&:hover {
-		color: $main-blue;
+		color: var(--main-blue);
 
 		.link-button {
 			&::before {
@@ -1207,7 +1207,7 @@
 			font-size: 16px;
 			font-weight: 500;
 			line-height: 20px;
-			color: $white;
+			color: var(--white);
 
 			@include sm-max {
 				top: 20px;
@@ -1225,7 +1225,7 @@
 			font-size: 24px;
 			font-weight: 500;
 			line-height: 28px;
-			color: $white;
+			color: var(--white);
 			column-gap: 24px;
 			cursor: pointer;
 
@@ -1238,7 +1238,7 @@
 
 			&:hover {
 				.icon {
-					background: $main-blue;
+					background: var(--main-blue);
 
 					&::after {
 						filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
@@ -1253,7 +1253,7 @@
 				width: 70px;
 				height: 70px;
 				border-radius: 50%;
-				background: $white;
+				background: var(--white);
 				display: flex;
 				justify-content: flex-end;
 				position: relative;
@@ -1351,7 +1351,7 @@
 	}
 
 	&:hover {
-		color: $main-blue;
+		color: var(--main-blue);
 
 		.link-button {
 			&::before {
@@ -1367,8 +1367,8 @@
 	gap: 12px;
 	font-weight: 500;
 	border: 2px solid rgba(208, 213, 221, 1);
-	background: $white;
-	color: $black;
+	background: var(--white);
+	color: var(--black);
 	width: max-content;
 	padding: 14px 34px;
 	font-size: 16px;
@@ -1423,12 +1423,12 @@
 		&:hover {
 			border: 2px solid #7a7a7a;
 			background: #7a7a7a;
-			color: $white;
+			color: var(--white);
 		}
 
 		&:active,
 		&:focus {
-			color: $white;
+			color: var(--white);
 		}
 
 		&:active {
@@ -1439,7 +1439,7 @@
 		&:focus {
 			border: 2px solid #111010;
 			background: #111010;
-			color: $white;
+			color: var(--white);
 
 			.link-button {
 				&::before {
@@ -1450,9 +1450,9 @@
 	}
 
 	&:disabled {
-		border-color: $light-grey;
-		background: $light-grey;
-		color: $grey;
+		border-color: var(--light-grey);
+		background: var(--light-grey);
+		color: var(--grey);
 		opacity: 1;
 		cursor: not-allowed;
 	}
@@ -1505,7 +1505,7 @@
 			height: 80px;
 			border-radius: 4px;
 			overflow: hidden;
-			background: $white;
+			background: var(--white);
 			padding: 17px;
 
 			@include sm-max {
@@ -1560,7 +1560,7 @@
 		font-size: 16px;
 		font-weight: 500;
 		line-height: 20px;
-		color: $grey;
+		color: var(--grey);
 	}
 
 	.accordion-hidden {
@@ -1609,7 +1609,7 @@
 					border-radius: 0;
 					padding: 32px 24px;
 					background: unset;
-					color: $black;
+					color: var(--black);
 					font-size: inherit;
 					line-height: inherit;
 					position: relative;
@@ -1642,10 +1642,10 @@
 					}
 
 					&.collapsed {
-						// background: #f7f7f7;
-						color: $black;
+						color: var(--black);
 						border-radius: 4px;
-						background: rgba(241, 241, 241, 1);
+						background: var(--white);
+						;
 
 						&::after {
 							background: url(../img/icons/icons.svg#plus) no-repeat center;
@@ -1707,7 +1707,7 @@
 			font-size: 12px;
 			font-weight: 400;
 			line-height: 14px;
-			color: $grey;
+			color: var(--grey);
 		}
 
 		.article-title {
@@ -1734,7 +1734,7 @@
 
 	.contact-info {
 		.item {
-			color: $white;
+			color: var(--white);
 
 			@include sm-max {
 				font-size: 14px;
@@ -1774,7 +1774,7 @@
 				font-size: 16px;
 				font-weight: 500;
 				line-height: 20px;
-				color: #ffffff;
+				color: var(--white);
 
 				@include sm-max {
 					font-size: 14px;
@@ -1799,7 +1799,7 @@
 
 		.field {
 			label {
-				color: $white;
+				color: var(--white);
 			}
 		}
 
@@ -1813,7 +1813,7 @@
 		}
 
 		.custom-control.custom-checkbox .custom-control-label span a:hover {
-			color: $black;
+			color: var(--black);
 		}
 	}
 }
@@ -1866,7 +1866,7 @@
 	.item {
 		height: 100%;
 		padding: 40px 60px;
-		color: $white;
+		color: var(--white);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -1918,7 +1918,7 @@
 		transition: 0.3s ease-out 0s;
 
 		&:hover {
-			// background: #0097fa;
+			// background: var(--main-blue);
 
 			svg {
 				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
@@ -1991,7 +1991,7 @@
 				height: 12px;
 				// border: 1px solid rgba(0, 151, 250, 1);
 				position: relative;
-				background: $white;
+				background: var(--white);
 
 				&::before {
 					content: "";
@@ -2010,9 +2010,9 @@
 	}
 
 	.btn-link-catalog {
-		border: 2px solid $main-blue;
-		background: $main-blue;
-		color: $white;
+		border: 2px solid var(--main-blue);
+		background: var(--main-blue);
+		color: var(--white);
 		width: max-content;
 		padding: 20px 50px;
 		font-size: 16px;
@@ -2041,12 +2041,12 @@
 			&:hover {
 				border: 2px solid #008cc7;
 				background: #008cc7;
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 			}
 
 			&:active {
@@ -2057,14 +2057,14 @@
 			&:focus {
 				border: 2px solid #0f68ba;
 				background: #0f68ba;
-				color: $white;
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -2180,7 +2180,7 @@
 
 		&.error {
 			.form-control {
-				border: 1px solid $red !important;
+				border: 1px solid var(--red) !important;
 			}
 
 			&.field-2 {
@@ -2202,7 +2202,7 @@
 		}
 
 		a {
-			color: $main-blue;
+			color: var(--main-blue);
 
 			&:hover {
 				color: #0080d4;
@@ -2297,7 +2297,7 @@
 
 	.form-inner {
 		border-radius: 4px;
-		background: $white;
+		background: var(--white);
 
 		@include sm-max {
 			background: unset;
@@ -2328,7 +2328,7 @@
 				&.active {
 
 					background: rgba(0, 151, 250, 1);
-					color: $white;
+					color: var(--white);
 				}
 			}
 		}
@@ -2510,7 +2510,7 @@
 			}
 
 			.text {
-				color: $black;
+				color: var(--black);
 				z-index: 2;
 				padding: 8px 24px;
 				font-size: 14px;
@@ -2521,14 +2521,14 @@
 
 		.custom-control-input:checked~.custom-control-label {
 			.text {
-				color: $white;
+				color: var(--white);
 			}
 
 			&::before {
 				opacity: 1;
 				visibility: visible;
-				background: $main-blue !important;
-				color: #ffffff;
+				background: var(--main-blue) !important;
+				color: var(--white);
 			}
 
 			&::after {
@@ -2591,8 +2591,8 @@
 	.contact-info-bg {
 		height: 135px;
 		position: absolute;
-		background: $main-blue;
-		color: $white;
+		background: var(--main-blue);
+		color: var(--white);
 		width: 89%;
 		bottom: 18px;
 		border-radius: 0px 0px 45px 45px;
@@ -2609,7 +2609,7 @@
 		bottom: 70px;
 
 		a {
-			color: $white;
+			color: var(--white);
 		}
 
 	}
@@ -2709,7 +2709,7 @@
 			}
 
 			.icon {
-				background: $main-blue;
+				background: var(--main-blue);
 				border-radius: 50%;
 				width: 80px;
 				height: 80px;
@@ -2755,9 +2755,9 @@
 	}
 
 	.btn-link-catalog {
-		border: 2px solid $white;
-		background: $white;
-		color: $black;
+		border: 2px solid var(--white);
+		background: var(--white);
+		color: var(--black);
 		width: max-content;
 		padding: 20px 50px;
 		font-size: 16px;
@@ -2785,14 +2785,14 @@
 
 		&:not(:disabled) {
 			&:hover {
-				border: 2px solid $black;
-				background: $black;
-				color: $white;
+				border: 2px solid var(--black);
+				background: var(--black);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 
 				.link-button {
 					&::before {
@@ -2802,21 +2802,21 @@
 			}
 
 			&:active {
-				border: 2px solid $black;
-				background: $black;
+				border: 2px solid var(--black);
+				background: var(--black);
 			}
 
 			&:focus {
-				border: 2px solid $black;
-				background: $black;
-				color: $white;
+				border: 2px solid var(--black);
+				background: var(--black);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -2847,9 +2847,9 @@
 
 .section-assistance-hero {
 	.btn-link-catalog {
-		border: 2px solid $white;
-		background: $white;
-		color: $black;
+		border: 2px solid var(--white);
+		background: var(--white);
+		color: var(--black);
 		width: max-content;
 		padding: 20px 50px;
 		font-size: 16px;
@@ -2877,14 +2877,14 @@
 
 		&:not(:disabled) {
 			&:hover {
-				border: 2px solid $main-blue;
-				background: $main-blue;
-				color: $white;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
+				color: var(--white);
 			}
 
 			&:active,
 			&:focus {
-				color: $white;
+				color: var(--white);
 
 				.link-button {
 					&::before {
@@ -2894,21 +2894,21 @@
 			}
 
 			&:active {
-				border: 2px solid $main-blue;
-				background: $main-blue;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
 			}
 
 			&:focus {
-				border: 2px solid $main-blue;
-				background: $main-blue ;
-				color: $white;
+				border: 2px solid var(--main-blue);
+				background: var(--main-blue);
+				color: var(--white);
 			}
 		}
 
 		&:disabled {
-			border-color: $light-grey;
-			background: $light-grey;
-			color: $grey;
+			border-color: var(--light-grey);
+			background: var(--light-grey);
+			color: var(--grey);
 			opacity: 1;
 			cursor: not-allowed;
 		}
@@ -3000,7 +3000,7 @@
 			font-size: 18px;
 			font-weight: 500;
 			line-height: 24px;
-			color: $white;
+			color: var(--white);
 
 			@include sm-max {
 				font-size: 14px;
@@ -3068,5 +3068,5 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 20px;
-	color: #7a7a7a;
+	color: var(--grey);
 }
