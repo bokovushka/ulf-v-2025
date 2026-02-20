@@ -3523,8 +3523,11 @@ form {
   border-radius: 24px;
 }
 .seo .content::-webkit-scrollbar-thumb {
-  background-color: var(--dark-blue);
+  background-color: var(--main-blue);
   border-radius: 20px;
+}
+.scheme-blue .seo .content::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue);
 }
 .seo ul {
   counter-reset: items;
@@ -3679,6 +3682,16 @@ form {
     width: 745px;
   }
 }
+@media (max-width: 575px) {
+  .seo table tbody {
+    width: 554px;
+  }
+}
+@media (max-width: 380px) {
+  .seo table tbody {
+    width: 430px;
+  }
+}
 .seo table td,
 .seo table th {
   border: unset;
@@ -3691,7 +3704,7 @@ form {
 }
 .seo table tr:nth-child(2n) {
   font-weight: 500;
-  background: var(--white);
+  background: var(--white-2);
 }
 .seo table td:first-child {
   width: 45%;
@@ -7648,7 +7661,7 @@ video {
   width: 20px;
   height: 20px;
   font-size: 12px;
-  line-height: 145.34%;
+  line-height: 14px;
 }
 .accessability-menu .settings-visual .settings-visual--item.color-scheme .color-scheme--change .settings-option--icon::before {
   content: "";

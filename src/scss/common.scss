@@ -2125,8 +2125,12 @@ form {
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: var(--dark-blue);
+			background-color: var(--main-blue);
 			border-radius: 20px;
+
+			.scheme-blue & {
+				background-color: var(--dark-blue);
+			}
 		}
 	}
 
@@ -2308,6 +2312,14 @@ form {
 		@include sm-max {
 			width: 745px;
 		}
+
+		@include xs-max {
+			width: 554px;
+		}
+
+		@media (max-width: 380px) {
+			width: 430px;
+		}
 	}
 
 	table td,
@@ -2324,7 +2336,7 @@ form {
 
 	table tr:nth-child(2n) {
 		font-weight: 500;
-		background: var(--white);
+		background: var(--white-2);
 	}
 
 	table td:first-child {
