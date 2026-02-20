@@ -4,6 +4,8 @@
 	--black: #2b2b2b;
 	--white: #fafafa;
 	--white-dark: #f2f2f2;
+	--white-2: #E0E0E0;
+	--white-3: #f1f1f1;
 
 	--main-blue: #0097fa;
 	--blue: #3da6d3;
@@ -15,6 +17,7 @@
 	--light-blue: #edf4ff;
 	--light-blue-2: #cfecff;
 	--light-blue-3: #b0cff7;
+	--light-blue-4: #8bb0de;
 
 	--grey-dark: #151413;
 	--grey: #7a7a7a;
@@ -62,7 +65,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--black) !important;
 		background: var(--black) !important;
 		color: var(--white) !important;
@@ -174,7 +177,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--black) !important;
 		background: var(--black) !important;
 		color: var(--white) !important;
@@ -297,7 +300,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--dark-blue) !important;
 		background: var(--dark-blue) !important;
 		color: var(--white) !important;
@@ -439,13 +442,16 @@
 			color: var(--white);
 		}
 
-		.scheme-blue & {}
-
 		.close {
 			top: 16px;
 			right: 16px;
 
 			background: var(--white-dark);
+
+			.scheme-blue & {
+				background: var(--dark-blue-2);
+			}
+
 
 			@include md-max {
 				top: 16px;
@@ -597,8 +603,8 @@
 							color: var(--black);
 
 							&::before {
-								background: var(--light-blue-2);
-								border: 1px solid var(--light-blue-2);
+								background: var(--dark-blue-2);
+								border: 1px solid var(--dark-blue-2);
 
 								.scheme-black-white & {
 									background: var(--silver-dark);
@@ -679,6 +685,7 @@
 
 					.scheme-blue & {
 						border-color: var(--blue-3);
+						background: var(--blue-sky);
 					}
 
 					&.active {

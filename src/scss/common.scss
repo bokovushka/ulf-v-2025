@@ -1061,6 +1061,7 @@ form {
 			border-radius: 4px;
 			border: unset !important;
 			height: 100px;
+			border: 1px solid var(--white) !important;
 
 			&:hover,
 			&:focus {
@@ -1258,7 +1259,7 @@ form {
 				top: 2px;
 				width: 24px;
 				height: 24px;
-				@include transition(0.3s ease-out 0s);
+				// @include transition(0.3s ease-out 0s);
 				// filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg)
 				// 	brightness(105%) contrast(105%);
 			}
@@ -1293,7 +1294,7 @@ form {
 					&::before {
 						opacity: 1;
 						visibility: visible;
-						filter: brightness(0) saturate(100%) invert(65%) sepia(95%) saturate(4493%) hue-rotate(171deg) brightness(106%) contrast(103%);
+						filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 					}
 				}
 			}
@@ -1316,7 +1317,7 @@ form {
 					color: var(--white);
 
 					&:hover {
-						color: var(--blue);
+						color: var(--black);
 					}
 				}
 			}
@@ -1347,7 +1348,12 @@ form {
 					background-size: cover;
 					opacity: 1;
 					visibility: visible;
-					@include transition(0.3s ease-out 0s);
+
+					.scheme-white-black &,
+					.scheme-black-white &,
+					.scheme-blue & {
+						filter: grayscale(1);
+					}
 				}
 			}
 		}
@@ -1633,6 +1639,10 @@ form {
 				background: url(../img/icons/icons.svg#i-arrow-two-right-static) no-repeat center;
 				background-size: cover;
 				filter: brightness(0) saturate(100%) invert(98%) sepia(5%) saturate(2%) hue-rotate(276deg) brightness(124%) contrast(100%);
+
+				.scheme-blue & {
+					filter: brightness(0) saturate(100%) invert(56%) sepia(65%) saturate(289%) hue-rotate(179deg) brightness(88%) contrast(86%);
+				}
 			}
 		}
 
@@ -1732,11 +1742,15 @@ form {
 	.swiper-pagination-bullet {
 		background: unset;
 		opacity: 1;
-		border: 1px solid var(--white);
+		border: 1px solid var(--white-2);
 		width: 100%;
 		height: 0;
 		margin: 0 !important;
 		border-radius: 0;
+
+		.scheme-blue & {
+			border-color: var(--light-blue-3);
+		}
 
 		&.swiper-pagination-bullet-active {
 			width: 100%;
@@ -2111,7 +2125,7 @@ form {
 		}
 
 		&::-webkit-scrollbar-thumb {
-			background-color: var(--blue);
+			background-color: var(--dark-blue);
 			border-radius: 20px;
 		}
 	}
@@ -2415,6 +2429,7 @@ form {
 #btnCall {
 	display: inline-block;
 	background: var(--main-blue);
+	border: unset;
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
@@ -2430,6 +2445,18 @@ form {
 	justify-content: center;
 	padding: 0;
 
+	.scheme-white-black & {
+		background: rgb(43 43 43);
+	}
+
+	.scheme-black-white & {
+		background: rgb(43 43 43);
+	}
+
+	.scheme-blue & {
+		background: var(--dark-blue);
+	}
+
 	@include sm-max {
 		width: 55px;
 		height: 55px;
@@ -2441,6 +2468,10 @@ form {
 		filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 		@include transition(0.3s ease-out 0s);
 
+		.scheme-blue & {
+			filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+		}
+
 		@include sm-max {
 			width: 24px;
 			height: 24px;
@@ -2450,8 +2481,21 @@ form {
 	&:hover {
 		background: rgb(0, 151, 250, 0.5);
 
+		.scheme-white-black &,
+		.scheme-black-white & {
+			background: rgb(43, 43, 43, 0.5);
+		}
+
+		.scheme-blue & {
+			background: rgb(112 143 198 / 50%);
+		}
+
 		svg {
-			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+
+			.scheme-blue & {
+				filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+			}
 		}
 	}
 }
@@ -2459,12 +2503,48 @@ form {
 #btnCall.at-footer {
 	background: var(--white);
 
+	.scheme-white-black & {
+		background: rgb(43 43 43);
+	}
+
+	.scheme-black-white & {
+		background: var(--light-grey);
+	}
+
+	.scheme-blue & {
+		background: var(--light-blue);
+	}
+
 	&:hover {
 		background: rgb(255, 255, 255, 0.5);
+
+		.scheme-white-black & {
+			background: rgb(43, 43, 43, 0.5);
+		}
+
+		.scheme-black-white & {
+			background: rgb(185 185 185 / 50%);
+		}
+
+		.scheme-blue & {
+			background: rgb(139 176 222 / 50%);
+		}
 	}
 
 	svg {
 		filter: brightness(0) saturate(100%) invert(51%) sepia(38%) saturate(6358%) hue-rotate(179deg) brightness(99%) contrast(103%);
+
+		.scheme-white-black & {
+			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+		}
+
+		.scheme-black-white & {
+			filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+		}
+
+		.scheme-blue & {
+			filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+		}
 	}
 }
 

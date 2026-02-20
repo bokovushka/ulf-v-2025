@@ -4,6 +4,8 @@
 $black: #2b2b2b !default;
 $white: #fafafa !default;
 $white-dark: #f2f2f2 !default;
+$white-2: #E0E0E0 !default;
+$white-3: #f1f1f1 !default;
 
 $main-blue: #0097fa !default;
 $blue: #3da6d3 !default;
@@ -15,6 +17,7 @@ $light-blue-sky: #5b75ff !default;
 $light-blue: #edf4ff !default;
 $light-blue-2: #cfecff !default;
 $light-blue-3: #b0cff7 !default;
+$light-blue-4: #8bb0de !default;
 
 $grey-dark: #151413 !default;
 $grey: #7a7a7a !default;
@@ -28,6 +31,8 @@ $colors: (
 	) !default;
 $colors: map-merge(("black": $black,
 			"white": $white,
+			"white-2": $white-2,
+			"white-3": $white-3,
 			"white-dark": $white-dark,
 			"main-blue": $main-blue,
 			"blue": $blue,
@@ -39,6 +44,7 @@ $colors: map-merge(("black": $black,
 			"light-blue": $light-blue,
 			"light-blue-2": $light-blue-2,
 			"light-blue-3": $light-blue-3,
+			"light-blue-4": $light-blue-4,
 			"grey-dark": $grey-dark,
 			"grey": $grey,
 			"light-grey": $light-grey,
@@ -52,6 +58,8 @@ $theme-colors: (
 	) !default;
 $theme-colors: map-merge(("black": $black,
 			"white": $white,
+			"white-2": $white-2,
+			"white-3": $white-3,
 			"white-dark": $white-dark,
 			"main-blue": $main-blue,
 			"blue": $blue,
@@ -63,6 +71,7 @@ $theme-colors: map-merge(("black": $black,
 			"light-blue": $light-blue,
 			"light-blue-2": $light-blue-2,
 			"light-blue-3": $light-blue-3,
+			"light-blue-4": $light-blue-4,
 			"grey-dark": $grey-dark,
 			"grey": $grey,
 			"light-grey": $light-grey,
