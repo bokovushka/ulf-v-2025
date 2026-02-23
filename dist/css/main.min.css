@@ -5871,6 +5871,7 @@ video {
   align-items: center;
   gap: 12px;
   font-weight: 500;
+  transition: unset !important;
 }
 .btn-link-catalog span {
   font-size: 16px;
@@ -5895,16 +5896,25 @@ video {
   height: 24px;
   background: url(../img/icons/icons.svg#corner-down-right) 50% 50% no-repeat;
   background-size: 100%;
-  -webkit-transition: 0.3s ease-out 0s;
-  -moz-transition: 0.3s ease-out 0s;
-  -o-transition: 0.3s ease-out 0s;
-  transition: 0.3s ease-out 0s;
+  transition: unset !important;
 }
 .btn-link-catalog:hover {
   color: var(--main-blue);
 }
+.scheme-white-black .btn-link-catalog:hover, .scheme-black-white .btn-link-catalog:hover {
+  color: var(--grey);
+}
+.scheme-blue .btn-link-catalog:hover {
+  color: var(--light-blue);
+}
 .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(48%) sepia(88%) saturate(3815%) hue-rotate(182deg) brightness(100%) contrast(101%);
+}
+.scheme-white-black .btn-link-catalog:hover .link-button::before, .scheme-black-white .btn-link-catalog:hover .link-button::before {
+  filter: brightness(0) saturate(100%) invert(52%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(91%) contrast(93%);
+}
+.scheme-blue .btn-link-catalog:hover .link-button::before {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(5%) saturate(2897%) hue-rotate(185deg) brightness(102%) contrast(94%);
 }
 
 .btn-link-main {
@@ -6028,20 +6038,26 @@ video {
     justify-content: space-between;
   }
 }
+.popular-brands .btn-link-catalog {
+  transition: unset;
+}
 .scheme-blue .popular-brands .btn-link-catalog span {
   color: var(--black);
 }
+.scheme-white-black .popular-brands .btn-link-catalog:hover span, .scheme-black-white .popular-brands .btn-link-catalog:hover span {
+  color: var(--grey);
+}
 .scheme-blue .popular-brands .btn-link-catalog:hover span {
-  color: var(--black);
+  color: var(--light-blue);
 }
 .scheme-white-black .popular-brands .btn-link-catalog:hover .link-button::before {
-  filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(52%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(91%) contrast(93%);
 }
 .scheme-black-white .popular-brands .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(52%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(91%) contrast(93%);
 }
 .scheme-blue .popular-brands .btn-link-catalog:hover .link-button::before {
-  filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(80%) sepia(5%) saturate(2897%) hue-rotate(185deg) brightness(102%) contrast(94%);
 }
 
 .popular-brands--swiper .swiper-slide {
