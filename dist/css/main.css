@@ -2823,6 +2823,9 @@ form {
   height: 100px;
   border: 1px solid var(--white) !important;
 }
+.scheme-blue .field textarea.form-control {
+  border: 1px solid var(--dark-blue) !important;
+}
 .field textarea.form-control:hover, .field textarea.form-control:focus, .field textarea.form-control:active {
   border: 1px solid var(--white) !important;
 }
@@ -4968,6 +4971,9 @@ video {
 .program-conditions .program-conditions--list .program-conditions--item .program-conditions--descrp a:hover {
   color: var(--main-blue);
 }
+.program-conditions .program-conditions--list .program-conditions--item span:hover {
+  color: var(--white) !important;
+}
 .program-conditions .btn-main-blue {
   border: 2px solid var(--main-blue);
   background: var(--main-blue);
@@ -5242,8 +5248,14 @@ video {
 .subject-documents ul a:hover li {
   color: var(--grey);
 }
+.scheme-blue .subject-documents ul a:hover li {
+  color: var(--dark-blue);
+}
 .subject-documents ul a:first-child li {
   border-top: 1px solid #e0e0e0;
+}
+.scheme-blue .subject-documents ul a:first-child li {
+  border-color: var(--dark-blue);
 }
 .subject-documents ul li {
   font-size: 40px;
@@ -5256,6 +5268,9 @@ video {
 }
 .scheme-black-white .subject-documents ul li {
   color: var(--white);
+}
+.scheme-blue .subject-documents ul li {
+  border-color: var(--dark-blue);
 }
 @media (max-width: 1199px) {
   .subject-documents ul li {
@@ -5277,7 +5292,7 @@ video {
   background: var(--black);
 }
 .scheme-blue .popular-questions-answers {
-  background: var(--light-blue-2);
+  background: #c5d8ef;
 }
 .popular-questions-answers .questions--inner #accordion-questions .card {
   border: unset;
@@ -5286,13 +5301,13 @@ video {
   background: var(--white);
 }
 .scheme-blue .popular-questions-answers .questions--inner #accordion-questions .card {
-  border-color: var(--dark-blue);
+  border-color: var(--white);
 }
 .popular-questions-answers .questions--inner #accordion-questions .card:first-child {
   border-top: 1px solid #e0e0e0;
 }
 .scheme-blue .popular-questions-answers .questions--inner #accordion-questions .card:first-child {
-  border-color: var(--dark-blue);
+  border-color: var(--white);
 }
 .popular-questions-answers .questions--inner #accordion-questions .card-header {
   padding: 0;
@@ -6245,6 +6260,9 @@ video {
 .popular-brands .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
+.scheme-blue .popular-brands .btn-link-catalog .link-button::before {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+}
 .scheme-white-black .popular-brands .btn-link-catalog:hover span, .scheme-black-white .popular-brands .btn-link-catalog:hover span {
   color: var(--grey);
 }
@@ -6321,6 +6339,9 @@ video {
   background: #f1f1f1;
   height: 222px;
 }
+.scheme-blue .our-partners--swiper .item {
+  background: var(--light-blue-2);
+}
 @media (max-width: 767px) {
   .our-partners--swiper .item {
     height: 142px;
@@ -6353,10 +6374,10 @@ video {
   color: var(--grey) !important;
 }
 .scheme-blue .questions-popular .head span {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-blue .questions-popular .head span:hover {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 @media (max-width: 767px) {
   .questions-popular .btn {
@@ -6594,10 +6615,10 @@ video {
   color: var(--grey) !important;
 }
 .scheme-blue .news .head span {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-blue .news .head span:hover {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 
 @media (max-width: 1199px) {
@@ -7405,6 +7426,12 @@ video {
 .scheme-black-white .section-calculator {
   background: var(--silver-dark);
 }
+.scheme-blue .section-calculator {
+  background: rgba(139, 176, 222, 0.5);
+}
+.scheme-blue .section-calculator .field label {
+  color: var(--black);
+}
 .section-calculator .form-inner {
   border-radius: 4px;
   background: var(--white);
@@ -7500,6 +7527,9 @@ video {
 .scheme-white-black .section-calculator .calc-result, .scheme-black-white .section-calculator .calc-result {
   background: var(--silver);
 }
+.scheme-blue .section-calculator .calc-result {
+  background: var(--light-blue);
+}
 @media (max-width: 767px) {
   .section-calculator .calc-result {
     font-size: 14px;
@@ -7550,6 +7580,9 @@ video {
   background: #f2f2f2;
   width: max-content;
   margin: 0 auto;
+}
+.scheme-blue .section-calculator .choose-radio {
+  background: var(--light-blue);
 }
 .section-calculator .choose-radio .custom-control {
   background: unset;
@@ -7611,6 +7644,9 @@ video {
   z-index: 1;
   border-radius: 100px;
   overflow: hidden;
+}
+.scheme-blue .section-calculator .choose-radio .custom-control-label::before {
+  background: var(--light-blue) !important;
 }
 .section-calculator .choose-radio .custom-control-label .text {
   color: var(--black);
@@ -7763,10 +7799,10 @@ video {
   color: var(--grey) !important;
 }
 .scheme-blue .section-assistance .head span {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-blue .section-assistance .head span:hover {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .section-assistance .wrap-assistance-mobile {
   position: relative;
@@ -8243,10 +8279,10 @@ video {
   color: var(--grey) !important;
 }
 .scheme-blue .benefits-assistance .head span {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-blue .benefits-assistance .head span:hover {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .benefits-assistance .wrap-buttons {
   display: flex;
@@ -8441,7 +8477,7 @@ video {
 .scheme-blue .why-we .head span,
 .scheme-blue .popular-questions-answers .head span,
 .scheme-blue .section-calculator .head span {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-blue .subject-leasing--cards .head span:hover,
 .scheme-blue .benefits-leasing .head span:hover,
@@ -8453,7 +8489,7 @@ video {
 .scheme-blue .why-we .head span:hover,
 .scheme-blue .popular-questions-answers .head span:hover,
 .scheme-blue .section-calculator .head span:hover {
-  color: var(--light-blue-3) !important;
+  color: var(--dark-blue) !important;
 }
 .scheme-black-white .subject-leasing--cards .subhead,
 .scheme-black-white .benefits-leasing .subhead,
@@ -9155,9 +9191,9 @@ html.images-hide .socials svg {
 }
 .scheme-black-white body,
 .scheme-black-white html {
-  background: var(--black);
+  background: #c5d8ef;
 }
 .scheme-blue body,
 .scheme-blue html {
-  background: var(--light-blue-2);
+  background: rgba(139, 176, 222, 0.5);
 }

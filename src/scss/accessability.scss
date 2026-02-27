@@ -890,10 +890,10 @@ html {
 	}
 
 	.scheme-black-white & {
-		background: var(--black);
+		background: rgb(197 216 239);
 	}
 
 	.scheme-blue & {
-		background: var(--light-blue-2);
+		background: rgb(139 176 222 / 50%);
 	}
 }

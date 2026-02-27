@@ -1085,6 +1085,10 @@ form {
 			height: 100px;
 			border: 1px solid var(--white) !important;
 
+			.scheme-blue & {
+				border: 1px solid var(--dark-blue) !important;
+			}
+
 			&:hover,
 			&:focus,
 			&:active {
