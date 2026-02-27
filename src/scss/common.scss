@@ -1086,7 +1086,8 @@ form {
 			border: 1px solid var(--white) !important;
 
 			&:hover,
-			&:focus {
+			&:focus,
+			&:active {
 				border: 1px solid var(--white) !important;
 
 				.scheme-white-black & {
@@ -1097,7 +1098,9 @@ form {
 					border: 1px solid #e0e0e0 !important;
 				}
 
-				.scheme-blue & {}
+				.scheme-blue & {
+					border: 1px solid var(--dark-blue) !important;
+				}
 			}
 
 			&:not(:placeholder-shown) {
@@ -1444,6 +1447,10 @@ form {
 	line-height: 18px;
 	color: rgba(154, 154, 154, 1);
 	margin-bottom: 12px;
+
+	.scheme-black-white & {
+		color: var(--black);
+	}
 }
 
 .choose-radio {
@@ -1776,6 +1783,10 @@ form {
 
 		svg {
 			filter: brightness(0) saturate(100%) invert(4%) sepia(4%) saturate(593%) hue-rotate(314deg) brightness(101%) contrast(95%);
+
+			.scheme-black-white & {
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+			}
 		}
 	}
 
@@ -1784,6 +1795,10 @@ form {
 		height: 24px;
 		filter: brightness(0) saturate(100%) invert(42%) sepia(98%) saturate(1%) hue-rotate(320deg) brightness(94%) contrast(83%);
 		transition: 0.3s ease-out 0s;
+
+		.scheme-black-white & {
+			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+		}
 	}
 
 	&:not(.swiper-button-disabled):hover {
@@ -1834,6 +1849,10 @@ form {
 			height: 0;
 			border: 1px solid var(--black);
 			position: relative;
+
+			.scheme-black-white & {
+				border-color: var(--grey);
+			}
 
 			// &::before {
 			// 	content: "";
@@ -1986,6 +2005,10 @@ form {
 			background: var(--white);
 			color: var(--black);
 
+			.scheme-black-white & {
+				background: var(--grey);
+			}
+
 			.modal-body {
 				position: static;
 
@@ -2000,12 +2023,42 @@ form {
 					@include transition(0.3s ease-out 0s);
 					z-index: 2;
 
+					.scheme-black-white & {
+						background: var(--silver);
+					}
+
 					&:hover {
 						opacity: 0.5;
 					}
 
 					span {
 						display: flex;
+					}
+				}
+
+				.subhead {
+					.scheme-black-white & {
+						color: var(--black) !important;
+					}
+				}
+
+				.btn-link-main {
+					.scheme-black-white & {
+						background: var(--black);
+						border-color: var(--black);
+
+						span {
+							color: var(--white);
+
+							&::before {
+								filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+							}
+						}
+
+						&:hover {
+							background: var(--silver-dark);
+							border-color: var(--silver-dark);
+						}
 					}
 				}
 
@@ -2152,8 +2205,16 @@ form {
 		&:not(.btn) {
 			color: var(--blue);
 
+			.scheme-black-white & {
+				color: var(--white);
+			}
+
 			&:hover {
 				color: var(--dark-blue);
+
+				.scheme-black-white & {
+					color: var(--grey);
+				}
 			}
 		}
 	}
@@ -2161,6 +2222,10 @@ form {
 	p {
 		color: var(--grey);
 		margin-bottom: 16px;
+
+		.scheme-black-white & {
+			color: var(--white);
+		}
 
 		&:last-of-type {
 			margin-bottom: 40px;
@@ -2235,6 +2300,10 @@ form {
 			position: relative;
 			color: var(--grey);
 
+			.scheme-black-white & {
+				color: var(--white);
+			}
+
 			@include sm-max {
 				font-size: 14px;
 				line-height: 18px;
@@ -2263,6 +2332,10 @@ form {
 				top: 8px;
 				left: 0px;
 				z-index: 2;
+
+				.scheme-black-white & {
+					filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+				}
 			}
 
 			p,
@@ -2302,6 +2375,10 @@ form {
 			line-height: 20px;
 			color: var(--grey);
 
+			.scheme-black-white & {
+				color: var(--white);
+			}
+
 			@include sm-max {
 				font-size: 14px;
 				line-height: 18px;
@@ -2321,6 +2398,10 @@ form {
 				padding-right: 10px;
 				color: var(--grey);
 				font-weight: 400;
+
+				.scheme-black-white & {
+					color: var(--white);
+				}
 			}
 
 			li {
@@ -2414,6 +2495,10 @@ form {
 	table tr:nth-child(2n) {
 		font-weight: 500;
 		background: var(--white-2);
+
+		.scheme-black-white & {
+			background: var(--grey);
+		}
 	}
 
 	table td:first-child {
@@ -2539,7 +2624,7 @@ form {
 	}
 
 	.scheme-black-white & {
-		background: rgb(43 43 43);
+		background: var(--grey);
 	}
 
 	.scheme-blue & {
@@ -2570,8 +2655,11 @@ form {
 	&:hover {
 		background: rgb(0, 151, 250, 0.5);
 
-		.scheme-white-black &,
 		.scheme-black-white & {
+			background: rgb(122, 122, 122, 0.5);
+		}
+
+		.scheme-white-black & {
 			background: rgb(43, 43, 43, 0.5);
 		}
 
@@ -2628,7 +2716,7 @@ form {
 		}
 
 		.scheme-black-white & {
-			filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 		}
 
 		.scheme-blue & {

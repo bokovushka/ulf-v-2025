@@ -8,7 +8,7 @@
 	}
 
 	.scheme-black-white & {
-		background: var(--black);
+		background: var(--black-2);
 	}
 
 	.scheme-blue & {
@@ -187,7 +187,7 @@
 		}
 
 		.scheme-black-white & {
-			background: var(--black);
+			background: var(--black-2);
 		}
 
 		.scheme-blue & {
@@ -347,6 +347,10 @@
 							line-height: 18px;
 							font-weight: 400;
 
+							.scheme-black-white & {
+								color: var(--white);
+							}
+
 							&:not(:last-child) {
 								margin-bottom: 10px;
 							}
@@ -363,6 +367,11 @@
 					right: -70px;
 					min-width: 150px;
 
+					.scheme-black-white & {
+						background: var(--grey);
+						border-color: var(--grey);
+					}
+
 					@include xxl-max {
 						right: unset;
 						left: 0;
@@ -377,6 +386,11 @@
 					left: unset;
 					right: -70px;
 					min-width: 150px;
+
+					.scheme-black-white & {
+						background: var(--grey);
+						border-color: var(--grey);
+					}
 
 					@include xxl-max {
 						right: unset;

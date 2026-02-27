@@ -155,6 +155,10 @@
 		}
 	}
 
+	.text-grey {
+		color: var(--white) !important;
+	}
+
 	.partners-preview .text-main-blue {
 		color: var(--white) !important;
 	}
@@ -883,5 +887,13 @@ html {
 		.socials svg {
 			opacity: 0;
 		}
+	}
+
+	.scheme-black-white & {
+		background: var(--black);
+	}
+
+	.scheme-blue & {
+		background: var(--light-blue-2);
 	}
 }
