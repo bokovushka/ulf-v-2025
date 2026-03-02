@@ -9191,7 +9191,7 @@ html.images-hide .socials svg {
 }
 .scheme-black-white body,
 .scheme-black-white html {
-  background: #c5d8ef;
+  background: var(--black);
 }
 .scheme-blue body,
 .scheme-blue html {
