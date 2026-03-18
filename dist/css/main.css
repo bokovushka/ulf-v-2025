@@ -6257,9 +6257,6 @@ video {
 .scheme-black-white .popular-brands .btn-link-catalog span {
   color: var(--white);
 }
-.popular-brands .btn-link-catalog .link-button::before {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
-}
 .scheme-blue .popular-brands .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 }
@@ -8076,8 +8073,7 @@ video {
 }
 
 .section-assistance-hero .btn-link-catalog,
-.about-assistance .btn-link-catalog,
-.section-hero .btn-link-catalog {
+.about-assistance .btn-link-catalog {
   border: 2px solid var(--white);
   background: var(--white);
   color: var(--black);
@@ -8090,158 +8086,128 @@ video {
   transition: 0.3s ease-out 0s;
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog,
-.scheme-white-black .about-assistance .btn-link-catalog,
-.scheme-white-black .section-hero .btn-link-catalog {
+.scheme-white-black .about-assistance .btn-link-catalog {
   border: 2px solid var(--grey);
   background: var(--grey);
   color: var(--white);
 }
 @media (max-width: 1023px) {
   .section-assistance-hero .btn-link-catalog,
-.about-assistance .btn-link-catalog,
-.section-hero .btn-link-catalog {
+.about-assistance .btn-link-catalog {
     width: 100%;
     justify-content: center;
   }
 }
 @media (max-width: 767px) {
   .section-assistance-hero .btn-link-catalog,
-.about-assistance .btn-link-catalog,
-.section-hero .btn-link-catalog {
+.about-assistance .btn-link-catalog {
     padding: 14px;
   }
 }
 .section-assistance-hero .btn-link-catalog:hover .link-button::before,
-.about-assistance .btn-link-catalog:hover .link-button::before,
-.section-hero .btn-link-catalog:hover .link-button::before {
+.about-assistance .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog:hover .link-button::before,
-.scheme-white-black .about-assistance .btn-link-catalog:hover .link-button::before,
-.scheme-white-black .section-hero .btn-link-catalog:hover .link-button::before {
+.scheme-white-black .about-assistance .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-black-white .section-assistance-hero .btn-link-catalog:hover .link-button::before,
-.scheme-black-white .about-assistance .btn-link-catalog:hover .link-button::before,
-.scheme-black-white .section-hero .btn-link-catalog:hover .link-button::before {
+.scheme-black-white .about-assistance .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog:hover .link-button::before,
-.scheme-blue .about-assistance .btn-link-catalog:hover .link-button::before,
-.scheme-blue .section-hero .btn-link-catalog:hover .link-button::before {
+.scheme-blue .about-assistance .btn-link-catalog:hover .link-button::before {
   filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 }
 .section-assistance-hero .btn-link-catalog:not(:disabled):hover,
-.about-assistance .btn-link-catalog:not(:disabled):hover,
-.section-hero .btn-link-catalog:not(:disabled):hover {
+.about-assistance .btn-link-catalog:not(:disabled):hover {
   border: 2px solid var(--grey);
   background: var(--grey);
   color: var(--white);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog:not(:disabled):hover,
-.scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):hover,
-.scheme-white-black .section-hero .btn-link-catalog:not(:disabled):hover {
+.scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):hover {
   border: 2px solid var(--silver-dark);
   background: var(--silver-dark);
   color: var(--white);
 }
 .scheme-black-white .section-assistance-hero .btn-link-catalog:not(:disabled):hover,
-.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):hover,
-.scheme-black-white .section-hero .btn-link-catalog:not(:disabled):hover {
+.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):hover {
   border: 2px solid var(--silver-dark);
   background: var(--silver-dark);
   color: var(--white);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog:not(:disabled):hover,
-.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):hover,
-.scheme-blue .section-hero .btn-link-catalog:not(:disabled):hover {
+.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):hover {
   border: 2px solid var(--blue-3);
   background: var(--blue-3);
   color: var(--black);
 }
 .section-assistance-hero .btn-link-catalog:not(:disabled):active, .section-assistance-hero .btn-link-catalog:not(:disabled):focus,
 .about-assistance .btn-link-catalog:not(:disabled):active,
-.about-assistance .btn-link-catalog:not(:disabled):focus,
-.section-hero .btn-link-catalog:not(:disabled):active,
-.section-hero .btn-link-catalog:not(:disabled):focus {
+.about-assistance .btn-link-catalog:not(:disabled):focus {
   color: var(--white);
 }
 .section-assistance-hero .btn-link-catalog:not(:disabled):active .link-button::before, .section-assistance-hero .btn-link-catalog:not(:disabled):focus .link-button::before,
 .about-assistance .btn-link-catalog:not(:disabled):active .link-button::before,
-.about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before,
-.section-hero .btn-link-catalog:not(:disabled):active .link-button::before,
-.section-hero .btn-link-catalog:not(:disabled):focus .link-button::before {
+.about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog:not(:disabled):active .link-button::before, .scheme-white-black .section-assistance-hero .btn-link-catalog:not(:disabled):focus .link-button::before,
 .scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before,
-.scheme-white-black .section-hero .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-white-black .section-hero .btn-link-catalog:not(:disabled):focus .link-button::before {
+.scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-black-white .section-assistance-hero .btn-link-catalog:not(:disabled):active .link-button::before, .scheme-black-white .section-assistance-hero .btn-link-catalog:not(:disabled):focus .link-button::before,
 .scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before,
-.scheme-black-white .section-hero .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-black-white .section-hero .btn-link-catalog:not(:disabled):focus .link-button::before {
+.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog:not(:disabled):active .link-button::before, .scheme-blue .section-assistance-hero .btn-link-catalog:not(:disabled):focus .link-button::before,
 .scheme-blue .about-assistance .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before,
-.scheme-blue .section-hero .btn-link-catalog:not(:disabled):active .link-button::before,
-.scheme-blue .section-hero .btn-link-catalog:not(:disabled):focus .link-button::before {
+.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):focus .link-button::before {
   filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 }
 .section-assistance-hero .btn-link-catalog:not(:disabled):active,
-.about-assistance .btn-link-catalog:not(:disabled):active,
-.section-hero .btn-link-catalog:not(:disabled):active {
+.about-assistance .btn-link-catalog:not(:disabled):active {
   border: 2px solid var(--grey);
   background: var(--grey);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog:not(:disabled):active, .scheme-black-white .section-assistance-hero .btn-link-catalog:not(:disabled):active,
 .scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):active,
-.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):active,
-.scheme-white-black .section-hero .btn-link-catalog:not(:disabled):active,
-.scheme-black-white .section-hero .btn-link-catalog:not(:disabled):active {
+.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):active {
   border: 2px solid var(--silver-dark);
   background: var(--silver-dark);
   color: var(--white);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog:not(:disabled):active,
-.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):active,
-.scheme-blue .section-hero .btn-link-catalog:not(:disabled):active {
+.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):active {
   border: 2px solid var(--blue-3);
   background: var(--blue-3);
   color: var(--black);
 }
 .section-assistance-hero .btn-link-catalog:not(:disabled):focus,
-.about-assistance .btn-link-catalog:not(:disabled):focus,
-.section-hero .btn-link-catalog:not(:disabled):focus {
+.about-assistance .btn-link-catalog:not(:disabled):focus {
   border: 2px solid var(--grey);
   background: var(--grey);
   color: var(--white);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog:not(:disabled):focus, .scheme-black-white .section-assistance-hero .btn-link-catalog:not(:disabled):focus,
 .scheme-white-black .about-assistance .btn-link-catalog:not(:disabled):focus,
-.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):focus,
-.scheme-white-black .section-hero .btn-link-catalog:not(:disabled):focus,
-.scheme-black-white .section-hero .btn-link-catalog:not(:disabled):focus {
+.scheme-black-white .about-assistance .btn-link-catalog:not(:disabled):focus {
   border: 2px solid var(--silver-dark);
   background: var(--silver-dark);
   color: var(--white);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog:not(:disabled):focus,
-.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):focus,
-.scheme-blue .section-hero .btn-link-catalog:not(:disabled):focus {
+.scheme-blue .about-assistance .btn-link-catalog:not(:disabled):focus {
   border: 2px solid var(--blue-3);
   background: var(--blue-3);
   color: var(--black);
 }
 .section-assistance-hero .btn-link-catalog:disabled,
-.about-assistance .btn-link-catalog:disabled,
-.section-hero .btn-link-catalog:disabled {
+.about-assistance .btn-link-catalog:disabled {
   border-color: var(--light-grey);
   background: var(--light-grey);
   color: var(--grey);
@@ -8249,23 +8215,19 @@ video {
   cursor: not-allowed;
 }
 .section-assistance-hero .btn-link-catalog .link-button::before,
-.about-assistance .btn-link-catalog .link-button::before,
-.section-hero .btn-link-catalog .link-button::before {
+.about-assistance .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(7%) hue-rotate(125deg) brightness(99%) contrast(102%);
 }
 .scheme-white-black .section-assistance-hero .btn-link-catalog .link-button::before,
-.scheme-white-black .about-assistance .btn-link-catalog .link-button::before,
-.scheme-white-black .section-hero .btn-link-catalog .link-button::before {
+.scheme-white-black .about-assistance .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-black-white .section-assistance-hero .btn-link-catalog .link-button::before,
-.scheme-black-white .about-assistance .btn-link-catalog .link-button::before,
-.scheme-black-white .section-hero .btn-link-catalog .link-button::before {
+.scheme-black-white .about-assistance .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
 .scheme-blue .section-assistance-hero .btn-link-catalog .link-button::before,
-.scheme-blue .about-assistance .btn-link-catalog .link-button::before,
-.scheme-blue .section-hero .btn-link-catalog .link-button::before {
+.scheme-blue .about-assistance .btn-link-catalog .link-button::before {
   filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 }
 
