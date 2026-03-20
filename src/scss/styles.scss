@@ -2296,6 +2296,7 @@
 	.accordion-hidden {
 		max-height: 0;
 		opacity: 0;
+		margin-bottom: 0 !important;
 		transform: translateY(-8px);
 		pointer-events: none;
 	}
@@ -3108,7 +3109,11 @@
 			color: var(--white);
 		}
 
-		.scheme-blue & {}
+		.scheme-blue & {
+			border: 2px solid var(--white);
+			background: var(--white);
+			color: var(--black);
+		}
 
 		@include md-max {
 			width: 100%;
@@ -3124,8 +3129,16 @@
 				&::before {
 					filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
 
+					.scheme-white-black & {
+						filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+					}
+
 					.scheme-black-white & {
 						filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+					}
+
+					.scheme-blue & {
+						filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 					}
 				}
 			}
@@ -3136,22 +3149,85 @@
 				border: 2px solid #008cc7;
 				background: #008cc7;
 				color: var(--white);
+
+				.scheme-white-black & {
+					border: 2px solid var(--silver-dark);
+					background: var(--silver-dark);
+					color: var(--white);
+				}
+
+				.scheme-black-white & {
+					border: 2px solid var(--silver-dark);
+					background: var(--silver-dark);
+					color: var(--white);
+				}
+
+				.scheme-blue & {
+					border: 2px solid var(--blue-3);
+					background: var(--blue-3);
+					color: var(--black);
+				}
 			}
 
 			&:active,
 			&:focus {
 				color: var(--white);
+
+				.link-button {
+					&::before {
+						filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+
+						.scheme-white-black & {
+							filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+						}
+
+						.scheme-black-white & {
+							filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+						}
+
+						.scheme-blue & {
+							filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+						}
+					}
+				}
 			}
 
 			&:active {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
+				border: 2px solid #008cc7;
+				background: #008cc7;
+				color: var(--white);
+
+				.scheme-white-black &,
+				.scheme-black-white & {
+					border: 2px solid var(--silver-dark);
+					background: var(--silver-dark);
+					color: var(--white);
+				}
+
+				.scheme-blue & {
+					border: 2px solid var(--blue-3);
+					background: var(--blue-3);
+					color: var(--black);
+				}
 			}
 
 			&:focus {
-				border: 2px solid #0f68ba;
-				background: #0f68ba;
+				border: 2px solid #008cc7;
+				background: #008cc7;
 				color: var(--white);
+
+				.scheme-white-black &,
+				.scheme-black-white & {
+					border: 2px solid var(--silver-dark);
+					background: var(--silver-dark);
+					color: var(--white);
+				}
+
+				.scheme-blue & {
+					border: 2px solid var(--blue-3);
+					background: var(--blue-3);
+					color: var(--black);
+				}
 			}
 		}
 
@@ -3165,7 +3241,7 @@
 
 		.link-button {
 			&::before {
-				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 
 				.scheme-white-black & {
 					filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
@@ -3175,7 +3251,9 @@
 					filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 				}
 
-				.scheme-blue & {}
+				.scheme-blue & {
+					filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
+				}
 			}
 		}
 	}
