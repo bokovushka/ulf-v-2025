@@ -17,3 +17,24 @@ window.addEventListener('orientationchange', () => {
 	setHeroHeight();
 	window.addEventListener('resize', setHeroHeight, { once: true });
 });
+
+
+// catalog-item color
+document.addEventListener("DOMContentLoaded", () => {
+	const colorName = document.querySelector(".car-calc--color-name");
+	const colorItems = document.querySelectorAll(".color-picker--item");
+
+	colorItems.forEach(item => {
+		item.addEventListener("click", () => {
+			// active class
+			colorItems.forEach(el => el.classList.remove("active"));
+			item.classList.add("active");
+
+			// text change
+			const name = item.dataset.color;
+			if (name) {
+				colorName.textContent = name;
+			}
+		});
+	});
+});

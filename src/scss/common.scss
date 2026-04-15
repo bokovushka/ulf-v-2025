@@ -1005,7 +1005,7 @@ form {
 
 		&:not(:placeholder-shown) {
 			//коли заповнено хоча б один символ
-			border: 1px solid var(--white) !important;
+			border: 1px solid #e0e0e0 !important;
 			background: var(--white);
 
 			.scheme-blue & {
@@ -1016,7 +1016,7 @@ form {
 
 		&:focus,
 		&:active {
-			border: 1px solid #e0e0e0 !important;
+			border: 1px solid #7DCCFF !important;
 			background: var(--white);
 
 			.scheme-blue & {
@@ -1043,6 +1043,11 @@ form {
 		.form-control {
 			border-radius: 8px;
 			min-width: auto;
+
+			.sidebar-filter & {
+				border: 1px solid #e0e0e0 !important;
+				background: #F2F2F2;
+			}
 		}
 	}
 
@@ -1133,6 +1138,13 @@ form {
 
 	.select2-container {
 		width: 100% !important;
+
+		&.select2-container--focus {
+			.select2-selection {
+				border-color: #7DCCFF;
+			}
+
+		}
 
 		.select2-selection {
 			border: 1px solid rgba(224, 224, 224, 1);
@@ -1263,7 +1275,7 @@ form {
 			border-radius: 0 0 4px 4px;
 			overflow: hidden;
 			border: none;
-			border: 1px solid rgba(224, 224, 224, 1);
+			border: 1px solid #7DCCFF;
 			border-top: none;
 
 			.scheme-blue & {
@@ -1275,7 +1287,7 @@ form {
 			border-radius: 4px 4px 0 0;
 			overflow: hidden;
 			border: none;
-			border: 1px solid rgba(224, 224, 224, 1);
+			border: 1px solid #7DCCFF;
 			border-bottom: none;
 
 			.scheme-blue & {
@@ -1589,7 +1601,7 @@ form {
 
 	.rangeSlider {
 		background: transparent;
-		margin: 20px 14px;
+		margin: 20px 12px;
 		border-radius: 0;
 		z-index: 2;
 
@@ -1597,28 +1609,40 @@ form {
 			.rangeNub {
 				border-radius: 50% !important;
 				transform: unset !important;
-				background: var(--blue);
-				box-shadow:
-					0px 0.5px 4px rgba(0, 0, 0, 0.12),
-					0px 6px 13px rgba(0, 0, 0, 0.12);
+				background: var(--white);
+				border: 2px solid rgba(224, 224, 224, 1);
+				position: relative;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					width: 14px;
+					height: 14px;
+					background: var(--main-blue);
+					border-radius: 50%;
+				}
 			}
 		}
 
 		.rangeHandle {
-			width: 28px;
-			height: 28px;
+			width: 24px;
+			height: 24px;
 			cursor: grab;
 
 			&::before {
-				box-shadow:
-					0px 0.5px 4px rgba(0, 0, 0, 0.12),
-					0px 6px 13px rgba(0, 0, 0, 0.12);
+				// box-shadow:
+				// 	0px 0.5px 4px rgba(0, 0, 0, 0.12),
+				// 	0px 6px 13px rgba(0, 0, 0, 0.12);
+				box-shadow: unset;
 				border-radius: 50%;
 			}
 
 			&.active {
 				.rangeNub {
-					background: var(--blue);
+					background: var(--main-blue);
 				}
 			}
 
@@ -1630,8 +1654,8 @@ form {
 		}
 
 		.rangeBar {
-			background: var(--blue) !important;
-			height: 4px;
+			background: #0097FA !important;
+			height: 8px;
 		}
 
 		&.focus {
@@ -1644,14 +1668,16 @@ form {
 
 		&.hoverable:not(.disabled) {
 			.rangeHandle:hover:before {
-				box-shadow: 0 0 0 8px var(--blue);
+				// box-shadow: 0 0 0 8px var(--blue);
+				box-shadow: unset;
 				border-radius: 50%;
 				opacity: 1;
 			}
 
 			.rangeHandle.press:before,
 			.rangeHandle.press:hover:before {
-				box-shadow: 0 0 0 12px var(--blue);
+				// box-shadow: 0 0 0 12px var(--blue);
+				box-shadow: unset;
 				opacity: 0.9;
 			}
 		}
@@ -1708,6 +1734,11 @@ form {
 
 		&.active {
 			color: var(--white);
+
+			.catalog &,
+			.catalog-item & {
+				color: #000000;
+			}
 		}
 
 		+.breadcrumb-item {
@@ -1716,17 +1747,17 @@ form {
 
 			&::before {
 				all: unset;
-				content: "";
+				content: "/";
 				display: block;
 				margin: 0;
 				border: none;
-				width: 16px;
+				width: max-content;
 				height: 16px;
 				margin-right: 4px;
 				position: relative;
-				background: url(../img/icons/icons.svg#i-arrow-two-right-static) no-repeat center;
-				background-size: cover;
-				filter: brightness(0) saturate(100%) invert(98%) sepia(5%) saturate(2%) hue-rotate(276deg) brightness(124%) contrast(100%);
+				// background: url(../img/icons/icons.svg#i-arrow-two-right-static) no-repeat center;
+				// background-size: cover;
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(3631%) hue-rotate(184deg) brightness(83%) contrast(119%);
 
 				.scheme-blue & {
 					filter: brightness(0) saturate(100%) invert(80%) sepia(5%) saturate(2897%) hue-rotate(185deg) brightness(102%) contrast(94%);
@@ -1736,6 +1767,11 @@ form {
 
 		a {
 			color: var(--white);
+
+			.catalog &,
+			.catalog-item & {
+				color: var(--main-blue);
+			}
 
 			&:hover {
 				text-decoration: unset;
@@ -1797,7 +1833,7 @@ form {
 	svg {
 		width: 24px;
 		height: 24px;
-		filter: brightness(0) saturate(100%) invert(42%) sepia(98%) saturate(1%) hue-rotate(320deg) brightness(94%) contrast(83%);
+		filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(1%) hue-rotate(198deg) brightness(106%) contrast(100%);
 		transition: 0.3s ease-out 0s;
 
 		.scheme-black-white & {
@@ -1819,6 +1855,8 @@ form {
 .button-slider-prev {
 	transform: scaleX(-1);
 }
+
+.button-slider-next {}
 
 .swiper-buttons {
 	display: flex;
@@ -1877,11 +1915,11 @@ form {
 .pagination {
 	position: relative;
 	padding: 10px 0;
-	gap: 8px;
+	gap: 4px;
 
 	.page-item {
-		height: 32px;
-		min-width: 32px;
+		height: 40px;
+		min-width: 40px;
 
 		&:hover {
 			.page-link {
@@ -1899,8 +1937,8 @@ form {
 			&.active {
 				.page-link {
 					color: var(--white) !important;
-					background: var(--blue);
-					border-color: var(--blue);
+					background: #0097FA;
+					border: 2px solid #0097FA;
 					cursor: default;
 				}
 
@@ -1913,8 +1951,8 @@ form {
 
 			&:hover {
 				.page-link {
-					color: var(--blue);
-					border-color: var(--blue);
+					color: #0097FA;
+					border-color: #0097FA;
 					cursor: pointer;
 				}
 			}
@@ -1926,13 +1964,13 @@ form {
 			justify-content: center;
 			height: 100%;
 			font-size: 16px;
-			font-weight: 700;
-			line-height: 24px;
-			color: var(--blue);
+			font-weight: 500;
+			line-height: 20px;
+			color: #151515;
 			background: var(--white);
 			padding: 0 5px;
-			border: 2px solid var(--blue);
-			border-radius: 4px;
+			border: 2px solid transparent;
+			border-radius: 2px;
 			cursor: default;
 		}
 	}
@@ -1942,20 +1980,21 @@ form {
 		&.active {
 			.page-link {
 				cursor: default;
-				background: var(--light-grey);
+				background: transparent;
+				color: #9A9A9A;
 
 				svg {
-					filter: unset;
+					filter: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(1633%) hue-rotate(314deg) brightness(98%) contrast(93%);
 				}
 			}
 
 			&:hover {
 				.page-link {
-					background: var(--light-grey);
-					border-color: var(--light-grey);
+					background: transparent;
+					border-color: transparent;
 
 					svg {
-						filter: unset;
+						filter: brightness(0) saturate(100%) invert(62%) sepia(0%) saturate(1633%) hue-rotate(314deg) brightness(98%) contrast(93%);
 					}
 				}
 			}
@@ -1965,22 +2004,25 @@ form {
 			padding: 0;
 			border-color: var(--white);
 			cursor: pointer;
+			gap: 4px;
+			color: #000000;
 		}
 
 		&:hover {
 			.page-link {
-				background: var(--blue);
-				border-color: var(--blue);
+				background: transparent;
+				border-color: transparent;
+				color: #9A9A9A;
 			}
 
 			svg {
-				filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7500%) hue-rotate(202deg) brightness(117%) contrast(103%);
+				filter: brightness(0) saturate(100%) invert(42%) sepia(98%) saturate(1%) hue-rotate(320deg) brightness(94%) contrast(83%);
 			}
 		}
 
 		svg {
-			width: 18px;
-			height: 18px;
+			width: 24px;
+			height: 24px;
 		}
 	}
 
@@ -2091,7 +2133,7 @@ form {
 }
 
 .fancybox__backdrop {
-	background: rgb(0, 0, 0, 0.8);
+	background: rgb(0, 0, 0);
 }
 
 .fancybox__nav {
@@ -2108,25 +2150,35 @@ form {
 		svg {
 			width: 34px;
 			height: 34px;
-			stroke: none;
-			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+			filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(7485%) hue-rotate(175deg) brightness(105%) contrast(97%);
+			stroke-width: 0;
 		}
 
 		&:hover {
 			svg {
-				filter: brightness(0) saturate(100%) invert(63%) sepia(100%) saturate(1319%) hue-rotate(167deg) brightness(88%) contrast(87%);
+				filter: brightness(0) saturate(100%) invert(51%) sepia(43%) saturate(2610%) hue-rotate(168deg) brightness(100%) contrast(104%);
 			}
+		}
+	}
+
+	.is-next {
+		svg {
+			transform: rotate(-90deg);
 		}
 	}
 
 	.is-prev {
 		transform: scaleX(-1) translateY(-50%) !important;
+
+		svg {
+			transform: rotate(-90deg);
+		}
 	}
 }
 
 .fancybox__container {
 	--fancybox-bg: rgba(24, 24, 27, 0.8);
-	z-index: 1080;
+	z-index: 1070;
 
 	.f-button {
 		background: inherit;
@@ -2159,14 +2211,14 @@ form {
 
 		.f-button {
 			background: unset;
-			filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+			filter: brightness(0) saturate(100%) invert(79%) sepia(100%) saturate(0%) hue-rotate(302deg) brightness(110%) contrast(101%);
 
 			svg {
 				opacity: 1;
 			}
 
 			&:hover {
-				filter: brightness(0) saturate(100%) invert(63%) sepia(100%) saturate(1319%) hue-rotate(167deg) brightness(88%) contrast(87%);
+				filter: brightness(0) saturate(100%) invert(49%) sepia(69%) saturate(1889%) hue-rotate(167deg) brightness(100%) contrast(104%);
 			}
 		}
 	}
@@ -2622,6 +2674,8 @@ form {
 	align-items: center;
 	justify-content: center;
 	padding: 0;
+	opacity: 0;
+	pointer-events: none;
 
 	.scheme-white-black & {
 		background: rgb(43 43 43);
@@ -2638,6 +2692,11 @@ form {
 	@include sm-max {
 		width: 55px;
 		height: 55px;
+	}
+
+	&.is-visible {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	svg {

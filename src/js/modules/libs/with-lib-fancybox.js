@@ -3,15 +3,20 @@ import { Fancybox } from "@fancyapps/ui";
 //? Загальні налаштування для Fancybox
 const fancyboxSettings = {
 	Toolbar: {
+		items: {
+			carName: {
+				tpl: `<div class="h4 font-m mb-0 font-weight-bolder text-white">Porsche Macan 2026</div>`,
+			}
+		},
 		display: {
-			left: [],
+			left: ["carName"],
 			right: ["close"],
 		},
 	},
 	Carousel: {
 		Navigation: {
-			nextTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-right"></use></svg>`,
-			prevTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-right"></use></svg>`,
+			nextTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-down"></use></svg>`,
+			prevTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-down"></use></svg>`,
 		},
 	},
 	contentClick: "iterateZoom",
@@ -27,21 +32,67 @@ const fancyboxSettings = {
 	},
 };
 
-Fancybox.bind('[data-fancybox="clinic--gallery"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="stay-conditions--gallery"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="stay-conditions--gallery-mob"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="hospital--gallery"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="hospital--gallery-mob"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="certificates--gallery"]', fancyboxSettings);
+Fancybox.bind('[data-fancybox="gallery-item"]', fancyboxSettings);
 
-Fancybox.bind('[data-fancybox="media--gallery-1"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="media--gallery-2"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="media--gallery-3"]', fancyboxSettings);
 
-Fancybox.bind('[data-fancybox="offices-direction--gallery-1"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="offices-direction--gallery-2"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="offices-direction--gallery-3"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="offices-direction--gallery-4"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="offices-direction--gallery-5"]', fancyboxSettings);
-Fancybox.bind('[data-fancybox="offices-direction--gallery-6"]', fancyboxSettings);
 
+
+
+// //? gallery-car
+// Fancybox.bind('[data-fancybox="gallery"]', {
+// 	on: {
+// 		// Обробник події, коли відкривається FancyBox
+// 		reveal: function (instance, slide) {
+// 			console.log("FancyBox відкрито");
+// 			// Зупиняємо всі відео
+// 			pauseAllVideos();
+// 		},
+
+// 		// Обробник події, коли закривається FancyBox
+// 		close: function (instance, slide) {
+// 			console.log("FancyBox закрито");
+// 			// Зупиняємо всі відео
+// 			pauseAllVideos();
+// 		},
+
+// 		// Обробник події, коли перегортаються слайди
+// 		slideChange: function (instance, current) {
+// 			console.log("Змінено слайд");
+// 			// Якщо тип слайду - відео
+// 			if (current.type === 'video') {
+// 				// Зупиняємо всі відео
+// 				pauseAllVideos();
+// 			}
+// 		}
+// 	},
+// 	Toolbar: {
+// 		items: {
+// 			carName: {
+// 				tpl: `<div class="h4 font-m mb-0 font-weight-bolder text-white">Hyundai Tucson</div>`,
+// 			}
+// 		},
+// 		display: {
+// 			left: ["carName"],
+// 			right: ["close"],
+// 		},
+// 	},
+// 	Carousel: {
+// 		Navigation: {
+// 			nextTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-right"></use></svg>`,
+// 			prevTpl: `<svg><use xlink:href="img/icons/icons.svg#i-arrow-right"></use></svg>`,
+// 		},
+// 	},
+// 	contentClick: "iterateZoom",
+// 	Images: {
+// 		Panzoom: {
+// 			maxScale: 3,
+// 		},
+// 	},
+// 	Thumbs: false,
+// 	caption: (fancybox, slide) => {
+// 		const caption = slide.caption || "";
+
+// 		return `${slide.index + 1} / ${fancybox.carousel?.slides.length
+// 			} <br /> ${caption}`;
+// 	},
+// });

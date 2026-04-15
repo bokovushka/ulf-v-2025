@@ -1,0 +1,3603 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Інформація про авто</title>
+	<link rel="shortcut icon" href="##" type="image/x-icon" />
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/main.min.css">
+	<style>
+		/**
+		* Reinstate scrolling for non-JS clients
+		*/
+		.simplebar-content-wrapper {
+			scrollbar-width: auto;
+			-ms-overflow-style: auto;
+		}
+
+		.simplebar-content-wrapper::-webkit-scrollbar,
+		.simplebar-hide-scrollbar::-webkit-scrollbar {
+			display: initial;
+			width: initial;
+			height: initial;
+		}
+	</style>
+
+	<script>
+		(function () {
+			try {
+				const settings = JSON.parse(localStorage.getItem('accessibilitySettings'));
+				const savedImageSettings = localStorage.getItem('imageSettings');
+				const root = document.documentElement;
+
+				const classes = [];
+
+				if (settings?.colorScheme) classes.push(settings.colorScheme);
+				if (savedImageSettings) classes.push(savedImageSettings);
+
+				if (classes.length) {
+					root.classList.add(...classes);
+				}
+			} catch (e) {
+				// тихо ігноруємо
+			}
+		})();
+	</script>
+	<script>
+		(function () {
+			const removeClasses = [
+				'scheme-default', 'scheme-white-black', 'scheme-black-white', 'scheme-blue',
+				'images-normal', 'images-black-white', 'images-hide'
+			];
+
+			function applyAccessibilitySettings() {
+				try {
+					const settings = JSON.parse(localStorage.getItem('accessibilitySettings'));
+					const savedImageSettings = localStorage.getItem('imageSettings');
+					const root = document.documentElement;
+
+					root.classList.remove(...removeClasses);
+					if (settings?.colorScheme) root.classList.add(settings.colorScheme);
+					if (savedImageSettings) root.classList.add(savedImageSettings);
+
+					const applyToBody = () => {
+						const body = document.body;
+						if (!body) return;
+
+						body.classList.remove(...removeClasses);
+						if (settings?.colorScheme) body.classList.add(settings.colorScheme);
+						if (savedImageSettings) body.classList.add(savedImageSettings);
+
+						updateButtons(settings?.colorScheme, savedImageSettings);
+					};
+
+					if (document.body) {
+						applyToBody();
+					} else {
+						new MutationObserver((_, obs) => {
+							if (document.body) {
+								applyToBody();
+								obs.disconnect();
+							}
+						}).observe(document.documentElement, { childList: true, subtree: true });
+					}
+				} catch (e) {
+					console.error('Error loading accessibility settings:', e);
+				}
+			}
+
+			function updateButtons(activeScheme, activeImages) {
+				const schemeButtons = document.querySelectorAll('[data-scheme]');
+				const imageButtons = document.querySelectorAll('[data-images]');
+
+				schemeButtons.forEach(btn => {
+					btn.classList.toggle('active', btn.dataset.scheme === activeScheme);
+				});
+
+				imageButtons.forEach(btn => {
+					btn.classList.toggle('active', btn.dataset.images === activeImages);
+				});
+			}
+
+			applyAccessibilitySettings();
+
+			// BFCache робимо повне перезавантаження
+			window.addEventListener('pageshow', function (event) {
+				if (event.persisted) {
+					window.location.reload();
+				}
+			});
+
+		})();
+	</script>
+</head>
+
+<body class="catalog-item">
+	<div class="wrapper">
+		<div class="popup-bg-body"></div>
+<header class="header">
+	<div class="header-top w-100">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-between align-items-center py-2">
+						<ul class="header-top--nav list-inline mb-0">
+							<li class="menu-list list-inline-item">
+								<div class="current-list d-flex align-items-center">
+									<a class="nav-link" href="##">
+										<div class="link-wrap">
+											<span>Про нас</span>
+											<svg class="icon i-arrow-down">
+												<use xlink:href="img/icons/icons.svg#i-arrow-down"></use>
+											</svg>
+										</div>
+									</a>
+									<ul class="submenu list-unstyled mb-0 position-absolute">
+										<li><a href="##">Про компанію</a></li>
+										<li><a href="##">Інформація для акціонерів та стейкхолерів</a></li>
+										<li><a href="##">Інформація для споживачів</a></li>
+										<li><a href="##">Статутні та фінансові документи</a></li>
+										<li><a href="##">Комплаєнс</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="menu-list list-inline-item">
+								<div class="current-list d-flex align-items-center">
+									<a class="nav-link" href="##">
+										<div class="link-wrap">
+											<span>Документи</span>
+											<svg class="icon i-arrow-down">
+												<use xlink:href="img/icons/icons.svg#i-arrow-down"></use>
+											</svg>
+										</div>
+									</a>
+									<ul class="submenu list-unstyled mb-0 position-absolute">
+										<li><a href="##">Діючим клієнтам</a></li>
+										<li><a href="##">Документи на фінансування</a></li>
+										<li><a href="##">Договір фінансового лізингу</a></li>
+										<li><a href="##">Договори страхування</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="list-inline-item"><a class="nav-link" href="##">Дані авторинку</a></li>
+							<li class="list-inline-item"><a class="nav-link" href="##">Контакти</a></li>
+						</ul>
+						<ul class="header-top--others list-inline mb-0 d-flex align-items-center">
+							<li class="list-inline-item">
+								<ul class="list-inline mb-0 d-flex align-items-center">
+									<li class="list-inline-item">
+										<button type="button" class="btn btn-accessability p-0" data-toggle="modal"
+											data-target="#popup-accessability">
+											<svg class="i-accessability">
+												<use xlink:href="img/icons/icons.svg#i-accessability"></use>
+											</svg>
+										</button>
+									</li>
+									<li class="list-inline-item">
+										<a href="##">
+											<div class="link-wrap">
+												<svg class="icon">
+													<use xlink:href="img/icons/icons.svg#user"></use>
+												</svg>
+												<span>Увійти</span>
+											</div>
+										</a>
+									</li>
+									<li class="list-inline-item">
+										<div class="select-wrap" id="header-select-city">
+											<select class="header-select-city" name="header-select-city">
+												<option value="c1">Київ</option>
+												<option value="c2">Рівне</option>
+												<option value="c3">Запоріжжя</option>
+												<option value="c4">Луцьк</option>
+												<option value="c5">Донець</option>
+												<option value="c6">Львів</option>
+												<option value="c7">Житомир</option>
+												<option value="c8">Кривий Ріг</option>
+												<option value="c9">Маріуполь</option>
+												<option value="c10">Чернівці</option>
+											</select>
+										</div>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-main">
+		<div class="container position-relative">
+			<div class="row">
+				<div class="col">
+					<nav class="navbar navbar-expand-lg flex-column p-0">
+						<div class="d-flex flex-wrap align-items-center justify-content-between w-100 py-4 px-md-6 px-lg-0">
+							<div class="mob-hero-logo">
+								<a href="##">
+									<svg class="icon">
+										<use xlink:href="img/icons/icons.svg#user"></use>
+									</svg>
+								</a>
+								<button type="button" class="btn btn-accessability btn-accessability--mob p-0"
+									data-toggle="modal" data-target="#popup-accessability">
+									<svg class="i-accessability">
+										<use xlink:href="img/icons/icons.svg#i-accessability"></use>
+									</svg>
+								</button>
+								<div class="select-wrap" id="header-mob-select-city">
+									<select class="header-mob-select-city" name="header-mob-select-city">
+										<option value="c1">Київ</option>
+										<option value="c2">Рівне</option>
+										<option value="c3">Запоріжжя</option>
+										<option value="c4">Луцьк</option>
+										<option value="c5">Донець</option>
+										<option value="c6">Львів</option>
+										<option value="c7">Житомир</option>
+										<option value="c8">Кривий Ріг</option>
+										<option value="c9">Маріуполь</option>
+										<option value="c10">Чернівці</option>
+									</select>
+								</div>
+							</div>
+							<a class="navbar-brand p-0 d-lg-none" href="../dist/"><img src="img/logo.svg" alt="TAC"></a>
+							<div class="collapse navbar-collapse justify-content-between order-last"
+								id="navbarSupportedContent">
+								<div
+									class="header-main--desk d-none d-lg-flex align-items-center justify-content-between w-100">
+									<a class="navbar-brand p-0" href="../dist/"><img src="img/logo.svg" alt="TAC"></a>
+									<ul class="navbar-nav list-inline">
+										<li class="menu-list list-inline-item">
+											<div class="current-list p-0 d-flex align-items-center">
+												<a class="nav-link" href="##">
+													<div class="link-wrap">
+														<span>Лізинг</span>
+														<svg class="icon i-arrow-down">
+															<use xlink:href="img/icons/icons.svg#i-arrow-down"></use>
+														</svg>
+													</div>
+												</a>
+												<ul class="submenu list-link list-unstyled mb-0 position-absolute">
+													<li>
+														<a class="nav-link" href="../dist/passenfer-car.html">
+															<span class="link-wrap">
+																<span>Легкові авто</span>
+																<svg class="icon">
+																	<use xlink:href="img/icons/icons.svg#auto-1">
+																	</use>
+																</svg>
+															</span>
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="../dist/trucks-car.html">
+															<span class="link-wrap">
+																<span>Вантажні авто</span>
+																<svg class="icon">
+																	<use xlink:href="img/icons/icons.svg#auto-2">
+																	</use>
+																</svg>
+															</span>
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="../dist/country-car.html">
+															<span class="link-wrap">
+																<span>Сільгосптехніка</span>
+																<svg class="icon">
+																	<use xlink:href="img/icons/icons.svg#auto-3">
+																	</use>
+																</svg>
+															</span>
+														</a>
+													</li>
+													<li>
+														<a class="nav-link" href="../dist/special-car.html">
+															<span class="link-wrap">
+																<span>Обладнання та спецтехінка</span>
+																<svg class="icon">
+																	<use xlink:href="img/icons/icons.svg#auto-4">
+																	</use>
+																</svg>
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="list-inline-item"><a class="nav-link" href="../dist/5-7-9.html">Програма
+												5-7-9</a>
+										</li>
+										<li class="list-inline-item"><a class="nav-link" href="##">Вживані авто</a></li>
+										<li class="list-inline-item"><a class="nav-link" href="##">Каталог авто</a></li>
+										<li class="list-inline-item"><a class="nav-link" href="../dist/assistance.html">ULF
+												Асистанс</a>
+										</li>
+									</ul>
+									<div class="navbar-nav--other">
+										<div class="link-phone d-flex align-items-center font-weight-bold">
+											<div class="phone-popup" data-toggle="modal" data-target="#popup-any-questions">
+												<svg class="icon">
+													<use xlink:href="img/icons/icons.svg#tabler-icon-phone"></use>
+												</svg>
+											</div>
+											<span>0 800 201 007</span>
+										</div>
+									</div>
+								</div>
+								<div class="header-main--mob d-lg-none">
+									<div class="navbar-nav-wrapper">
+										<div class="navbar-nav">
+											<ul class="d-flex flex-column align-items-center justify-content-between">
+												<div class="wrap w-100">
+													<div class="accordion mb-5" id="accordion-nav-links">
+														<div class="row">
+															<div class="col">
+																<div class="card">
+																	<div class="card-header p-0" id="heading-accordion-nav-link-1">
+																		<div class="h6 mb-0">
+																			<div class="btn btn-link collapsed" data-toggle="collapse"
+																				data-target="#collapse-accordion-nav-link-1"
+																				aria-expanded="false"
+																				aria-controls="collapse-accordion-nav-link-1">
+																				Лізинг</div>
+																		</div>
+																	</div>
+																	<div id="collapse-accordion-nav-link-1" class="collapse"
+																		aria-labelledby="heading-accordion-nav-link-1"
+																		data-parent="#accordion-nav-links">
+																		<div class="card-body">
+																			<div class="list-link">
+																				<a class="nav-link" href="../dist/passenfer-car.html">
+																					<span class="link-wrap">
+																						<span>Легкові авто</span>
+																						<svg class="icon">
+																							<use xlink:href="img/icons/icons.svg#auto-1">
+																							</use>
+																						</svg>
+																					</span>
+																				</a>
+																				<a class="nav-link" href="../dist/trucks-car.html">
+																					<span class="link-wrap">
+																						<span>Вантажні авто</span>
+																						<svg class="icon">
+																							<use xlink:href="img/icons/icons.svg#auto-2">
+																							</use>
+																						</svg>
+																					</span>
+																				</a>
+																				<a class="nav-link" href="../dist/country-car.html">
+																					<span class="link-wrap">
+																						<span>Сільгосптехніка</span>
+																						<svg class="icon">
+																							<use xlink:href="img/icons/icons.svg#auto-3">
+																							</use>
+																						</svg>
+																					</span>
+																				</a>
+																				<a class="nav-link" href="../dist/special-car.html">
+																					<span class="link-wrap">
+																						<span>Обладнання та спецтехінка</span>
+																						<svg class="icon">
+																							<use xlink:href="img/icons/icons.svg#auto-4">
+																							</use>
+																						</svg>
+																					</span>
+																				</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="card">
+																	<div class="card-header p-0">
+																		<div class="h6 mb-0">
+																			<a href="../dist/5-7-9.html"
+																				class="btn btn-link-default">Програма
+																				5-7-9</a>
+																		</div>
+																	</div>
+																</div>
+																<div class="card">
+																	<div class="card-header p-0">
+																		<div class="h6 mb-0">
+																			<a href="##" class="btn btn-link-default">Вживані авто</a>
+																		</div>
+																	</div>
+																</div>
+																<div class="card">
+																	<div class="card-header p-0">
+																		<div class="h6 mb-0">
+																			<a href="##" class="btn btn-link-default">Каталог авто</a>
+																		</div>
+																	</div>
+																</div>
+																<div class="card">
+																	<div class="card-header p-0">
+																		<div class="h6 mb-0">
+																			<a href="../dist/assistance.html"
+																				class="btn btn-link-default">ULF
+																				Асистанс</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-12">
+															<div class="mob-nav-top-list accordion mb-5">
+																<div class="row">
+																	<div class="col">
+																		<div class="card-item">
+																			<div class="head">Про нас</div>
+																			<div class="list-link">
+																				<div class="nav-link"><a href="##">Про компанію</a>
+																				</div>
+																				<div class="nav-link"><a href="##">Комплаєнс</a></div>
+																				<div class="nav-link"><a href="##">Інформація для
+																						акціонерів та стейкхолерів</a></div>
+																			</div>
+																		</div>
+																		<div class="card-item">
+																			<div class="head">Документи</div>
+																			<div class="list-link">
+																				<div class="nav-link"><a href="##">Діючим клієнтам</a>
+																				</div>
+																				<div class="nav-link"><a href="##">Документи на
+																						фінансування</a></div>
+																				<div class="nav-link"><a href="##">Договір фінансового
+																						лізингу</a>
+																				</div>
+																				<div class="nav-link"><a href="##">Договори
+																						страхування</a></div>
+																			</div>
+																		</div>
+																		<div class="card-item">
+																			<div class="list-link">
+																				<div class="nav-link"><a href="##">Дані авторинку</a>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="card-item">
+																			<div class="list-link">
+																				<div class="nav-link"><a href="##">Контакти</a>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="nav-mob d-flex ml-auto">
+								<div class="phone-popup phone-popup-mob mr-3" data-toggle="modal"
+									data-target="#popup-any-questions">
+									<svg class="icon">
+										<use xlink:href="img/icons/icons.svg#tabler-icon-phone"></use>
+									</svg>
+								</div>
+								<button class="navbar-toggler h-100 collapsed" type="button" data-toggle="collapse"
+									data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+									aria-expanded="false" aria-label="Toggle navigation">
+									<div class="menu-burger position-relative">
+										<div class="lines"></div>
+									</div>
+								</button>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+		<main class="main">
+			<div class="content">
+				<section class="section-top pt-12">
+					<div class="container">
+						<div class="row">
+							<div class="col mx-auto">
+								<div class="section-top--info nav-breadcrumb">
+									<nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+										<ol class="breadcrumb mb-0">
+											<li class="breadcrumb-item"><a href="index.html">Головна</a></li>
+											<li class="breadcrumb-item"><a href="index.html">Каталог авто</a></li>
+											<li class="breadcrumb-item active" aria-current="page">Porsche Macan 2026</li>
+										</ol>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="gallery-car mb-12 mb-md-20 mb-lg-24">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-auto">
+								<div class="gallery-car--inner mb-4 mb-lg-12">
+									<!-- main slider -->
+									<div class="gallery-car--swiper mb-3">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-1.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-1.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-2.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-2.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-3.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-3.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-4.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-4.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-5.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-5.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-1.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-1.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-2.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-2.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-3.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-3.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-4.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-4.png" alt="img">
+													</div>
+												</a>
+											</div>
+											<div class="swiper-slide">
+												<a data-fancybox="gallery-item" href="img/item-gallery/item-5.png">
+													<div class="wrap-img">
+														<img src="img/item-gallery/item-5.png" alt="img">
+													</div>
+												</a>
+											</div>
+										</div>
+										<div class="swiper-pagination"></div>
+										<div class="swiper-buttons justify-content-end">
+											<div class="button-slider-prev">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#arrow-right-slider"></use>
+												</svg>
+											</div>
+											<div class="button-slider-next">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#arrow-right-slider"></use>
+												</svg>
+											</div>
+										</div>
+									</div>
+									<!-- thumbs slider -->
+									<div class="gallery-car-thumbs--swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-1.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-2.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-3.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-4.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-5.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-1.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-2.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-3.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-4.png" alt="img">
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="wrap-img">
+													<img src="img/item-gallery/item-5.png" alt="img">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg">
+								<div class="car-calc ml-xl-6 mb-12 mb-lg-0">
+									<div class="car-calc--header">
+										<div class="car-calc--title mb-1 mb-sm-3">Porsche Macan 2026</div>
+
+										<div class="car-calc--color">
+											<span class="car-calc--color-label">Колір:</span>
+											<span class="car-calc--color-name">Jet Black Metallic</span>
+
+											<ul class="color-picker list-unstyled">
+												<li class="color-picker--item bg-1 active" data-color="Jet Black Metallic"></li>
+												<li class="color-picker--item bg-2" data-color="Volcano Grey Metallic"></li>
+												<li class="color-picker--item bg-3" data-color="Carrara White Metallic"></li>
+												<li class="color-picker--item bg-4" data-color="Carmine Red"></li>
+												<li class="color-picker--item bg-5" data-color="Dolomite Silver Metallic"></li>
+											</ul>
+										</div>
+									</div>
+
+									<hr class="car-calc--divider">
+									<div class="car-calc--summary--label small-txt mb-2">Термін фінансування</div>
+									<div class="car-calc--summary mb-5">
+										<div class="summary-item">
+											<span class="summary-item--label">Вартість авто:</span>
+											<strong class="summary-item--value">720 500 грн</strong>
+										</div>
+
+										<div class="summary-item summary-item--accent">
+											<span class="summary-item--label">Щомісячний платіж:</span>
+											<strong class="summary-item--value">20 300 грн</strong>
+										</div>
+									</div>
+
+									<div class="car-calc--form">
+										<div class="field mb-5">
+											<label class="small-txt mb-2">Авансовий платіж</label>
+											<div class="form-field--control form-field-advance">
+												<input type="text" id="advance" class="form-control mb-2" placeholder="200 000">
+												<span class="form-field--suffix">₴</span>
+											</div>
+											<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+										</div>
+										<div class="field mb-6">
+											<label class="small-txt mb-2">Термін фінансування</label>
+											<div class="select-wrap select-months--wrap">
+												<select class="select-months-value" name="select-months-value">
+													<option value="0">12</option>
+													<option value="1">24</option>
+													<option value="2">36</option>
+												</select>
+											</div>
+											<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+										</div>
+									</div>
+
+									<button type="button" class="btn btn-main-blue btn-block mb-3">
+										Подати заявку
+									</button>
+
+									<p class="car-calc--note text-center">
+										Цей платіж орієнтовний. Для точного розрахунку зверніться,
+										будь ласка, до менеджера компанії.
+									</p>
+								</div>
+							</div>
+							<div class="col-auto">
+								<div class="gallery-car--inner mt-lg-n6">
+									<div class="car-specs">
+										<div class="car-specs--title mb-5">
+											Технічні характеристики Porsche Macan 95B (2nd FL)
+										</div>
+
+										<ul class="car-specs--badges list-unstyled mb-6 mb-sm-8">
+											<li class="spec-badge">
+												<svg class="i-spec-badge">
+													<use xlink:href="img/icons/icons.svg#character-1"></use>
+												</svg>
+												<span>Автомат</span>
+											</li>
+											<li class="spec-badge">
+												<svg class="i-spec-badge">
+													<use xlink:href="img/icons/icons.svg#character-2"></use>
+												</svg>
+												<span>Бензин 2 л</span>
+											</li>
+											<li class="spec-badge">
+												<svg class="i-spec-badge">
+													<use xlink:href="img/icons/icons.svg#character-3"></use>
+												</svg>
+												<span>Повний привід</span>
+											</li>
+										</ul>
+										<div class="spoiler-spec-group">
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-4"></use>
+													</svg>
+													<span>Двигун</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Норми токсичності EURO</span>
+														<span class="spec-item--value">VI</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Кількість клапанів</span>
+														<span class="spec-item--value">16</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Кількість циліндрів</span>
+														<span class="spec-item--value">4</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Потужність двигуна</span>
+														<span class="spec-item--value">265 к.с.</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Витрата пального (приміський цикл)</span>
+														<span class="spec-item--value">7.6 л</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Витрата пального (міський цикл)</span>
+														<span class="spec-item--value">10.9 л</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Витрата пального (змішаний цикл)</span>
+														<span class="spec-item--value">8.8 л</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Паливо</span>
+														<span class="spec-item--value">Бензин</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Обʼєм</span>
+														<span class="spec-item--value">1984 см³</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Макс. обертальний момент</span>
+														<span class="spec-item--value">400 Нм / 1800–4500 об/хв</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-5"></use>
+													</svg>
+													<span>Динамічні характеристики</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Час розгону до 100 км/год</span>
+														<span class="spec-item--value">6.4 с</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Максимальна швидкість</span>
+														<span class="spec-item--value">232 км/год</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-6"></use>
+													</svg>
+													<span>Трансмісія</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Тип приводу</span>
+														<span class="spec-item--value">Повний</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Кількість передач</span>
+														<span class="spec-item--value">7</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-7"></use>
+													</svg>
+													<span>Рульове управління</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Підсилювач керма</span>
+														<span class="spec-item--value">Електропідсилювач</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-8"></use>
+													</svg>
+													<span>Кузов</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Кількість дверей</span>
+														<span class="spec-item--value">5</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Кількість місць</span>
+														<span class="spec-item--value">5</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-9"></use>
+													</svg>
+													<span>Ходова частина</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Гальма задні</span>
+														<span class="spec-item--value">Дискові вентильовані</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Гальма передні</span>
+														<span class="spec-item--value">Дискові вентильовані</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-10"></use>
+													</svg>
+													<span>Габарити та маса</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Об'єм багажника</span>
+														<span class="spec-item--value">458 л</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Вантажопідйомність</span>
+														<span class="spec-item--value">650 кг</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Висота</span>
+														<span class="spec-item--value">1 621 мм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Ширина</span>
+														<span class="spec-item--value">1 922 мм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Довжина</span>
+														<span class="spec-item--value">4 726 мм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Об'єм паливного бака</span>
+														<span class="spec-item--value">65 л</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Споряджена маса</span>
+														<span class="spec-item--value">1 920 кг</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Кліренс</span>
+														<span class="spec-item--value">202 мм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Максимально допустима маса</span>
+														<span class="spec-item--value">2 580 кг</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Колісна база</span>
+														<span class="spec-item--value">2 807 мм</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="spoiler-spec-group mt-12">
+											<div class="car-specs--title mb-6 mb-sm-8">
+												Опції комплектації Base
+											</div>
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-11"></use>
+													</svg>
+													<span>Безпека</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Камера</span>
+														<span class="spec-item--value">Камера кругового огляду</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Охорона</span>
+														<span class="spec-item--value">Центральний замок</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Іммобілайзер</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Парктроніки</span>
+														<span class="spec-item--value">Задні</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Передні</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Пасивна безпека автомобіля</span>
+														<span class="spec-item--value">Фронтальні подушки безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Бокові подушки безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Передні шторки безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Задні шторки безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Колінна подушка безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Isofix</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Трьохточкові ремені безпеки</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Системи безпеки</span>
+														<span class="spec-item--value">EBD • TRC • HAC • ABD • HSA • ABS • BrakeAssist
+															•
+															ACC • TPMS • TSR • LDA • LKA • AHS • HDA • TCS</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-12"></use>
+													</svg>
+													<span>Гарантія</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Гарантійний період, міс.</span>
+														<span class="spec-item--value">Без обмеження</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-13"></use>
+													</svg>
+													<span>Екстер'єр</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Зовнішні бокові дзеркала</span>
+														<span class="spec-item--value">Підігрівом</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Електрорегулюванням</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Електроприводом складання</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-14"></use>
+													</svg>
+													<span>Оптика</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Передні</span>
+														<span class="spec-item--value">Світлодіодні фари</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Адаптивною технологією</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Задні</span>
+														<span class="spec-item--value">Світлодіодні ліхтарі</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Денні ходові вогні</span>
+														<span class="spec-item--value">Денні ходові вогні</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-15"></use>
+													</svg>
+													<span>Колеса</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Тип дисків</span>
+														<span class="spec-item--value">Легкосплавні диски 19</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-16"></use>
+													</svg>
+													<span>Електрообладнання</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Електрообладнання</span>
+														<span class="spec-item--value">Електросклопідйомники передні</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Електросклопідйомники задні</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Бортовий комп'ютер</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Круїз-контроль</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Датчик дощу</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Датчик світла</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Омивач фар</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Обігрів зони склоочисників</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Коректор фар</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Start/stop</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Електропривід кришки багажника</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Підігрів заднього скла</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Вибір режиму руху</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Кнопка запуску двигуна</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Бездротова зарядка смартфону</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Безключовий доступ</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-17"></use>
+													</svg>
+													<span>Оздоблення салону</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Салон</span>
+														<span class="spec-item--value">Оздоблений алюмінієм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Оздоблений пластиком</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Обшитий шкірою</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-18"></use>
+													</svg>
+													<span>Кермо</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Обшивка керма</span>
+														<span class="spec-item--value">Кермо обшите шкірою</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-19"></use>
+													</svg>
+													<span>Сидіння</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Передні сидіння</span>
+														<span class="spec-item--value">Обшиті шкірою</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Електрорегулюванням</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Активною боковою підтримкою</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Підігрівом</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Задні сидіння</span>
+														<span class="spec-item--value">Обшиті шкірою</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-21"></use>
+													</svg>
+													<span>Підлокітник</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Передній</span>
+														<span class="spec-item--value">Відкидний підлокітник</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Задній</span>
+														<span class="spec-item--value">Відкидний підлокітник</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-22"></use>
+													</svg>
+													<span>Кліматична система</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Кондиціонер / Клімат-контроль</span>
+														<span class="spec-item--value">Двозонний клімат-контроль</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="spec-group">
+												<div class="spec-group--title">
+													<svg class="i-spec-badge">
+														<use xlink:href="img/icons/icons.svg#character-23"></use>
+													</svg>
+													<span>Мультимедійна система</span>
+												</div>
+												<div class="spec-list">
+													<div class="spec-item">
+														<span class="spec-item--label">Мультимедійна система</span>
+														<span class="spec-item--value">Підтримкою bluetooth ("hands free")</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Підтримкою управління голосом</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Aux</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Підтримкою applecarplay / android auto</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Rds-радіо</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Кольоровим сенсорним дисплеєм</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Підтримкою аудіофайлів flac/aac</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Навігаційною системою</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Можливістю управління на кермі</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label">Акустика</span>
+														<span class="spec-item--value">Високочастотними динаміками</span>
+													</div>
+													<div class="spec-item">
+														<span class="spec-item--label"></span>
+														<span class="spec-item--value">Середньочастотними динаміками</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col"></div>
+						</div>
+					</div>
+				</section>
+				<section class="test-drive-section px-sm-6 px-lg-0 mb-12 mb-md-20 mb-lg-24">
+					<div class="container">
+						<div class="head text-center mb-5">
+							<span class="text-main-blue">Тест-драйв</span> та <span class="text-main-blue">підбір</span> авто
+						</div>
+						<div class="row mb-12">
+							<div class="col-12 col-lg-8 mx-auto">
+								<div class="subhead text-center h5 text-grey">Мрієте про ідеальне авто, але не впевнені, яке
+									підійде
+									саме вам?
+									Наша послуга підбору авто та тест-драйву допоможе знайти саме те, що вам потрібно!</div>
+							</div>
+						</div>
+						<div class="test-drive-wrap row">
+							<div class="col-12 col-lg-6 mb-5 mb-lg-0">
+								<div class="subject-leasing--item">
+									<div class="title mb-2 mb-lg-0">Замовити <br> тест-драйв</div>
+									<div class="description mb-5 mb-lg-0 d-lg-none">Відчуйте комфорт, потужність і елегантність
+										нашого нового моделі автомобіля безкоштовно.</div>
+									<a href="#"
+										class="btn btn-white btn-block d-flex align-items-center justify-content-center d-lg-none">
+										Замовити
+									</a>
+									<img class="bg-down" src="img/aahva1.jpg" alt="img">
+								</div>
+							</div>
+							<div class="col-12 col-lg-6">
+								<div class="subject-leasing--item">
+									<div class="title mb-2 mb-lg-0">Не знайшли <br> потрібного авто?</div>
+									<div class="description mb-5 mb-lg-0 d-lg-none">Відчуйте комфорт, потужність і елегантність
+										нашого нового моделі автомобіля безкоштовно.</div>
+									<a href="#"
+										class="btn btn-white btn-block d-flex align-items-center justify-content-center d-lg-none">
+										Замовити
+									</a>
+									<img class="bg-down" src="img/aahva2.jpg" alt="img">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="catalog--slider px-sm-6 px-lg-0 mb-12 mb-md-20 mb-lg-24">
+					<div class="container">
+						<div class="head mb-3"><span class="text-main-blue">Каталог</span> авто</div>
+						<div class="d-flex justify-content-md-end align-items-center mb-5">
+							<div class="wrap-buttons">
+								<a href="##" class="btn-link-catalog">
+									<span class="link-button"></span><span>Перейти в каталог</span>
+								</a>
+							</div>
+						</div>
+						<div class="row mb-5">
+							<div class="col">
+								<div class="catalog--swiper mr-lg-8">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="swiper-slide">
+											<div class="car-card">
+												<div class="car-card--top">
+													<div class="car-card--status">
+														<span class="dot"></span>
+														<span class="text">В наявності</span>
+													</div>
+													<div class="car-card--image">
+														<img src="img/car-item.png" alt="Audi A7 Sportback">
+													</div>
+												</div>
+												<div class="car-card--content">
+													<div class="car-card--title">Audi A7 Sportback</div>
+													<div class="car-card--year">2024</div>
+													<div class="car-card--price">
+														<span class="label">Щомісячний платіж:</span>
+														<span class="value">від 25 000 грн / міс.</span>
+													</div>
+												</div>
+												<div class="car-card--actions">
+													<a href="#" class="btn btn-main-blue btn-block">
+														Детальніше
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-5 align-items-center d-md-none">
+							<div class="col-6">
+								<div class="swiper-pagination"></div>
+							</div>
+							<div class="col-6">
+								<div class="swiper-buttons justify-content-end">
+									<div class="button-slider-prev">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#arrow-right-slider"></use>
+										</svg>
+									</div>
+									<div class="button-slider-next">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#arrow-right-slider"></use>
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="any-questions px-sm-6 px-lg-0 mb-12 mb-md-20 mb-lg-24">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-5">
+								<div class="wrap-img mx-auto">
+									<img src="img/vmoanviuhqt.jpg" alt="img" class="bg-down">
+									<div class="wrap-info">
+										<ul class="list-unstyled mb-0">
+											<li>Пн - Пт: 9:00 - 18:00</li>
+											<li>Сб - Нд: Вихідні</li>
+										</ul>
+										<div class="contact-info">
+											<div class="item">0 800 201 007</div>
+											<div class="item">info@ulf.ua</div>
+											<div class="item">Оболонський проспект, 35, Київ</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-lg-7">
+								<form
+									class="form-any-questions pt-6 pb-4 px-4 py-md-12 py-lg-10 px-md-8 pr-lg-0 pl-lg-22 bg-main-blue text-white">
+									<div class="head mb-3">Залишились питання?</div>
+									<div class="subhead h5 mb-8 mb-md-10">Залиште контакт - ми зателефонуємо, все пояснимо
+										та підберемо найкращі умови.
+									</div>
+									<div class="d-none d-lg-block">
+										<div class="row">
+											<div class="col-12 col-lg-10 col-xl-8">
+												<div class="field mb-3">
+													<label class="small-txt mb-2">Ваше імʼя</label>
+													<input type="text" id="name" class="form-control mb-2"
+														placeholder="Введіть ім’я">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+											<div class="col-12 col-lg-10 col-xl-8">
+												<div class="field mb-6">
+													<label class="small-txt mb-2">Моб. телефон</label>
+													<input type="tel" id="textInput" class="form-control mb-2"
+														placeholder="+38 000 0000000">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12 col-lg-10 col-xl-8">
+												<div class="field field-2 mb-3">
+													<label class="small-txt mb-2">Коментар (необовʼязково)</label>
+													<textarea class="form-control" rows="6"
+														placeholder="Введіть Ваш коментар..."></textarea>
+													<div class="field--help-info small-txt text-red mb-2 mt-2">Мінімум 1000 символів
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12 col-lg-10 col-xl-8">
+												<div class="custom-control custom-checkbox position-relative mb-8">
+													<input type="checkbox" class="custom-control-input" id="form-feedback-check">
+													<label class="custom-control-label" for="form-feedback-check">
+														<span class="custom-checkbox--info">Я погоджуюсь на обробку <a
+																href="##">персональних
+																даних</a> та приймаю умови політики обробки персональних даних</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-10 col-xl-8">
+											<button type="button" class="btn btn-white btn-block" data-toggle="modal"
+												data-target="#popup-579">Передзвоніть
+												мені</button>
+										</div>
+									</div>
+									<div class="bg-img d-none d-lg-block"><img src="img/Vector-ULF.png" alt="img"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="seo mb-8 mb-lg-20">
+					<div class="container">
+						<div class="spoiler-seo">
+							<div class="row">
+								<div class="col">
+									<div class="seo-wrapper">
+										<div>
+											<h1>Лізинг авто від ULF на найкращих умовах в Україні</h1>
+
+											<p>ULF — компанія, яка працює на ринку України з 2011 року і входить до топ-3 найкращих
+												лізингових фірм. Ми пропонуємо послуги автомобільного лізингу для фізичних
+												та юридичних
+												осіб. Ви можете оформити фінансовий, оперативний або зворотній лізинг, щоб взяти в
+												оренду легковий або вантажний автомобіль, спецтехніку, автобуси, мотоцикли та багато
+												іншого.</p>
+											<img alt="car"
+												src="img/Lexus-ES-250-ultraluxury-awd-visualizer-styles-750x471-LEX-ESG-MY24-0005.09 1.png">
+										</div>
+										<div>
+											<h2>Авто в лізинг в Києві</h2>
+
+											<p>Стандартний лізинг автомобіля — ситуація, коли ви орендуєте транспортний засіб на
+												довгий термін (в середньому — від 12 до 60 місяців) з правом подальшого викупу. Коли
+												всі платежі за договором виплачені, авто можна купити в особисту власність. Якщо
+												володіння ним для вас вже не актуально, можна повернути транспорт назад ULF. Рідше
+												зустрічаються договори, за якими не можна згодом придбати автомобіль: по суті ви
+												просто
+												орендуєте його на термін до року без націнок, зі страховкою і гарантіями від
+												компанії.
+											</p>
+
+											<p>В ULF практично немає обмежень для бажаючих купити авто в лізинг. Ви можете вибрати
+												легкову модель для себе, сільськогосподарську або залізничну техніку для виробничих
+												цілей, вантажівки, тягачі та причепи для комерційних перевезень. Все, що потрібно —
+												взяти з собою базовий пакет документів, внести авансовий платіж (в середньому від
+												20-30% повної суми з договору) і підписати угоду. Заявки розглядаються протягом
+												години,
+												тому ви можете забрати машину з майданчика вже найближчим часом.</p>
+										</div>
+										<div>
+											<h4>Що таке лізинг автомобіля в деталях</h4>
+
+											<p>Автолізинг по суті є тривалою розстрочкою, після виплати якої ви отримуєте об'єкт
+												договору
+												в особисту власність. На період дії угоди авто знаходиться у вас в оренді, а ви —
+												виплачуєте компанії обумовлені в документах щомісячні платежі за користування ним.
+												Купівля
+												авто в лізинг має кілька важливих переваг перед кредитом:</p>
+
+											<ul>
+												<li>брати участь у програмі можна з мінімальною сумою — достатньо внести аванс і
+													одноразову комісію (2,5 % від загальної суми);</li>
+												<li>супутні витрати на купівлю, від перереєстрації транспорту до державних мит,
+													сплачуються не відразу, а поступово;</li>
+												<li>відсоток схвалення заявки — максимальний, не прив'язаний до поточного
+													фінансування
+													в
+													банках і настрою кредитного працівника;</li>
+												<li>весь процес зводиться до обговорення нюансів і укладення договору — інші
+													завдання
+													(відвідування ТСЦ МВС, придбання страховки тощо) бере на себе ULF;</li>
+												<li>всі необхідні фахівці працюють в ULF — не потрібно оформляти угоду у нотаріуса
+													на
+													купівлю авто в лізинг.</li>
+											</ul>
+
+											<p>Звертаючись за автолізингом в ULF, ви не просто берете транспорт в оренду, але й
+												отримуєте
+												кваліфіковану сервісну підтримку. Персональний асистент компанії консультує вас 24/7
+												з
+												різних питань, від аварійних випадків і евакуації до технічного обслуговування та
+												питань
+												щодо страхування.</p>
+										</div>
+										<div>
+											<h4>Як працює автолізинг</h4>
+
+											<p>Продаж авто в лізинг цікавий обом сторонам — лізингодавцю і лізингоодержувачу. Ви,
+												як
+												клієнт, можете:</p>
+
+											<ul>
+												<li>вибрати відповідну марку і модель з сотень актуальних пропозицій в каталозі, на
+													будь-який смак і бюджет;</li>
+												<li>провести розрахунок підсумкових витрат буквально до кожної гривні на
+													спеціальному
+													онлайн-калькуляторі;</li>
+												<li>взяти транспорт в особисте користування буквально за пару днів, без виснажливих
+													торгів
+													і очікування схвалення;</li>
+												<li>позбутися непотрібної паперової тяганини, довіривши всі бюрократичні моменти
+													професіоналам компанії ULF;</li>
+												<li>платити за транспортний засіб комфортні суми щомісяця, без пошуку варіантів
+													позики
+													грошей на покупку.</li>
+											</ul>
+
+											<p>Компанія ULF, в свою чергу, отримує від вас гарантовану щомісячну плату в
+												фіксованому
+												розмірі, а в подальшому — оформляє продаж транспортного засобу (якщо ви
+												зацікавлені).
+												Важливо розуміти, чому авто в лізинг дешевше кредиту: суми погашення прораховуються
+												з
+												вирахуванням залишкової вартості. Наприклад, авто коштує 50 000 USD:</p>
+
+											<ul>
+												<li>ви відразу вносите 10 000 USD;</li>
+												<li>протягом 5 років виплачуєте по 500 USD щомісяця (30 000 USD сумарно);</li>
+												<li>в результаті доплачуєте останні 10 000 USD, якщо хочете викупити авто після
+													завершення
+													договору лізингу.</li>
+											</ul>
+
+											<p>Вартість автовикупу відразу фіксується в договорі з компанією ULF і не збільшується.
+												Завдяки цьому ви можете комфортно розрахувати відповідні для себе платежі і
+												користуватися
+												новим транспортним засобом без шкоди для власного бюджету.</p>
+
+											<p>ULF бере участь у багатьох програмах, включаючи державні, наприклад «Доступний
+												фінансовий
+												лізинг 5-7-9%» від Фонду розвитку підприємництва. Її учасники можуть оформити лізинг
+												авто
+												на ще більш вигідних умовах, з мінімальною комісією та фіксацією оцінки техніки в
+												гривні.
+											</p>
+										</div>
+										<div>
+											<h4>Хто може скористатися лізингом: фізичні та юридичні особи</h4>
+
+											<p>Придбати лізинговий автомобіль можуть як фізичні, так і юридичні особи. При оренді
+												та
+												купівлі немає ніяких обмежень щодо сфери діяльності клієнта, форми власності та
+												статусу
+												підприємства. Приватні особи зазвичай вибирають легкові авто в лізинг, які
+												представлені
+												величезним вибором на сайті ULF — седани, універсали, кросовери, позашляховики,
+												пікапи,
+												мінівени, малолітражки тощо. Всі запропоновані до продажу варіанти — абсолютно нові,
+												від
+												найпопулярніших брендів з Європи, США та Азії.</p>
+
+											<p>Не меншою популярністю користується автолізинг для юросіб. Компанія ULF співпрацює з
+												лідерами ринку України — «Нова Пошта», «UBER», «OK Wine», та державними
+												організаціями
+												(Укрзалізниця, Національна поліція). На придбання лізингового авто можуть
+												розраховувати
+												мікропідприємства, великий і середній бізнес для різних цілей — вантажні та
+												комерційні
+												перевезення, розвезення співробітників. У каталозі ULF є також техніка вузької
+												спеціалізації — зерновози, комбайни, трактори, екскаватори, навіть залізничні
+												вагони.
+											</p>
+										</div>
+										<div>
+											<h2>Види лізингу автомобілів</h2>
+
+											<p>Найпоширенішим вважається фінансовий лізинг авто, при якому ви поступово виплачуєте
+												вартість об'єкта договору і в підсумку можете його купити. У фізичних осіб
+												користується
+												попитом оперативний лізинг, якщо потрібно просто орендувати автомобіль на вигідних
+												умовах
+												(наприклад, для тимчасової роботи в таксі). Також існує зворотній лізинг авто — коли
+												особа
+												продає свій транспорт компанії, а потім бере його ж у ULF в розстрочку. Такий
+												варіант
+												зручний, наприклад, при несподіваних труднощах, коли не хочеться назавжди
+												розлучатися з
+												авто, і є мета пізніше його повернути собі.</p>
+										</div>
+										<div class="row">
+											<div class="col-12 col-xxl-6">
+												<div>
+													<h4>Оперативний лізинг</h4>
+
+													<p>Оперативний лізинг — це оренда транспортного засобу у компанії без права на
+														подальший
+														викуп. Зазвичай ви отримуєте автомобіль у користування максимум на 12 місяців,
+														після
+														чого
+														повертаєте його ULF. Ви щомісяця оплачуєте послугу однаковими платежами, а
+														після
+														закінчення договору — можете також його продовжити або взяти іншу машину.</p>
+
+													<p>Оперативний лізинг часто вибирають ті, хто не хоче їздити (в тому числі
+														працювати) на
+														власному транспорті або не може дозволити його собі фінансово. Це популярна
+														послуга для
+														комерційних перевезень: водій може регулярно «пересідати» на новіші моделі,
+														нічого не
+														втрачаючи в грошовому плані. Підходить такий лізинг і підприємцям, наприклад
+														можна
+														орендувати спецтехніку на посівний сезон і не інвестувати в її покупку.</p>
+												</div>
+												<div>
+													<h4>Фінансовий лізинг</h4>
+
+													<p>Фінансовий лізинг зустрічається найчастіше і популярний серед тих, хто хоче
+														купити
+														новий
+														транспорт, але не має на руках повної суми. Послуга надається на термін від 1
+														року до 5
+														років, протягом яких орендар користується автомобілем і щомісяця вносить певну
+														суму.
+														Після
+														закінчення договору можна повернути транспортний засіб компанії або викупити
+														його,
+														доплативши різницю за договором.</p>
+
+													<p>Фінансовий лізинг — найбільш комфортний і гнучкий за вимогами і термінами.
+														Ставку
+														за
+														договором можна зафіксувати в гривні: в результаті ви практично гарантовано
+														купуєте
+														автомобіль дешевше, ніж він коштує за курсом валюти на день укладення угоди. З
+														менеджером
+														компанії ULF можна обговорити всі нюанси покупки: сума авансового платежу,
+														тривалість
+														договору, розмір щомісячних виплат, додаткова технічна підтримка.</p>
+												</div>
+											</div>
+											<div class="col-12 col-xxl-6">
+												<div>
+													<h4>Який тип лізингу вибрати: порівняння умов</h4>
+
+													<p>Не можна сказати, що якийсь із варіантів лізингу — фінансовий або оперативний
+														—
+														більш
+														дешевий, доступний або привабливий. Обидві програми розраховані на різні цілі,
+														мають
+														свої
+														особливості та переваги.</p>
+
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<p><strong>Особливості</strong></p>
+																</td>
+																<td>
+																	<p><strong>Фінансовий</strong></p>
+																</td>
+																<td>
+																	<p><strong>Оперативний</strong></p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Право на викуп</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>-</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Термін дії договору</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Підходить для фізичних осіб</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Проста заміна одного авто на інше</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Мінімальні відсотки</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Точний розрахунок ціни на калькуляторі</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<p>Фіксація розміру платежів в договорі</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+																<td>
+																	<p>+</p>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+
+													<p>&nbsp;</p>
+
+													<p>Вибір типу лізингу в кінцевому рахунку зводиться до пари питань — чи плануєте
+														ви
+														покупку
+														орендованого транспортного засобу чи ні, і на який термін вам необхідно авто в
+														особисте
+														користування. Кожен з варіантів має свої плюси і мінуси, тому краще робити
+														розрахунок
+														разом з консультантом, щоб вибрати найкращий для себе варіант.</p>
+												</div>
+											</div>
+										</div>
+
+
+										<div>
+											<h2>Переваги лізингу авто</h2>
+
+											<p style="margin-bottom: 20px;">Купівля авто в лізинг в компанії ULF має цілий ряд
+												переваг:
+											</p>
+
+											<ol>
+												<li><small>Автомобіль можуть купити спеціально під вас. Ви самостійно вибираєте
+														бажану
+														марку, модель, клас і комплектацію, а ULF купує транспорт і після надає вам в
+														лізинг. Так ви гарантовано станете власником авто своєї мрії з мінімальними
+														витратами і без кредитних зобов'язань.</small></li>
+												<li><small>Не потрібно платити супутні податки. Поки ви користуєтеся автотранспортом
+														в
+														оренду, він де-юре залишається майном компанії, яка, в свою чергу, погашає по
+														ньому
+														всі податкові зобов'язання.</small></li>
+												<li><small>Підсумкові витрати зводяться до мінімуму. Компанія ULF сама зацікавлена в
+														збереженні хорошого технічного стану транспортних засобів, тому частково бере
+														на
+														себе турботи з обслуговування, замовлення страхового поліса тощо.</small></li>
+												<li><small>Можна взяти участь у партнерських програмах. Завдяки прямій співпраці ULF
+														з
+														постачальниками ви отримуєте гнучку систему знижок і спеціальні пропозиції з
+														фінансування від найпопулярніших брендів в Україні та в усьому світі.</small>
+												</li>
+												<li><small>Всі вимоги в договорі прописуються під вас. З менеджером ULF можна
+														скласти
+														індивідуальний графік платежів (ануїтет, сезонний, класичний), визначити
+														комфортну
+														суму внеску для свого бюджету, обговорити розмір першого внеску тощо.</small>
+												</li>
+												<li><small>Отримання лізингу вимагає від вас мінімум часу і зусиль. Ви можете
+														попередньо
+														оцінити автотранспорт на калькуляторі, залишити заявку, після чого
+														поспілкуватися
+														з
+														представником ULF і підписати договір. Решту питань, таких як реєстрація
+														документів,
+														страхування тощо, вирішує компанія.</small></li>
+												<li><small>Не потрібно збирати величезний пакет документів. У базове досьє
+														лізингоодержувача входять паспорт, ІПН та свідоцтво про шлюб. Решта документів
+														залежать від програми фінансування, але в будь-якому випадку збирати
+														доведеться
+														набагато менше, ніж при кредитуванні.</small></li>
+											</ol>
+										</div>
+										<div>
+											<h4>Лізинг для фізичних осіб</h4>
+
+											<p style="margin-bottom: 20px;">Автолізинг — популярне рішення серед приватних осіб з
+												великим списком переваг:</p>
+
+											<ul>
+												<li>на старті для покупки абсолютно нової машини достатньо внести від ⅕ її вартості;
+												</li>
+												<li>не потрібно нести додаткові витрати на нотаріальні послуги та державні мита;
+												</li>
+												<li>кількість відмов — мінімальна, в рази менше, ніж при банківському кредитуванні;
+												</li>
+												<li>є шанс на схвалення лізингу навіть з невеликим рівнем офіційного доходу;</li>
+												<li>немає складних і тривалих перевірок, спілкування з поручителями та інших
+													неприємних
+													процедур, як при зверненні в банк;</li>
+												<li>компанія пропонує ставки від 0,01% для різних типів транспортних засобів — тобто
+													практично без переплат;</li>
+												<li>не завжди потрібна навіть довідка про доходи, не кажучи вже про більш складні в
+													отриманні документи.</li>
+											</ul>
+										</div>
+										<p></p>
+										<div>
+											<h2>Як оформити лізинг авто в Києві</h2>
+
+											<p>ULF пропонує прості та прозорі правила оформлення автолізингу. Достатньо вибрати
+												відповідне авто, розрахувати, скільки коштує вподобана модель у спеціальному
+												калькуляторі,
+												подати онлайн-заявку, поспілкуватися з оператором і укласти договір.</p>
+										</div>
+										<div>
+											<h4>Покрокова інструкція оформлення, розрахувати авто в лізинг</h4>
+
+											<ol>
+												<li><small>Вибір транспортного засобу. У каталозі ULF ви знайдете легкові та
+														вантажні
+														машини, сільськогосподарську техніку, причепи, мотоцикли тощо. Ви обираєте
+														вподобану
+														марку та модель, після чого переходите нижче в онлайн-калькулятор для швидкого
+														розрахунку її кінцевої ціни.</small></li>
+												<li><small>Подача заявки та спілкування з консультантом. Після оцінки автомобіля
+														(або
+														без
+														неї) можна натиснути кнопку «Подати заявку» на головній сторінці компанії і
+														заповнити коротку форму. З вами протягом 30 хвилин зв'яжеться консультант і
+														обговорить всі нюанси угоди.</small></li>
+												<li><small>Прийняття рішення і підготовка документів. Менеджери ULF схвалюють
+														покупку
+														авто
+														в лізинг в середньому за годину, після чого ви домовляєтеся про зустріч у
+														зручний
+														час. До призначеної дати потрібно зібрати обумовлений пакет документів і
+														підготувати
+														авансову суму.</small></li>
+												<li><small>Підписання договору та отримання транспорту. У потрібний день ви
+														зустрічаєтеся
+														з представником ULF, підписуєте договір і вносите аванс, після чого забираєте
+														обрану
+														модель з автосалону (або іншого майданчика).</small></li>
+											</ol>
+											<p></p>
+										</div>
+										<div class="row">
+											<div class="col-12 col-xxl-6">
+												<div>
+													<h4>Які документи потрібні</h4>
+
+													<p>Щоб оформити авто в лізинг, вам можуть знадобитися:</p>
+
+													<ul>
+														<li>заповнений базовий опитувальник;</li>
+														<li>посвідчення особи (паспорт громадянина України);</li>
+														<li>ідентифікаційний номер;</li>
+														<li>свідоцтво про шлюб;</li>
+														<li>у разі шлюбу — також паспорт та ІПН дружини/чоловіка;</li>
+														<li>довідка про доходи або її аналог;</li>
+														<li>виписка з банку за поточними рахунками;</li>
+														<li>документи на майнову власність.</li>
+													</ul>
+
+													<p>Повний пакет документів залежить від програми фінансування лізингу та вашого
+														статусу.
+													</p>
+												</div>
+											</div>
+											<div class="col-12 col-xxl-6">
+												<div>
+													<h4>Як подати заявку на лізинг авто онлайн</h4>
+
+													<p>Почати купівлю авто в лізинг варто з заповнення короткої форми «Подати
+														заявку», в
+														яку
+														слід
+														вписати:</p>
+
+													<ul>
+														<li>ваше ім'я;</li>
+														<li>контактний номер телефону;</li>
+														<li>тип транспортного засобу (нове або вживане);</li>
+														<li>тип особи (фізична або юридична);</li>
+														<li>зручний спосіб зв'язку (дзвінки, месенджери).</li>
+													</ul>
+
+													<p>Менеджери ULF із задоволенням дадуть відповідь на всі ваші запитання по
+														телефону
+														або
+														онлайн, нададуть розгорнуту безкоштовну консультацію, обговорять усі нюанси
+														укладення
+														угоди. Після спілкування з фахівцем можна відразу приступати безпосередньо до
+														оформлення
+														договору та купівлі довгоочікуваного транспортного засобу.</p>
+
+													<p>Наша компанія пропонує найвигідніші правила лізингу в Києві та інших містах
+														України, що
+														підтверджують тисячі задоволених клієнтів з різних куточків країни. Залиште
+														заявку на
+														нашому сайті прямо зараз, і ви можете стати щасливим власником нового
+														легкового,
+														вантажного авто, мотоцикла або спецтехніки вже найближчим часом!</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+		<footer class="footer">
+	<div class="footer--top pt-8 pt-md-12 mb-6 mb-md-8">
+		<div class="container">
+			<div class="footer--top--solid pb-6 pb-md-10 pb-xl-12">
+				<div class="row">
+					<div class="col">
+						<div class="row">
+							<div class="col-12 col-md-6 col-xl-5">
+								<div class="row mb-6 mb-md-8 mb-md-0">
+									<div class="col-6 col-md-6 col-xl">
+										<ul class="footer--nav-list mob-line list-unstyled pb-3 mb-3 pb-md-0 mb-md-0">
+											<li><a href="##">Головна</a></li>
+											<li><a href="##">Каталог авто</a></li>
+											<li><a href="##">Вживані авто</a></li>
+											<li><a href="##">Підписка на авто</a></li>
+											<li><a href="##">ULF Асистанс</a></li>
+										</ul>
+									</div>
+									<div class="col-6 col-md-6 col-xl d-none d-md-flex">
+										<ul class="footer--nav-list mob-line list-unstyled pb-3 mb-3 pb-md-0 mb-md-0">
+											<li><a href="##">Фінансування</a></li>
+											<li><a href="##">Легкові авто</a></li>
+											<li><a href="##">Вантажні авто</a></li>
+											<li><a href="##">Сільгосптехніка</a></li>
+											<li><a href="##">Обладнання та спецтехніка</a></li>
+											<li><a href="##">Програма 5-7-9</a></li>
+										</ul>
+									</div>
+									<div class="col-6 d-md-none">
+										<ul class="footer--nav-list mob-line list-unstyled mb-0">
+											<li><a href="##">Публічна інформація</a></li>
+											<li><a href="##">Договір лізингу</a></li>
+											<li><a href="##">Документи для фінансування</a></li>
+											<li><a href="##">Умови страхування</a></li>
+											<li><a href="##">Клієнтам</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-md-6 col-xl d-md-none">
+								<ul class="footer--nav-list mob-line list-unstyled mb-0">
+									<li><a href="##">Фінансування</a></li>
+									<li><a href="##">Легкові авто</a></li>
+									<li><a href="##">Вантажні авто</a></li>
+									<li><a href="##">Сільгосптехніка</a></li>
+									<li><a href="##">Обладнання та спецтехніка</a></li>
+									<li><a href="##">Програма 5-7-9</a></li>
+								</ul>
+							</div>
+							<div class="col-6 col-md-3 col-xl-3 d-none d-md-flex">
+								<div class="col">
+									<ul class="footer--nav-list mob-line list-unstyled pb-3 mb-3 pb-md-0 mb-md-0">
+										<li><a href="##">Публічна інформація</a></li>
+										<li><a href="##">Договір лізингу</a></li>
+										<li><a href="##">Документи для фінансування</a></li>
+										<li><a href="##">Умови страхування</a></li>
+										<li><a href="##">Клієнтам</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-6 col-md-3 col-xl-2">
+								<div class="row">
+									<div class="col">
+										<ul class="footer--nav-list mob-line list-unstyled pb-3 mb-3 pb-md-0 mb-md-0">
+											<li><a href="##">Компанія</a></li>
+											<li><a href="##">Про нас</a></li>
+											<li><a href="##">Новини</a></li>
+											<li><a href="##">Контакти</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col col-xl-12 col-xxl-2 d-none d-xl-flex">
+								<div class="row">
+									<div class="col">
+										<ul class="footer--nav-list mob-line list-unstyled pb-3 mb-3 pb-md-0 mb-md-0">
+											<li class="font-weight-normal">
+												<a href="##">
+													<div class="link-wrap">
+														<svg class="icon">
+															<use xlink:href="img/icons/icons.svg#user"></use>
+														</svg>
+														<span>Особистий кабінет</span>
+													</div>
+												</a>
+											</li>
+											<li>
+												<div class="select-wrap" id="footer-select-city">
+													<select class="footer-select-city" name="footer-select-city">
+														<option value="c1">Київ</option>
+														<option value="c2">Рівне</option>
+														<option value="c3">Запоріжжя</option>
+														<option value="c4">Луцьк</option>
+														<option value="c5">Донець</option>
+														<option value="c6">Львів</option>
+														<option value="c7">Житомир</option>
+														<option value="c8">Кривий Ріг</option>
+														<option value="c9">Маріуполь</option>
+														<option value="c10">Чернівці</option>
+													</select>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer--main mb-6 mb-md-10">
+		<div class="container">
+			<div class="footer--top--solid pb-6 pb-md-8">
+				<div class="row">
+					<div class="col-12 col-md-6 col-xl-5">
+						<div class="footer-contacts mb-6 mb-md-0">
+							<div class="mb-4 mb-md-5 pr-4 pr-md-0">
+								<div class="mb-2 font-weight-bold">Наша адреса:</div>
+								<div class="h4">Оболонський проспект, 35, Київ</div>
+							</div>
+							<div class="mb-0">
+								<div class="mb-2 font-weight-bold">Номер гарячої лінії:</div>
+								<div class="h4"><a href="tel:0 800 301 007">0 800 301 007</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3 col-xl-3">
+						<div class="footer--socials">
+							<div class="mb-2 mb-md-3 font-weight-bold">Соцмережі</div>
+							<ul class="list-inline mb-0">
+								<li class="list-inline-item">
+									<a href="##" target="_blank">
+										<svg class="facebook-circle">
+											<use xlink:href="img/icons/icons.svg#facebook-circle"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="##" target="_blank">
+										<svg class="youtube-circle">
+											<use xlink:href="img/icons/icons.svg#youtube-circle"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="##" target="_blank">
+										<svg class="instagram-circle">
+											<use xlink:href="img/icons/icons.svg#instagram-circle"></use>
+										</svg>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-6 col-md-3 col-xl-4">
+						<div class="footer--socials">
+							<div class="mb-2 mb-md-6 font-weight-bold">Електронні пошти</div>
+							<div class="footer--email mb-2 mb-md-3">
+								<a href="mailto:info@ulf.ua">info@ulf.ua</a>
+							</div>
+							<div class="footer--email">
+								<a href="mailto:client.service@ulf.ua">client.service@ulf.ua</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer--bottom pb-5 pb-xl-8">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-12 col-md-6">
+					<div class="footer-logo">
+						<img src="img/logo-ulf.svg" alt="logo">
+						<img src="img/logo-tas.svg" alt="logo">
+					</div>
+				</div>
+				<div class="col-12 col-md-6 d-none d-xl-flex">
+					<div>Всі розрахунки носять індикативний характер. Не є публічною офертою.
+						Фінансує ТОВ "УЛФ-ФІНАНС" <br> Ліцензія НБУ на діяльність фінансової компанії з правом надання
+						послуги – фінансовий лізинг з 16.02.2024.</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-md-6">
+					<div class="copyright">2017-2024, ТОВ «УЛФ-ФІНАНС». Всі права захищені.</div>
+				</div>
+				<div class="col-6 d-none d-xl-flex">
+					<a href="##">Політики конфіденційності компанії. </a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<div id="btnCall" class="btn btn-arrow-up" data-toggle="modal" data-target="#popup-any-questions">
+	<svg>
+		<use xlink:href="img/icons/icons.svg#tabler-icon-phone"></use>
+	</svg>
+</div>
+	</div>
+	<div class="modal modal--custom modal--custom-2 popup-accessability fade" id="popup-accessability" data-keyboard="false"
+	tabindex="-1" aria-labelledby="popup-accessabilityLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<!-- modal-dialog-centered -->
+		<div class="modal-content p-0">
+			<div class="modal-body px-2 pt-12 pb-8 px-md-7">
+				<div class="d-flex align-items-start justify-content-between mb-8">
+					<div class="d-flex flex-column">
+						<div class="modal-title h4 font-m mb-2 pr-10 pr-sm-4">Налаштування доступності</div>
+						<div class="d-flex">
+							<button type="button" class="btn btn-ahead rounded-0 d-block p-0 settings-cancel">Скинути
+								налаштування</button>
+						</div>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">
+							<svg>
+								<use xlink:href="img/icons/icons.svg#i-close"></use>
+							</svg>
+						</span>
+					</button>
+				</div>
+				<div class="accessability-menu">
+					<div class="row">
+						<div class="col-12">
+							<div class="settings-visual">
+								<div class="settings-size settings-visual--item">
+									<div class="settings-name">Розмір шрифта:</div>
+									<div class="settings-options">
+										<button type="button" class="btn px-3 py-1 settings-option font-small-button"
+											data-setting="font-small">Аа</button>
+										<button type="button" class="active btn px-3 py-1 settings-option font-normal-button"
+											data-setting="font-normal">Аа</button>
+										<button type="button" class="btn px-3 py-1 settings-option font-big-button"
+											data-setting="font-big">Аа</button>
+									</div>
+								</div>
+								<div class="color-scheme settings-visual--item">
+									<div class="settings-name">Колірна схема:</div>
+									<div class="settings-options">
+										<button type="button" class="active scheme-default-button btn px-3 py-1 settings-option"
+											data-setting="scheme-default">
+											<span>Звичайна</span><span class="settings-option--icon"></span></button>
+										<button type="button"
+											class="scheme-white-black-button btn px-3 py-1 settings-option color-scheme--change"
+											data-setting="scheme-white-black">
+											<span>Біло-чорна</span><span class="settings-option--icon"><span>А</span></span>
+										</button>
+										<button type="button"
+											class="scheme-black-white-button btn px-3 py-1 settings-option color-scheme--change"
+											data-setting="scheme-black-white">
+											<span>Чорно-біла</span><span
+												class="settings-option--icon"><span>А</span></span></button>
+										<button type="button"
+											class="scheme-blue-button btn px-3 py-1 settings-option color-scheme--change"
+											data-setting="scheme-blue">
+											<span>Блакитна</span><span class="settings-option--icon"><span>А</span></span></button>
+									</div>
+								</div>
+								<div class="settings-pic settings-visual--item">
+									<div class="settings-name">Зображення:</div>
+									<div class="settings-options">
+										<button type="button" class="active images-normal-button btn px-3 py-1 settings-option"
+											data-setting="images-normal">Звичайні</button>
+										<button type="button" class="btn images-black-white-button px-3 py-1 settings-option"
+											data-setting="images-black-white">Чорно-білі</button>
+										<button type="button" class="btn images-hide-button px-3 py-1 settings-option"
+											data-setting="images-hide">Приховати</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-questions fade" id="popup-questions" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-questionsLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/img_40885212.jpg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-inner pl-lg-5 pl-xl-13">
+										<div class="head h4 mb-8">Оформлення заявки</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="field mb-3">
+													<label class="small-txt mb-2">Ваше імʼя</label>
+													<input type="text" id="name" class="form-control mb-2"
+														placeholder="Введіть ім’я">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="field mb-6">
+													<label class="small-txt mb-2">Моб. телефон</label>
+													<input type="tel" id="textInput" class="form-control mb-2"
+														placeholder="+38 000 0000000">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-12">
+												<div class="choose-radio-label">Вкажіть особу</div>
+												<div class="choose-radio">
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-1" name="checkbox-group-1" checked="">
+														<label class="custom-control-label" for="popup-questions-checkbox-1">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Фізична</span>
+																</div>
+															</div>
+														</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-2" name="checkbox-group-1">
+														<label class="custom-control-label" for="popup-questions-checkbox-2">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Юридична / ФОП</span>
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-12">
+												<div class="choose-radio-label">Вкажіть, яке авто Вас цікавить</div>
+												<div class="choose-radio">
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-3" name="checkbox-group-2" checked="">
+														<label class="custom-control-label" for="popup-questions-checkbox-3">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Нове</span>
+																</div>
+															</div>
+														</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-4" name="checkbox-group-2">
+														<label class="custom-control-label" for="popup-questions-checkbox-4">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Вживане</span>
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-12">
+												<div class="choose-radio-label">Оберіть зручний для Вас спосіб звʼязку</div>
+												<div class="choose-radio">
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-5" name="checkbox-group-3" checked="">
+														<label class="custom-control-label" for="popup-questions-checkbox-5">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Дзвінок</span>
+																</div>
+															</div>
+														</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input"
+															id="popup-questions-checkbox-6" name="checkbox-group-3">
+														<label class="custom-control-label" for="popup-questions-checkbox-6">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Месенджер</span>
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-8 mt-8">
+											<div class="col-12">
+												<button type="button" class="btn btn-main-blue btn-block"
+													data-next-modal="#popup-questions-thank-you"
+													data-dismiss="modal">Відправити</button>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="info">Натискаючи на кнопку, Ви даєте згоду на обробку персональних даних
+													відповідно
+													до <a href="##">Політики конфіденційності</a>.</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-questions-thank-you fade" id="popup-questions-thank-you" data-keyboard="false"
+	tabindex="-1" aria-labelledby="popup-questions-thank-youLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/alexandre-boucher-BNrlDv8w07Y-unsplash.jpg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="success-wrap">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#check-success"></use>
+										</svg>
+									</div>
+									<div class="head h4 mb-2 text-center">Дякуємо</div>
+									<div class="subhead text-grey mb-8 text-center">Ми отримали вашу заявку. <br> Чекайте на
+										зворотній
+										звʼязок</div>
+									<button type="button" class="btn-link-main mb-24 mx-auto" data-dismiss="modal"
+										aria-label="Close">
+										<span class="link-button"></span><span>Повернутись на головну</span>
+									</button>
+									<div class="popup--socials">
+										<div class="mb-2 font-weight-bold">Соцмережі</div>
+										<ul class="list-inline mb-0">
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="facebook-circle">
+														<use xlink:href="img/icons/icons.svg#facebook-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="youtube-circle">
+														<use xlink:href="img/icons/icons.svg#youtube-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="instagram-circle">
+														<use xlink:href="img/icons/icons.svg#instagram-circle"></use>
+													</svg>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-any-questions fade" id="popup-any-questions" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-any-questionsLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/64N7YjcMzP5vs36CS5iv.jpeg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-inner pl-lg-5 pl-xl-13">
+										<div class="head h4 mb-8">Зворотній звʼязок</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="field mb-3">
+													<label class="small-txt mb-2">Ваше імʼя</label>
+													<input type="text" id="name" class="form-control mb-2"
+														placeholder="Введіть ім’я">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="field mb-6">
+													<label class="small-txt mb-2">Моб. телефон</label>
+													<input type="tel" id="textInput" class="form-control mb-2"
+														placeholder="+38 000 0000000">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-7 mb-lg-16">
+											<div class="col-12">
+												<div class="field field-2 mb-3">
+													<textarea class="form-control" rows="6"
+														placeholder="Введіть Ваш коментар..."></textarea>
+													<div class="field--help-info small-txt text-red mb-2 mt-2">Мінімум 1000 символів
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-8">
+											<div class="col-12">
+												<button type="button" class="btn btn-main-blue btn-block"
+													data-next-modal="#popup-any-questions-thank-you"
+													data-dismiss="modal">Відправити</button>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="info">Натискаючи на кнопку, Ви даєте згоду на обробку персональних даних
+													відповідно
+													до <a href="##">Політики конфіденційності</a>.</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-any-questions-thank-you fade" id="popup-any-questions-thank-you"
+	data-keyboard="false" tabindex="-1" aria-labelledby="popup-any-questions-thank-youLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/64N7YjcMzP5vs36CS5iv.jpeg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="success-wrap">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#check-success"></use>
+										</svg>
+									</div>
+									<div class="head h4 mb-2 text-center">Дякуємо</div>
+									<div class="subhead text-grey mb-8 text-center">Ми отримали вашу заявку. <br> Чекайте на
+										зворотній
+										звʼязок</div>
+									<button type="button" class="btn-link-main mb-24 mx-auto" data-dismiss="modal"
+										aria-label="Close">
+										<span class="link-button"></span><span>Повернутись на головну</span>
+									</button>
+									<div class="popup--socials">
+										<div class="mb-2 font-weight-bold">Соцмережі</div>
+										<ul class="list-inline mb-0">
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="facebook-circle">
+														<use xlink:href="img/icons/icons.svg#facebook-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="youtube-circle">
+														<use xlink:href="img/icons/icons.svg#youtube-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="instagram-circle">
+														<use xlink:href="img/icons/icons.svg#instagram-circle"></use>
+													</svg>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-579 fade" id="popup-579" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-579Label" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/img-4088515v.jpg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-inner pl-lg-5 pl-xl-13">
+										<div class="head h4 mb-8">Оформлення заявки</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="field mb-3">
+													<label class="small-txt mb-2">Ваше імʼя</label>
+													<input type="text" id="name" class="form-control mb-2"
+														placeholder="Введіть ім’я">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="field mb-6">
+													<label class="small-txt mb-2">Моб. телефон</label>
+													<input type="tel" id="textInput" class="form-control mb-2"
+														placeholder="+38 000 0000000">
+													<div class="field--help-info small-txt text-red mb-2">Помилка введення</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-12">
+												<div class="choose-radio-label">Оберіть зручний для Вас спосіб звʼязку</div>
+												<div class="choose-radio">
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input" id="popup-579-checkbox-1"
+															name="checkbox-group-1" checked="">
+														<label class="custom-control-label" for="popup-579-checkbox-1">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Дзвінок</span>
+																</div>
+															</div>
+														</label>
+													</div>
+													<div class="custom-control custom-radio">
+														<input type="radio" class="custom-control-input" id="popup-579-checkbox-2"
+															name="checkbox-group-1">
+														<label class="custom-control-label" for="popup-579-checkbox-2">
+															<div
+																class="d-flex justify-content-between align-items-center align-items-lg-start">
+																<div class="d-flex flex-column mr-3">
+																	<span class="mb-1">Месенджер</span>
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-8 mb-lg-24 mt-8">
+											<div class="col-12">
+												<button type="button" class="btn btn-main-blue btn-block"
+													data-next-modal="#popup-579-thank-you" data-dismiss="modal">Подати
+													заявку</button>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<div class="info">Натискаючи на кнопку, Ви даєте згоду на обробку персональних даних
+													відповідно
+													до <a href="##">Політики конфіденційності</a>.</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom popup-579-thank-you fade" id="popup-579-thank-you" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-579-thank-youLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-any-questions" autocomplete="off">
+							<div class="row">
+								<div class="col">
+									<div class="d-flex align-items-start justify-content-between">
+										<!-- <div class="modal-title font-weight-bolder mb-0">Залишились питання?</div> -->
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">
+												<svg>
+													<use xlink:href="img/icons/icons.svg#i-close"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 col-lg-6 d-none d-lg-flex">
+									<div class="wrap-img mx-auto">
+										<img src="img/img-4088515v.jpg" alt="img" class="bg-down">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="success-wrap">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#check-success"></use>
+										</svg>
+									</div>
+									<div class="head h4 mb-2 text-center">Дякуємо</div>
+									<div class="subhead text-grey mb-8 text-center">Ми отримали вашу заявку. <br> Чекайте на
+										зворотній
+										звʼязок</div>
+									<button type="button" class="btn-link-main mb-24 mx-auto" data-dismiss="modal"
+										aria-label="Close">
+										<span class="link-button"></span><span>Повернутись на головну</span>
+									</button>
+									<div class="popup--socials">
+										<div class="mb-2 font-weight-bold">Соцмережі</div>
+										<ul class="list-inline mb-0">
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="facebook-circle">
+														<use xlink:href="img/icons/icons.svg#facebook-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="youtube-circle">
+														<use xlink:href="img/icons/icons.svg#youtube-circle"></use>
+													</svg>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a href="##" target="_blank">
+													<svg class="instagram-circle">
+														<use xlink:href="img/icons/icons.svg#instagram-circle"></use>
+													</svg>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal modal--custom modal--custom-2 popup-filter fade" id="popup-filter" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-filterLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<!-- modal-dialog-centered -->
+		<div class="modal-content p-0 our-fleet">
+			<div class="modal-body p-3 pt-4 pb-12">
+				<div class="d-flex align-items-start justify-content-between mb-8">
+					<div class="d-flex flex-column">
+						<div class="modal-title h4 font-m pr-10 pr-sm-4">Фільтри</div>
+					</div>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">
+							<svg>
+								<use xlink:href="img/icons/icons.svg#i-close"></use>
+							</svg>
+						</span>
+					</button>
+				</div>
+				<div class="filter-menu">
+					<div class="row">
+						<div class="col-12">
+							<div class="sidebar" id="navbarFilters">
+								<div class="filter-top d-flex justify-content-between align-items-center pb-4 pt-0 py-lg-4">
+									<div class="filter-title mr-4">Фільтрувати за:</div>
+									<button type="button" class="btn-close btn btn-reset">
+										<span>Скинути</span>
+										<svg class="i-close">
+											<use xlink:href="img/icons/icons.svg#i-close"></use>
+										</svg>
+									</button>
+								</div>
+								<div class="sidebar-filter">
+									<div class="accordion" id="accordion-catalog-popup">
+										<div class="row">
+											<div class="col">
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-1">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-1" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-1">Марка авто</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-1" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-1">
+														<div class="card-body">
+															<div class="field-wrap mb-3">
+																<div class="field">
+																	<div class="filter-list">
+																		<div class="input-search">
+																			<input type="search" class="search-input form-control"
+																				placeholder="Пошук">
+																			<span class="clear-icon"></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-10">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-10" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-10">Модель авто</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-10" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-10">
+														<div class="card-body">
+															<div class="field-wrap mb-3">
+																<div class="field">
+																	<div class="filter-list">
+																		<div class="input-search">
+																			<input type="search" class="search-input form-control"
+																				placeholder="Пошук">
+																			<span class="clear-icon"></span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-2">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-2" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-2">Ціна авто</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-2" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-2">
+														<div class="card-body">
+															<div class="position-relative">
+																<div id="price-slider-full--popup"
+																	class="price-slider slider-range mb-6">
+																	<div class="field-wrap mb-3">
+																		<div class="field">
+																			<div class="inner">
+																				<div class="field-item">
+																					<div class="currency-content">
+																						<div class="input-currency">
+																							<input
+																								class="currency-first-full--popup form-control"
+																								type="number" value="0" min="0" max="10000"
+																								step="1">
+																						</div>
+																					</div>
+																				</div>
+																				<div class="field-item">
+																					<div class="currency-content">
+																						<div class="input-currency">
+																							<input
+																								class="currency-last-full--popup form-control"
+																								type="number" value="10000" min="0" max="10000"
+																								step="1">
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="rangeBar-full">
+																		<div class="rangeBar-full--line"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-3">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-3" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-3">Рік</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-3" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-3">
+														<div class="card-body">
+															<div class="field-wrap mb-3">
+																<div class="field">
+																	<div class="inner">
+																		<div class="datepicker">
+																			<input id="graduation-year-first" class="form-control"
+																				type="text" readonly data-input
+																				autocomplete="no-autofill-please" placeholder="Від">
+																		</div>
+																		<div class="datepicker">
+																			<input id="graduation-year-last" class="form-control"
+																				type="text" readonly data-input
+																				autocomplete="no-autofill-please" placeholder="До">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-4">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-4" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-4">Пробіг (тис. км.)
+															</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-4" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-4">
+														<div class="card-body">
+															<div class="field-wrap mb-3">
+																<div class="field">
+																	<div class="inner">
+																		<div class="field-item">
+																			<input id="graduation-year-first" class="form-control"
+																				type="number" value="0" min="0" max="50000" step="1"
+																				data-input autocomplete="no-autofill-please">
+																		</div>
+																		<div class="field-item">
+																			<input id="graduation-year-last" class="form-control"
+																				type="number" value="50000" min="0" max="50000" step="1"
+																				data-input autocomplete="no-autofill-please">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-5">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-5" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-5">Коробка передач</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-5" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-5">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="gear-box-1">
+																	<label class="custom-control-label" for="gear-box-1">
+																		<span class="custom-checkbox--info">Автомат</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="gear-box-2">
+																	<label class="custom-control-label" for="gear-box-2">
+																		<span class="custom-checkbox--info">Ручна / Механіка</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-6">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-6" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-6">Паливо
+															</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-6" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-6">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="fuel-1">
+																	<label class="custom-control-label" for="fuel-1">
+																		<span class="custom-checkbox--info">Бензин</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="fuel-2">
+																	<label class="custom-control-label" for="fuel-2">
+																		<span class="custom-checkbox--info">Дизель</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-7">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-7" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-7">Тип приводу</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-7" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-7">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="drive-type-1">
+																	<label class="custom-control-label" for="drive-type-1">
+																		<span class="custom-checkbox--info">Повний</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="drive-type-2">
+																	<label class="custom-control-label" for="drive-type-2">
+																		<span class="custom-checkbox--info">Передній</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="drive-type-3">
+																	<label class="custom-control-label" for="drive-type-3">
+																		<span class="custom-checkbox--info">Задній</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-8">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-8" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-8">Обʼєм двигуна (л.)
+															</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-8" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-8">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="engine-capacity-1">
+																	<label class="custom-control-label" for="engine-capacity-1">
+																		<span class="custom-checkbox--info">2.0</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="engine-capacity-2">
+																	<label class="custom-control-label" for="engine-capacity-2">
+																		<span class="custom-checkbox--info">3.0</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="engine-capacity-3">
+																	<label class="custom-control-label" for="engine-capacity-3">
+																		<span class="custom-checkbox--info">5.0</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-9">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-9" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-9">Тип кузова</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-9" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-9">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-1">
+																	<label class="custom-control-label" for="body-type-1">
+																		<span class="custom-checkbox--info">Седан</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-2">
+																	<label class="custom-control-label" for="body-type-2">
+																		<span class="custom-checkbox--info">Універсал</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-3">
+																	<label class="custom-control-label" for="body-type-3">
+																		<span class="custom-checkbox--info">Хетчбек</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-4">
+																	<label class="custom-control-label" for="body-type-4">
+																		<span class="custom-checkbox--info">Пікап</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-5">
+																	<label class="custom-control-label" for="body-type-5">
+																		<span class="custom-checkbox--info">Мінівен</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-6">
+																	<label class="custom-control-label" for="body-type-6">
+																		<span class="custom-checkbox--info">Купе</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-7">
+																	<label class="custom-control-label" for="body-type-7">
+																		<span class="custom-checkbox--info">Легковий фургон</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input" id="body-type-8">
+																	<label class="custom-control-label" for="body-type-8">
+																		<span class="custom-checkbox--info">Позашляховик /
+																			Кроссовер</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="card">
+													<div class="card-header p-0" id="heading-accordion-catalog-popup-10">
+														<div class="h6 mb-0">
+															<div class="btn btn-link collapsed" data-toggle="collapse"
+																data-target="#collapse-accordion-catalog-popup-10" aria-expanded="false"
+																aria-controls="collapse-accordion-catalog-popup-10">Колір</div>
+														</div>
+													</div>
+													<div id="collapse-accordion-catalog-popup-10" class="collapse"
+														aria-labelledby="heading-accordion-catalog-popup-10">
+														<div class="card-body">
+															<div class="mb-3">
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-1">
+																	<label class="custom-control-label" for="color-body-1">
+																		<span class="custom-checkbox--info">Чорний</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-2">
+																	<label class="custom-control-label" for="color-body-2">
+																		<span class="custom-checkbox--info">Білий</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-3">
+																	<label class="custom-control-label" for="color-body-3">
+																		<span class="custom-checkbox--info">Червоний</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-4">
+																	<label class="custom-control-label" for="color-body-4">
+																		<span class="custom-checkbox--info">Оранжевий</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-5">
+																	<label class="custom-control-label" for="color-body-5">
+																		<span class="custom-checkbox--info">Синій</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-6">
+																	<label class="custom-control-label" for="color-body-6">
+																		<span class="custom-checkbox--info">Жовтий</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-7">
+																	<label class="custom-control-label" for="color-body-7">
+																		<span class="custom-checkbox--info">Коричневий</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-8">
+																	<label class="custom-control-label" for="color-body-8">
+																		<span class="custom-checkbox--info">Зелений</span>
+																	</label>
+																</div>
+																<div class="custom-control custom-checkbox position-relative mb-1">
+																	<input type="checkbox" class="custom-control-input"
+																		id="color-body-9">
+																	<label class="custom-control-label" for="color-body-9">
+																		<span class="custom-checkbox--info">Сірий</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="cta-car">
+								<img src="img/fnvaogao.jpg" alt="img" class="bg-down">
+								<div class="cta-car--content">
+									<div class="cta-car--title">Не знайшли потрібного авто?</div>
+
+									<p class="cta-car--text">
+										Допоможемо отримати вигідну комерційну пропозицію
+										у найкоротші терміни.
+									</p>
+									<a href="#" class="btn btn-main-blue btn-block">
+										Отримати пропозицію
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<script src="js/jquery.min.js"></script>
+<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+</body>
+
+</html>

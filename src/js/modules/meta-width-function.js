@@ -57,7 +57,7 @@ function startOnSpecificBrowserInit() {
 
 	if (browser == "safari" || browser == "firefox") {
 		// Передаємо мінімальну ширину 430 пікселів у функцію
-		adaptiveSizePageScaleInit(430);
+		adaptiveSizePageScaleInit(360);
 	}
 }
 

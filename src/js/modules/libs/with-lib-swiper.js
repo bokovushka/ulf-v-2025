@@ -305,3 +305,105 @@ new Swiper('.benefits-assistance--swiper', {
 		}
 	},
 });
+
+
+//? gallery-car-thumbs--swiper
+var SwiperWallpaperCollectionThumbs = new Swiper(".gallery-car-thumbs--swiper", {
+	grabCursor: true,
+	breakpoints: {
+		1200: {
+			slidesPerView: 3.5,
+			spaceBetween: 15,
+		},
+		1024: {
+			slidesPerView: 2.8,
+			spaceBetween: 15,
+		},
+		768: {
+			slidesPerView: 4.3,
+			spaceBetween: 15,
+		},
+		0: {
+			slidesPerView: 3.5,
+			spaceBetween: 10,
+		}
+	},
+})
+
+//? gallery-car--swiper
+new Swiper(".gallery-car--swiper", {
+	grabCursor: true,
+	slidesPerView: 1,
+	loop: true,
+	breakpoints: {
+		1200: {
+			spaceBetween: 25,
+		},
+		576: {
+			spaceBetween: 20,
+		},
+		0: {
+		}
+	},
+	navigation: {
+		nextEl: ".gallery-car  .button-slider-next",
+		prevEl: ".gallery-car  .button-slider-prev",
+	},
+	pagination: {
+		el: ".gallery-car--swiper .swiper-pagination",
+		clickable: true,
+		type: 'fraction',
+		renderFraction: function (currentClass, totalClass) {
+			return `
+				<span class="${currentClass}"></span>&nbsp;
+				<span class="fraction-separator"> з </span>&nbsp;
+				<span class="${totalClass}"></span>
+			`;
+		},
+	},
+	thumbs: {
+		swiper: SwiperWallpaperCollectionThumbs,
+	}
+})
+
+
+//? catalog--swiper
+new Swiper('.catalog--swiper', {
+	slidesPerView: "auto",
+	spaceBetween: 20,
+	loop: true,
+	// autoplay: {
+	// 	delay: 5000,
+	// 	disableOnInteraction: false,
+	// },
+	speed: 800,
+	grabCursor: true,
+	navigation: {
+		nextEl: ".catalog--slider .swiper-buttons .button-slider-next",
+		prevEl: ".catalog--slider .swiper-buttons .button-slider-prev",
+	},
+	pagination: {
+		el: ".catalog--slider  .swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		1400: {
+			slidesPerView: 4.2,
+		},
+		1200: {
+			slidesPerView: 3.8,
+		},
+		1024: {
+			slidesPerView: 3.2,
+		},
+		768: {
+			slidesPerView: 2.4,
+		},
+		480: {
+			slidesPerView: 1.6,
+		},
+		0: {
+			slidesPerView: 1,
+		}
+	},
+});

@@ -3,20 +3,25 @@ import jQuery from 'jquery';
 jQuery(function ($) {
 	const btn = $('#btnCall');
 	const footer = $('footer');
-	const offset = 30; // "мінус 30" = footerTop + 30
+	const section2 = $('.section-2');
+	const offset = 30;
 
-	function toggleAtFooterClass() {
-		if (!footer.length || !btn.length) return;
+	if (!btn.length || !footer.length || !section2.length) return;
 
-		const winBottom = $(window).scrollTop() + $(window).height();
+	function updateBtn() {
+		const scrollTop = $(window).scrollTop();
+		const winBottom = scrollTop + $(window).height();
+
+		const section2Top = section2.offset().top;
 		const footerTop = footer.offset().top;
 
-		// додаємо клас, коли низ viewport зайшов на 30px в футер
-		const reached = winBottom >= (footerTop + offset);
+		const showBtn = scrollTop >= section2Top - 50;
+		btn.toggleClass('is-visible', showBtn);
 
-		btn.toggleClass('at-footer', reached);
+		const atFooter = winBottom >= footerTop + offset;
+		btn.toggleClass('at-footer', atFooter);
 	}
 
-	toggleAtFooterClass();
-	$(window).on('scroll resize', toggleAtFooterClass);
+	updateBtn();
+	$(window).on('scroll resize', updateBtn);
 });

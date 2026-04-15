@@ -30,3 +30,17 @@ $(document).ready(function () {
 		dropdownParent: $('#footer-select-city')
 	});
 });
+
+$(document).ready(function () {
+	$('.select-sort-to').select2({
+		minimumResultsForSearch: -1,
+		dropdownParent: $('.our-fleet .sort-to')
+	});
+});
+
+$(document).ready(function () {
+	$('.select-months-value').select2({
+		minimumResultsForSearch: -1,
+		dropdownParent: $('.gallery-car .select-months--wrap')
+	});
+});
