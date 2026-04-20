@@ -196,3 +196,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+//popup
+let openModalsCount = 0;
+
+// коли будь-яка модалка відкрилась
+$(document).on('shown.bs.modal', '.modal', function () {
+	openModalsCount++;
+	document.body.classList.add('modal-open');
+});
+
+// коли будь-яка модалка закрилась
+$(document).on('hidden.bs.modal', '.modal', function () {
+	openModalsCount = Math.max(0, openModalsCount - 1);
+
+	if (openModalsCount > 0) {
+		document.body.classList.add('modal-open');
+	} else {
+		document.body.classList.remove('modal-open');
+	}
+});
