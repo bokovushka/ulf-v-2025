@@ -9813,6 +9813,13 @@ video {
   padding-right: 0;
   margin-right: 0;
   border: unset;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .popup-apply-car .car-calc .car-calc--summary .summary-item:first-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 }
 .popup-apply-car .car-calc .car-calc--summary .summary-item:last-child {
   padding-left: 0;
@@ -9827,7 +9834,6 @@ video {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  margin-bottom: 8px;
 }
 
 .popup-test-drive .form-inner {

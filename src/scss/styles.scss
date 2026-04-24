@@ -6135,6 +6135,12 @@
 					padding-right: 0;
 					margin-right: 0;
 					border: unset;
+					width: 100%;
+
+					@include sm-max {
+						padding-bottom: 0;
+						margin-bottom: 0;
+					}
 				}
 
 				&:last-child {
@@ -6154,7 +6160,7 @@
 			font-size: 16px;
 			font-weight: 500;
 			line-height: 20px;
-			margin-bottom: 8px;
+			// margin-bottom: 8px;
 		}
 	}
 }

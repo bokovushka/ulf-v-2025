@@ -29,5 +29,5 @@ function cardResize() {
 }
 
 $(document).ready(function () {
-	// setEqualHeight($(".class-name"));
+	// setEqualHeight($(".popup-apply-car .car-calc .summary-item--label"));
 });
