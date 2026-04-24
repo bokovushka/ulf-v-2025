@@ -6660,6 +6660,20 @@ video {
   font-weight: 500;
   line-height: 20px;
   color: var(--grey);
+  padding-bottom: 0;
+  padding-top: 16px;
+  margin-bottom: -10px;
+}
+@media (max-width: 767px) {
+  .questions-popular .btn-toogle-accordion {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 575px) {
+  .questions-popular .btn-toogle-accordion {
+    margin-bottom: 10px;
+    margin-top: -8px;
+  }
 }
 .questions-popular .accordion-hidden {
   max-height: 0;
@@ -6678,13 +6692,11 @@ video {
   border: unset;
   border-radius: 4px;
   background: #f1f1f1;
+  margin-bottom: 8px;
 }
 .scheme-black-white .questions-popular .questions--inner #accordion-questions .card {
   background: var(--grey);
   color: var(--white);
-}
-.questions-popular .questions--inner #accordion-questions .card:not(:last-child) {
-  margin-bottom: 8px;
 }
 .scheme-blue .questions-popular .questions--inner #accordion-questions .card {
   background: var(--light-blue-3);
