@@ -4254,7 +4254,56 @@
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 5;
-		bottom: 70px;
+		bottom: 60px;
+
+		.h4 {
+			position: relative;
+
+			@include md-max {
+				font-size: 48px;
+				font-weight: 400;
+				line-height: 52px
+			}
+
+			@include sm-max {
+				font-size: 24px;
+				font-weight: 500;
+				line-height: 24px
+			}
+
+			&::after {
+				@include md-max {
+					content: "";
+					position: absolute;
+					top: 50%;
+					right: -56px;
+					transform: translateY(-50%);
+					display: block;
+					width: 40px;
+					height: 40px;
+					background: url(../img/icons/icons.svg#i-copy) 50% 50% no-repeat;
+					background-size: 100%;
+					transition: unset !important;
+
+				}
+
+				@include sm-max {
+					content: unset;
+				}
+			}
+		}
+
+		.small-txt {
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 20px;
+
+			@include sm-max {
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 18px;
+			}
+		}
 
 		a {
 			color: var(--white);
