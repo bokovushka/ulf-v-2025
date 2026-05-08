@@ -39,6 +39,13 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+	$('.select-sort-to--city').select2({
+		minimumResultsForSearch: -1,
+		dropdownParent: $('.our-fleet .sort-to--city')
+	});
+});
+
+$(document).ready(function () {
 	$('.select-months-value').select2({
 		minimumResultsForSearch: -1,
 		dropdownParent: $('.gallery-car .select-months--wrap')

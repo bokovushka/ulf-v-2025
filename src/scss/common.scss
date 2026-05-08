@@ -1276,7 +1276,12 @@ form {
 			overflow: hidden;
 			border: none;
 			border: 1px solid #7DCCFF;
+
 			// border-top: none;
+			.sort-to &,
+			.sort-to--city & {
+				border-color: #F2F2F2;
+			}
 
 			.scheme-blue & {
 				border-color: var(--dark-blue);
@@ -1288,7 +1293,12 @@ form {
 			overflow: hidden;
 			border: none;
 			border: 1px solid #7DCCFF;
+
 			// border-bottom: none;
+			.sort-to &,
+			.sort-to--city & {
+				border-color: #F2F2F2;
+			}
 
 			.scheme-blue & {
 				border-color: var(--dark-blue);
@@ -1304,7 +1314,7 @@ form {
 		.select2-results__option--selected,
 		.select2-results__option--highlighted.select2-results__option--selectable {
 			background: var(--light-blue);
-			color: var(--black);
+			color: #0097FA;
 
 			.scheme-white-black & {
 				background: var(--silver);
