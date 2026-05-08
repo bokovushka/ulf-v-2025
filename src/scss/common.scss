@@ -1168,6 +1168,11 @@ form {
 
 			.select2-selection__placeholder {
 				color: var(--light-grey);
+
+				.sort-to &,
+				.sort-to--city & {
+					color: #151515;
+				}
 			}
 
 			.select2-selection__rendered {

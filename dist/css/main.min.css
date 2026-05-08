@@ -2889,6 +2889,9 @@ form {
 .field .select2-container .select2-selection .select2-selection__placeholder {
   color: var(--light-grey);
 }
+.sort-to .field .select2-container .select2-selection .select2-selection__placeholder, .sort-to--city .field .select2-container .select2-selection .select2-selection__placeholder {
+  color: #151515;
+}
 .field .select2-container .select2-selection .select2-selection__rendered {
   padding-left: 0;
   padding-right: 0;

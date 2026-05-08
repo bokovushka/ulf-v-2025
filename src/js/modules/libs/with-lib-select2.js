@@ -32,17 +32,22 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+	if (window.innerWidth < 1024) {
+		$('.select-sort-to option:first').text('Усі авто');
+		$('.select-sort-to--city option:first').text('Усі міста');
+	}
+
 	$('.select-sort-to').select2({
 		minimumResultsForSearch: -1,
-		dropdownParent: $('.our-fleet .sort-to')
+		dropdownParent: $('.our-fleet .sort-to'),
 	});
-});
 
-$(document).ready(function () {
 	$('.select-sort-to--city').select2({
 		minimumResultsForSearch: -1,
-		dropdownParent: $('.our-fleet .sort-to--city')
+		dropdownParent: $('.our-fleet .sort-to--city'),
 	});
+
 });
 
 $(document).ready(function () {
