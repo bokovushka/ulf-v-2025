@@ -5553,7 +5553,7 @@
 .sort-to--wrap {
 	column-gap: 32px;
 
-	@include lg-max {
+	@include md-max {
 		column-gap: 12px;
 	}
 }
@@ -5565,7 +5565,7 @@
 	position: relative;
 	justify-content: flex-end;
 
-	@include lg-max {
+	@include md-max {
 		width: calc((100% - 12px)/2);
 	}
 
