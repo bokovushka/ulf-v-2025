@@ -73,8 +73,8 @@ new Swiper('.benefits-leasing--swiper', {
 	},
 });
 
-//? benefits-leasing--swiper
-new Swiper('.benefits-leasing--swiper', {
+//? benefits--swiper
+new Swiper('.financing-uklon-partners .benefits--swiper', {
 	loop: false,
 	speed: 400, // краще число замість false
 	grabCursor: false,
