@@ -9822,6 +9822,51 @@ video {
   transform: scaleY(-1);
 }
 
+.test-drive-wrap .test-drive-col {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+@media (min-width: 992px) {
+  .test-drive-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .test-drive-wrap .test-drive-col {
+    flex: 1 1 0%;
+    width: 0;
+    max-width: 100%;
+    min-width: 0;
+    transition: flex 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0;
+  }
+  .test-drive-wrap .test-drive-col:hover {
+    flex: 1.8 1 0%;
+  }
+  .test-drive-wrap .test-drive-col:hover .description,
+.test-drive-wrap .test-drive-col:hover .btn {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .test-drive-wrap .test-drive-col:hover .bg-down {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+.test-drive-wrap .btn {
+  position: relative;
+  z-index: 3;
+  text-decoration: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  height: auto;
+}
+@media (min-width: 992px) {
+  .test-drive-wrap .btn {
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+  }
+}
 @media (max-width: 767px) {
   .test-drive-wrap .btn {
     font-size: 14px;
@@ -9830,7 +9875,7 @@ video {
   }
 }
 .test-drive-wrap .subject-leasing--item {
-  background: linear-gradient(-29.74deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(-29.74deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4) 100%);
   aspect-ratio: 650/442;
   border-radius: 4px;
   position: relative;
@@ -9839,6 +9884,8 @@ video {
   flex-direction: column;
   justify-content: flex-end;
   padding: 40px;
+  height: 100%;
+  width: 100%;
 }
 @media (max-width: 1023px) {
   .test-drive-wrap .subject-leasing--item {
@@ -9848,13 +9895,26 @@ video {
 @media (max-width: 767px) {
   .test-drive-wrap .subject-leasing--item {
     aspect-ratio: unset;
-    height: 380px;
+    height: 100%;
+    min-height: 380px;
     padding: 16px;
   }
 }
+.test-drive-wrap .subject-leasing--item .bg-down {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
 .test-drive-wrap .subject-leasing--item .title {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color: var(--white);
   font-size: 48px;
   font-weight: 400;
@@ -9868,7 +9928,17 @@ video {
   }
 }
 .test-drive-wrap .subject-leasing--item .description {
+  position: relative;
+  z-index: 3;
   color: var(--white);
+  max-width: 460px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+@media (min-width: 992px) {
+  .test-drive-wrap .subject-leasing--item .description {
+    opacity: 0;
+    transform: translateY(12px);
+  }
 }
 @media (max-width: 767px) {
   .test-drive-wrap .subject-leasing--item .description {
@@ -9997,6 +10067,586 @@ video {
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 8px;
+}
+
+.financing-uklon-partners .h2 {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 52px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .h2 {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+.financing-uklon-partners .btn-primary.btn-main-blue {
+  width: 260px;
+  height: 60px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .btn-primary.btn-main-blue {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}
+@media (max-width: 1399px) {
+  .financing-uklon-partners .section-hero .hero-title {
+    font-size: 56px;
+    line-height: 60px;
+  }
+}
+@media (max-width: 1199px) {
+  .financing-uklon-partners .section-hero .hero-title {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-hero .hero-title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 1199px) {
+  .financing-uklon-partners .section-hero .hero-subtitle {
+    font-size: 16px;
+    line-height: 120%;
+  }
+}
+.financing-uklon-partners .business-experience .business-experience__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  row-gap: 30px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .business-experience .business-experience__inner {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 24px;
+  }
+}
+.financing-uklon-partners .business-experience .business-experience__inner .item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+.financing-uklon-partners .business-experience .business-experience__inner .item .icon-wrap {
+  display: block;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background: var(--main-blue);
+  border-radius: 3px;
+  position: relative;
+  border: 2px solid transparent;
+  -webkit-transition: 0.3s ease-out 0s;
+  -moz-transition: 0.3s ease-out 0s;
+  -o-transition: 0.3s ease-out 0s;
+  transition: 0.3s ease-out 0s;
+}
+.financing-uklon-partners .business-experience .business-experience__inner .item .icon-wrap .icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.financing-uklon-partners .business-experience .business-experience__inner .item .name {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.financing-uklon-partners .business-experience .business-experience__inner .item .description {
+  color: var(--grey);
+}
+.financing-uklon-partners .business-stats__title h2 {
+  margin: 0;
+}
+.financing-uklon-partners .business-stats__title span {
+  color: var(--main-blue);
+}
+.financing-uklon-partners .business-stats__items {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .business-stats__item:not(:last-child) {
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 25px;
+  }
+}
+.financing-uklon-partners .business-stats__value {
+  display: flex;
+  align-items: center;
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 110px;
+}
+@media (max-width: 1399px) {
+  .financing-uklon-partners .business-stats__value {
+    font-size: 56px;
+    line-height: 60px;
+  }
+}
+@media (max-width: 1199px) {
+  .financing-uklon-partners .business-stats__value {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .business-stats__value {
+    font-size: 52px;
+    line-height: 120%;
+    justify-content: center;
+  }
+}
+.financing-uklon-partners .business-stats__value span {
+  padding-left: 35px;
+  margin-top: -5px;
+  position: relative;
+}
+.financing-uklon-partners .business-stats__value span::before {
+  content: "[";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  color: var(--main-blue);
+}
+.financing-uklon-partners .business-stats__value span::after {
+  content: "]";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  color: var(--main-blue);
+}
+.financing-uklon-partners .business-stats__description {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .business-stats__description {
+    text-align: center;
+    margin-top: 8px;
+  }
+}
+.financing-uklon-partners .section-what-finance .item {
+  min-height: 860px;
+  margin: 0 -60px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-what-finance .item {
+    min-height: 637px;
+  }
+}
+.financing-uklon-partners .section-what-finance .wrap-buttons {
+  column-gap: 8px;
+}
+.financing-uklon-partners .section-what-finance .btn-switch {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 10px 24px;
+  border-radius: 100px;
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  transition: all 0.3s ease;
+}
+.financing-uklon-partners .section-what-finance .btn-switch.active {
+  background: var(--white);
+  color: var(--black);
+}
+.financing-uklon-partners .section-finance .h2 span {
+  color: var(--main-blue);
+}
+.financing-uklon-partners .section-finance .finance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-finance .finance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .financing-uklon-partners .section-finance .finance-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+  }
+}
+.financing-uklon-partners .section-finance .card {
+  background: #F2F2F2;
+  border-color: #F2F2F2;
+  border-radius: 4px;
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-finance .card {
+    padding: 32px;
+  }
+}
+.financing-uklon-partners .section-finance .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.financing-uklon-partners .section-finance .icon svg {
+  width: 100%;
+  height: 100%;
+}
+.financing-uklon-partners .section-finance .card-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  margin-bottom: 8px;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-finance .card-title {
+    font-size: 20px;
+  }
+}
+.financing-uklon-partners .section-finance .card-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #7A7A7A;
+  max-width: 300px;
+}
+.financing-uklon-partners .section-finance .btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .benefits-leasing .head {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: center;
+  }
+}
+.financing-uklon-partners .benefits-leasing .benefits-leasing--swiper {
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .benefits-leasing .benefits-leasing--swiper .swiper-wrapper {
+    height: 100% !important;
+  }
+}
+.financing-uklon-partners .benefits-leasing .icon-wrap {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .benefits-leasing .icon-wrap {
+    margin: 0 auto;
+    margin-bottom: 12px;
+  }
+}
+.financing-uklon-partners .benefits-leasing .icon-wrap span {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 52px;
+  color: var(--white);
+}
+.financing-uklon-partners .benefits-leasing .wrap-review {
+  min-height: 735px;
+}
+@media (max-width: 767px) {
+  .financing-uklon-partners .benefits-leasing .wrap-review {
+    min-height: 425px;
+  }
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .benefits-leasing .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .benefits-leasing .item .name {
+    margin-bottom: 4px;
+  }
+}
+
+.lead-section {
+  background-color: var(--main-blue);
+  color: var(--white);
+}
+.lead-section .container {
+  position: relative;
+}
+.lead-section .container::after, .lead-section .container::before {
+  background: url(../img/preview/img_4.png) no-repeat center;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 568px;
+  max-height: 715px;
+  height: 100%;
+  top: 0;
+}
+@media (max-width: 767px) {
+  .lead-section .container::after, .lead-section .container::before {
+    content: unset !important;
+  }
+}
+.lead-section .container::after {
+  content: "";
+  right: -314px;
+}
+.lead-section .container::before {
+  content: "";
+  left: -314px;
+}
+.lead-section .container .row {
+  z-index: 2;
+  position: relative;
+}
+.lead-section .lead-container {
+  width: 100%;
+  max-width: 422px;
+  margin: 0 auto;
+}
+.lead-section .form-group {
+  margin-bottom: 24px;
+}
+.lead-section .form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+.lead-section .form-input {
+  width: 100%;
+  height: 52px;
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.lead-section .form-input::placeholder {
+  color: #8c9ba5;
+}
+.lead-section .form-input:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+.lead-section .phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 52px;
+}
+.lead-section .country-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px 0 16px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+.lead-section .phone-prefix {
+  color: #111827;
+  font-size: 15px;
+  margin-right: 6px;
+  font-weight: 500;
+}
+.lead-section .phone-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+}
+.lead-section .phone-input:focus {
+  box-shadow: none;
+}
+.lead-section .cars-quantity-group {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+.lead-section .custom-radio {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+}
+.lead-section .custom-radio input {
+  display: none;
+}
+.lead-section .radio-box {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid #d2d5da;
+  border-radius: 4px;
+}
+.lead-section .custom-radio input:checked + .radio-box::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #1e88e5;
+  border-radius: 2px;
+}
+.lead-section .radio-text {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 500;
+}
+.lead-section .btn-white {
+  border: 2px solid var(--white);
+  background: var(--white);
+  color: var(--black);
+  width: max-content;
+  padding: 20px 50px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 4px;
+  width: 100%;
+}
+.scheme-white-black .lead-section .btn-white, .scheme-black-white .lead-section .btn-white {
+  border: 2px solid var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+.scheme-blue .lead-section .btn-white {
+  border: 2px solid var(--light-blue-3);
+  background: var(--light-blue-3);
+  color: var(--black);
+}
+@media (max-width: 1023px) {
+  .lead-section .btn-white {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 767px) {
+  .lead-section .btn-white {
+    padding: 14px;
+  }
+}
+.lead-section .btn-white:hover .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+}
+.lead-section .btn-white:not(:disabled):hover {
+  border: 2px solid #008cc7;
+  background: #008cc7;
+  color: var(--white);
+}
+.scheme-white-black .lead-section .btn-white:not(:disabled):hover, .scheme-black-white .lead-section .btn-white:not(:disabled):hover {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .lead-section .btn-white:not(:disabled):hover {
+  border: 2px solid var(--dark-blue);
+  background: var(--dark-blue);
+  color: var(--black);
+}
+.lead-section .btn-white:not(:disabled):active, .lead-section .btn-white:not(:disabled):focus {
+  color: var(--white);
+}
+.lead-section .btn-white:not(:disabled):active {
+  border: 2px solid #0f68ba;
+  background: #0f68ba;
+}
+.scheme-white-black .lead-section .btn-white:not(:disabled):active, .scheme-black-white .lead-section .btn-white:not(:disabled):active {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .lead-section .btn-white:not(:disabled):active {
+  border: 2px solid var(--dark-blue);
+  background: var(--dark-blue);
+  color: var(--black);
+}
+.lead-section .btn-white:not(:disabled):focus {
+  border: 2px solid #0f68ba;
+  background: #0f68ba;
+  color: var(--white);
+}
+.scheme-white-black .lead-section .btn-white:not(:disabled):focus, .scheme-black-white .lead-section .btn-white:not(:disabled):focus {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .lead-section .btn-white:not(:disabled):focus {
+  border: 2px solid var(--dark-blue);
+  background: var(--dark-blue);
+  color: var(--black);
+}
+.lead-section .btn-white:disabled {
+  border-color: var(--light-grey);
+  background: var(--light-grey);
+  color: var(--grey);
+  opacity: 1;
+  cursor: not-allowed;
+}
+.lead-section .btn-white .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+}
+.scheme-white-black .lead-section .btn-white .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+.lead-section .form-disclaimer {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.questions-popular .questions--inner {
+  max-width: 850px;
+  margin: 0 auto;
+}
+.questions-popular .questions--inner #accordion-questions .card-header .btn-link {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .scheme-default {

@@ -161,36 +161,76 @@ $(document).on('click', '.js-back-btn', function (e) {
 // button more accordion
 
 document.addEventListener('DOMContentLoaded', function () {
-	const cards = document.querySelectorAll('#accordion-questions .card');
-	const toggleBtn = document.getElementById('toggleAccordion');
-	const visibleCount = 5;
-	let expanded = false;
+	// Функція ініціалізації з безпечними значеннями за замовчуванням
+	function initAccordionToggle(options = {}) {
+		const containerSelector = options.container || '#accordion-questions';
+		const btnSelector = options.button || '#toggleAccordion';
 
-	if (cards.length <= visibleCount) return;
+		const container = document.querySelector(containerSelector);
+		const toggleBtn = document.querySelector(btnSelector);
 
-	cards.forEach((card, index) => {
-		if (index >= visibleCount) {
-			card.classList.add('accordion-hidden');
-		} else {
-			card.classList.add('accordion-visible');
+		// Якщо контейнера на поточній сторінці немає — нічого не робимо (захист від помилок)
+		if (!container) return;
+
+		const cards = container.querySelectorAll('.card');
+		if (!cards.length) return;
+
+		// Пріоритет кількості: data-visible в HTML -> options в JS -> дефолтні 5
+		const visibleCount = parseInt(container.dataset.visible, 10) || options.visibleCount || 5;
+		let expanded = false;
+
+		// Якщо карток менше або рівно ліміту:
+		// Ховаємо кнопку (якщо вона є) і переконуємося, що всі картки видно
+		if (cards.length <= visibleCount) {
+			if (toggleBtn) {
+				toggleBtn.classList.add('d-none');
+				toggleBtn.style.display = 'none';
+			}
+			cards.forEach(card => {
+				card.classList.remove('accordion-hidden');
+				card.classList.add('accordion-visible');
+			});
+			return;
 		}
-	});
 
-	toggleBtn.classList.remove('d-none');
-
-	toggleBtn.addEventListener('click', function () {
-		expanded = !expanded;
-
+		// Ховаємо зайві картки
 		cards.forEach((card, index) => {
 			if (index >= visibleCount) {
-				card.classList.toggle('accordion-hidden', !expanded);
-				card.classList.toggle('accordion-visible', expanded);
+				card.classList.add('accordion-hidden');
+				card.classList.remove('accordion-visible');
+			} else {
+				card.classList.add('accordion-visible');
+				card.classList.remove('accordion-hidden');
 			}
 		});
 
-		this.textContent = expanded
-			? 'Показати менше'
-			: 'Показати більше';
+		if (!toggleBtn) return;
+
+		toggleBtn.classList.remove('d-none');
+		toggleBtn.style.display = '';
+
+		toggleBtn.addEventListener('click', function () {
+			expanded = !expanded;
+
+			cards.forEach((card, index) => {
+				if (index >= visibleCount) {
+					card.classList.toggle('accordion-hidden', !expanded);
+					card.classList.toggle('accordion-visible', expanded);
+				}
+			});
+
+			this.textContent = expanded ? 'Показати менше' : 'Показати більше';
+		});
+	}
+
+	// 1. Старий функціонал за замовчуванням (працює без жодних змін у старому HTML):
+	initAccordionToggle();
+
+	// 2. Додатковий блок на новій сторінці, де треба показати, наприклад, усі 7 (або ліміт 7):
+	initAccordionToggle({
+		container: '#accordion-faq',
+		button: '#toggleFaq',
+		visibleCount: 7
 	});
 });
 

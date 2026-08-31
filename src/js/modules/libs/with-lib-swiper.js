@@ -73,6 +73,27 @@ new Swiper('.benefits-leasing--swiper', {
 	},
 });
 
+//? benefits-leasing--swiper
+new Swiper('.benefits-leasing--swiper', {
+	loop: false,
+	speed: 400, // краще число замість false
+	grabCursor: false,
+	navigation: false,
+	pagination: false,
+	slidesPerView: 1,
+	spaceBetween: 25,
+
+	// ВИМИКАЄ РУХ В БІК (свайп пальцем або мишкою)
+	allowTouchMove: false,
+
+	grid: {
+		rows: 4,
+		fill: "row",
+	},
+	autoHeight: false,
+});
+
+
 // images
 const swiperImages = new Swiper('.benefits-partners--swiper', {
 	slidesPerView: 1,
