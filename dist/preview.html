@@ -637,18 +637,25 @@
 				<section class="section-what-finance mb-16 mb-lg-24">
 					<div class="container">
 						<div class="item d-flex flex-column justify-content-between h-100 text-center">
-							<img src="img/preview/img_1.jpg" alt="img" class="bg-down d-none d-lg-block">
-							<img src="img/preview/img_1.jpg" alt="img" class="bg-down d-none d-md-block d-lg-none">
-							<img src="img/preview/img_1_mob.jpg" alt="img" class="bg-down d-md-none">
+							<!-- Фонове зображення -->
+							<img src="img/preview/img_1.jpg" alt="img" class="bg-down bg-img-lg d-none d-lg-block">
+							<img src="img/preview/img_1.jpg" alt="img" class="bg-down bg-img-md d-none d-md-block d-lg-none">
+							<img src="img/preview/img_1_mob.jpg" alt="img" class="bg-down bg-img-sm d-md-none">
+
 							<div class="row justify-content-center pt-5 pt-lg-12">
 								<div class="col-12">
 									<div class="h2 text-white mb-3 mb-lg-5 mx-12 mx-lg-0">Яке авто хочете профінансувати?</div>
 
 									<div class="wrap-buttons d-flex justify-content-center align-items-center mx-12 mx-lg-0">
-										<button type="button" class="btn btn-switch active">
+										<!-- Нове авто -->
+										<button type="button" class="btn btn-switch active" data-img-lg="img/preview/img_1.jpg"
+											data-img-md="img/preview/img_1.jpg" data-img-sm="img/preview/img_1_mob.jpg">
 											<span>Нове авто</span>
 										</button>
-										<button type="button" class="btn btn-switch">
+
+										<!-- Авто з пробігом -->
+										<button type="button" class="btn btn-switch" data-img-lg="img/preview/img_1.1.jpg"
+											data-img-md="img/preview/img_1.1.jpg" data-img-sm="img/preview/img_1.1_mob.jpg">
 											<span>Авто з пробігом</span>
 										</button>
 									</div>
@@ -804,7 +811,7 @@
 									<img class="bg-down" src="img/preview/img_3.jpg" alt="img">
 									<div class="description">
 										<div class="wrap-card-star">
-											<div class="count">4,6</div>
+											<div class="count">4.6</div>
 											<div class="card-star">
 												<span class="star star-paint"></span>
 												<span class="star star-paint"></span>

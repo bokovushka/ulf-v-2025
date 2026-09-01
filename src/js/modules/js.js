@@ -38,3 +38,58 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 });
+
+
+// оновленнязображень під кнопками
+
+document.addEventListener('DOMContentLoaded', () => {
+	const section = document.querySelector('.section-what-finance');
+	if (!section) return;
+
+	const switchButtons = section.querySelectorAll('.btn-switch');
+	const imgConfigs = [
+		{ selector: '.bg-img-lg', attr: 'data-img-lg' },
+		{ selector: '.bg-img-md', attr: 'data-img-md' },
+		{ selector: '.bg-img-sm', attr: 'data-img-sm' }
+	];
+
+	function crossFadeImage(targetImg, newSrc) {
+		if (!targetImg || !newSrc || targetImg.getAttribute('src') === newSrc) return;
+
+		// 1. Створюємо тимчасовий клон із новим джерелом
+		const tempImg = targetImg.cloneNode(true);
+		tempImg.classList.add('bg-temp-fade');
+		tempImg.src = newSrc;
+
+		// 2. Вставляємо його відразу після оригінальної картинки
+		targetImg.after(tempImg);
+
+		// 3. Чекаємо завантаження нового зображення і плавно робимо його видимим
+		tempImg.onload = () => {
+			// Примусовий reflow для спрацювання CSS transition
+			void tempImg.offsetWidth;
+			tempImg.classList.add('is-visible');
+
+			// 4. Після завершення анімації (400мс) оновлюємо оригінал і прибираємо клон
+			setTimeout(() => {
+				targetImg.src = newSrc;
+				tempImg.remove();
+			}, 400);
+		};
+	}
+
+	switchButtons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			if (btn.classList.contains('active')) return;
+
+			switchButtons.forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+
+			imgConfigs.forEach(({ selector, attr }) => {
+				const img = section.querySelector(selector);
+				const newSrc = btn.getAttribute(attr);
+				crossFadeImage(img, newSrc);
+			});
+		});
+	});
+});

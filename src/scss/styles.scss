@@ -1350,6 +1350,10 @@
 		.description {
 			color: var(--grey);
 
+			@include md-max {
+				padding: 0 40px;
+			}
+
 			.scheme-black-white & {
 				color: var(--white);
 			}
@@ -6547,6 +6551,10 @@
 				justify-content: center;
 			}
 
+			@include sm-max {
+				justify-content: left;
+			}
+
 			span {
 				padding-left: 35px;
 				margin-top: -5px;
@@ -6555,9 +6563,13 @@
 				&::before {
 					content: '[';
 					position: absolute;
-					left: -10px;
+					left: 0;
 					top: 0;
 					color: var(--main-blue);
+
+					@include sm-max {
+						justify-content: left;
+					}
 
 				}
 
@@ -6567,6 +6579,10 @@
 					right: -40px;
 					top: 0;
 					color: var(--main-blue);
+
+					@include sm-max {
+						right: -30px;
+					}
 				}
 			}
 		}
@@ -6576,10 +6592,15 @@
 			font-size: 16px;
 			font-weight: 400;
 			line-height: 20px;
+			color: #7A7A7A;
 
 			@include md-max {
 				text-align: center;
 				margin-top: 8px;
+			}
+
+			@include sm-max {
+				text-align: left;
 			}
 		}
 	}
@@ -6594,6 +6615,24 @@
 
 			@include md-max {
 				min-height: 637px;
+				margin: 0;
+			}
+
+			// Тимчасовий клон для ідеального cross-fade без блимань
+			img.bg-temp-fade {
+				opacity: 0;
+				transition: opacity 0.4s ease-in-out;
+				pointer-events: none;
+				z-index: 1;
+
+				&.is-visible {
+					opacity: 1;
+				}
+			}
+
+			.row {
+				position: relative;
+				z-index: 2;
 			}
 		}
 
@@ -6610,12 +6649,13 @@
 			background-color: transparent;
 			color: var(--white);
 			border: 1px solid var(--white);
-			transition: all 0.3s ease;
-		}
+			transition: background-color 0.3s ease, color 0.3s ease;
+			cursor: pointer;
 
-		.btn-switch.active {
-			background: var(--white);
-			color: var(--black);
+			&.active {
+				background: var(--white);
+				color: var(--black);
+			}
 		}
 	}
 
@@ -6740,6 +6780,33 @@
 
 			@include sm-max {
 				min-height: 425px;
+				margin: 0;
+				padding: 25px;
+				border-radius: 4px;
+			}
+
+			.count-review {
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 19px;
+			}
+
+			.wrap-card-star {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 22px;
+			}
+
+			.card-review--star .star::before,
+			.card-star .star::before {
+				width: 18px;
+				height: 18px;
+			}
+
+			.card-review--star .star.star-half,
+			.card-star .star.star-half {
+				width: 18px;
+				height: 18px;
 			}
 		}
 
