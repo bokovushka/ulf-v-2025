@@ -10263,6 +10263,7 @@ video {
   font-weight: 400;
   line-height: 20px;
   color: #7A7A7A;
+  text-transform: lowercase;
 }
 @media (max-width: 1023px) {
   .financing-uklon-partners .business-stats__description {
@@ -10273,6 +10274,7 @@ video {
 @media (max-width: 767px) {
   .financing-uklon-partners .business-stats__description {
     text-align: left;
+    padding-right: 50px;
   }
 }
 .financing-uklon-partners .section-what-finance .item {

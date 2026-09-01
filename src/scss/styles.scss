@@ -6593,6 +6593,7 @@
 			font-weight: 400;
 			line-height: 20px;
 			color: #7A7A7A;
+			text-transform: lowercase;
 
 			@include md-max {
 				text-align: center;
@@ -6601,6 +6602,7 @@
 
 			@include sm-max {
 				text-align: left;
+				padding-right: 50px;
 			}
 		}
 	}
