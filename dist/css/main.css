@@ -1799,6 +1799,7 @@ main {
 }
 .footer .footer--bottom a {
   color: var(--white);
+  font-size: 14px;
 }
 .footer .footer--bottom a:hover {
   color: var(--white);
@@ -7346,6 +7347,9 @@ video {
   line-height: 20px;
   border-radius: 4px;
 }
+.financing-uklon-partners .section-hero .btn-link-catalog {
+  min-height: 60px;
+}
 .scheme-white-black .section-hero .btn-link-catalog {
   border: 2px solid var(--grey);
   background: var(--grey);
@@ -10141,7 +10145,7 @@ video {
 @media (max-width: 1023px) {
   .financing-uklon-partners .business-experience .business-experience__inner {
     grid-template-columns: repeat(1, 1fr);
-    column-gap: 24px;
+    row-gap: 24px;
   }
 }
 .financing-uklon-partners .business-experience .business-experience__inner .item {
@@ -10178,6 +10182,11 @@ video {
   margin-bottom: 8px;
   font-weight: 500;
 }
+@media (max-width: 1023px) {
+  .financing-uklon-partners .business-experience .business-experience__inner .item .name {
+    margin-bottom: 0;
+  }
+}
 .financing-uklon-partners .business-experience .business-experience__inner .item .description {
   color: var(--grey);
 }
@@ -10191,11 +10200,11 @@ video {
   display: grid;
   grid-template-columns: 1fr;
 }
-@media (max-width: 1023px) {
-  .financing-uklon-partners .business-stats__item:not(:last-child) {
-    border-bottom: 2px solid #f2f2f2;
-    padding-bottom: 25px;
-  }
+.financing-uklon-partners .business-stats__item:not(:last-child) {
+  border-bottom: 2px solid #f2f2f2;
+}
+.financing-uklon-partners .business-stats__item:nth-child(2) .business-stats__description {
+  padding-right: 120px;
 }
 .financing-uklon-partners .business-stats__value {
   display: flex;
@@ -10232,6 +10241,12 @@ video {
   padding-left: 35px;
   margin-top: -5px;
   position: relative;
+}
+@media (max-width: 767px) {
+  .financing-uklon-partners .business-stats__value span {
+    margin-top: 0;
+    padding-left: 29px;
+  }
 }
 .financing-uklon-partners .business-stats__value span::before {
   content: "[";
@@ -10274,7 +10289,7 @@ video {
 @media (max-width: 767px) {
   .financing-uklon-partners .business-stats__description {
     text-align: left;
-    padding-right: 50px;
+    padding-right: 20px;
   }
 }
 .financing-uklon-partners .section-what-finance .item {
@@ -10287,7 +10302,7 @@ video {
 @media (max-width: 1023px) {
   .financing-uklon-partners .section-what-finance .item {
     min-height: 637px;
-    margin: 0;
+    margin: 0 -20px;
   }
 }
 .financing-uklon-partners .section-what-finance .item img.bg-temp-fade {
@@ -10356,6 +10371,9 @@ video {
     padding: 32px;
   }
 }
+.financing-uklon-partners .section-finance .card:nth-child(4) .card-desc {
+  padding: 0 40px;
+}
 .financing-uklon-partners .section-finance .icon {
   width: 40px;
   height: 40px;
@@ -10363,6 +10381,11 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 1023px) {
+  .financing-uklon-partners .section-finance .icon {
+    margin-top: 10px;
+  }
 }
 .financing-uklon-partners .section-finance .icon svg {
   width: 100%;
@@ -10377,6 +10400,7 @@ video {
 @media (max-width: 1023px) {
   .financing-uklon-partners .section-finance .card-title {
     font-size: 20px;
+    padding: 0 20px;
   }
 }
 .financing-uklon-partners .section-finance .card-desc {
@@ -10467,6 +10491,7 @@ video {
 @media (max-width: 1023px) {
   .financing-uklon-partners .benefits-leasing .item .name {
     margin-bottom: 4px;
+    padding: 0 50px;
   }
 }
 
@@ -10579,6 +10604,12 @@ video {
   align-items: center;
   gap: 25px;
   margin-top: 10px;
+}
+@media (max-width: 1023px) {
+  .lead-section .cars-quantity-group {
+    margin-top: -3px;
+    gap: 26px;
+  }
 }
 .lead-section .custom-radio {
   display: flex;

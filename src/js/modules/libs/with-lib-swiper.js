@@ -274,25 +274,30 @@ new Swiper('.news--swiper', {
 });
 
 //.hero--swiper
-new Swiper('.hero--swiper', {
-	slidesPerView: 1,
-	spaceBetween: 20,
-	loop: true,
-	// autoplay: {
-	// 	delay: 5000,
-	// 	disableOnInteraction: false,
-	// },
-	speed: 800,
-	grabCursor: true,
-	navigation: {
-		nextEl: ".section-hero .swiper-buttons .button-slider-next",
-		prevEl: ".section-hero .swiper-buttons .button-slider-prev",
-	},
-	pagination: {
-		el: ".section-hero .swiper-pagination",
-		clickable: true,
-	},
-});
+const heroSliderEl = document.querySelector('.hero--swiper');
+
+if (heroSliderEl) {
+	const slidesCount = heroSliderEl.querySelectorAll('.swiper-slide').length;
+	const isMultiple = slidesCount > 1;
+
+	new Swiper(heroSliderEl, {
+		slidesPerView: 1,
+		spaceBetween: 20,
+		loop: isMultiple,
+		watchOverflow: true,        // вимикає свайпи й ховає кнопки/пагінацію, якщо слайдів недостатньо
+		allowTouchMove: isMultiple, // вимикає жест свайпу та drag, якщо 1 слайд
+		speed: 800,
+		grabCursor: isMultiple,     // прибирає курсор-руку, якщо слайд один
+		navigation: {
+			nextEl: ".section-hero .swiper-buttons .button-slider-next",
+			prevEl: ".section-hero .swiper-buttons .button-slider-prev",
+		},
+		pagination: {
+			el: ".section-hero .swiper-pagination",
+			clickable: true,
+		},
+	});
+}
 
 
 //? benefits-assistance--swiper

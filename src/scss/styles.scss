@@ -3129,6 +3129,10 @@
 		line-height: 20px;
 		border-radius: 4px;
 
+		.financing-uklon-partners & {
+			min-height: 60px;
+		}
+
 		.scheme-white-black & {
 			border: 2px solid var(--grey);
 			background: var(--grey);
@@ -6458,7 +6462,7 @@
 
 			@include md-max {
 				grid-template-columns: repeat(1, 1fr);
-				column-gap: 24px;
+				row-gap: 24px;
 			}
 
 			.item {
@@ -6493,6 +6497,10 @@
 				.name {
 					margin-bottom: 8px;
 					font-weight: 500;
+
+					@include md-max {
+						margin-bottom: 0;
+					}
 				}
 
 				.description {
@@ -6520,10 +6528,13 @@
 		}
 
 		&__item {
-			@include md-max {
-				&:not(:last-child) {
-					border-bottom: 2px solid rgba(242, 242, 242, 1);
-					padding-bottom: 25px;
+			&:not(:last-child) {
+				border-bottom: 2px solid rgba(242, 242, 242, 1);
+			}
+
+			&:nth-child(2) {
+				.business-stats__description {
+					padding-right: 120px;
 				}
 			}
 		}
@@ -6559,6 +6570,11 @@
 				padding-left: 35px;
 				margin-top: -5px;
 				position: relative;
+
+				@include sm-max {
+					margin-top: 0;
+					padding-left: 29px;
+				}
 
 				&::before {
 					content: '[';
@@ -6602,7 +6618,7 @@
 
 			@include sm-max {
 				text-align: left;
-				padding-right: 50px;
+				padding-right: 20px;
 			}
 		}
 	}
@@ -6617,7 +6633,7 @@
 
 			@include md-max {
 				min-height: 637px;
-				margin: 0;
+				margin: 0 -20px;
 			}
 
 			// Тимчасовий клон для ідеального cross-fade без блимань
@@ -6696,6 +6712,12 @@
 			@include md-max {
 				padding: 32px;
 			}
+
+			&:nth-child(4) {
+				.card-desc {
+					padding: 0 40px;
+				}
+			}
 		}
 
 		.icon {
@@ -6705,6 +6727,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
+			@include md-max {
+				margin-top: 10px;
+			}
+
 		}
 
 		.icon svg {
@@ -6720,6 +6747,7 @@
 
 			@include md-max {
 				font-size: 20px;
+				padding: 0 20px;
 			}
 		}
 
@@ -6823,6 +6851,7 @@
 			.name {
 				@include md-max {
 					margin-bottom: 4px;
+					padding: 0 50px;
 				}
 			}
 		}
@@ -6955,6 +6984,11 @@
 		align-items: center;
 		gap: 25px;
 		margin-top: 10px;
+
+		@include md-max {
+			margin-top: -3px;
+			gap: 26px;
+		}
 	}
 
 	.custom-radio {
