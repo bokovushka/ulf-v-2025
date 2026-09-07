@@ -2908,6 +2908,10 @@
 	height: calc(var(--hero-height) - 84px);
 	min-height: 600px;
 
+	.financing-uklon-partners & {
+		position: relative;
+	}
+
 	.container {
 		height: 100%;
 	}
@@ -2917,6 +2921,10 @@
 		position: relative;
 		height: 100%;
 		overflow: hidden;
+
+		.financing-uklon-partners & {
+			position: static;
+		}
 
 		@include xl-max {
 			margin: 0 -10px;
@@ -3296,6 +3304,12 @@
 }
 
 .section-hero-type {
+	position: relative;
+
+	.hero--swiper {
+		position: static;
+	}
+
 	.item {
 		@include md-max {
 			padding: 40px;
@@ -4595,6 +4609,12 @@
 
 .section-assistance-hero,
 .about-assistance {
+	position: relative;
+
+	.hero--swiper {
+		position: static;
+	}
+
 	.btn-link-catalog {
 		border: 2px solid var(--white);
 		background: var(--white);
@@ -6141,6 +6161,8 @@
 	@media (min-width: 992px) {
 		display: flex;
 		flex-wrap: nowrap;
+		align-items: stretch;
+		aspect-ratio: 1300 / 442;
 
 		.test-drive-col {
 			flex: 1 1 0%;
@@ -6173,6 +6195,7 @@
 		text-decoration: none;
 		transition: opacity 0.35s ease, transform 0.35s ease;
 		height: auto;
+		border-radius: 2px;
 
 		@media (min-width: 992px) {
 			opacity: 0;
@@ -6196,9 +6219,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
+		align-items: flex-start;
+		text-align: left;
 		padding: 40px;
 		height: 100%;
 		width: 100%;
+
+		@media (min-width: 992px) {
+			aspect-ratio: auto;
+		}
 
 		@include md-max {
 			padding: 20px;
@@ -6624,10 +6653,12 @@
 	}
 
 	.section-what-finance {
+		position: relative;
+
 		.item {
 			min-height: 860px;
 			margin: 0 -60px;
-			position: relative;
+			position: static;
 			height: 100%;
 			overflow: hidden;
 

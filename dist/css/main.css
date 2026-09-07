@@ -7158,6 +7158,9 @@ video {
   height: calc(var(--hero-height) - 84px);
   min-height: 600px;
 }
+.financing-uklon-partners .section-hero {
+  position: relative;
+}
 .section-hero .container {
   height: 100%;
 }
@@ -7166,6 +7169,9 @@ video {
   position: relative;
   height: 100%;
   overflow: hidden;
+}
+.financing-uklon-partners .section-hero .hero--swiper {
+  position: static;
 }
 @media (max-width: 1399px) {
   .section-hero .hero--swiper {
@@ -7473,6 +7479,12 @@ video {
   filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(578%) hue-rotate(280deg) brightness(99%) contrast(96%);
 }
 
+.section-hero-type {
+  position: relative;
+}
+.section-hero-type .hero--swiper {
+  position: static;
+}
 @media (max-width: 1023px) {
   .section-hero-type .item {
     padding: 40px;
@@ -8497,6 +8509,14 @@ video {
   }
 }
 
+.section-assistance-hero,
+.about-assistance {
+  position: relative;
+}
+.section-assistance-hero .hero--swiper,
+.about-assistance .hero--swiper {
+  position: static;
+}
 .section-assistance-hero .btn-link-catalog,
 .about-assistance .btn-link-catalog {
   border: 2px solid var(--white);
@@ -9851,6 +9871,8 @@ video {
   .test-drive-wrap {
     display: flex;
     flex-wrap: nowrap;
+    align-items: stretch;
+    aspect-ratio: 1300/442;
   }
   .test-drive-wrap .test-drive-col {
     flex: 1 1 0%;
@@ -9879,6 +9901,7 @@ video {
   text-decoration: none;
   transition: opacity 0.35s ease, transform 0.35s ease;
   height: auto;
+  border-radius: 2px;
 }
 @media (min-width: 992px) {
   .test-drive-wrap .btn {
@@ -9903,9 +9926,16 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
   padding: 40px;
   height: 100%;
   width: 100%;
+}
+@media (min-width: 992px) {
+  .test-drive-wrap .subject-leasing--item {
+    aspect-ratio: auto;
+  }
 }
 @media (max-width: 1023px) {
   .test-drive-wrap .subject-leasing--item {
@@ -10292,10 +10322,13 @@ video {
     padding-right: 20px;
   }
 }
+.financing-uklon-partners .section-what-finance {
+  position: relative;
+}
 .financing-uklon-partners .section-what-finance .item {
   min-height: 860px;
   margin: 0 -60px;
-  position: relative;
+  position: static;
   height: 100%;
   overflow: hidden;
 }

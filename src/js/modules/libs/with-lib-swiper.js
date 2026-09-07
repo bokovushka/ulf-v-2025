@@ -277,28 +277,38 @@ new Swiper('.news--swiper', {
 const heroSliderEl = document.querySelector('.hero--swiper');
 
 if (heroSliderEl) {
-	const slidesCount = heroSliderEl.querySelectorAll('.swiper-slide').length;
-	const isMultiple = slidesCount > 1;
+	const wrapperEl = heroSliderEl.querySelector('.swiper-wrapper');
+	const slides = heroSliderEl.querySelectorAll('.swiper-slide');
 
-	new Swiper(heroSliderEl, {
-		slidesPerView: 1,
-		spaceBetween: 20,
-		loop: isMultiple,
-		watchOverflow: true,        // вимикає свайпи й ховає кнопки/пагінацію, якщо слайдів недостатньо
-		allowTouchMove: isMultiple, // вимикає жест свайпу та drag, якщо 1 слайд
-		speed: 800,
-		grabCursor: isMultiple,     // прибирає курсор-руку, якщо слайд один
-		navigation: {
-			nextEl: ".section-hero .swiper-buttons .button-slider-next",
-			prevEl: ".section-hero .swiper-buttons .button-slider-prev",
-		},
-		pagination: {
-			el: ".section-hero .swiper-pagination",
-			clickable: true,
-		},
-	});
+	// Ініціалізуємо лише якщо є wrapper і хоча б один слайд
+	if (wrapperEl && slides.length > 0) {
+		const slidesCount = slides.length;
+		const isMultiple = slidesCount > 1;
+
+		// Шукаємо навігацію й пагінацію
+		const nextBtn = document.querySelector('.section-hero .swiper-buttons .button-slider-next');
+		const prevBtn = document.querySelector('.section-hero .swiper-buttons .button-slider-prev');
+		const paginationEl = document.querySelector('.section-hero .swiper-pagination');
+
+		new Swiper(heroSliderEl, {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			loop: isMultiple,
+			watchOverflow: true,
+			allowTouchMove: isMultiple,
+			speed: 800,
+			grabCursor: isMultiple,
+			navigation: (nextBtn && prevBtn) ? {
+				nextEl: nextBtn,
+				prevEl: prevBtn,
+			} : false,
+			pagination: paginationEl ? {
+				el: paginationEl,
+				clickable: true,
+			} : false,
+		});
+	}
 }
-
 
 //? benefits-assistance--swiper
 new Swiper('.benefits-assistance--swiper', {
