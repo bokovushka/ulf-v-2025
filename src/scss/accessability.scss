@@ -65,7 +65,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--black) !important;
 		background: var(--black) !important;
 		color: var(--white) !important;
@@ -182,7 +182,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--black) !important;
 		background: var(--black) !important;
 		color: var(--white) !important;
@@ -306,7 +306,7 @@
 
 	//styles
 
-	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*="btn-outline-"], .btn-link) {
+	[class*="btn-"]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*="btn-outline-"], .btn-link) {
 		border-color: var(--dark-blue) !important;
 		background: var(--dark-blue) !important;
 		color: var(--white) !important;
@@ -875,14 +875,16 @@ html {
 		}
 
 		.card-review--star .star.star-paint::before,
-		.card-star .star.star-paint::before {
+		.card-star .star.star-paint::before,
+		.card-review--star .star.star-half::after,
+		.card-star .star.star-half::after {
 			filter: grayscale(100%);
 		}
 	}
 
 	&.images-hide {
 
-		img,
+		img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img),
 		.card-review--star .star,
 		.socials svg {
 			opacity: 0;

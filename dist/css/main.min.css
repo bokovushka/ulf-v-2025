@@ -2773,6 +2773,12 @@ form {
   border: 1px solid #7DCCFF !important;
   background: var(--white);
 }
+.scheme-white-black .field .form-control:focus, .scheme-white-black .field .form-control:active {
+  border-color: var(--black) !important;
+}
+.scheme-black-white .field .form-control:focus, .scheme-black-white .field .form-control:active {
+  border-color: var(--black) !important;
+}
 .scheme-blue .field .form-control:focus, .scheme-blue .field .form-control:active {
   background: var(--white);
   border-color: var(--dark-blue) !important;
@@ -3277,6 +3283,7 @@ form {
 
 .breadcrumb-nav {
   z-index: 2;
+  top: 0;
 }
 
 .breadcrumb {
@@ -3300,6 +3307,15 @@ form {
 .breadcrumb .breadcrumb-item.active {
   color: var(--white);
 }
+.images-hide .breadcrumb .breadcrumb-item.active {
+  color: var(--black);
+}
+.scheme-black-white.images-hide .breadcrumb .breadcrumb-item.active {
+  color: var(--white);
+}
+.scheme-blue.images-hide .breadcrumb .breadcrumb-item.active {
+  color: var(--black);
+}
 .catalog .breadcrumb .breadcrumb-item.active, .catalog-item .breadcrumb .breadcrumb-item.active {
   color: #000000;
 }
@@ -3319,11 +3335,29 @@ form {
   position: relative;
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(3631%) hue-rotate(184deg) brightness(83%) contrast(119%);
 }
+.images-hide .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
 .scheme-blue .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
   filter: brightness(0) saturate(100%) invert(80%) sepia(5%) saturate(2897%) hue-rotate(185deg) brightness(102%) contrast(94%);
 }
+.scheme-black-white.images-hide .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg) brightness(111%) contrast(101%);
+}
+.scheme-blue.images-hide .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
 .breadcrumb .breadcrumb-item a {
   color: var(--white);
+}
+.images-hide .breadcrumb .breadcrumb-item a {
+  color: var(--black);
+}
+.scheme-black-white.images-hide .breadcrumb .breadcrumb-item a {
+  color: var(--white);
+}
+.scheme-blue.images-hide .breadcrumb .breadcrumb-item a {
+  color: var(--black);
 }
 .catalog .breadcrumb .breadcrumb-item a, .catalog-item .breadcrumb .breadcrumb-item a {
   color: var(--main-blue);
@@ -5977,6 +6011,9 @@ video {
   font-size: 16px;
   line-height: 100%;
 }
+.images-hide .wrap-review .description {
+  color: var(--black);
+}
 @media (max-width: 767px) {
   .wrap-review .description {
     font-size: 14px;
@@ -7208,6 +7245,9 @@ video {
   flex-direction: column;
   justify-content: space-between;
 }
+.images-hide .section-hero .item {
+  color: var(--black);
+}
 @media (max-width: 1023px) {
   .section-hero .item {
     padding: 40px 40px 95px 40px;
@@ -7217,10 +7257,6 @@ video {
   .section-hero .item {
     padding: 24px 12px 60px 12px;
   }
-}
-.section-hero .item .bg-down {
-  min-width: 104%;
-  min-height: 104%;
 }
 @media (max-width: 1023px) {
   .section-hero .item .bg-down {
@@ -7355,6 +7391,8 @@ video {
 }
 .financing-uklon-partners .section-hero .btn-link-catalog {
   min-height: 60px;
+  height: 60px;
+  padding: 20px 48px;
 }
 .scheme-white-black .section-hero .btn-link-catalog {
   border: 2px solid var(--grey);
@@ -8812,87 +8850,199 @@ video {
 }
 
 .scheme-black-white .subject-leasing--cards .head,
+.scheme-black-white .subject-leasing--cards .h2,
 .scheme-black-white .benefits-leasing .head,
+.scheme-black-white .benefits-leasing .h2,
 .scheme-black-white .popular-brands .head,
+.scheme-black-white .popular-brands .h2,
 .scheme-black-white .state-program .head,
+.scheme-black-white .state-program .h2,
 .scheme-black-white .subject-leasing .head,
+.scheme-black-white .subject-leasing .h2,
 .scheme-black-white .program-conditions .head,
+.scheme-black-white .program-conditions .h2,
 .scheme-black-white .businesses-program .head,
+.scheme-black-white .businesses-program .h2,
 .scheme-black-white .why-we .head,
+.scheme-black-white .why-we .h2,
 .scheme-black-white .popular-questions-answers .head,
-.scheme-black-white .section-calculator .head {
+.scheme-black-white .popular-questions-answers .h2,
+.scheme-black-white .section-calculator .head,
+.scheme-black-white .section-calculator .h2,
+.scheme-black-white .business-stats .head,
+.scheme-black-white .business-stats .h2,
+.scheme-black-white .section-finance .head,
+.scheme-black-white .section-finance .h2,
+.scheme-black-white .partner-programs .head,
+.scheme-black-white .partner-programs .h2 {
   color: var(--grey);
 }
 .scheme-black-white .subject-leasing--cards .head span,
+.scheme-black-white .subject-leasing--cards .h2 span,
 .scheme-black-white .benefits-leasing .head span,
+.scheme-black-white .benefits-leasing .h2 span,
 .scheme-black-white .popular-brands .head span,
+.scheme-black-white .popular-brands .h2 span,
 .scheme-black-white .state-program .head span,
+.scheme-black-white .state-program .h2 span,
 .scheme-black-white .subject-leasing .head span,
+.scheme-black-white .subject-leasing .h2 span,
 .scheme-black-white .program-conditions .head span,
+.scheme-black-white .program-conditions .h2 span,
 .scheme-black-white .businesses-program .head span,
+.scheme-black-white .businesses-program .h2 span,
 .scheme-black-white .why-we .head span,
+.scheme-black-white .why-we .h2 span,
 .scheme-black-white .popular-questions-answers .head span,
-.scheme-black-white .section-calculator .head span {
+.scheme-black-white .popular-questions-answers .h2 span,
+.scheme-black-white .section-calculator .head span,
+.scheme-black-white .section-calculator .h2 span,
+.scheme-black-white .business-stats .head span,
+.scheme-black-white .business-stats .h2 span,
+.scheme-black-white .section-finance .head span,
+.scheme-black-white .section-finance .h2 span,
+.scheme-black-white .partner-programs .head span,
+.scheme-black-white .partner-programs .h2 span {
   color: var(--white) !important;
 }
 .scheme-black-white .subject-leasing--cards .head span:hover,
+.scheme-black-white .subject-leasing--cards .h2 span:hover,
 .scheme-black-white .benefits-leasing .head span:hover,
+.scheme-black-white .benefits-leasing .h2 span:hover,
 .scheme-black-white .popular-brands .head span:hover,
+.scheme-black-white .popular-brands .h2 span:hover,
 .scheme-black-white .state-program .head span:hover,
+.scheme-black-white .state-program .h2 span:hover,
 .scheme-black-white .subject-leasing .head span:hover,
+.scheme-black-white .subject-leasing .h2 span:hover,
 .scheme-black-white .program-conditions .head span:hover,
+.scheme-black-white .program-conditions .h2 span:hover,
 .scheme-black-white .businesses-program .head span:hover,
+.scheme-black-white .businesses-program .h2 span:hover,
 .scheme-black-white .why-we .head span:hover,
+.scheme-black-white .why-we .h2 span:hover,
 .scheme-black-white .popular-questions-answers .head span:hover,
-.scheme-black-white .section-calculator .head span:hover {
+.scheme-black-white .popular-questions-answers .h2 span:hover,
+.scheme-black-white .section-calculator .head span:hover,
+.scheme-black-white .section-calculator .h2 span:hover,
+.scheme-black-white .business-stats .head span:hover,
+.scheme-black-white .business-stats .h2 span:hover,
+.scheme-black-white .section-finance .head span:hover,
+.scheme-black-white .section-finance .h2 span:hover,
+.scheme-black-white .partner-programs .head span:hover,
+.scheme-black-white .partner-programs .h2 span:hover {
   color: var(--white) !important;
 }
 .scheme-white-black .subject-leasing--cards .head span,
+.scheme-white-black .subject-leasing--cards .h2 span,
 .scheme-white-black .benefits-leasing .head span,
+.scheme-white-black .benefits-leasing .h2 span,
 .scheme-white-black .popular-brands .head span,
+.scheme-white-black .popular-brands .h2 span,
 .scheme-white-black .state-program .head span,
+.scheme-white-black .state-program .h2 span,
 .scheme-white-black .subject-leasing .head span,
+.scheme-white-black .subject-leasing .h2 span,
 .scheme-white-black .program-conditions .head span,
+.scheme-white-black .program-conditions .h2 span,
 .scheme-white-black .businesses-program .head span,
+.scheme-white-black .businesses-program .h2 span,
 .scheme-white-black .why-we .head span,
+.scheme-white-black .why-we .h2 span,
 .scheme-white-black .popular-questions-answers .head span,
-.scheme-white-black .section-calculator .head span {
+.scheme-white-black .popular-questions-answers .h2 span,
+.scheme-white-black .section-calculator .head span,
+.scheme-white-black .section-calculator .h2 span,
+.scheme-white-black .business-stats .head span,
+.scheme-white-black .business-stats .h2 span,
+.scheme-white-black .section-finance .head span,
+.scheme-white-black .section-finance .h2 span,
+.scheme-white-black .partner-programs .head span,
+.scheme-white-black .partner-programs .h2 span {
   color: var(--grey) !important;
 }
 .scheme-white-black .subject-leasing--cards .head span:hover,
+.scheme-white-black .subject-leasing--cards .h2 span:hover,
 .scheme-white-black .benefits-leasing .head span:hover,
+.scheme-white-black .benefits-leasing .h2 span:hover,
 .scheme-white-black .popular-brands .head span:hover,
+.scheme-white-black .popular-brands .h2 span:hover,
 .scheme-white-black .state-program .head span:hover,
+.scheme-white-black .state-program .h2 span:hover,
 .scheme-white-black .subject-leasing .head span:hover,
+.scheme-white-black .subject-leasing .h2 span:hover,
 .scheme-white-black .program-conditions .head span:hover,
+.scheme-white-black .program-conditions .h2 span:hover,
 .scheme-white-black .businesses-program .head span:hover,
+.scheme-white-black .businesses-program .h2 span:hover,
 .scheme-white-black .why-we .head span:hover,
+.scheme-white-black .why-we .h2 span:hover,
 .scheme-white-black .popular-questions-answers .head span:hover,
-.scheme-white-black .section-calculator .head span:hover {
+.scheme-white-black .popular-questions-answers .h2 span:hover,
+.scheme-white-black .section-calculator .head span:hover,
+.scheme-white-black .section-calculator .h2 span:hover,
+.scheme-white-black .business-stats .head span:hover,
+.scheme-white-black .business-stats .h2 span:hover,
+.scheme-white-black .section-finance .head span:hover,
+.scheme-white-black .section-finance .h2 span:hover,
+.scheme-white-black .partner-programs .head span:hover,
+.scheme-white-black .partner-programs .h2 span:hover {
   color: var(--grey) !important;
 }
 .scheme-blue .subject-leasing--cards .head span,
+.scheme-blue .subject-leasing--cards .h2 span,
 .scheme-blue .benefits-leasing .head span,
+.scheme-blue .benefits-leasing .h2 span,
 .scheme-blue .popular-brands .head span,
+.scheme-blue .popular-brands .h2 span,
 .scheme-blue .state-program .head span,
+.scheme-blue .state-program .h2 span,
 .scheme-blue .subject-leasing .head span,
+.scheme-blue .subject-leasing .h2 span,
 .scheme-blue .program-conditions .head span,
+.scheme-blue .program-conditions .h2 span,
 .scheme-blue .businesses-program .head span,
+.scheme-blue .businesses-program .h2 span,
 .scheme-blue .why-we .head span,
+.scheme-blue .why-we .h2 span,
 .scheme-blue .popular-questions-answers .head span,
-.scheme-blue .section-calculator .head span {
+.scheme-blue .popular-questions-answers .h2 span,
+.scheme-blue .section-calculator .head span,
+.scheme-blue .section-calculator .h2 span,
+.scheme-blue .business-stats .head span,
+.scheme-blue .business-stats .h2 span,
+.scheme-blue .section-finance .head span,
+.scheme-blue .section-finance .h2 span,
+.scheme-blue .partner-programs .head span,
+.scheme-blue .partner-programs .h2 span {
   color: var(--dark-blue) !important;
 }
 .scheme-blue .subject-leasing--cards .head span:hover,
+.scheme-blue .subject-leasing--cards .h2 span:hover,
 .scheme-blue .benefits-leasing .head span:hover,
+.scheme-blue .benefits-leasing .h2 span:hover,
 .scheme-blue .popular-brands .head span:hover,
+.scheme-blue .popular-brands .h2 span:hover,
 .scheme-blue .state-program .head span:hover,
+.scheme-blue .state-program .h2 span:hover,
 .scheme-blue .subject-leasing .head span:hover,
+.scheme-blue .subject-leasing .h2 span:hover,
 .scheme-blue .program-conditions .head span:hover,
+.scheme-blue .program-conditions .h2 span:hover,
 .scheme-blue .businesses-program .head span:hover,
+.scheme-blue .businesses-program .h2 span:hover,
 .scheme-blue .why-we .head span:hover,
+.scheme-blue .why-we .h2 span:hover,
 .scheme-blue .popular-questions-answers .head span:hover,
-.scheme-blue .section-calculator .head span:hover {
+.scheme-blue .popular-questions-answers .h2 span:hover,
+.scheme-blue .section-calculator .head span:hover,
+.scheme-blue .section-calculator .h2 span:hover,
+.scheme-blue .business-stats .head span:hover,
+.scheme-blue .business-stats .h2 span:hover,
+.scheme-blue .section-finance .head span:hover,
+.scheme-blue .section-finance .h2 span:hover,
+.scheme-blue .partner-programs .head span:hover,
+.scheme-blue .partner-programs .h2 span:hover {
   color: var(--dark-blue) !important;
 }
 .scheme-black-white .subject-leasing--cards .subhead,
@@ -8904,7 +9054,10 @@ video {
 .scheme-black-white .businesses-program .subhead,
 .scheme-black-white .why-we .subhead,
 .scheme-black-white .popular-questions-answers .subhead,
-.scheme-black-white .section-calculator .subhead {
+.scheme-black-white .section-calculator .subhead,
+.scheme-black-white .business-stats .subhead,
+.scheme-black-white .section-finance .subhead,
+.scheme-black-white .partner-programs .subhead {
   color: var(--white) !important;
 }
 
@@ -10278,12 +10431,18 @@ video {
     padding-left: 29px;
   }
 }
+.scheme-black-white .financing-uklon-partners .business-stats__value span {
+  color: var(--white);
+}
 .financing-uklon-partners .business-stats__value span::before {
   content: "[";
   position: absolute;
   left: 0;
   top: 0;
   color: var(--main-blue);
+}
+.scheme-black-white .financing-uklon-partners .business-stats__value span::before {
+  color: var(--white);
 }
 @media (max-width: 767px) {
   .financing-uklon-partners .business-stats__value span::before {
@@ -10296,6 +10455,9 @@ video {
   right: -40px;
   top: 0;
   color: var(--main-blue);
+}
+.scheme-black-white .financing-uklon-partners .business-stats__value span::after {
+  color: var(--white);
 }
 @media (max-width: 767px) {
   .financing-uklon-partners .business-stats__value span::after {
@@ -10415,6 +10577,9 @@ video {
   align-items: center;
   justify-content: center;
 }
+.images-hide .financing-uklon-partners .section-finance .icon {
+  opacity: 0;
+}
 @media (max-width: 1023px) {
   .financing-uklon-partners .section-finance .icon {
     margin-top: 10px;
@@ -10532,6 +10697,14 @@ video {
   background-color: var(--main-blue);
   color: var(--white);
 }
+.scheme-white-black .lead-section {
+  background-color: var(--silver);
+  color: var(--black);
+}
+.scheme-blue .lead-section {
+  background-color: var(--blue-3);
+  color: var(--black);
+}
 .lead-section .container {
   position: relative;
 }
@@ -10544,6 +10717,15 @@ video {
   max-height: 715px;
   height: 100%;
   top: 0;
+}
+.images-black-white .lead-section .container::after, .images-black-white .lead-section .container::before {
+  filter: grayscale(100%);
+}
+.images-hide .lead-section .container::after, .images-hide .lead-section .container::before {
+  background: unset;
+}
+.scheme-white-black .lead-section .container::after, .scheme-black-white .lead-section .container::after, .scheme-blue .lead-section .container::after, .scheme-white-black .lead-section .container::before, .scheme-black-white .lead-section .container::before, .scheme-blue .lead-section .container::before {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
 }
 @media (max-width: 767px) {
   .lead-section .container::after, .lead-section .container::before {
@@ -10576,6 +10758,12 @@ video {
   font-weight: 500;
   margin-bottom: 8px;
   color: #ffffff;
+}
+.scheme-white-black .lead-section .form-label {
+  color: var(--black);
+}
+.scheme-blue .lead-section .form-label {
+  color: var(--black);
 }
 .lead-section .form-input {
   width: 100%;
@@ -10665,6 +10853,10 @@ video {
   border: 1px solid #d2d5da;
   border-radius: 4px;
 }
+.scheme-blue .lead-section .radio-box {
+  border-color: var(--blue-2);
+  background-color: var(--blue-2);
+}
 .lead-section .custom-radio input:checked + .radio-box::after {
   content: "";
   width: 10px;
@@ -10672,10 +10864,25 @@ video {
   background-color: #1e88e5;
   border-radius: 2px;
 }
+.scheme-white-black .lead-section .custom-radio input:checked + .radio-box::after {
+  background-color: var(--black);
+}
+.scheme-black-white .lead-section .custom-radio input:checked + .radio-box::after {
+  background-color: var(--black);
+}
+.scheme-blue .lead-section .custom-radio input:checked + .radio-box::after {
+  background-color: var(--dark-blue);
+}
 .lead-section .radio-text {
   font-size: 15px;
   color: #ffffff;
   font-weight: 500;
+}
+.scheme-white-black .lead-section .radio-text {
+  color: var(--black);
+}
+.scheme-blue .lead-section .radio-text {
+  color: var(--black);
 }
 .lead-section .btn-white {
   border: 2px solid var(--white);
@@ -10790,6 +10997,829 @@ video {
   line-height: 20px;
 }
 
+@media (max-width: 1023px) {
+  .leasing-taxi .section-hero .breadcrumb .breadcrumb-item {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+}
+.leasing-taxi .section-hero .item {
+  padding-bottom: 37px;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .section-hero .item {
+    justify-content: flex-end;
+    padding-bottom: 21px;
+  }
+}
+.leasing-taxi .section-hero .item > .row {
+  height: 100%;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .section-hero .item > .row {
+    height: auto;
+  }
+}
+.leasing-taxi .section-hero .btn-link-catalog {
+  margin-top: 3px;
+}
+.leasing-taxi .partner-card {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  gap: 16px;
+}
+.scheme-blue .leasing-taxi .partner-card {
+  background: rgba(176, 207, 247, 0.3);
+  border-color: var(--blue-2);
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .partner-card {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 575px) {
+  .leasing-taxi .partner-card {
+    width: 100%;
+  }
+}
+.leasing-taxi .partner-card__logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.leasing-taxi .partner-card__logo-wrap img {
+  height: 34px;
+  width: 111px;
+  display: block;
+  object-fit: contain;
+}
+.leasing-taxi .partner-card__divider {
+  position: relative;
+}
+.leasing-taxi .partner-card__divider::before {
+  content: "";
+  background: #f2f2f2;
+  opacity: 0.4;
+  position: absolute;
+  height: 50px;
+  width: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -1px;
+}
+.leasing-taxi .partner-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  margin-right: 12px;
+}
+.leasing-taxi .partner-card__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.scheme-blue .leasing-taxi .partner-card__title {
+  color: #000000 !important;
+}
+.leasing-taxi .partner-card__link.btn-link-default {
+  width: auto;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--main-blue) !important;
+  background: transparent !important;
+  border: none !important;
+  justify-content: flex-start;
+  gap: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.scheme-white-black .leasing-taxi .partner-card__link.btn-link-default {
+  color: var(--white) !important;
+}
+.scheme-blue .leasing-taxi .partner-card__link.btn-link-default {
+  color: #000000 !important;
+}
+.leasing-taxi .partner-card__link.btn-link-default::after {
+  content: "";
+  background: url(../img/icons/icons.svg#arrow-up-right) no-repeat center;
+  background-size: cover;
+  max-width: 14px;
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+  margin-left: 3px;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(51%) sepia(90%) saturate(3263%) hue-rotate(178deg) brightness(96%) contrast(103%);
+  transition: transform 0.3s ease-out 0s;
+}
+.scheme-white-black .leasing-taxi .partner-card__link.btn-link-default::after {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg) brightness(111%) contrast(101%);
+}
+.scheme-black-white .leasing-taxi .partner-card__link.btn-link-default::after {
+  filter: brightness(0) saturate(100%) invert(56%) sepia(0%) saturate(1%) hue-rotate(211deg) brightness(96%) contrast(86%);
+}
+.scheme-blue .leasing-taxi .partner-card__link.btn-link-default::after {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
+.leasing-taxi .partner-card__link.btn-link-default:hover {
+  opacity: 0.85;
+}
+.leasing-taxi .partner-card__link.btn-link-default:hover::after {
+  transform: translate(2px, -2px);
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__title {
+    margin-top: 2px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__items {
+    margin-top: -2px;
+  }
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__items {
+    margin-top: -3px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__items > .row:not(:last-child) {
+    border-bottom: 2px solid #f2f2f2;
+  }
+  .scheme-white-black .leasing-taxi .business-stats__items > .row:not(:last-child) {
+    border-color: var(--black);
+  }
+  .scheme-blue .leasing-taxi .business-stats__items > .row:not(:last-child) {
+    border-color: var(--blue-3);
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__items > .row:not(:last-child) .business-stats__item {
+    padding-bottom: 41px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__items > .row:not(:first-child) .business-stats__item {
+    padding-top: 39px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__items > .row .col-md-6:first-child {
+    border-right: 1px solid #f2f2f2;
+  }
+  .scheme-white-black .leasing-taxi .business-stats__items > .row .col-md-6:first-child {
+    border-color: var(--black);
+  }
+  .scheme-blue .leasing-taxi .business-stats__items > .row .col-md-6:first-child {
+    border-color: var(--blue-3);
+  }
+  .leasing-taxi .business-stats__items > .row .col-md-6:last-child {
+    border-left: 1px solid #f2f2f2;
+  }
+  .scheme-white-black .leasing-taxi .business-stats__items > .row .col-md-6:last-child {
+    border-color: var(--black);
+  }
+  .scheme-blue .leasing-taxi .business-stats__items > .row .col-md-6:last-child {
+    border-color: var(--blue-3);
+  }
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__item {
+    border-bottom: 2px solid #f2f2f2;
+    padding-bottom: 25px;
+    margin-bottom: 23px;
+  }
+  .scheme-white-black .leasing-taxi .business-stats__item {
+    border-color: var(--black);
+  }
+  .scheme-blue .leasing-taxi .business-stats__item {
+    border-color: var(--blue-3);
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__item:not(:last-child) {
+    border-bottom: none;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__item-2 {
+    padding-left: 29px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__item-3 {
+    margin-top: -3px;
+  }
+}
+@media (min-width: 768px) {
+  .leasing-taxi .business-stats__item-4 {
+    margin-top: -3px;
+    padding-left: 29px;
+  }
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__item-4 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: unset;
+  }
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__value {
+    justify-content: flex-start;
+  }
+}
+.leasing-taxi .business-stats__value span {
+  padding-left: 50px;
+  margin-top: 2px;
+  position: relative;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__value span {
+    padding-left: 30px;
+  }
+}
+.leasing-taxi .business-stats__value span::after {
+  right: -38px;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__value span::after {
+    right: -30px;
+  }
+}
+.leasing-taxi .business-stats__description {
+  text-transform: unset;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .business-stats__description {
+    text-align: left;
+    margin-top: 4px;
+  }
+}
+.leasing-taxi .calc-section {
+  position: relative;
+}
+.leasing-taxi .calc-section .car-choice-card {
+  border-radius: 4px;
+  background: white;
+  padding: 40px;
+  margin: 98px 0;
+  width: 469px;
+}
+.scheme-black-white .leasing-taxi .calc-section .car-choice-card {
+  border-color: var(--black);
+  background: var(--black);
+}
+.scheme-blue .leasing-taxi .calc-section .car-choice-card {
+  border-color: var(--dark-blue-2);
+  background: var(--dark-blue-2);
+}
+@media (max-width: 575px) {
+  .leasing-taxi .calc-section .car-choice-card {
+    width: 100%;
+    margin: 38px 0;
+    padding: 24px 18px;
+  }
+}
+.leasing-taxi .calc-section .car-choice-card__header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+@media (max-width: 575px) {
+  .leasing-taxi .calc-section .car-choice-card__header {
+    margin-bottom: 29px;
+  }
+}
+.leasing-taxi .calc-section .car-choice-card__title {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 110%;
+  margin-bottom: 12px;
+}
+.scheme-black-white .leasing-taxi .calc-section .car-choice-card__title {
+  color: var(--white);
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .calc-section .car-choice-card__title {
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+@media (max-width: 575px) {
+  .leasing-taxi .calc-section .car-choice-card__title {
+    padding: 0 38px;
+  }
+}
+.leasing-taxi .calc-section .car-choice-card__subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  color: #7A7A7A;
+}
+.scheme-black-white .leasing-taxi .calc-section .car-choice-card__subtitle {
+  color: var(--grey);
+}
+.scheme-blue .leasing-taxi .calc-section .car-choice-card__subtitle {
+  color: var(--black);
+}
+.leasing-taxi .calc-section .car-choice-card__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 575px) {
+  .leasing-taxi .calc-section .car-choice-card__options {
+    margin-bottom: 20px;
+  }
+}
+.leasing-taxi .calc-section .car-choice-card__btn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #0088ff;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.leasing-taxi .calc-section .car-choice-card__btn:hover {
+  background-color: #0077e6;
+  color: #ffffff;
+}
+.leasing-taxi .calc-section .car-choice-card__btn:active {
+  transform: scale(0.99);
+}
+.leasing-taxi .calc-section .car-option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.leasing-taxi .calc-section .car-option:first-child .car-option__image {
+  width: 188px;
+  height: 112px;
+  bottom: 11px;
+}
+.leasing-taxi .calc-section .car-option:last-child .car-option__image {
+  width: 193px;
+  height: 94px;
+  bottom: 6px;
+}
+.leasing-taxi .calc-section .car-option__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.leasing-taxi .calc-section .car-option__input:checked + .car-option__content {
+  border: 1px solid #0097fa;
+  background: #e0f3ff;
+}
+.scheme-white-black .leasing-taxi .calc-section .car-option__input:checked + .car-option__content {
+  border-color: var(--silver);
+  background: var(--silver);
+}
+.scheme-black-white .leasing-taxi .calc-section .car-option__input:checked + .car-option__content {
+  border-color: var(--grey);
+  background: var(--grey);
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__input:checked + .car-option__content {
+  border-color: var(--blue-3);
+  background: var(--blue-3);
+}
+.leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge {
+  background-color: #0088ff;
+  border-color: #0088ff;
+}
+.scheme-white-black .leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge {
+  border-color: var(--grey);
+  background-color: var(--grey);
+}
+.scheme-black-white .leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge {
+  border-color: var(--silver);
+  background-color: var(--silver);
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge {
+  border-color: var(--blue-2);
+  background: var(--blue-2);
+}
+.leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge::before {
+  content: "";
+  background: url(../img/icons/icons.svg#i-check-3) no-repeat center;
+  background-size: cover;
+  max-width: 14px;
+  width: 22px;
+  height: 22px;
+  margin-right: 2px;
+  margin-left: 3px;
+  display: block;
+  transition: transform 0.3s ease-out 0s;
+}
+.scheme-black-white .leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge::before {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__input:checked + .car-option__content .car-option__badge::before {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
+.leasing-taxi .calc-section .car-option__content {
+  border: 1px solid var(--ULF, #e0e0e0);
+  border-radius: 4px;
+  background: #f2f2f2;
+  padding: 16px;
+  height: 140px;
+  display: flex;
+  justify-content: space-between;
+}
+.scheme-white-black .leasing-taxi .calc-section .car-option__content {
+  border-color: var(--black);
+  background: var(--white);
+}
+.scheme-black-white .leasing-taxi .calc-section .car-option__content {
+  border-color: var(--silver);
+  background: var(--silver);
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__content {
+  border-color: var(--blue-2);
+  background: var(--blue-2);
+}
+.leasing-taxi .calc-section .car-option__content:hover {
+  border-color: #c7d2dd;
+}
+.scheme-white-black .leasing-taxi .calc-section .car-option__content:hover {
+  border-color: var(--black);
+}
+.scheme-black-white .leasing-taxi .calc-section .car-option__content:hover {
+  border-color: var(--silver);
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__content:hover {
+  border-color: var(--blue-2);
+}
+.leasing-taxi .calc-section .car-option__label {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
+.leasing-taxi .calc-section .car-option__image {
+  position: absolute;
+  right: 45px;
+  bottom: 0;
+}
+@media (max-width: 575px) {
+  .leasing-taxi .calc-section .car-option__image {
+    right: 24px;
+  }
+}
+.leasing-taxi .calc-section .car-option__image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.leasing-taxi .calc-section .car-option__badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #d9d9d9;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.scheme-blue .leasing-taxi .calc-section .car-option__badge {
+  border-color: var(--blue-3);
+  background-color: var(--blue-3);
+}
+.leasing-taxi .calc-section .btn-primary.btn-main-blue {
+  width: 100%;
+}
+.leasing-taxi .section-finance .icon {
+  margin-bottom: 12px;
+}
+.leasing-taxi .section-finance .card {
+  padding: 32px;
+  min-height: 240px;
+  justify-content: center;
+}
+.scheme-blue .leasing-taxi .section-finance .card {
+  background: var(--blue-2);
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .section-finance .card {
+    min-height: 180px;
+    height: 180px;
+  }
+}
+.leasing-taxi .section-finance .card-desc {
+  max-width: 100%;
+}
+.leasing-taxi .partner-programs .btn-uklon {
+  padding: 8px 20px;
+  height: auto;
+  width: max-content;
+  border-radius: 100px;
+}
+.leasing-taxi .partner-programs .btn-uklon img {
+  width: 80px;
+  height: 24px;
+  object-fit: contain;
+}
+.leasing-taxi .partner-banner .item {
+  min-height: 740px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 80.068%, rgba(0, 0, 0, 0.8) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 34.932%);
+}
+.images-hide .leasing-taxi .partner-banner .item {
+  background: unset;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .partner-banner .item {
+    min-height: 637px;
+  }
+}
+@media (max-width: 575px) {
+  .leasing-taxi .partner-banner .item {
+    min-height: 420px;
+  }
+}
+.leasing-taxi .partner-banner .item img.bg-temp-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+.leasing-taxi .partner-banner .item img.bg-temp-fade.is-visible {
+  opacity: 1;
+}
+.leasing-taxi .partner-banner .item .row {
+  position: relative;
+  z-index: 2;
+}
+.leasing-taxi .partner-banner .item .subhead {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: 12px;
+}
+.images-hide .leasing-taxi .partner-banner .item .subhead, .scheme-black-white .leasing-taxi .partner-banner .item .subhead, .scheme-blue .leasing-taxi .partner-banner .item .subhead {
+  color: var(--black);
+}
+.leasing-taxi .partner-banner .partner-banner-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+}
+.images-hide .leasing-taxi .partner-banner .partner-banner-card, .scheme-black-white .leasing-taxi .partner-banner .partner-banner-card {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+}
+@media (max-width: 767px) {
+  .leasing-taxi .partner-banner .partner-banner-card {
+    gap: 11px;
+  }
+}
+.leasing-taxi .partner-banner .partner-banner-card__logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.leasing-taxi .partner-banner .partner-banner-card__logo-wrap img {
+  height: 50px;
+  width: 133px;
+  display: block;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .partner-banner .partner-banner-card__logo-wrap img {
+    width: 65px;
+    height: 25px;
+  }
+}
+.leasing-taxi .partner-banner .partner-banner-card__logo-wrap-2 {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.leasing-taxi .partner-banner .partner-banner-card__logo-wrap-2 img {
+  height: 85px;
+  width: 279px;
+  display: block;
+  object-fit: contain;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .partner-banner .partner-banner-card__logo-wrap-2 img {
+    width: 137px;
+    height: 42px;
+  }
+}
+.leasing-taxi .partner-banner .partner-banner-card__divider {
+  position: relative;
+}
+.leasing-taxi .partner-banner .partner-banner-card__divider::before {
+  content: "";
+  background: #f2f2f2;
+  opacity: 0.4;
+  position: absolute;
+  height: 55px;
+  width: 2.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .partner-banner .partner-banner-card__divider::before {
+    height: 27px;
+    width: 1.25px;
+    left: 1px;
+  }
+}
+.leasing-taxi .partner-banner .btn-primary.btn-main-blue {
+  width: 269px;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .partner-banner .btn-primary.btn-main-blue {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .leasing-taxi .partner-banner .btn-primary.btn-main-blue {
+    width: 96%;
+  }
+}
+.leasing-taxi .benefits-leasing--swiper .item,
+.leasing-taxi .benefits--swiper .item {
+  column-gap: 14px;
+}
+.leasing-taxi .benefits-leasing--swiper .item .name,
+.leasing-taxi .benefits--swiper .item .name {
+  margin-bottom: 6px;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .benefits-leasing--swiper .item .description,
+.leasing-taxi .benefits--swiper .item .description {
+    padding: 0 20px;
+  }
+}
+.leasing-taxi .benefits-leasing .btn-primary.btn-main-blue {
+  width: 269px;
+}
+@media (max-width: 1023px) {
+  .leasing-taxi .benefits-leasing .btn-primary.btn-main-blue {
+    width: 100%;
+  }
+}
+.leasing-taxi .lead-section .radio-box {
+  border-radius: 50%;
+}
+.leasing-taxi .lead-section .custom-radio input:checked + .radio-box::after {
+  border-radius: 50%;
+}
+.leasing-taxi .lead-section .cars-quantity-group {
+  margin-top: 0;
+  margin-bottom: 10px;
+  gap: 26px;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .lead-section .cars-quantity-group {
+    margin-bottom: 10px;
+  }
+}
+.leasing-taxi .lead-section .form-disclaimer {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+.scheme-white-black .leasing-taxi .lead-section .form-disclaimer {
+  color: var(--black);
+}
+.scheme-blue .leasing-taxi .lead-section .form-disclaimer {
+  color: var(--black);
+}
+.leasing-taxi .seo p,
+.leasing-taxi .seo ol li,
+.leasing-taxi .seo ol li::before,
+.leasing-taxi .seo ul li {
+  color: #000000;
+}
+.scheme-black-white .leasing-taxi .seo p,
+.scheme-black-white .leasing-taxi .seo ol li,
+.scheme-black-white .leasing-taxi .seo ol li::before,
+.scheme-black-white .leasing-taxi .seo ul li {
+  color: var(--white);
+}
+.leasing-taxi .seo ul li::before {
+  background: #000000;
+}
+.scheme-black-white .leasing-taxi .seo ul li::before {
+  background: var(--white);
+}
+.leasing-taxi .seo strong {
+  font-weight: 500;
+}
+.leasing-taxi .seo p {
+  font-size: 16px;
+  line-height: 130%;
+}
+@media (max-width: 767px) {
+  .leasing-taxi .questions-popular .questions--inner #accordion-questions .card-header .btn-link {
+    padding: 19px 16px;
+  }
+}
+.scheme-white-black .leasing-taxi .btn-main-blue, .scheme-black-white .leasing-taxi .btn-main-blue {
+  border: 2px solid var(--grey);
+  background: var(--grey);
+  color: var(--white);
+}
+.scheme-blue .leasing-taxi .btn-main-blue {
+  border: 2px solid var(--light-blue-3);
+  background: var(--light-blue-3);
+  color: var(--black);
+}
+.leasing-taxi .btn-main-blue:hover .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+}
+.leasing-taxi .btn-main-blue:not(:disabled):hover {
+  border: 2px solid #008cc7;
+  background: #008cc7;
+  color: var(--white);
+}
+.scheme-white-black .leasing-taxi .btn-main-blue:not(:disabled):hover, .scheme-black-white .leasing-taxi .btn-main-blue:not(:disabled):hover {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .leasing-taxi .btn-main-blue:not(:disabled):hover {
+  border: 2px solid var(--light-blue-4);
+  background: var(--light-blue-4);
+  color: var(--black);
+}
+.leasing-taxi .btn-main-blue:not(:disabled):active, .leasing-taxi .btn-main-blue:not(:disabled):focus {
+  color: var(--white);
+}
+.leasing-taxi .btn-main-blue:not(:disabled):active {
+  border: 2px solid #0f68ba;
+  background: #0f68ba;
+}
+.scheme-white-black .leasing-taxi .btn-main-blue:not(:disabled):active, .scheme-black-white .leasing-taxi .btn-main-blue:not(:disabled):active {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .leasing-taxi .btn-main-blue:not(:disabled):active {
+  border: 2px solid var(--light-blue-4);
+  background: var(--light-blue-4);
+  color: var(--black);
+}
+.leasing-taxi .btn-main-blue:not(:disabled):focus {
+  border: 2px solid #0f68ba;
+  background: #0f68ba;
+  color: var(--white);
+}
+.scheme-white-black .leasing-taxi .btn-main-blue:not(:disabled):focus, .scheme-black-white .leasing-taxi .btn-main-blue:not(:disabled):focus {
+  border: 2px solid var(--silver-dark);
+  background: var(--silver-dark);
+  color: var(--white);
+}
+.scheme-blue .leasing-taxi .btn-main-blue:not(:disabled):focus {
+  border: 2px solid var(--light-blue-4);
+  background: var(--light-blue-4);
+  color: var(--black);
+}
+.leasing-taxi .btn-main-blue:disabled {
+  border-color: var(--light-grey);
+  background: var(--light-grey);
+  color: var(--grey);
+  opacity: 1;
+  cursor: not-allowed;
+}
+.leasing-taxi .btn-main-blue .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(140deg) brightness(109%) contrast(101%);
+}
+.scheme-white-black .leasing-taxi .btn-main-blue .link-button::before {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
 .scheme-default {
   --black: #2b2b2b;
   --white: #fafafa;
@@ -10841,22 +11871,22 @@ video {
 .scheme-white-black .bg-light-blue {
   background-color: var(--silver) !important;
 }
-.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link) {
+.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link) {
   border-color: var(--black) !important;
   background: var(--black) !important;
   color: var(--white) !important;
 }
-.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):hover {
+.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):hover {
   border-color: var(--black) !important;
   background: var(--grey) !important;
   color: var(--white) !important;
 }
-.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):focus {
+.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):focus {
   border-color: var(--gray-dark) !important;
   background: var(--gray-dark) !important;
   color: var(--white) !important;
 }
-.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):disabled {
+.scheme-white-black [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):disabled {
   border-color: var(--grey) !important;
   background: var(--grey) !important;
   opacity: 1;
@@ -10927,22 +11957,22 @@ video {
 .scheme-black-white .bg-light-blue {
   background-color: var(--grey) !important;
 }
-.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link) {
+.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link) {
   border-color: var(--black) !important;
   background: var(--black) !important;
   color: var(--white) !important;
 }
-.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):hover {
+.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):hover {
   border-color: var(--black) !important;
   background: var(--grey) !important;
   color: var(--white) !important;
 }
-.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):focus {
+.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):focus {
   border-color: var(--gray-dark) !important;
   background: var(--gray-dark) !important;
   color: var(--white) !important;
 }
-.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):disabled {
+.scheme-black-white [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):disabled {
   border-color: var(--black) !important;
   background: var(--grey) !important;
   opacity: 1;
@@ -11018,22 +12048,22 @@ video {
 .scheme-blue .bg-light-blue {
   background-color: var(--blue-3) !important;
 }
-.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link) {
+.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link) {
   border-color: var(--dark-blue) !important;
   background: var(--dark-blue) !important;
   color: var(--white) !important;
 }
-.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):hover {
+.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):hover {
   border-color: var(--light-blue) !important;
   background: var(--blue-2) !important;
   color: var(--black) !important;
 }
-.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):not(:disabled):focus {
+.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):active, .scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):not(:disabled):focus {
   border-color: var(--dark-blue) !important;
   background: var(--dark-blue) !important;
   color: var(--white) !important;
 }
-.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, [class*=btn-outline-], .btn-link):disabled {
+.scheme-blue [class*=btn-]:not(.btn-ahead, .section-top .btn-main-blue, .btn-txt, .btn-link-main, .btn-read-more, .any-questions .btn-white, .btn-video-play-pause, .btn-link-button, .btn-arrow-up, .btn-toogle-accordion, .btn-main-blue, .btn-accessability, .btn-more, .btn-underline, .btn-toggle-password, .btn-chat-bot, .btn-text, .btn-collapse, .btn-link-catalog, .partner-card__link, [class*=btn-outline-], .btn-link):disabled {
   border-color: var(--grey) !important;
   background: var(--grey) !important;
   opacity: 1;
@@ -11450,14 +12480,18 @@ html.images-black-white svg:hover {
 }
 body.images-black-white .card-review--star .star.star-paint::before,
 body.images-black-white .card-star .star.star-paint::before,
+body.images-black-white .card-review--star .star.star-half::after,
+body.images-black-white .card-star .star.star-half::after,
 html.images-black-white .card-review--star .star.star-paint::before,
-html.images-black-white .card-star .star.star-paint::before {
+html.images-black-white .card-star .star.star-paint::before,
+html.images-black-white .card-review--star .star.star-half::after,
+html.images-black-white .card-star .star.star-half::after {
   filter: grayscale(100%);
 }
-body.images-hide img,
+body.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img),
 body.images-hide .card-review--star .star,
 body.images-hide .socials svg,
-html.images-hide img,
+html.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img),
 html.images-hide .card-review--star .star,
 html.images-hide .socials svg {
   opacity: 0;

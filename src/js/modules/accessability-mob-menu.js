@@ -107,7 +107,7 @@ const initialFontSizes = new Map();
 
 // Функція для збереження початкового розміру шрифта елементів
 function saveInitialFontSizes() {
-	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright');
+	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright, .section-hero .hero-title, .hero-subtitle, .business-stats__description, .car-choice-card__title, .subhead, .head, .name, .description, .count, .count-review, .card-body');
 	elements.forEach(element => {
 		if (!initialFontSizes.has(element)) {
 			initialFontSizes.set(element, parseFloat(getComputedStyle(element).fontSize));
@@ -117,7 +117,7 @@ function saveInitialFontSizes() {
 
 // Функція для скидання всіх змін шрифтів до початкових значень
 function resetFontSizes() {
-	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright');
+	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright, .section-hero .hero-title, .hero-subtitle, .business-stats__description, .car-choice-card__title, .subhead, .head, .name, .description, .count, .count-review, .card-body');
 	elements.forEach(element => {
 		const initialSize = initialFontSizes.get(element);
 		if (initialSize) {
@@ -139,7 +139,7 @@ function resetFontSizes() {
 
 // Функція для зміни шрифтів пропорційно
 function changeFontSize(factor) {
-	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright');
+	const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span, .btn, a, li, label, input, textarea, .card-title, .selected-option, .modal, .footer-bottom .copyright, .section-hero .hero-title, .hero-subtitle, .business-stats__description, .car-choice-card__title, .subhead, .head, .name, .description, .count, .count-review, .card-body');
 	elements.forEach(element => {
 		const initialSize = initialFontSizes.get(element);
 		if (initialSize) {

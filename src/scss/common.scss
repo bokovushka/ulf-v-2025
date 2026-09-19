@@ -1019,6 +1019,14 @@ form {
 			border: 1px solid #7DCCFF !important;
 			background: var(--white);
 
+			.scheme-white-black & {
+				border-color: var(--black) !important;
+			}
+
+			.scheme-black-white & {
+				border-color: var(--black) !important;
+			}
+
 			.scheme-blue & {
 				background: var(--white);
 				border-color: var(--dark-blue) !important;
@@ -1735,6 +1743,7 @@ form {
 //breadcrumb
 .breadcrumb-nav {
 	z-index: 2;
+	top: 0;
 }
 
 .breadcrumb {
@@ -1756,6 +1765,18 @@ form {
 
 		&.active {
 			color: var(--white);
+
+			.images-hide & {
+				color: var(--black);
+			}
+
+			.scheme-black-white.images-hide & {
+				color: var(--white);
+			}
+
+			.scheme-blue.images-hide & {
+				color: var(--black);
+			}
 
 			.catalog &,
 			.catalog-item & {
@@ -1781,14 +1802,38 @@ form {
 				// background-size: cover;
 				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(3631%) hue-rotate(184deg) brightness(83%) contrast(119%);
 
+				.images-hide & {
+					filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
+				}
+
 				.scheme-blue & {
 					filter: brightness(0) saturate(100%) invert(80%) sepia(5%) saturate(2897%) hue-rotate(185deg) brightness(102%) contrast(94%);
+				}
+
+				.scheme-black-white.images-hide & {
+					filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(97deg) brightness(111%) contrast(101%);
+				}
+
+				.scheme-blue.images-hide & {
+					filter: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(7467%) hue-rotate(358deg) brightness(107%) contrast(96%);
 				}
 			}
 		}
 
 		a {
 			color: var(--white);
+
+			.images-hide & {
+				color: var(--black);
+			}
+
+			.scheme-black-white.images-hide & {
+				color: var(--white);
+			}
+
+			.scheme-blue.images-hide & {
+				color: var(--black);
+			}
 
 			.catalog &,
 			.catalog-item & {
