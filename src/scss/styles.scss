@@ -1400,6 +1400,10 @@
 			color: var(--black);
 		}
 
+		.images-hide.scheme-black-white & {
+			color: var(--white);
+		}
+
 		@include sm-max {
 			font-size: 14px;
 		}
@@ -2969,6 +2973,10 @@
 
 		.images-hide & {
 			color: var(--black);
+		}
+
+		.images-hide.scheme-black-white & {
+			color: var(--white);
 		}
 
 		@include md-max {

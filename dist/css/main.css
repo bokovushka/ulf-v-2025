@@ -6014,6 +6014,9 @@ video {
 .images-hide .wrap-review .description {
   color: var(--black);
 }
+.images-hide.scheme-black-white .wrap-review .description {
+  color: var(--white);
+}
 @media (max-width: 767px) {
   .wrap-review .description {
     font-size: 14px;
@@ -7247,6 +7250,9 @@ video {
 }
 .images-hide .section-hero .item {
   color: var(--black);
+}
+.images-hide.scheme-black-white .section-hero .item {
+  color: var(--white);
 }
 @media (max-width: 1023px) {
   .section-hero .item {
