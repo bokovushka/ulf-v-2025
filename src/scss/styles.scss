@@ -7933,12 +7933,16 @@
 	}
 
 	.partner-programs {
+		.subhead {
+			color: var(--grey);
+		}
 
 		.btn-uklon {
 			padding: 8px 20px;
 			height: auto;
 			width: max-content;
 			border-radius: 100px;
+			border-width: 2px;
 
 			img {
 				width: 80px;

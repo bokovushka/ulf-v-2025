@@ -11532,11 +11532,15 @@ video {
 .leasing-taxi .section-finance .card-desc {
   max-width: 100%;
 }
+.leasing-taxi .partner-programs .subhead {
+  color: var(--grey);
+}
 .leasing-taxi .partner-programs .btn-uklon {
   padding: 8px 20px;
   height: auto;
   width: max-content;
   border-radius: 100px;
+  border-width: 2px;
 }
 .leasing-taxi .partner-programs .btn-uklon img {
   width: 80px;
