@@ -12498,10 +12498,10 @@ html.images-black-white .card-review--star .star.star-half::after,
 html.images-black-white .card-star .star.star-half::after {
   filter: grayscale(100%);
 }
-body.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img),
+body.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img, .footer-logo img),
 body.images-hide .card-review--star .star,
 body.images-hide .socials svg,
-html.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img),
+html.images-hide img:not(.navbar-brand img, .partner-card__logo-wrap img, .btn-uklon img, .partner-banner-card__logo-wrap img, .partner-banner-card__logo-wrap-2 img, .footer-logo img),
 html.images-hide .card-review--star .star,
 html.images-hide .socials svg {
   opacity: 0;
