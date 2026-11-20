@@ -16,3 +16,6 @@ import './modules/height-max-height.js'
 import './modules/anchor.js'
 import "./modules/js.js";
 import "./modules/accessability-mob-menu.js";
+import "./modules/stickyMove.js";
+import "./modules/popup-esg.js";
+

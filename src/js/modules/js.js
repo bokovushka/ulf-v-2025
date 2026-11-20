@@ -93,3 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 });
+
+// .esg-sidebar nav active
+document.addEventListener('click', (e) => {
+	const link = e.target.closest('.esg-sidebar nav .anchor');
+	if (!link) return;
+
+	const nav = link.closest('nav');
+	nav.querySelectorAll('.anchor').forEach((item) => {
+		item.classList.remove('active');
+	});
+
+	link.classList.add('active');
+});

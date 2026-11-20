@@ -1,0 +1,170 @@
+<div class="modal modal--custom popup-esg fade" id="popup-esg" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-esgLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0" style="max-width: 580px; width: 100%;">
+				<div class="modal-content p-4 p-md-5">
+					<div class="modal-body p-0">
+						<form class="form-popup-esg" id="form-popup-esg" autocomplete="off">
+
+							<!-- Кнопка закриття -->
+							<div class="d-flex align-items-start justify-content-between mb-3">
+								<div class="head h4 mb-0" id="esg-modal-title">ESG-звернення</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#i-close"></use>
+										</svg>
+									</span>
+								</button>
+							</div>
+
+							<!-- ==================== КРОК 1 ==================== -->
+							<div class="esg-step" id="esg-step-1">
+								<!-- Чекбокс: Анонімне звернення -->
+								<div class="field mb-4">
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" id="esg-anonymous">
+										<label class="custom-control-label small-txt" for="esg-anonymous">
+											Анонімне звернення чи повідомлення
+										</label>
+									</div>
+								</div>
+
+								<!-- Блок полів, які можуть блокуватися при анонімності -->
+								<div id="esg-personal-fields">
+									<div class="field mb-3">
+										<label class="small-txt mb-1">Ваше прізвище, ім’я, по батькові</label>
+										<input type="text" name="full_name" class="form-control mb-1" placeholder="">
+										<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+									</div>
+
+									<div class="field mb-3">
+										<label class="small-txt mb-1">Поштова адреса</label>
+										<input type="text" name="postal_address" class="form-control mb-1" placeholder="">
+										<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+									</div>
+
+									<div class="field mb-3">
+										<label class="small-txt mb-1">Контактний телефон</label>
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<select class="form-control" name="phone_code"
+													style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+													<option value="+380" selected>UA ⌄ +380</option>
+													<option value="+48">PL ⌄ +48</option>
+												</select>
+											</div>
+											<input type="tel" name="phone" class="form-control" placeholder="">
+										</div>
+										<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+									</div>
+
+									<div class="field mb-4">
+										<label class="small-txt mb-1">Адреса електронної пошти</label>
+										<input type="email" name="email" class="form-control mb-1" placeholder="">
+										<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+									</div>
+								</div>
+
+								<!-- Кнопка Далі -->
+								<div class="mb-4">
+									<button type="button" class="btn btn-main-blue btn-block py-3 font-weight-bold"
+										id="btn-esg-next">
+										Далі
+									</button>
+								</div>
+
+								<!-- Індикатор кроку 1/2 -->
+								<div class="text-center">
+									<div class="small-txt text-muted mb-2">Крок 1/2</div>
+									<div class="esg-progress d-flex justify-content-center">
+										<span class="esg-progress__bar active"></span>
+										<span class="esg-progress__bar"></span>
+									</div>
+								</div>
+							</div>
+
+							<!-- ==================== КРОК 2 ==================== -->
+							<div class="esg-step d-none" id="esg-step-2">
+								<!-- Радіокнопки: Ви працівник ТОВ «УПФ-ФІНАНС»? -->
+								<div class="field mb-3">
+									<label class="small-txt d-block mb-2">Ви працівник ТОВ «УПФ-ФІНАНС»?</label>
+									<div class="d-flex align-items-center">
+										<div class="custom-control custom-radio mr-4">
+											<input type="radio" id="worker-yes" name="is_employee" value="yes"
+												class="custom-control-input" checked>
+											<label class="custom-control-label small-txt" for="worker-yes">Так</label>
+										</div>
+										<div class="custom-control custom-radio">
+											<input type="radio" id="worker-no" name="is_employee" value="no"
+												class="custom-control-input">
+											<label class="custom-control-label small-txt" for="worker-no">Ні</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">ПІБ, посада особи, дії якої оскаржуються</label>
+									<input type="text" name="target_person" class="form-control mb-1" placeholder="">
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Місце роботи особи, дії якої оскаржуються</label>
+									<input type="text" name="target_workplace" class="form-control mb-1" placeholder="">
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Дії або бездіяльність, які оскаржуються</label>
+									<input type="text" name="complaint_actions" class="form-control mb-1" placeholder="">
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Ваше повідомлення / питання</label>
+									<textarea name="message" class="form-control" rows="3" placeholder=""></textarea>
+								</div>
+
+								<!-- Згода на обробку персональних даних -->
+								<div class="field mb-4">
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" id="esg-consent" required>
+										<label class="custom-control-label small-txt" for="esg-consent"
+											style="font-size: 12px; line-height: 1.4;">
+											Згода на обробку персональних даних — Надаю згоду ТОВ "УПФ-ФІНАНС" на обробку
+											персональних даних, наведених у цій формі.
+										</label>
+									</div>
+								</div>
+
+								<!-- Кнопка Надіслати -->
+								<div class="mb-3">
+									<button type="submit" class="btn btn-main-blue btn-block py-3 font-weight-bold">
+										Надіслати
+									</button>
+								</div>
+
+								<!-- Кнопка Назад -->
+								<div class="text-center mb-3">
+									<button type="button" class="btn btn-link text-dark font-weight-bold p-0 small-txt"
+										id="btn-esg-prev">
+										&#8617; Назад
+									</button>
+								</div>
+
+								<!-- Індикатор кроку 2/2 -->
+								<div class="text-center">
+									<div class="small-txt text-muted mb-2">Крок 2/2</div>
+									<div class="esg-progress d-flex justify-content-center">
+										<span class="esg-progress__bar active"></span>
+										<span class="esg-progress__bar active"></span>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

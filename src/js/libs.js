@@ -8,6 +8,7 @@ import "./modules/libs/with-lib-fancybox.js";
 import "./modules/libs/with-lib-readmore.js";
 import "./modules/libs/with-lib-air-datepicker.js";
 import "./modules/libs/with-lib-svelte-range-slider-pips.js";
+import "./modules/libs/with-lib-canvas.js";
 // import "./modules/libs/with-lib-photo-sphere-viewer.js";
 // import "./modules/libs/with-lib-overlayscrollbars.js";
 // import "./modules/libs/with-lib-simplebar.js";
