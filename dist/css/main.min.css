@@ -12894,20 +12894,20 @@ video {
 
 /* Смужки прогрес-бару під написом "Крок 1/2" */
 .esg-progress {
-  gap: 6px;
+  gap: 4px;
 }
 
 .esg-progress__bar {
   display: inline-block;
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
-  background-color: #E0E0E0;
+  border-radius: 100px;
+  width: 40px;
+  height: 8px;
+  background-color: #e0e0e0;
   transition: background-color 0.2s ease;
 }
 
 .esg-progress__bar.active {
-  background-color: #0088FF;
+  background-color: #0097fa;
   /* Основний синій колір кнопки */
 }
 
@@ -12915,6 +12915,129 @@ video {
 #esg-personal-fields.is-anonymous {
   opacity: 0.45;
   pointer-events: none;
+}
+
+.popup-esg-thank-you .modal-inner {
+  max-width: 520px;
+  width: 100%;
+}
+.popup-esg-thank-you .modal-dialog .modal-content .modal-body .close {
+  right: 18px;
+  top: 16px;
+  background: #f2f2f2;
+}
+
+.popup-esg .modal-inner {
+  max-width: 520px;
+  width: 100%;
+}
+.popup-esg .btn.btn-block {
+  height: 60px;
+}
+.popup-esg .modal-dialog .modal-content {
+  padding: 32px 28px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .text-muted {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 120%;
+  color: #8c8c8c;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .head {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-control.custom-checkbox .custom-control-label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  padding-left: 28px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-control.custom-checkbox .custom-control-label::before {
+  width: 20px;
+  height: 20px;
+  top: 4px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-control.custom-checkbox .custom-control-label::after {
+  width: 29px;
+  height: 20px;
+  left: -4px;
+  top: 3px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .close {
+  right: 18px;
+  top: 16px;
+  background: #f2f2f2;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio {
+  background: #f2f2f2;
+  border-radius: 1000px;
+  padding: 8px 20px 8px 13px;
+  width: max-content;
+  height: 36px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  color: #fafafa;
+  border-color: #3da6d3;
+  background-color: #3da6d3;
+  width: 8px !important;
+  height: 8px !important;
+  top: 6px !important;
+  left: 3px !important;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: unset;
+  border: 2px solid #E0E0E0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  left: -2px;
+  top: 1px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio .custom-control-label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  padding-left: 20px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio .custom-control-label::before {
+  top: 2px;
+  left: -3px;
+  width: 16px;
+  height: 16px;
+  border: unset;
+  background: unset;
+  box-shadow: unset;
+  transition: unset;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-radio .custom-control-label::after {
+  border: 2px solid #E0E0E0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  left: -2px;
+  top: 1px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .custom-control.custom-checkbox.custom-checkbox-conset .custom-control-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .field textarea.form-control {
+  height: 80px;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .btn-custom-back {
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+.popup-esg .modal-dialog .modal-content .modal-body .btn-custom-back svg {
+  width: 16px;
+  height: 16px;
 }
 
 .scheme-default {

@@ -1,5 +1,5 @@
 function stickyMove(stickyBlock, downBlockMove) {
-	if (!stickyBlock || !downBlockMove) return;
+	if (!stickyBlock) return;
 
 	const parent = stickyBlock.parentElement;
 	const headerMain = document.querySelector('.header-main');
@@ -34,24 +34,34 @@ function stickyMove(stickyBlock, downBlockMove) {
 			return;
 		}
 
+		const blockHeight = stickyBlock.getBoundingClientRect().height;
 		parent.style.position = 'relative';
-		parent.style.minHeight = `${stickyBlock.offsetHeight}px`;
+		parent.style.minHeight = `${blockHeight}px`;
 
 		const scrollTop = window.scrollY;
 		const headerBottom = getVisibleHeaderBottom();
-		const stickyTop = headerBottom + 60; // єдина точка відступу від верху екрана
+		const stickyTop = headerBottom + 60;
 		const parentTop = getOffsetTop(parent);
-		const stopBoundary = getOffsetTop(downBlockMove);
-		const blockHeight = stickyBlock.offsetHeight;
 
 		const parentStyle = getComputedStyle(parent);
-		const parentInnerWidth = parent.clientWidth - parseFloat(parentStyle.paddingLeft) - parseFloat(parentStyle.paddingRight);
+		const paddingLeft = parseFloat(parentStyle.paddingLeft) || 0;
+		const paddingRight = parseFloat(parentStyle.paddingRight) || 0;
+		const paddingBottom = parseFloat(parentStyle.paddingBottom) || 0;
+		const parentInnerWidth = parent.clientWidth - paddingLeft - paddingRight;
 
-		const bottomGap = 96;
+		// Орієнтуємося на нижній край батьківської сітки (щоб блок зупинявся врівень із правою колонкою).
+		// Якщо parent розтягнутий по висоті сусідньої колонки, це спрацює ідеально.
+		// Якщо ж потрібна прив'язка саме до downBlockMove (футера) — розкоментуйте рядок нижче:
+		const stopBoundary = getOffsetTop(parent) + parent.offsetHeight - paddingBottom;
+		const bottomGap = 0;
+
+		// Альтернатива з прив'язкою до футера (якщо parent не має висоти сусідньої колонки):
+		// const stopBoundary = downBlockMove ? getOffsetTop(downBlockMove) : (getOffsetTop(parent) + parent.offsetHeight - paddingBottom);
+		// const bottomGap = 180; // збільшуйте або зменшуйте це число для точного підгону до футера
+
 		const stopScrollTop = stopBoundary - blockHeight - stickyTop - bottomGap;
 		const stopPoint = stopScrollTop - parentTop + stickyTop;
 
-		// Старт фіксації рівно в момент, коли parentTop доходить до stickyTop (без стрибка на 20px)
 		if (scrollTop > 0 && scrollTop + stickyTop >= parentTop) {
 			if (scrollTop < stopScrollTop) {
 				const wasFixed = stickyBlock.classList.contains('fixed');
@@ -69,7 +79,7 @@ function stickyMove(stickyBlock, downBlockMove) {
 				stickyBlock.classList.remove('fixed', 'is-smooth');
 				stickyBlock.style.position = 'absolute';
 				stickyBlock.style.top = `${stopPoint}px`;
-				stickyBlock.style.left = parentStyle.paddingLeft;
+				stickyBlock.style.left = `${paddingLeft}px`;
 				stickyBlock.style.width = `${parentInnerWidth}px`;
 			}
 		} else {
@@ -100,6 +110,8 @@ function stickyMove(stickyBlock, downBlockMove) {
 
 		observer.observe(headerTop, { attributes: true, attributeFilter: ['class'] });
 	}
+
+	updatePosition();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

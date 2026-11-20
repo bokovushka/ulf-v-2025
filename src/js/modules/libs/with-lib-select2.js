@@ -56,3 +56,12 @@ $(document).ready(function () {
 		dropdownParent: $('.gallery-car .select-months--wrap')
 	});
 });
+
+
+$(document).ready(function () {
+	$('.incident-select-type').select2({
+		minimumResultsForSearch: -1,
+		dropdownParent: $('#incident-select-type-wrap'),
+		width: '100%'
+	});
+});

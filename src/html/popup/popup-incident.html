@@ -1,0 +1,144 @@
+<div class="modal modal--custom popup-esg popup-incident fade" id="popup-incident" data-keyboard="false" tabindex="-1"
+	aria-labelledby="popup-incidentLabel" aria-hidden="true">
+	<div class="container">
+		<div class="modal-dialog modal-dialog-centered justify-content-center">
+			<div class="modal-inner mx-n3 mx-sm-0">
+				<div class="modal-content">
+					<div class="modal-body p-0">
+						<form class="form-popup-incident" id="form-popup-incident" autocomplete="off">
+
+							<!-- Заголовок та кнопка закриття (відображається на обох кроках) -->
+							<div class="d-flex align-items-start justify-content-between mb-5">
+								<div class="head h4 mb-0 pr-5" id="incident-modal-title">
+									Повідомлення про екологічний<br> або соціальний інцидент
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#i-close"></use>
+										</svg>
+									</span>
+								</button>
+							</div>
+
+							<!-- ==================== КРОК 1 ==================== -->
+							<div class="incident-step" id="incident-step-1">
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Назва підприємства де стався інцидент<span
+											class="text-red">*</span></label>
+									<input type="text" name="company_name" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">ЄДРПОУ підприємства, де стався інцидент<span
+											class="text-red">*</span></label>
+									<input type="text" name="company_edrpou" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Тип інциденту<span class="text-red">*</span></label>
+									<div class="select-wrap" id="incident-select-type-wrap">
+										<select class="incident-select-type" name="incident_type">
+											<option value="ecological">Екологічний інцидент</option>
+											<option value="social">Соціальний інцидент</option>
+										</select>
+									</div>
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<div class="field mb-7">
+									<label class="small-txt mb-1">Дата та час коли стався інцидент<span
+											class="text-red">*</span></label>
+									<input type="text" name="incident_datetime" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<!-- Кнопка Далі -->
+								<div class="mb-5">
+									<button type="button" class="btn btn-main-blue btn-block py-3 font-weight-bold"
+										id="btn-incident-next">
+										Далі
+									</button>
+								</div>
+
+								<!-- Індикатор кроку 1/2 -->
+								<div class="text-center">
+									<div class="small-txt text-muted mb-1">Крок 1/2</div>
+									<div class="esg-progress d-flex justify-content-center">
+										<span class="esg-progress__bar active"></span>
+										<span class="esg-progress__bar"></span>
+									</div>
+								</div>
+							</div>
+
+							<!-- ==================== КРОК 2 ==================== -->
+							<div class="incident-step d-none" id="incident-step-2">
+								<div class="field mb-3">
+									<label class="small-txt mb-1">ПІБ особи, що повідомляє про інцидент<span
+											class="text-red">*</span></label>
+									<input type="text" name="reporter_name" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<div class="field mb-3">
+									<label class="small-txt mb-1">Контактний телефон<span class="text-red">*</span></label>
+									<input type="tel" name="phone" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<div class="field mb-2">
+									<label class="small-txt mb-1">Електронна адреса<span class="text-red">*</span></label>
+									<input type="email" name="email" class="form-control mb-1" placeholder="">
+									<div class="field--help-info small-txt text-red d-none">Помилка введення</div>
+								</div>
+
+								<!-- Згода на обробку персональних даних -->
+								<div class="field mb-5">
+									<div class="custom-control custom-checkbox custom-checkbox-conset">
+										<input type="checkbox" class="custom-control-input" id="incident-consent">
+										<label class="custom-control-label small-txt" for="incident-consent">
+											Згода на обробку персональних даних — Надаю згоду ТОВ "УПФ-ФІНАНС" на обробку
+											персональних даних, наведених у цій формі.
+										</label>
+									</div>
+								</div>
+
+								<!-- Кнопка Надіслати -->
+								<div class="mb-3">
+									<button type="button" class="btn btn-main-blue btn-block py-3 font-weight-bold"
+										data-next-modal="#popup-esg-thank-you" data-dismiss="modal">
+										Надіслати
+									</button>
+								</div>
+
+								<!-- Кнопка Назад -->
+								<div class="text-center mb-3">
+									<button type="button"
+										class="btn btn-link btn-custom-back text-dark font-weight-bold p-0 small-txt"
+										id="btn-incident-prev">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#esg-corner-up-left"></use>
+										</svg>
+										<span>Назад</span>
+									</button>
+								</div>
+
+								<!-- Індикатор кроку 2/2 -->
+								<div class="text-center">
+									<div class="small-txt text-muted mb-2">Крок 2/2</div>
+									<div class="esg-progress d-flex justify-content-center">
+										<span class="esg-progress__bar active"></span>
+										<span class="esg-progress__bar active"></span>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
