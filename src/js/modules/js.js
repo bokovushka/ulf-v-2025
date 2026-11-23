@@ -106,3 +106,36 @@ document.addEventListener('click', (e) => {
 
 	link.classList.add('active');
 });
+
+//esg-documents
+document.querySelectorAll('.esg-documents').forEach((list) => {
+	const moreBtn = list.nextElementSibling;
+	if (!moreBtn || !moreBtn.classList.contains('esg-documents--more')) return;
+
+	const items = Array.from(list.querySelectorAll('.item'));
+	const hiddenItems = items.slice(4);
+	const textEl = moreBtn.querySelector('.btn-text');
+
+	if (hiddenItems.length === 0) {
+		moreBtn.style.display = 'none';
+		return;
+	}
+
+	moreBtn.addEventListener('click', () => {
+		const isExpanded = list.classList.toggle('is-expanded');
+		moreBtn.classList.toggle('is-active', isExpanded);
+
+		hiddenItems.forEach((item) => {
+			if (isExpanded) {
+				// Встановлюємо точну висоту елемента з урахуванням вертикальних падінгів (16px + 16px = 32px)
+				item.style.maxHeight = `${item.scrollHeight + 32}px`;
+			} else {
+				item.style.maxHeight = '';
+			}
+		});
+
+		if (textEl) {
+			textEl.textContent = isExpanded ? 'Згорнути' : 'Показати усі';
+		}
+	});
+});

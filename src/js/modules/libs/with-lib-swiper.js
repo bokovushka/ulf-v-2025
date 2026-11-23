@@ -443,3 +443,52 @@ new Swiper('.catalog--swiper', {
 		}
 	},
 });
+
+
+//? esg-directions--swiper
+function initMobileSwiper(selector, breakpoints) {
+	const mobileQuery = window.matchMedia('(max-width: 1024px)');
+
+	document.querySelectorAll(selector).forEach((el) => {
+		let swiper = null;
+
+		const toggle = () => {
+			if (mobileQuery.matches && !swiper) {
+				swiper = new Swiper(el, {
+					spaceBetween: 8,
+					speed: 600,
+					grabCursor: true,
+					navigation: {
+						nextEl: el.querySelector('.button-slider-next'),
+						prevEl: el.querySelector('.button-slider-prev'),
+					},
+					pagination: {
+						el: el.querySelector('.swiper-pagination'),
+						type: 'progressbar',
+					},
+					breakpoints,
+				});
+			} else if (!mobileQuery.matches && swiper) {
+				swiper.destroy(true, true);
+				swiper = null;
+			}
+		};
+
+		toggle();
+		mobileQuery.addEventListener('change', toggle);
+	});
+}
+
+// 1. Для .esg-directions
+initMobileSwiper('.esg-directions', {
+	0: { slidesPerView: 1.01 },
+	576: { slidesPerView: 1.4 },
+	768: { slidesPerView: 2 },
+});
+
+// 2. Для .esg-directions-list
+initMobileSwiper('.esg-directions-list', {
+	0: { slidesPerView: 1.17, spaceBetween: 12 },
+	576: { slidesPerView: 1.5, spaceBetween: 12 },
+	768: { slidesPerView: 2, spaceBetween: 12 },
+});

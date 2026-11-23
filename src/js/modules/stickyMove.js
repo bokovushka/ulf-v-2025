@@ -24,7 +24,7 @@ function stickyMove(stickyBlock, downBlockMove) {
 	};
 
 	const updatePosition = () => {
-		if (window.innerWidth <= 992) {
+		if (window.innerWidth <= 1023) {
 			stickyBlock.classList.remove('fixed', 'is-smooth');
 			stickyBlock.style.position = '';
 			stickyBlock.style.top = '';

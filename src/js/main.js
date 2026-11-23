@@ -18,4 +18,5 @@ import "./modules/js.js";
 import "./modules/accessability-mob-menu.js";
 import "./modules/stickyMove.js";
 import "./modules/popup-esg.js";
+import "./modules/add-more-blocks.js";
 
