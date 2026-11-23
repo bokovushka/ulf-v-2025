@@ -8555,6 +8555,10 @@
 						color: var(--white);
 					}
 				}
+
+				p {
+					color: var(--grey);
+				}
 			}
 		}
 	}
@@ -9347,23 +9351,11 @@
 			}
 		}
 
-		.esg-risks-impact--image {
-			border-radius: 4px;
-			overflow: hidden;
-			height: 360px;
+		.esg-risks-impact--image--wrap {
 			position: relative;
 
-			.images-hide & {
-				background: rgba(0, 0, 0, 0.1);
-				transition: background 0.35s ease;
-			}
-
-			.bg-down {
-				z-index: -2;
-			}
-
 			.bg-down-2 {
-				z-index: -1;
+				z-index: 1;
 				min-width: unset;
 				min-height: unset;
 				width: 332px;
@@ -9373,6 +9365,24 @@
 					width: 269px;
 					height: 236px;
 				}
+			}
+
+		}
+
+		.esg-risks-impact--image {
+			border-radius: 4px;
+			overflow: hidden;
+			height: 360px;
+			position: relative;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 46.63%, rgba(0, 0, 0, 0.4) 100%);
+
+			.images-hide & {
+				background: rgba(0, 0, 0, 0.1);
+				transition: background 0.35s ease;
+			}
+
+			.bg-down {
+				z-index: -2;
 			}
 
 			.object-p-t {
@@ -9393,7 +9403,7 @@
 		.esg-risks-impact--head {
 			font-size: 16px;
 			line-height: 120%;
-			color: #727272;
+			color: var(--grey);
 
 			.scheme-black-white & {
 				color: var(--grey);
@@ -9435,7 +9445,7 @@
 					font-weight: 400;
 					font-size: 16px;
 					line-height: 120%;
-					color: #000;
+					color: var(--grey);
 					display: flex;
 					align-items: center;
 					gap: 10px;
@@ -9453,7 +9463,7 @@
 						content: "";
 						width: 5px;
 						height: 5px;
-						background: var(--black);
+						background: var(--grey);
 						border-radius: 50%;
 
 						.scheme-black-white & {
@@ -10796,6 +10806,11 @@
 	}
 
 	.esg-sidebar {
+		@include md-max {
+			border-bottom: 1px solid #f1f1f1;
+			padding-bottom: 19px;
+		}
+
 		@include lg-min {
 			position: relative;
 			width: 100%;
@@ -10910,6 +10925,10 @@
 		.modal-dialog {
 			margin: 0;
 			min-height: 100%;
+
+			@include sm-max {
+				align-items: flex-end;
+			}
 		}
 
 		.modal-inner {
@@ -10955,6 +10974,7 @@
 					font-size: 16px;
 					line-height: 125%;
 					padding-left: 28px;
+					color: var(--black);
 				}
 
 				.custom-control.custom-checkbox .custom-control-label::before {
@@ -11062,6 +11082,7 @@
 						font-size: 16px;
 						line-height: 125%;
 						padding-left: 20px;
+						color: var(--black);
 
 						.scheme-black-white & {
 							color: var(--white);
