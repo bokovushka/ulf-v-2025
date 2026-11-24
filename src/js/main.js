@@ -7,7 +7,7 @@ import "./modules/animate-scroll-call.js";
 import "./modules/menu.js";
 import "./modules/show-menu.js";
 // import "./modules/multi-level-push-menu.js";
-import "./modules/mobile-menu.js";
+// import "./modules/mobile-menu.js";
 // import "./modules/height-vh-root.js";
 // import "./modules/counter-textarea.js";
 // import './modules/scroll-class.js'

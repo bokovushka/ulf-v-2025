@@ -108,6 +108,7 @@ function mobileStickyMove(stickyBlock) {
 	const parent = stickyBlock.parentElement;
 	const contentBlock = parent.nextElementSibling;
 	const header = document.querySelector('.header');
+	const navbarCollapse = header ? header.querySelector('.navbar-collapse') : null;
 	const footer = document.querySelector('footer, .footer');
 
 	const getScrollTop = () => window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -116,6 +117,22 @@ function mobileStickyMove(stickyBlock) {
 	let anchorScroll = getScrollTop();
 	let isHeaderHidden = false;
 	let isInitialized = false;
+	let closedHeaderHeight = 80;
+
+	const getClosedHeaderHeight = () => {
+		if (!header) return 0;
+		const isMenuOpen = header.classList.contains('menu-open');
+		const isCollapsing = navbarCollapse && (
+			navbarCollapse.classList.contains('collapsing') ||
+			navbarCollapse.classList.contains('show')
+		);
+
+		// Оновлюємо реальну висоту хедера ТІЛЬКИ коли меню повністю закрите
+		if (!isMenuOpen && !isCollapsing && header.offsetHeight > 0) {
+			closedHeaderHeight = header.offsetHeight;
+		}
+		return closedHeaderHeight;
+	};
 
 	const setHeaderTransform = (hidden, instant = false) => {
 		if (!header) return;
@@ -156,7 +173,7 @@ function mobileStickyMove(stickyBlock) {
 
 		const instant = forceInstant === true || !isInitialized;
 		const scrollTop = getScrollTop();
-		const headerHeight = header ? header.offsetHeight : 0;
+		const headerHeight = getClosedHeaderHeight();
 		const blockHeight = stickyBlock.offsetHeight;
 
 		parent.style.position = 'relative';
@@ -173,7 +190,7 @@ function mobileStickyMove(stickyBlock) {
 		const footerLimitInViewport = maxPageTop - scrollTop;
 		const isMenuOpen = header && header.classList.contains('menu-open');
 
-		// 1. Напрямок скролу (при першому рендері/перезавантаженні синхронізуємо anchorScroll без хибного стрибка)
+		// 1. Напрямок скролу
 		if (!isInitialized) {
 			anchorScroll = scrollTop;
 			isHeaderHidden = false;
