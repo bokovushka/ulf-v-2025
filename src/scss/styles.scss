@@ -2784,7 +2784,7 @@
 		background: var(--main-blue);
 		color: var(--white);
 		width: max-content;
-		padding: 20px 50px;
+		padding: 15px 35px;
 		font-size: 16px;
 		font-weight: 500;
 		line-height: 20px;
@@ -10803,12 +10803,50 @@
 .esg-reporting {
 	.row {
 		align-items: stretch;
+
+		>.col-lg-5 {
+			@include md-max {
+				min-height: 137px;
+			}
+		}
 	}
 
 	.esg-sidebar {
 		@include md-max {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 16px 15px;
 			border-bottom: 1px solid #f1f1f1;
-			padding-bottom: 19px;
+			background: var(--white);
+			box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.06);
+			z-index: 99;
+			transform: translateY(80px); // одразу стоїть під хедером до завантаження JS
+			transition: transform 0.6s ease-out;
+
+			.scheme-white-black & {
+				background: var(--silver);
+			}
+
+			.scheme-black-white & {
+				background: var(--grey);
+			}
+
+			.scheme-blue & {
+				background: var(--blue-3);
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: -4px;
+				left: 0;
+				width: 100%;
+				height: 4px;
+				background: inherit;
+			}
 		}
 
 		@include lg-min {
@@ -10825,17 +10863,13 @@
 
 		&.is-smooth {
 			@include lg-min {
-				transition: top 0.2s ease-out;
+				@include transition(top 0.05s linear 0s);
 			}
 		}
 	}
 }
 
-//popup esg
-/* Смужки прогрес-бару під написом "Крок 1/2" */
-.esg-progress {
-	gap: 4px;
-}
+
 
 .esg-progress__bar {
 	display: inline-block;
@@ -11348,8 +11382,14 @@
 
 		.btn.btn-white {
 			font-weight: 500;
-			font-size: 14px;
-			line-height: 129%;
+			font-size: 16px;
+			line-height: 125%;
+			padding: 10px 35px;
+
+			@include md-max {
+				font-size: 14px;
+				line-height: 129%;
+			}
 		}
 	}
 
@@ -11564,7 +11604,7 @@
 	}
 
 	.all-news--footer {
-		margin-top: 53px;
+		margin-top: 55px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

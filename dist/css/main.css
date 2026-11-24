@@ -7140,7 +7140,7 @@ video {
   background: var(--main-blue);
   color: var(--white);
   width: max-content;
-  padding: 20px 50px;
+  padding: 15px 35px;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -14067,11 +14067,54 @@ video {
   align-items: stretch;
 }
 @media (max-width: 1023px) {
+  .esg-strategy .row > .col-lg-5,
+.esg-risks-impact .row > .col-lg-5,
+.esg-reporting .row > .col-lg-5 {
+    min-height: 137px;
+  }
+}
+@media (max-width: 1023px) {
   .esg-strategy .esg-sidebar,
 .esg-risks-impact .esg-sidebar,
 .esg-reporting .esg-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 15px;
     border-bottom: 1px solid #f1f1f1;
-    padding-bottom: 19px;
+    background: var(--white);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.06);
+    z-index: 99;
+    transform: translateY(80px);
+    transition: transform 0.6s ease-out;
+  }
+  .scheme-white-black .esg-strategy .esg-sidebar,
+.scheme-white-black .esg-risks-impact .esg-sidebar,
+.scheme-white-black .esg-reporting .esg-sidebar {
+    background: var(--silver);
+  }
+  .scheme-black-white .esg-strategy .esg-sidebar,
+.scheme-black-white .esg-risks-impact .esg-sidebar,
+.scheme-black-white .esg-reporting .esg-sidebar {
+    background: var(--grey);
+  }
+  .scheme-blue .esg-strategy .esg-sidebar,
+.scheme-blue .esg-risks-impact .esg-sidebar,
+.scheme-blue .esg-reporting .esg-sidebar {
+    background: var(--blue-3);
+  }
+  .esg-strategy .esg-sidebar::before,
+.esg-risks-impact .esg-sidebar::before,
+.esg-reporting .esg-sidebar::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: inherit;
   }
 }
 @media (min-width: 1024px) {
@@ -14094,13 +14137,11 @@ video {
   .esg-strategy .esg-sidebar.is-smooth,
 .esg-risks-impact .esg-sidebar.is-smooth,
 .esg-reporting .esg-sidebar.is-smooth {
-    transition: top 0.2s ease-out;
+    -webkit-transition: top 0.05s linear 0s;
+    -moz-transition: top 0.05s linear 0s;
+    -o-transition: top 0.05s linear 0s;
+    transition: top 0.05s linear 0s;
   }
-}
-
-/* Смужки прогрес-бару під написом "Крок 1/2" */
-.esg-progress {
-  gap: 4px;
 }
 
 .esg-progress__bar {
@@ -14516,8 +14557,15 @@ video {
 }
 .main-news .any-questions .btn.btn-white {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 129%;
+  font-size: 16px;
+  line-height: 125%;
+  padding: 10px 35px;
+}
+@media (max-width: 1023px) {
+  .main-news .any-questions .btn.btn-white {
+    font-size: 14px;
+    line-height: 129%;
+  }
 }
 .main-news .news--swiper .item .article-title {
   font-weight: 500;
@@ -14699,7 +14747,7 @@ video {
   color: var(--white);
 }
 .all-news .all-news--footer {
-  margin-top: 53px;
+  margin-top: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
