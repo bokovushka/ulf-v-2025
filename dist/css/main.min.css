@@ -12910,7 +12910,7 @@ video {
   font-weight: 400;
   font-size: 16px;
   line-height: 120%;
-  color: var(--grey);
+  color: var(--black);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -12948,6 +12948,9 @@ video {
   .esg .esg-risks-impact .esg-risks-impact--text ul li:not(:last-child) {
     margin-bottom: 5px;
   }
+}
+.esg .esg-risks-impact .esg-grid--swiper .esg-risks-impact--text ul li {
+  color: var(--grey);
 }
 .esg .esg-risks-impact .esg-our-mission {
   background: #ebf6fe;
@@ -14142,6 +14145,10 @@ video {
     -o-transition: top 0.05s linear 0s;
     transition: top 0.05s linear 0s;
   }
+}
+
+.esg-progress {
+  gap: 4px;
 }
 
 .esg-progress__bar {

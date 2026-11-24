@@ -9445,7 +9445,7 @@
 					font-weight: 400;
 					font-size: 16px;
 					line-height: 120%;
-					color: var(--grey);
+					color: var(--black);
 					display: flex;
 					align-items: center;
 					gap: 10px;
@@ -9483,6 +9483,16 @@
 						@include md-max {
 							margin-bottom: 5px;
 						}
+					}
+				}
+			}
+		}
+
+		.esg-grid--swiper {
+			.esg-risks-impact--text {
+				ul {
+					li {
+						color: var(--grey);
 					}
 				}
 			}
@@ -10870,6 +10880,9 @@
 }
 
 
+.esg-progress {
+	gap: 4px;
+}
 
 .esg-progress__bar {
 	display: inline-block;
