@@ -7235,7 +7235,7 @@ video {
   height: calc(100vh - 84px);
   height: calc(100svh - 84px);
   height: calc(var(--hero-height) - 84px);
-  min-height: 600px;
+  min-height: 550px;
 }
 .section-hero .financing-uklon-partners, .esg .section-hero {
   position: relative;
@@ -12076,6 +12076,10 @@ video {
 .scheme-white-black .leasing-taxi .btn-main-blue .link-button::before {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
+.esg .text-custom {
+  font-size: 16px;
+  line-height: 120%;
+}
 .images-hide .esg .icon-wrap svg {
   background: rgba(0, 0, 0, 0.1);
   transition: background 0.35s ease;
@@ -12098,7 +12102,6 @@ video {
   color: var(--grey);
 }
 .esg .section-hero {
-  min-height: 780px;
   background: linear-gradient(179.85deg, rgba(0, 0, 0, 0.8) 0.13%, rgba(0, 0, 0, 0) 17.4%), linear-gradient(180.06deg, rgba(0, 0, 0, 0) 58.45%, rgba(0, 0, 0, 0.64) 73.35%, rgba(0, 0, 0, 0.8) 99.94%);
   overflow: hidden;
 }

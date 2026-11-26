@@ -107,6 +107,102 @@ document.addEventListener('click', (e) => {
 	link.classList.add('active');
 });
 
+
+(function () {
+	const nav = document.querySelector('.esg-sidebar nav');
+	if (!nav) return;
+
+	const links = Array.from(nav.querySelectorAll('.anchor'));
+	if (!links.length) return;
+
+	const sections = links
+		.map((link) => {
+			const href = link.getAttribute('href');
+			const target = href && href.startsWith('#') ? document.querySelector(href) : null;
+			return target ? { link, target } : null;
+		})
+		.filter(Boolean);
+
+	if (!sections.length) return;
+
+	let isAutoScrolling = false;
+	let autoScrollTimer = null;
+
+	// Не заважаємо штатному кліку по табу, поки триває плавний скрол до якоря
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('.esg-sidebar nav .anchor')) return;
+		isAutoScrolling = true;
+		clearTimeout(autoScrollTimer);
+		autoScrollTimer = setTimeout(() => {
+			isAutoScrolling = false;
+		}, 900);
+	}, true);
+
+	// Щойно користувач скролить сам — одразу вмикаємо відстеження
+	const enableManualSpy = () => {
+		if (isAutoScrolling) {
+			isAutoScrolling = false;
+			clearTimeout(autoScrollTimer);
+		}
+	};
+
+	window.addEventListener('wheel', enableManualSpy, { passive: true });
+	window.addEventListener('touchmove', enableManualSpy, { passive: true });
+
+	const getOffsetLine = () => {
+		const sidebar = document.querySelector('.esg-sidebar');
+		const headerMain = document.querySelector('.header-main');
+		const headerTop = document.querySelector('.header-top');
+
+		if (window.innerWidth <= 1023) {
+			if (sidebar) {
+				const rect = sidebar.getBoundingClientRect();
+				if (rect.bottom > 0 && rect.top < window.innerHeight * 0.5) {
+					return rect.bottom + 30;
+				}
+			}
+			return 170;
+		}
+
+		let bottom = 0;
+		if (headerMain) bottom = Math.max(bottom, headerMain.getBoundingClientRect().bottom);
+		if (headerTop && headerTop.classList.contains('header--show')) {
+			bottom = Math.max(bottom, headerTop.getBoundingClientRect().bottom);
+		}
+		return Math.max(0, bottom) + 140;
+	};
+
+	const syncActiveTab = () => {
+		if (isAutoScrolling) return;
+
+		const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+		const offsetLine = getOffsetLine();
+
+		let activeLink = sections[0].link;
+
+		// Якщо доскролили до самого дна — активний останній таб
+		if (scrollTop + window.innerHeight >= document.documentElement.scrollHeight - 10) {
+			activeLink = sections[sections.length - 1].link;
+		} else if (scrollTop > 20) {
+			for (let i = 0; i < sections.length; i++) {
+				if (sections[i].target.getBoundingClientRect().top <= offsetLine) {
+					activeLink = sections[i].link;
+				} else {
+					break;
+				}
+			}
+		}
+
+		if (!activeLink.classList.contains('active')) {
+			links.forEach((item) => item.classList.remove('active'));
+			activeLink.classList.add('active');
+		}
+	};
+
+	window.addEventListener('scroll', syncActiveTab, { passive: true });
+	window.addEventListener('resize', syncActiveTab);
+})();
+
 //esg-documents
 document.querySelectorAll('.esg-documents').forEach((list) => {
 	const moreBtn = list.nextElementSibling;
